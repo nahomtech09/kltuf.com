@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KLTUF Store — Quality Items at Great Prices</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1a1a1a; background: #f4f6f9; }
+
+        /* ── HEADER ── */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 14px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-icon {
+            width: 46px; height: 46px;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 24px; font-weight: 900;
+            box-shadow: 0 3px 10px rgba(59,130,246,0.4);
+        }
+        .logo-text { font-size: 22px; font-weight: 800; color: #1a1a1a; letter-spacing: 3px; }
+        nav a {
+            margin-left: 22px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: #2563eb; }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+            padding: 70px 20px 60px;
+        }
+        .hero h1 { font-size: 2.6rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px; }
+        .hero p { font-size: 1.1rem; opacity: 0.88; max-width: 500px; margin: 0 auto; }
+
+        /* ── TRUST BAR ── */
+        .trust {
+            background: #fff;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            border-bottom: 1px solid #e5e7eb;
+            flex-wrap: wrap;
+        }
+        .trust-item { display: flex; align-items: center; gap: 7px; font-size: 0.88rem; color: #444; font-weight: 500; }
+
+        /* ── PRODUCTS ── */
+        .products-section { max-width: 1200px; margin: 45px auto; padding: 0 20px; }
+        .products-section h2 { text-align: center; font-size: 1.9rem; font-weight: 800; margin-bottom: 8px; }
+        .products-section .subtitle { text-align: center; color: #666; margin-bottom: 35px; font-size: 0.95rem; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 28px; }
+
+        .product-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.13); }
+
+        .product-img-wrap {
+            width: 100%; height: 230px;
+            background: #f0f2f5;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .product-img-wrap .no-img { color: #bbb; font-size: 0.9rem; text-align: center; }
+
+        .sold-badge {
+            position: absolute; top: 12px; right: 12px;
+            background: #ef4444; color: white;
+            font-size: 0.75rem; font-weight: 700;
+            padding: 4px 10px; border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .product-info { padding: 18px; }
+        .product-condition {
+            display: inline-block;
+            font-size: 0.73rem; font-weight: 600;
+            background: #eff6ff; color: #2563eb;
+            padding: 3px 9px; border-radius: 20px;
+            margin-bottom: 8px; letter-spacing: 0.3px;
+        }
+        .product-title { font-size: 1rem; font-weight: 700; margin-bottom: 7px; line-height: 1.4; }
+        .product-desc { font-size: 0.84rem; color: #666; margin-bottom: 13px; line-height: 1.55; }
+        .product-price { font-size: 1.5rem; font-weight: 800; color: #2563eb; margin-bottom: 16px; }
+
+        .buy-buttons { display: flex; flex-direction: column; gap: 9px; }
+
+        .btn-paypal {
+            background: #0070ba; color: white;
+            border: none; padding: 11px;
+            border-radius: 9px; font-size: 0.9rem; font-weight: 600;
+            cursor: pointer; width: 100%;
+            transition: background 0.2s;
+        }
+        .btn-paypal:hover { background: #005ea6; }
+
+        .btn-zelle {
+            background: #6d1ed4; color: white;
+            border: none; padding: 11px;
+            border-radius: 9px; font-size: 0.9rem; font-weight: 600;
+            cursor: pointer; width: 100%;
+            text-align: center; text-decoration: none;
+            display: block; transition: background 0.2s;
+        }
+        .btn-zelle:hover { background: #5b18b3; }
+
+        /* ── HOW IT WORKS ── */
+        .how-section { background: #fff; padding: 55px 20px; margin-top: 20px; }
+        .how-section h2 { text-align: center; font-size: 1.9rem; font-weight: 800; margin-bottom: 35px; }
+        .how-steps { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: center; }
+        .how-step .icon { font-size: 2.4rem; margin-bottom: 12px; }
+        .how-step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+        .how-step p { font-size: 0.85rem; color: #666; line-height: 1.5; }
+
+        /* ── PAYMENT INFO ── */
+        .payment-section { background: #f4f6f9; padding: 55px 20px; }
+        .payment-section h2 { text-align: center; font-size: 1.9rem; font-weight: 800; margin-bottom: 35px; }
+        .payment-options { max-width: 750px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .payment-card {
+            background: #fff; border-radius: 16px; padding: 30px;
+            text-align: center;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .payment-card:hover { border-color: #2563eb; }
+        .payment-card .pay-icon { font-size: 2.8rem; margin-bottom: 12px; }
+        .payment-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+        .payment-card p { font-size: 0.87rem; color: #666; line-height: 1.6; }
+        .payment-email { font-weight: 700; color: #1a1a1a; font-size: 0.95rem; margin-top: 10px; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #111827; color: #9ca3af;
+            text-align: center; padding: 35px 20px;
+        }
+        footer a { color: #60a5fa; text-decoration: none; }
+        footer .footer-logo { font-size: 1.3rem; font-weight: 800; color: #fff; letter-spacing: 3px; margin-bottom: 10px; }
+        footer .footer-sub { font-size: 0.82rem; margin-top: 8px; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 1.9rem; }
+            .trust { gap: 14px; }
+            .how-steps { grid-template-columns: 1fr; }
+            .payment-options { grid-template-columns: 1fr; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.html" class="logo">
+        <div class="logo-icon">K</div>
+        <span class="logo-text">KLTUF</span>
+    </a>
+    <nav>
+        <a href="#products">Shop</a>
+        <a href="#payment">Payment</a>
+        <a href="#how">How It Works</a>
+        <a href="mailto:kltuf9@gmail.com">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Quality Items, Unbeatable Prices</h1>
+    <p>Handpicked deals from a trusted seller — every item inspected before listing</p>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+    <div class="trust-item">✅ Verified Seller</div>
+    <div class="trust-item">🚚 Fast Shipping</div>
+    <div class="trust-item">💬 Quick Response</div>
+    <div class="trust-item">🔒 Secure Payments</div>
+    <div class="trust-item">🔍 Inspected Items</div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+    <h2>Available Items</h2>
+    <p class="subtitle">All items are inspected and ready to ship</p>
+    <div class="products-grid">
+
+        <!-- ═══ PRODUCT 1 ═══ Replace with your item ═══ -->
+        <div class="product-card">
+            <div class="product-img-wrap">
+                <img src="images/item1.jpg" alt="Item 1"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="no-img" style="display:none">📷<br>Photo Coming Soon</div>
+            </div>
+            <div class="product-info">
+                <span class="product-condition">Used — Good Condition</span>
+                <div class="product-title">iPhone 13 Pro 128GB — Space Gray</div>
+                <div class="product-desc">Fully unlocked, no scratches on screen, minor scuff on back. Battery health 91%. All functions work perfectly.</div>
+                <div class="product-price">$420.00</div>
+                <div class="buy-buttons">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="kltuf9@gmail.com">
+                        <input type="hidden" name="item_name" value="iPhone 13 Pro 128GB">
+                        <input type="hidden" name="amount" value="420.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="hidden" name="shipping" value="0">
+                        <button type="submit" class="btn-paypal">💳 Pay with PayPal / Card</button>
+                    </form>
+                    <a href="payment.html?item=iPhone+13+Pro+128GB&price=420.00" class="btn-zelle">⚡ Pay with Zelle</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ PRODUCT 2 ═══ Replace with your item ═══ -->
+        <div class="product-card">
+            <div class="product-img-wrap">
+                <img src="images/item2.jpg" alt="Item 2"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="no-img" style="display:none">📷<br>Photo Coming Soon</div>
+            </div>
+            <div class="product-info">
+                <span class="product-condition">Used — Like New</span>
+                <div class="product-title">Apple AirPods Pro 2nd Generation</div>
+                <div class="product-desc">Like new condition. Comes with original case, all ear tips included. Noise cancellation works perfectly.</div>
+                <div class="product-price">$145.00</div>
+                <div class="buy-buttons">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="kltuf9@gmail.com">
+                        <input type="hidden" name="item_name" value="Apple AirPods Pro 2nd Gen">
+                        <input type="hidden" name="amount" value="145.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="hidden" name="shipping" value="0">
+                        <button type="submit" class="btn-paypal">💳 Pay with PayPal / Card</button>
+                    </form>
+                    <a href="payment.html?item=Apple+AirPods+Pro+2nd+Gen&price=145.00" class="btn-zelle">⚡ Pay with Zelle</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ PRODUCT 3 ═══ Replace with your item ═══ -->
+        <div class="product-card">
+            <div class="product-img-wrap">
+                <img src="images/item3.jpg" alt="Item 3"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="no-img" style="display:none">📷<br>Photo Coming Soon</div>
+            </div>
+            <div class="product-info">
+                <span class="product-condition">Used — Good Condition</span>
+                <div class="product-title">Samsung 55" 4K Smart TV (2022)</div>
+                <div class="product-desc">Crystal clear picture, all smart features work. Comes with original remote and power cable. Local pickup available in addition to shipping.</div>
+                <div class="product-price">$280.00</div>
+                <div class="buy-buttons">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="kltuf9@gmail.com">
+                        <input type="hidden" name="item_name" value="Samsung 55 4K Smart TV">
+                        <input type="hidden" name="amount" value="280.00">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="hidden" name="shipping" value="0">
+                        <button type="submit" class="btn-paypal">💳 Pay with PayPal / Card</button>
+                    </form>
+                    <a href="payment.html?item=Samsung+55+4K+Smart+TV&price=280.00" class="btn-zelle">⚡ Pay with Zelle</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ ADD MORE PRODUCTS BELOW — COPY THE BLOCK ABOVE ═══ -->
+
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+    <h2>How It Works</h2>
+    <div class="how-steps">
+        <div class="how-step">
+            <div class="icon">🛍️</div>
+            <h3>1. Pick an Item</h3>
+            <p>Browse our listings and choose the item you want to buy.</p>
+        </div>
+        <div class="how-step">
+            <div class="icon">💳</div>
+            <h3>2. Pay Securely</h3>
+            <p>Pay with PayPal, credit card, or Zelle. We confirm within minutes.</p>
+        </div>
+        <div class="how-step">
+            <div class="icon">📦</div>
+            <h3>3. We Ship Fast</h3>
+            <p>Item ships within 1–2 business days with tracking provided.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PAYMENT INFO -->
+<section class="payment-section" id="payment">
+    <h2>Payment Methods</h2>
+    <div class="payment-options">
+        <div class="payment-card">
+            <div class="pay-icon">💳</div>
+            <h3>PayPal / Credit Card</h3>
+            <p>Click the PayPal button on any item. You can pay with your PayPal balance, bank account, or any credit/debit card — no PayPal account needed.</p>
+            <p class="payment-email">kltuf9@gmail.com</p>
+        </div>
+        <div class="payment-card">
+            <div class="pay-icon">⚡</div>
+            <h3>Zelle</h3>
+            <p>Instant, free bank transfer. Click the Zelle button on any item for step-by-step instructions. Include item name in your note.</p>
+            <p class="payment-email">kltuf9@gmail.com</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-logo">KLTUF</div>
+    <p>Questions? Email us at <a href="mailto:kltuf9@gmail.com">kltuf9@gmail.com</a></p>
+    <p class="footer-sub">© 2026 KLTUF Store · kltuf.com · All items personally inspected before listing.</p>
+</footer>
+
+</body>
+</html>
