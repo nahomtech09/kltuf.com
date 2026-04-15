@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay with Zelle — KLTUF Store</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f6f9; color: #1a1a1a; }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 14px 30px;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .logo-icon {
+            width: 42px; height: 42px;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 22px; font-weight: 900;
+        }
+        .logo-text { font-size: 20px; font-weight: 800; letter-spacing: 3px; }
+
+        .container { max-width: 480px; margin: 45px auto; padding: 0 20px 60px; }
+
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 38px 35px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            text-align: center;
+        }
+
+        .zelle-icon { font-size: 3.2rem; margin-bottom: 10px; }
+        .card h1 { font-size: 1.7rem; font-weight: 800; color: #6d1ed4; margin-bottom: 5px; }
+        .card .tagline { font-size: 0.9rem; color: #888; margin-bottom: 25px; }
+
+        .item-box {
+            background: #f5f0ff;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 25px;
+        }
+        .item-box .item-label { font-size: 0.8rem; color: #888; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .item-box .item-name { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+        .item-box .item-price { font-size: 2rem; font-weight: 900; color: #6d1ed4; }
+
+        .steps { text-align: left; margin-bottom: 20px; }
+        .step { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 17px; }
+        .step-num {
+            width: 28px; height: 28px; flex-shrink: 0;
+            background: #6d1ed4; color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 0.85rem;
+            margin-top: 2px;
+        }
+        .step-text { font-size: 0.92rem; color: #444; line-height: 1.55; padding-top: 3px; }
+        .step-text strong { color: #1a1a1a; }
+
+        .zelle-address {
+            background: #f5f0ff;
+            border: 2px dashed #6d1ed4;
+            border-radius: 12px;
+            padding: 14px 20px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #6d1ed4;
+            margin: 4px 0 20px;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            position: relative;
+        }
+        .copy-hint { font-size: 0.75rem; color: #aaa; margin-top: 4px; font-weight: 400; }
+
+        .qr-section { margin: 20px 0; }
+        .qr-section p { font-size: 0.85rem; color: #888; margin-bottom: 10px; }
+        .qr-box {
+            border: 2px dashed #ddd;
+            border-radius: 14px;
+            padding: 28px 20px;
+            color: #bbb;
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+        /* Replace the qr-box with an actual image once you have your QR:
+           <img src="images/zelle-qr.png" style="width:180px;border-radius:12px"> */
+
+        .note-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            border-radius: 8px;
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 0.86rem;
+            color: #166534;
+            margin: 20px 0;
+        }
+        .note-text {
+            background: #e9f5ff;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #1d4ed8;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .warning-box {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 0.84rem;
+            color: #92400e;
+            margin-bottom: 25px;
+        }
+
+        .contact-line { font-size: 0.86rem; color: #666; margin-bottom: 22px; }
+        .contact-line a { color: #2563eb; text-decoration: none; font-weight: 600; }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background: #2563eb;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+        .back-btn:hover { background: #1d4ed8; }
+    </style>
+
+    <script>
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            const item  = params.get('item')  || 'Item';
+            const price = params.get('price') || '0.00';
+            document.getElementById('item-name').textContent  = decodeURIComponent(item);
+            document.getElementById('item-price').textContent = '$' + price;
+            document.getElementById('note-text').textContent  = 'KLTUF - ' + decodeURIComponent(item);
+        };
+
+        function copyEmail() {
+            navigator.clipboard.writeText('kltuf9@gmail.com').then(function() {
+                document.getElementById('copy-hint').textContent = '✅ Copied!';
+                setTimeout(function(){ document.getElementById('copy-hint').textContent = 'Tap to copy'; }, 2000);
+            });
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <div class="logo-icon">K</div>
+    <span class="logo-text">KLTUF</span>
+</header>
+
+<div class="container">
+    <div class="card">
+
+        <div class="zelle-icon">⚡</div>
+        <h1>Pay with Zelle</h1>
+        <p class="tagline">Instant · Free · Secure</p>
+
+        <div class="item-box">
+            <div class="item-label">You are purchasing</div>
+            <div class="item-name" id="item-name">Item</div>
+            <div class="item-price" id="item-price">$0.00</div>
+        </div>
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-text">Open your <strong>bank app</strong> or the <strong>Zelle app</strong> and tap <strong>Send Money</strong></div>
+            </div>
+
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-text">Search for or enter our Zelle email:</div>
+            </div>
+
+        </div>
+
+        <div class="zelle-address" onclick="copyEmail()">
+            kltuf9@gmail.com
+            <div class="copy-hint" id="copy-hint">Tap to copy</div>
+        </div>
+
+        <div class="qr-section">
+            <p>Or scan our Zelle QR code:</p>
+            <div class="qr-box">
+                📱 Zelle QR Code<br><br>
+                <em>Save your Zelle QR from your bank app<br>
+                and replace this box with:<br>
+                <code>&lt;img src="images/zelle-qr.png"&gt;</code></em>
+            </div>
+        </div>
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-text">Enter the <strong>exact amount</strong> shown above</div>
+            </div>
+
+            <div class="step">
+                <div class="step-num">4</div>
+                <div class="step-text">
+                    In the <strong>note / memo</strong> field, type:<br>
+                    <span class="note-text" id="note-text">KLTUF - Item</span>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-num">5</div>
+                <div class="step-text">Send payment, then <strong>email us your confirmation screenshot</strong> so we can ship right away</div>
+            </div>
+
+        </div>
+
+        <div class="note-box">
+            ✅ <strong>We confirm within 30 minutes</strong> during business hours (9am–9pm EST). Your item is reserved once payment is received.
+        </div>
+
+        <div class="warning-box">
+            ⚠️ <strong>Only send to verified accounts.</strong> Our only Zelle email is <strong>kltuf9@gmail.com</strong>. We will never ask you to send to a different address.
+        </div>
+
+        <p class="contact-line">Questions? Email us at <a href="mailto:kltuf9@gmail.com">kltuf9@gmail.com</a></p>
+
+        <a href="index.html" class="back-btn">← Back to Store</a>
+
+    </div>
+</div>
+
+</body>
+</html>
