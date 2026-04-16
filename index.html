@@ -202,11 +202,11 @@
         .prod-img {
             width: 100%; aspect-ratio: 1;
             background: #f5f0e8; overflow: hidden;
-            position: relative; margin-bottom: 14px;
+            position: relative; margin-bottom: 8px;
         }
         .prod-img img {
             width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.5s, opacity 0.2s;
         }
         .product-card:hover .prod-img img { transform: scale(1.07); }
         .no-img-ph {
@@ -215,6 +215,26 @@
             justify-content: center; color: #c8b8a8;
             font-size: 2.5rem;
         }
+
+        /* ── THUMBNAIL GALLERY ── */
+        .prod-thumbs {
+            display: flex; gap: 6px; margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .prod-thumbs.hidden { display: none; }
+        .thumb {
+            width: 52px; height: 52px;
+            border: 2px solid #e8e0d5;
+            border-radius: 3px; overflow: hidden;
+            cursor: pointer; flex-shrink: 0;
+            transition: border-color 0.2s;
+        }
+        .thumb img {
+            width: 100%; height: 100%; object-fit: cover;
+            display: block;
+        }
+        .thumb.active { border-color: #c8a876; }
+        .thumb:hover { border-color: #1a1a1a; }
 
         .prod-badge {
             position: absolute; top: 12px; left: 12px;
@@ -623,10 +643,21 @@
             <!-- ═══ PRODUCT 1 ═══ -->
             <div class="product-card visible" data-cat="kids">
                 <div class="prod-img">
-                    <img src="images/toddlerSlide.jpg" alt="Little Tikes First Slide"
+                    <img id="main-img-1" src="images/toddlerSlide.jpg" alt="Little Tikes First Slide"
                          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                     <div class="no-img-ph" style="display:none">📷</div>
                     <span class="prod-badge badge-available">Available</span>
+                </div>
+                <!-- Thumbnails: add more <div class="thumb"> entries as you upload more photos -->
+                <div class="prod-thumbs" id="thumbs-1">
+                    <div class="thumb active" onclick="switchImg('main-img-1', 'images/toddlerSlide.jpg', this, 'thumbs-1')">
+                        <img src="images/toddlerSlide.jpg" alt="">
+                    </div>
+                    <!-- Example of a second photo (uncomment and set src when you have one):
+                    <div class="thumb" onclick="switchImg('main-img-1', 'images/toddlerSlide2.jpg', this, 'thumbs-1')">
+                        <img src="images/toddlerSlide2.jpg" alt="">
+                    </div>
+                    -->
                 </div>
                 <div class="prod-info">
                     <div class="prod-cond">Used — Good Condition</div>
@@ -863,6 +894,14 @@
 </div>
 
 <script>
+    function switchImg(mainId, src, thumbEl, thumbsId) {
+        const mainImg = document.getElementById(mainId);
+        mainImg.style.opacity = '0';
+        setTimeout(() => { mainImg.src = src; mainImg.style.opacity = '1'; }, 150);
+        document.querySelectorAll('#' + thumbsId + ' .thumb').forEach(t => t.classList.remove('active'));
+        thumbEl.classList.add('active');
+    }
+
     function filterCat(cat) {
         const cards = document.querySelectorAll('.product-card[data-cat]');
         cards.forEach(c => {
