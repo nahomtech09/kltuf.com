@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell With Us — KLTUF</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1a1a1a; background: #fff; }
+
+        /* ── ANNOUNCE ── */
+        .announce-bar {
+            background: #0f172a; color: #e2e8f0;
+            text-align: center; padding: 9px 20px;
+            font-size: 0.82rem; letter-spacing: 0.5px;
+        }
+        .announce-bar a { color: #93c5fd; text-decoration: none; margin-left: 8px; }
+
+        /* ── HEADER ── */
+        header {
+            background: #fff; border-bottom: 1px solid #e5e7eb;
+            padding: 0 30px;
+            display: grid; grid-template-columns: 1fr auto 1fr;
+            align-items: center; height: 64px;
+            position: sticky; top: 0; z-index: 200;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-icon {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, #0f172a, #2563eb);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 20px; font-weight: 900;
+        }
+        .logo-name { font-size: 20px; font-weight: 800; letter-spacing: 4px; color: #0f172a; }
+        nav { display: flex; align-items: center; gap: 28px; justify-content: center; }
+        nav a {
+            text-decoration: none; color: #374151;
+            font-size: 0.88rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.6px;
+            transition: color 0.2s;
+        }
+        nav a:hover, nav a.active { color: #2563eb; }
+        .header-right { display: flex; justify-content: flex-end; }
+        .header-right a { text-decoration: none; color: #374151; font-size: 1.2rem; }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #2563eb 100%);
+            color: white; padding: 80px 20px 70px; text-align: center;
+        }
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+            color: #bfdbfe; font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase;
+            padding: 5px 14px; border-radius: 20px; margin-bottom: 18px;
+        }
+        .hero h1 { font-size: 2.8rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 14px; }
+        .hero h1 span { color: #93c5fd; }
+        .hero p { font-size: 1rem; opacity: 0.82; max-width: 500px; margin: 0 auto; line-height: 1.65; }
+
+        /* ── STATS ── */
+        .stats-bar {
+            background: #fff; border-bottom: 1px solid #e5e7eb;
+            padding: 22px 20px;
+            display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+        }
+        .stat { text-align: center; }
+        .stat-num { font-size: 1.6rem; font-weight: 900; color: #0f172a; }
+        .stat-label { font-size: 0.78rem; color: #64748b; font-weight: 500; margin-top: 2px; }
+
+        /* ── SECTION TITLES ── */
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #2563eb; margin-bottom: 8px; }
+        .section-header h2 { font-size: 2rem; font-weight: 800; color: #0f172a; }
+        .section-header p { color: #6b7280; font-size: 0.92rem; margin-top: 8px; }
+
+        /* ── HOW IT WORKS ── */
+        .how-section { background: #f8fafc; padding: 70px 20px; }
+        .how-inner { max-width: 960px; margin: 0 auto; }
+        .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .how-card {
+            background: #fff; border-radius: 14px; padding: 28px 20px;
+            text-align: center; border: 1px solid #e5e7eb; position: relative;
+        }
+        .how-num {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, #0f172a, #2563eb);
+            color: white; border-radius: 50%;
+            font-size: 1.2rem; font-weight: 800;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px;
+        }
+        .how-card .icon { font-size: 1.8rem; margin-bottom: 8px; }
+        .how-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+        .how-card p { font-size: 0.82rem; color: #64748b; line-height: 1.55; }
+
+        /* ── COMMISSION ── */
+        .commission-section { max-width: 900px; margin: 70px auto; padding: 0 24px; }
+        .commission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .commission-card {
+            border: 1.5px solid #e5e7eb; border-radius: 14px; padding: 28px 22px;
+            text-align: center; transition: border-color 0.2s;
+        }
+        .commission-card:hover { border-color: #2563eb; }
+        .commission-card.featured {
+            border-color: #2563eb; background: #eff6ff;
+        }
+        .comm-range { font-size: 1.8rem; font-weight: 900; color: #0f172a; margin-bottom: 6px; }
+        .comm-label { font-size: 0.78rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; }
+        .comm-list { list-style: none; }
+        .comm-list li { font-size: 0.82rem; color: #475569; padding: 5px 0; border-bottom: 1px solid #e5e7eb; }
+        .comm-list li:last-child { border: none; }
+        .badge-popular {
+            display: inline-block; background: #2563eb; color: #fff;
+            font-size: 0.68rem; font-weight: 700; letter-spacing: 0.5px;
+            padding: 3px 10px; border-radius: 20px; margin-bottom: 12px;
+        }
+
+        /* ── FORM ── */
+        .form-section { max-width: 700px; margin: 70px auto; padding: 0 24px; }
+        .form-card {
+            background: #fff; border: 1.5px solid #e5e7eb;
+            border-radius: 20px; padding: 44px 40px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+        }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group.full { grid-column: 1 / -1; }
+        .form-group label { font-size: 0.82rem; font-weight: 600; color: #374151; }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 11px 14px;
+            border: 1.5px solid #d1d5db; border-radius: 8px;
+            font-size: 0.9rem; font-family: inherit;
+            color: #1a1a1a; background: #fff;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus { border-color: #2563eb; }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-divider { grid-column: 1 / -1; border: none; border-top: 1px solid #e5e7eb; margin: 6px 0; }
+
+        .photo-upload-area {
+            grid-column: 1 / -1;
+            border: 2px dashed #d1d5db; border-radius: 12px;
+            padding: 32px 20px; text-align: center;
+            background: #f8fafc; cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .photo-upload-area:hover { border-color: #2563eb; background: #eff6ff; }
+        .photo-upload-area input { display: none; }
+        .upload-icon { font-size: 2.4rem; margin-bottom: 10px; }
+        .upload-label { font-size: 0.88rem; font-weight: 600; color: #374151; margin-bottom: 5px; }
+        .upload-hint { font-size: 0.77rem; color: #9ca3af; }
+        #file-chosen { font-size: 0.8rem; color: #2563eb; margin-top: 8px; }
+
+        .btn-submit {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #0f172a, #2563eb);
+            color: white; border: none;
+            padding: 15px; border-radius: 10px;
+            font-size: 0.95rem; font-weight: 700;
+            cursor: pointer; width: 100%;
+            transition: opacity 0.2s, transform 0.2s;
+            letter-spacing: 0.3px;
+        }
+        .btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+        .form-note { grid-column: 1 / -1; font-size: 0.77rem; color: #9ca3af; text-align: center; line-height: 1.6; }
+
+        /* success message */
+        .success-msg {
+            display: none; background: #f0fdf4; border: 1.5px solid #22c55e;
+            border-radius: 12px; padding: 28px; text-align: center;
+        }
+        .success-msg h3 { font-size: 1.2rem; font-weight: 700; color: #15803d; margin-bottom: 8px; }
+        .success-msg p { font-size: 0.88rem; color: #166534; }
+
+        /* ── FAQ ── */
+        .faq-section { background: #f8fafc; padding: 70px 20px; }
+        .faq-inner { max-width: 720px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid #e5e7eb; padding: 20px 0; }
+        .faq-q {
+            font-weight: 700; font-size: 0.95rem; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            user-select: none;
+        }
+        .faq-q .arrow { transition: transform 0.2s; font-size: 0.8rem; color: #6b7280; }
+        .faq-q.open .arrow { transform: rotate(180deg); }
+        .faq-a { display: none; font-size: 0.86rem; color: #475569; line-height: 1.65; padding-top: 12px; }
+        .faq-a.open { display: block; }
+
+        /* ── FOOTER ── */
+        footer { background: #0f172a; color: #94a3b8; padding: 35px 20px; text-align: center; }
+        footer .logo-name { color: #fff; font-size: 20px; font-weight: 800; letter-spacing: 4px; display: block; margin-bottom: 10px; }
+        footer a { color: #60a5fa; text-decoration: none; }
+        footer .footer-sub { font-size: 0.78rem; margin-top: 8px; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .how-grid { grid-template-columns: repeat(2, 1fr); }
+            .commission-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+            .form-card { padding: 28px 20px; }
+            .form-grid { grid-template-columns: 1fr; }
+            header { grid-template-columns: auto 1fr auto; }
+            nav { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .stats-bar { gap: 24px; }
+        }
+        @media (max-width: 480px) {
+            .how-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar">
+    🚚 Fast Nationwide Shipping &nbsp;|&nbsp; ✅ All Items Inspected &nbsp;|&nbsp;
+    <a href="index.html">← Back to Shop</a>
+</div>
+
+<!-- HEADER -->
+<header>
+    <a href="index.html" class="logo">
+        <div class="logo-icon">K</div>
+        <span class="logo-name">KLTUF</span>
+    </a>
+    <nav>
+        <a href="index.html">Shop</a>
+        <a href="sell.html" class="active">Sell With Us</a>
+        <a href="index.html#how">How It Works</a>
+        <a href="mailto:freta@kltuf.com">Contact</a>
+    </nav>
+    <div class="header-right">
+        <a href="mailto:freta@kltuf.com" title="Contact">✉️</a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-tag">Free to List — No Upfront Fees</div>
+    <h1>Sell Your Items,<br><span>We Handle the Rest</span></h1>
+    <p>Submit your item, we review it, list it, sell it, and send you your cut. Simple as that.</p>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+    <div class="stat">
+        <div class="stat-num">$0</div>
+        <div class="stat-label">Upfront Cost</div>
+    </div>
+    <div class="stat">
+        <div class="stat-num">24h</div>
+        <div class="stat-label">Review Time</div>
+    </div>
+    <div class="stat">
+        <div class="stat-num">70%</div>
+        <div class="stat-label">You Keep</div>
+    </div>
+    <div class="stat">
+        <div class="stat-num">Fast</div>
+        <div class="stat-label">Payout via Zelle/PayPal</div>
+    </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+    <div class="how-inner">
+        <div class="section-header">
+            <div class="section-tag">Step by Step</div>
+            <h2>How It Works</h2>
+            <p>From submission to payout in 4 easy steps</p>
+        </div>
+        <div class="how-grid">
+            <div class="how-card">
+                <div class="icon">📸</div>
+                <div class="how-num">1</div>
+                <h3>Submit Your Item</h3>
+                <p>Fill out the form below. Include photos, description, and your asking price.</p>
+            </div>
+            <div class="how-card">
+                <div class="icon">🔍</div>
+                <div class="how-num">2</div>
+                <h3>We Review It</h3>
+                <p>We review within 24 hours and confirm it for listing. We'll contact you if we have questions.</p>
+            </div>
+            <div class="how-card">
+                <div class="icon">🛒</div>
+                <div class="how-num">3</div>
+                <h3>It Goes Live</h3>
+                <p>Your item is listed on kltuf.com. A buyer purchases it and we handle payment and shipping.</p>
+            </div>
+            <div class="how-card">
+                <div class="icon">💰</div>
+                <div class="how-num">4</div>
+                <h3>You Get Paid</h3>
+                <p>Once the item ships and clears, we send your cut via Zelle or PayPal. Fast and direct.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMMISSION -->
+<section class="commission-section" id="fees">
+    <div class="section-header">
+        <div class="section-tag">Transparent Pricing</div>
+        <h2>Our Commission</h2>
+        <p>We only make money when you do — no listing fees, ever</p>
+    </div>
+    <div class="commission-grid">
+        <div class="commission-card">
+            <div class="comm-range">$1–$50</div>
+            <div class="comm-label">Sale Price</div>
+            <ul class="comm-list">
+                <li>You keep <strong>65%</strong></li>
+                <li>KLTUF takes 35%</li>
+                <li>Covers listing, selling &amp; shipping coordination</li>
+            </ul>
+        </div>
+        <div class="commission-card featured">
+            <div class="badge-popular">Most Common</div>
+            <div class="comm-range">$51–$200</div>
+            <div class="comm-label">Sale Price</div>
+            <ul class="comm-list">
+                <li>You keep <strong>70%</strong></li>
+                <li>KLTUF takes 30%</li>
+                <li>Covers listing, selling &amp; shipping coordination</li>
+            </ul>
+        </div>
+        <div class="commission-card">
+            <div class="comm-range">$200+</div>
+            <div class="comm-label">Sale Price</div>
+            <ul class="comm-list">
+                <li>You keep <strong>75%</strong></li>
+                <li>KLTUF takes 25%</li>
+                <li>Covers listing, selling &amp; shipping coordination</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- SUBMISSION FORM -->
+<section class="form-section" id="submit">
+    <div class="section-header">
+        <div class="section-tag">Get Started</div>
+        <h2>Submit Your Item</h2>
+        <p>Takes less than 3 minutes. We'll get back to you within 24 hours.</p>
+    </div>
+    <div class="form-card">
+
+        <div class="success-msg" id="success-msg">
+            <h3>✅ Submission Received!</h3>
+            <p>Thank you! We'll review your item and contact you within 24 hours at the email or phone you provided.</p>
+        </div>
+
+        <form id="sell-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORMSPREE_ID" method="POST" enctype="multipart/form-data">
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="name">Your Full Name *</label>
+                    <input type="text" id="name" name="name" placeholder="John Smith" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Email or Phone *</label>
+                    <input type="text" id="contact" name="contact" placeholder="you@email.com or 555-1234" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment_method">How Should We Pay You? *</label>
+                    <select id="payment_method" name="payment_method" required>
+                        <option value="">Select...</option>
+                        <option value="Zelle">Zelle</option>
+                        <option value="PayPal">PayPal</option>
+                        <option value="Venmo">Venmo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="payment_info">Your Zelle / PayPal / Venmo *</label>
+                    <input type="text" id="payment_info" name="payment_info" placeholder="email or phone number" required>
+                </div>
+
+                <hr class="form-divider">
+
+                <div class="form-group full">
+                    <label for="item_name">Item Name *</label>
+                    <input type="text" id="item_name" name="item_name" placeholder="e.g. Little Tikes Toddler Slide" required>
+                </div>
+                <div class="form-group">
+                    <label for="condition">Condition *</label>
+                    <select id="condition" name="condition" required>
+                        <option value="">Select...</option>
+                        <option value="Like New">Like New</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="For Parts">For Parts</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="asking_price">Your Asking Price *</label>
+                    <input type="number" id="asking_price" name="asking_price" placeholder="e.g. 45" min="1" required>
+                </div>
+                <div class="form-group full">
+                    <label for="description">Item Description *</label>
+                    <textarea id="description" name="description" placeholder="Describe the item — brand, model, size, any defects, what's included, etc." required></textarea>
+                </div>
+
+                <div class="photo-upload-area" onclick="document.getElementById('photos').click()">
+                    <input type="file" id="photos" name="photos" accept="image/*" multiple
+                           onchange="document.getElementById('file-chosen').textContent = this.files.length + ' photo(s) selected'">
+                    <div class="upload-icon">📷</div>
+                    <div class="upload-label">Upload Photos (optional)</div>
+                    <div class="upload-hint">Click to select · JPG, PNG · Up to 5 photos</div>
+                    <div id="file-chosen"></div>
+                </div>
+
+                <div class="form-group full">
+                    <label for="notes">Additional Notes</label>
+                    <input type="text" id="notes" name="notes" placeholder="Anything else we should know?">
+                </div>
+
+                <button type="submit" class="btn-submit">Submit My Item →</button>
+                <p class="form-note">By submitting you agree to let KLTUF list and sell your item on your behalf.<br>No fees charged until your item sells.</p>
+
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+    <div class="faq-inner">
+        <div class="section-header">
+            <div class="section-tag">Questions</div>
+            <h2>FAQ</h2>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">How long does it take to sell my item? <span class="arrow">▼</span></div>
+            <div class="faq-a">It depends on the item and price. Most items sell within 1–2 weeks. Electronics and popular brands typically sell faster. We'll keep you updated.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Do I need to ship the item? <span class="arrow">▼</span></div>
+            <div class="faq-a">Once your item sells, we'll coordinate with you. You can either ship it directly to the buyer (we provide the label) or drop it off locally.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">What items do you accept? <span class="arrow">▼</span></div>
+            <div class="faq-a">We accept most items including electronics, toys, furniture, clothing, appliances, tools, and more. We reserve the right to decline items that are damaged beyond use, counterfeit, or prohibited.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">When and how do I get paid? <span class="arrow">▼</span></div>
+            <div class="faq-a">You get paid within 3 business days after the buyer confirms receipt. We send payment via Zelle, PayPal, or Venmo — whichever you choose when submitting.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Can I set my own price? <span class="arrow">▼</span></div>
+            <div class="faq-a">Yes! You submit your asking price and we'll review it. If we think a different price will sell faster, we'll discuss it with you before listing. You always have final say.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">What if my item doesn't sell? <span class="arrow">▼</span></div>
+            <div class="faq-a">If your item hasn't sold after 30 days, we'll reach out to discuss lowering the price or returning the item to you. No fees are ever charged for unsold items.</div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <span class="logo-name">KLTUF</span>
+    <p>Questions? Email us at <a href="mailto:freta@kltuf.com">freta@kltuf.com</a></p>
+    <p class="footer-sub">© 2026 KLTUF Store · kltuf.com</p>
+</footer>
+
+<script>
+    // FAQ toggle
+    function toggleFaq(el) {
+        el.classList.toggle('open');
+        el.nextElementSibling.classList.toggle('open');
+    }
+
+    // Form submission handler
+    document.getElementById('sell-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = this;
+        const data = new FormData(form);
+        fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(res => {
+            if (res.ok) {
+                form.style.display = 'none';
+                document.getElementById('success-msg').style.display = 'block';
+            } else {
+                // Fallback: open mailto
+                window.location.href = 'mailto:freta@kltuf.com?subject=Sell Item Submission&body=Name: ' +
+                    encodeURIComponent(data.get('name')) + '%0AItem: ' +
+                    encodeURIComponent(data.get('item_name')) + '%0APrice: $' +
+                    encodeURIComponent(data.get('asking_price')) + '%0ACondition: ' +
+                    encodeURIComponent(data.get('condition')) + '%0ADescription: ' +
+                    encodeURIComponent(data.get('description'));
+            }
+        }).catch(() => {
+            // Fallback: open mailto
+            window.location.href = 'mailto:freta@kltuf.com?subject=Sell Item Submission';
+        });
+    });
+</script>
+
+</body>
+</html>
