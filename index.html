@@ -176,7 +176,15 @@
         .cart-total { display: flex; justify-content: space-between; margin-bottom: 14px; }
         .cart-total span { font-size: 1rem; font-weight: 700; }
         .cart-total .total-amt { color: #b8860b; font-size: 1.15rem; }
-        .cart-checkout-btns { display: flex; flex-direction: column; gap: 9px; }
+        .btn-proceed {
+            background: linear-gradient(135deg, #b8860b, #f0c040); color: #111; border: none;
+            padding: 13px; border-radius: 9px; font-size: 0.95rem;
+            font-weight: 800; cursor: pointer; width: 100%; transition: opacity 0.2s;
+        }
+        .btn-proceed:hover { opacity: 0.88; }
+        .payment-picker { display: none; flex-direction: column; gap: 9px; }
+        .payment-picker.open { display: flex; }
+        .pay-pick-label { font-size: 0.82rem; font-weight: 700; color: #555; text-align: center; margin-bottom: 2px; }
         .btn-checkout-paypal {
             background: #0070ba; color: #fff; border: none;
             padding: 12px; border-radius: 9px; font-size: 0.9rem;
@@ -190,6 +198,11 @@
             text-decoration: none; text-align: center; display: block;
         }
         .btn-checkout-zelle:hover { background: #5b18b3; }
+        .btn-back-cart {
+            background: none; border: none; color: #888; font-size: 0.82rem;
+            cursor: pointer; text-align: center; padding: 4px; text-decoration: underline;
+        }
+        .btn-back-cart:hover { color: #333; }
 
         /* ── HERO ── */
         .hero {
@@ -494,9 +507,12 @@
             <span>Total</span>
             <span class="total-amt" id="cartTotal">$0.00</span>
         </div>
-        <div class="cart-checkout-btns">
-            <button class="btn-checkout-paypal" onclick="checkoutPayPal()">💳 Checkout with PayPal</button>
-            <a href="#" class="btn-checkout-zelle" id="zelleCheckoutBtn" onclick="checkoutZelle(event)">⚡ Checkout with Zelle</a>
+        <button class="btn-proceed" id="btnProceed" onclick="showPaymentPicker()">Proceed to Checkout →</button>
+        <div class="payment-picker" id="paymentPicker">
+            <p class="pay-pick-label">How would you like to pay?</p>
+            <button class="btn-checkout-paypal" onclick="checkoutPayPal()">💳 PayPal / Credit Card</button>
+            <a href="#" class="btn-checkout-zelle" id="zelleCheckoutBtn" onclick="checkoutZelle(event)">⚡ Zelle</a>
+            <button class="btn-back-cart" onclick="hidePaymentPicker()">← Back</button>
         </div>
     </div>
 </div>
@@ -922,6 +938,16 @@ function closeCart() {
     document.getElementById('cartSidebar').classList.remove('open');
     document.getElementById('cartOverlay').classList.remove('open');
     document.body.style.overflow = '';
+    hidePaymentPicker();
+}
+
+function showPaymentPicker() {
+    document.getElementById('btnProceed').style.display = 'none';
+    document.getElementById('paymentPicker').classList.add('open');
+}
+function hidePaymentPicker() {
+    document.getElementById('paymentPicker').classList.remove('open');
+    document.getElementById('btnProceed').style.display = 'block';
 }
 
 function checkoutPayPal() {
