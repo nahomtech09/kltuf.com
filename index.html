@@ -715,14 +715,36 @@
                 <p>Same address for payments</p>
             </div>
         </div>
-        <form class="contact-form" action="https://formspree.io/f/xojyejgd" method="post">
+        <form class="contact-form" id="contactForm">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <input type="text" name="subject" placeholder="Subject">
             <textarea name="message" placeholder="Your message..."></textarea>
-            <input type="hidden" name="_subject" value="KLTUF Contact Form">
             <button type="submit">Send Message</button>
         </form>
+        <div id="contactSuccess" style="display:none;text-align:center;padding:18px 0;color:#f0c040;font-size:1.1rem;font-weight:600;">
+            ✅ Message sent! We'll get back to you soon.
+        </div>
+        <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var form = this;
+            fetch('https://formspree.io/f/xojyejgd', {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            }).then(function(r) {
+                if (r.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('contactSuccess').style.display = 'block';
+                } else {
+                    alert('Something went wrong. Please email us directly at freta@kltuf.com');
+                }
+            }).catch(function() {
+                alert('Something went wrong. Please email us directly at freta@kltuf.com');
+            });
+        });
+        </script>
     </div>
 </section>
 
