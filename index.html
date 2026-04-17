@@ -742,9 +742,14 @@
                     </select>
                     <input type="text" name="payout_account" id="payoutAccount" placeholder="Your Zelle / Venmo / PayPal email or username" required>
                     <input type="hidden" name="_subject" value="New Seller Submission — KLTUF Store">
-                    <button type="submit">Submit for Review →</button>
+                    <button type="submit" id="sellSubmitBtn">Submit for Review →</button>
                     <p class="form-note">Photos upload directly · We review within 24 hours · You'll hear back at your contact info</p>
                 </form>
+                <div id="sellSuccess" style="display:none;text-align:center;padding:28px 16px;color:#f0c040;">
+                    <div style="font-size:2.5rem;margin-bottom:12px">✅</div>
+                    <h3 style="color:#f0c040;font-size:1.1rem;margin-bottom:8px">Submission Received!</h3>
+                    <p style="color:#9ca3af;font-size:0.88rem;line-height:1.6">Thank you! We'll review your item within 24 hours and get back to you at your contact info.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -996,6 +1001,36 @@ function uploadPhotos(input) {
         reader.readAsDataURL(file);
     });
 }
+
+/* Sell form silent submit */
+document.getElementById('sellForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (uploadedUrls.length === 0 && document.getElementById('photoInput').files.length > 0) {
+        alert('Please wait for photos to finish uploading.');
+        return;
+    }
+    var btn = document.getElementById('sellSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+    fetch('https://formspree.io/f/xojyejgd', {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+    }).then(function(r) {
+        if (r.ok) {
+            document.getElementById('sellForm').style.display = 'none';
+            document.getElementById('sellSuccess').style.display = 'block';
+        } else {
+            btn.disabled = false;
+            btn.textContent = 'Submit for Review →';
+            alert('Something went wrong. Please try again.');
+        }
+    }).catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Submit for Review →';
+        alert('Something went wrong. Please try again.');
+    });
+});
 
 /* Payout label updater */
 function updatePayoutLabel(sel) {
