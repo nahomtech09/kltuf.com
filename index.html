@@ -723,7 +723,7 @@
                     <div class="sell-step-num">4</div>
                     <div class="sell-step-body">
                         <h4>You Get Paid Fast</h4>
-                        <p>Once sold, payout via Zelle or PayPal within 24 hours. We keep a small commission.</p>
+                        <p>Once sold, payout via Zelle, Venmo, or PayPal within 24 hours. We keep a small commission.</p>
                     </div>
                 </div>
 
@@ -771,6 +771,13 @@
                     </label>
                     <input type="file" name="photos" accept="image/*" multiple
                            style="color:#d1d5db;padding:8px 0;margin-bottom:10px">
+                    <select name="payout_method" required onchange="updatePayoutLabel(this)">
+                        <option value="" disabled selected>💰 How do you want to get paid?</option>
+                        <option value="Zelle">⚡ Zelle</option>
+                        <option value="Venmo">💜 Venmo</option>
+                        <option value="PayPal">💳 PayPal</option>
+                    </select>
+                    <input type="text" name="payout_account" id="payoutAccount" placeholder="Your Zelle / Venmo / PayPal email or username" required>
                     <input type="hidden" name="_subject" value="New Seller Submission — KLTUF Store">
                     <button type="submit">Submit for Review →</button>
                     <p class="form-note">Photos upload directly · We review within 24 hours · You'll hear back at your contact info</p>
@@ -976,6 +983,13 @@ function checkoutZelle(e) {
 updateCartUI();
 </script>
 <script>
+/* Payout label updater */
+function updatePayoutLabel(sel) {
+    var labels = { Zelle: 'Zelle phone or email', Venmo: 'Venmo username (e.g. @yourname)', PayPal: 'PayPal email address' };
+    var input = document.getElementById('payoutAccount');
+    if (input) input.placeholder = labels[sel.value] || 'Your payout account';
+}
+
 /* Product direct links */
 function copyProductLink(id, btn) {
     var url = 'https://kltuf.com/#' + id;
