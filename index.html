@@ -701,8 +701,7 @@
             <div>
                 <form class="sell-form" id="sellForm"
                       action="https://formspree.io/f/xojyejgd"
-                      method="POST"
-                      enctype="multipart/form-data">
+                      method="POST">
                     <h3>📋 Submit Your Item</h3>
                     <div class="sell-form-row">
                         <input type="text" name="seller_name" placeholder="Your Name" required>
@@ -729,8 +728,12 @@
                     <label style="color:#9ca3af;font-size:0.82rem;display:block;margin-bottom:6px">
                         📸 Upload Photos (up to 5 images)
                     </label>
-                    <input type="file" name="photos" accept="image/*" multiple
-                           style="color:#d1d5db;padding:8px 0;margin-bottom:10px">
+                    <input type="file" id="photoInput" accept="image/*" multiple
+                           style="color:#d1d5db;padding:8px 0;margin-bottom:6px"
+                           onchange="uploadPhotos(this)">
+                    <div id="photoStatus" style="font-size:0.78rem;margin-bottom:6px;min-height:18px;"></div>
+                    <div id="photoPreviews" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;"></div>
+                    <textarea name="photo_urls" id="photoUrls" style="display:none"></textarea>
                     <select name="payout_method" required onchange="updatePayoutLabel(this)">
                         <option value="" disabled selected>💰 How do you want to get paid?</option>
                         <option value="Zelle">⚡ Zelle</option>
@@ -943,6 +946,57 @@ function checkoutZelle(e) {
 updateCartUI();
 </script>
 <script>
+/* ImgBB photo upload */
+var imgbbKey = 'da46f7358cc3f9970f8199924f237e22';
+var uploadedUrls = [];
+
+function uploadPhotos(input) {
+    var files = Array.from(input.files).slice(0, 5);
+    if (!files.length) return;
+    var status = document.getElementById('photoStatus');
+    var previews = document.getElementById('photoPreviews');
+    previews.innerHTML = '';
+    uploadedUrls = [];
+    document.getElementById('photoUrls').value = '';
+    status.style.color = '#f0c040';
+    status.textContent = '⏳ Uploading ' + files.length + ' photo(s)...';
+
+    var done = 0;
+    files.forEach(function(file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var b64 = e.target.result.split(',')[1];
+            var body = new FormData();
+            body.append('key', imgbbKey);
+            body.append('image', b64);
+            body.append('name', file.name);
+            fetch('https://api.imgbb.com/1/upload', { method: 'POST', body: body })
+                .then(function(r){ return r.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        uploadedUrls.push(data.data.url);
+                        var img = document.createElement('img');
+                        img.src = data.data.thumb ? data.data.thumb.url : data.data.url;
+                        img.style.cssText = 'width:60px;height:60px;object-fit:cover;border-radius:6px;border:2px solid #f0c040';
+                        previews.appendChild(img);
+                    }
+                    done++;
+                    if (done === files.length) {
+                        document.getElementById('photoUrls').value = uploadedUrls.join('\n');
+                        status.style.color = '#16a34a';
+                        status.textContent = '✅ ' + uploadedUrls.length + ' photo(s) uploaded successfully';
+                    }
+                })
+                .catch(function() {
+                    done++;
+                    status.style.color = '#dc2626';
+                    status.textContent = '❌ Upload failed. Please try again.';
+                });
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
 /* Payout label updater */
 function updatePayoutLabel(sel) {
     var labels = { Zelle: 'Zelle phone or email', Venmo: 'Venmo username (e.g. @yourname)', PayPal: 'PayPal email address' };
