@@ -4,6 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KLTUF Store — Buy &amp; Sell Quality Items</title>
+    <meta name="description" content="KLTUF Store — shop quality second-hand items at great prices. Buy and sell securely via PayPal or Zelle. New listings added daily.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "KLTUF Store",
+      "url": "https://kltuf.com",
+      "description": "Buy and sell quality second-hand items securely via PayPal or Zelle.",
+      "paymentAccepted": "PayPal, Zelle",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "KLTUF Listings",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Little Tikes First Slide",
+              "image": "https://kltuf.com/images/toddlerSlide.jpg",
+              "description": "Little Tikes First Slide — quality toddler slide in great condition.",
+              "brand": { "@type": "Brand", "name": "Little Tikes" },
+              "offers": {
+                "@type": "Offer",
+                "price": "35.00",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "url": "https://kltuf.com"
+              }
+            }
+          }
+        ]
+      }
+    }
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1a1a1a; background: #f4f4f4; }
@@ -590,13 +624,13 @@
             <div class="pay-icon">💳</div>
             <h3>PayPal / Credit Card</h3>
             <p>Pay with PayPal balance, bank account, or any credit/debit card. No PayPal account required.</p>
-            <p class="payment-email">freta@kltuf.com</p>
+            <p class="payment-email"><span class="em-addr"></span></p>
         </div>
         <div class="payment-card">
             <div class="pay-icon">⚡</div>
             <h3>Zelle</h3>
             <p>Instant free bank transfer. Click Zelle on any item or at cart checkout for instructions.</p>
-            <p class="payment-email">freta@kltuf.com</p>
+            <p class="payment-email"><span class="em-addr"></span></p>
         </div>
     </div>
 </section>
@@ -622,7 +656,7 @@
                     <div class="sell-step-num">2</div>
                     <div class="sell-step-body">
                         <h4>Email Your Photos</h4>
-                        <p>After submitting, email clear photos of the item to <strong style="color:#f0c040">freta@kltuf.com</strong> with subject: <em style="color:#d1d5db">SELL - [Item Name]</em></p>
+                        <p>After submitting, email clear photos of the item to <strong style="color:#f0c040"><span class="em-addr"></span></strong> with subject: <em style="color:#d1d5db">SELL - [Item Name]</em></p>
                     </div>
                 </div>
                 <div class="sell-step">
@@ -645,7 +679,7 @@
                     • Take photos in good natural lighting<br>
                     • Include all sides and any damage<br>
                     • Include original box/accessories if available<br>
-                    • Email to <a href="mailto:freta@kltuf.com">freta@kltuf.com</a> with subject: <strong>SELL - [Item Name]</strong></p>
+                    • Email to <a class="em-link"></a> with subject: <strong>SELL - [Item Name]</strong></p>
                 </div>
                 <div class="sell-approval-box">
                     <p>🔒 <strong>Verified listings only.</strong> All items are inspected and approved before going live. This protects buyers and builds trust for your listing.</p>
@@ -705,13 +739,13 @@
             <div class="contact-card">
                 <div class="c-icon">📧</div>
                 <h4>Email Us</h4>
-                <a href="mailto:freta@kltuf.com">freta@kltuf.com</a>
+                <a class="em-link"></a>
                 <p>Best for detailed questions</p>
             </div>
             <div class="contact-card">
                 <div class="c-icon">⚡</div>
                 <h4>Zelle / PayPal</h4>
-                <a href="mailto:freta@kltuf.com">freta@kltuf.com</a>
+                <a class="em-link"></a>
                 <p>Same address for payments</p>
             </div>
         </div>
@@ -738,7 +772,7 @@
                     form.style.display = 'none';
                     document.getElementById('contactSuccess').style.display = 'block';
                 } else {
-                    alert('Something went wrong. Please email us directly at freta@kltuf.com');
+                    alert('Something went wrong. Please use the contact form or try again later.');
                 }
             }).catch(function() {
                 alert('Something went wrong. Please email us directly at freta@kltuf.com');
@@ -756,9 +790,14 @@
         <a href="#sell">Sell With Us</a>
         <a href="#payment">Payment Info</a>
         <a href="#contact">Contact</a>
-        <a href="mailto:freta@kltuf.com">freta@kltuf.com</a>
+        <a href="policies.html">Privacy &amp; Policies</a>
     </div>
     <p class="footer-sub">© 2026 KLTUF Store · kltuf.com · All listings personally verified before going live.</p>
+    <p class="footer-sub" style="margin-top:6px;">
+        <a href="policies.html#privacy" style="color:#888;font-size:0.78rem;">Privacy Policy</a> ·
+        <a href="policies.html#terms" style="color:#888;font-size:0.78rem;">Terms of Service</a> ·
+        <a href="policies.html#refunds" style="color:#888;font-size:0.78rem;">Refund Policy</a>
+    </p>
 </footer>
 
 <script>
@@ -904,6 +943,15 @@ function checkoutZelle(e) {
 
 /* Init */
 updateCartUI();
+</script>
+<script>
+/* Email obfuscation — assembled at runtime so scrapers can't harvest it */
+(function(){
+    var u = 'freta', d = 'kltuf' + '.com';
+    var addr = u + '@' + d;
+    document.querySelectorAll('.em-addr').forEach(function(el){ el.textContent = addr; });
+    document.querySelectorAll('.em-link').forEach(function(el){ el.href = 'mailto:' + addr; el.textContent = addr; });
+})();
 </script>
 </body>
 </html>
