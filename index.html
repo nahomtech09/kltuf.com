@@ -311,6 +311,21 @@
         }
         .btn-zelle:hover { background: #5b18b3; }
 
+        .btn-share {
+            position: absolute; top: 9px; right: 9px;
+            background: rgba(17,24,39,0.75); color: #f0c040;
+            border: none; border-radius: 20px; padding: 3px 9px;
+            font-size: 0.67rem; font-weight: 700; cursor: pointer;
+            backdrop-filter: blur(4px); transition: background 0.2s;
+        }
+        .btn-share:hover { background: rgba(17,24,39,0.95); }
+        @keyframes cardHighlight {
+            0%   { box-shadow: 0 0 0 4px #f0c040; }
+            70%  { box-shadow: 0 0 0 4px #f0c040; }
+            100% { box-shadow: 0 1px 7px rgba(0,0,0,0.07); }
+        }
+        .product-card.highlighted { animation: cardHighlight 2s ease forwards; }
+
         /* ── HOW IT WORKS ── */
         .how-section { background: #fff; padding: 52px 20px; border-top: 1px solid #e5e7eb; }
         .how-steps { max-width: 840px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -594,12 +609,13 @@
     <div class="products-grid" id="productsGrid">
 
         <!-- ═══ PRODUCT — cat:toys | id:slide-001 | price:35.00 ═══ -->
-        <div class="product-card" data-cat="toys" data-title="little tikes first slide red blue toddler kids">
+        <div class="product-card" id="slide-001" data-cat="toys" data-title="little tikes first slide red blue toddler kids">
             <div class="product-img-wrap">
                 <img src="images/toddlerSlide.jpg" alt="Little Tikes First Slide"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <div class="no-img" style="display:none">📷<br>No Photo</div>
                 <div class="cat-badge">🧸 Toys &amp; Kids</div>
+                <button class="btn-share" onclick="copyProductLink('slide-001',this)">🔗 Copy Link</button>
             </div>
             <div class="product-info">
                 <div class="product-meta">
@@ -960,6 +976,26 @@ function checkoutZelle(e) {
 updateCartUI();
 </script>
 <script>
+/* Product direct links */
+function copyProductLink(id, btn) {
+    var url = 'https://kltuf.com/#' + id;
+    navigator.clipboard.writeText(url).then(function() {
+        var orig = btn.textContent;
+        btn.textContent = '✅ Copied!';
+        setTimeout(function(){ btn.textContent = orig; }, 2000);
+    });
+}
+(function(){
+    var hash = window.location.hash.replace('#','');
+    if (!hash) return;
+    var card = document.getElementById(hash);
+    if (!card) return;
+    setTimeout(function(){
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        card.classList.add('highlighted');
+    }, 400);
+})();
+
 /* Contact modal */
 function openContact() {
     document.getElementById('contactOverlay').classList.add('open');
