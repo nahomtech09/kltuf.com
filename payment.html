@@ -6,22 +6,22 @@
     <title>Pay with Zelle — KLTUF Store</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f6f9; color: #1a1a1a; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f9f6f0; color: #1a1a1a; }
 
         header {
-            background: #fff;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            background: #111827;
             padding: 14px 30px;
             display: flex; align-items: center; gap: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.3);
         }
         .logo-icon {
             width: 42px; height: 42px;
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            background: linear-gradient(135deg, #b8860b, #f0c040, #c8971f);
             border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
-            color: white; font-size: 22px; font-weight: 900;
+            color: #111; font-size: 22px; font-weight: 900;
         }
-        .logo-text { font-size: 20px; font-weight: 800; letter-spacing: 3px; }
+        .logo-text { font-size: 20px; font-weight: 800; color: #f0c040; letter-spacing: 3px; }
 
         .container { max-width: 480px; margin: 45px auto; padding: 0 20px 60px; }
 
@@ -30,6 +30,7 @@
             border-radius: 20px;
             padding: 38px 35px;
             box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            border: 1px solid #f0e6c8;
             text-align: center;
         }
 
@@ -38,20 +39,22 @@
         .card .tagline { font-size: 0.9rem; color: #888; margin-bottom: 25px; }
 
         .item-box {
-            background: #f5f0ff;
+            background: #fdf2d0;
+            border: 1.5px solid #f0e6c8;
             border-radius: 12px;
             padding: 18px;
             margin-bottom: 25px;
         }
-        .item-box .item-label { font-size: 0.8rem; color: #888; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .item-box .item-label { font-size: 0.8rem; color: #92660a; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
         .item-box .item-name { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-        .item-box .item-price { font-size: 2rem; font-weight: 900; color: #6d1ed4; }
+        .item-box .item-price { font-size: 2rem; font-weight: 900; color: #b8860b; }
 
         .steps { text-align: left; margin-bottom: 20px; }
         .step { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 17px; }
         .step-num {
             width: 28px; height: 28px; flex-shrink: 0;
-            background: #6d1ed4; color: white;
+            background: linear-gradient(135deg, #b8860b, #f0c040);
+            color: #111;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             font-weight: 700; font-size: 0.85rem;
@@ -78,15 +81,14 @@
         .qr-section { margin: 20px 0; }
         .qr-section p { font-size: 0.85rem; color: #888; margin-bottom: 10px; }
         .qr-box {
-            border: 2px dashed #ddd;
+            border: 2px dashed #f0e6c8;
             border-radius: 14px;
             padding: 28px 20px;
             color: #bbb;
             font-size: 0.85rem;
             line-height: 1.7;
         }
-        /* Replace the qr-box with an actual image once you have your QR:
-           <img src="images/zelle-qr.png" style="width:180px;border-radius:12px"> */
+        .qr-box img { width: 180px; border-radius: 12px; }
 
         .note-box {
             background: #f0fdf4;
@@ -99,12 +101,12 @@
             margin: 20px 0;
         }
         .note-text {
-            background: #e9f5ff;
+            background: #fdf2d0;
             padding: 5px 10px;
             border-radius: 6px;
             font-family: monospace;
             font-size: 0.9rem;
-            color: #1d4ed8;
+            color: #92660a;
             display: inline-block;
             margin-top: 5px;
         }
@@ -121,20 +123,20 @@
         }
 
         .contact-line { font-size: 0.86rem; color: #666; margin-bottom: 22px; }
-        .contact-line a { color: #2563eb; text-decoration: none; font-weight: 600; }
+        .contact-line a { color: #b8860b; text-decoration: none; font-weight: 600; }
 
         .back-btn {
             display: inline-block;
             padding: 12px 32px;
-            background: #2563eb;
-            color: white;
+            background: linear-gradient(135deg, #b8860b, #f0c040);
+            color: #111;
             border-radius: 10px;
             text-decoration: none;
             font-weight: 700;
             font-size: 0.95rem;
-            transition: background 0.2s;
+            transition: opacity 0.2s;
         }
-        .back-btn:hover { background: #1d4ed8; }
+        .back-btn:hover { opacity: 0.88; }
     </style>
 
     <script>
@@ -158,8 +160,10 @@
 <body>
 
 <header>
-    <div class="logo-icon">K</div>
-    <span class="logo-text">KLTUF</span>
+    <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+        <div class="logo-icon">K</div>
+        <span class="logo-text">KLTUF</span>
+    </a>
 </header>
 
 <div class="container">
@@ -176,17 +180,14 @@
         </div>
 
         <div class="steps">
-
             <div class="step">
                 <div class="step-num">1</div>
                 <div class="step-text">Open your <strong>bank app</strong> or the <strong>Zelle app</strong> and tap <strong>Send Money</strong></div>
             </div>
-
             <div class="step">
                 <div class="step-num">2</div>
                 <div class="step-text">Search for or enter our Zelle email:</div>
             </div>
-
         </div>
 
         <div class="zelle-address" onclick="copyEmail()">
@@ -198,19 +199,15 @@
             <p>Or scan our Zelle QR code:</p>
             <div class="qr-box">
                 📱 Zelle QR Code<br><br>
-                <em>Save your Zelle QR from your bank app<br>
-                and replace this box with:<br>
-                <code>&lt;img src="images/zelle-qr.png"&gt;</code></em>
+                <em>Upload your Zelle QR to images/zelle-qr.png</em>
             </div>
         </div>
 
         <div class="steps">
-
             <div class="step">
                 <div class="step-num">3</div>
                 <div class="step-text">Enter the <strong>exact amount</strong> shown above</div>
             </div>
-
             <div class="step">
                 <div class="step-num">4</div>
                 <div class="step-text">
@@ -218,12 +215,10 @@
                     <span class="note-text" id="note-text">KLTUF - Item</span>
                 </div>
             </div>
-
             <div class="step">
                 <div class="step-num">5</div>
                 <div class="step-text">Send payment, then <strong>email us your confirmation screenshot</strong> so we can ship right away</div>
             </div>
-
         </div>
 
         <div class="note-box">
@@ -234,7 +229,7 @@
             ⚠️ <strong>Only send to verified accounts.</strong> Our only Zelle email is <strong>kltuf9@gmail.com</strong>. We will never ask you to send to a different address.
         </div>
 
-        <p class="contact-line">Questions? Email us at <a href="mailto:freta@kltuf.com">freta@kltuf.com</a></p>
+        <p class="contact-line">Questions? Email us at <a href="mailto:kltuf9@gmail.com">kltuf9@gmail.com</a></p>
 
         <a href="index.html" class="back-btn">← Back to Store</a>
 
@@ -243,4 +238,3 @@
 
 </body>
 </html>
-
