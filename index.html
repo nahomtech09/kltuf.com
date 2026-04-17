@@ -652,14 +652,17 @@
                 </div>
             </div>
             <div>
-                <form class="sell-form" id="sellForm" onsubmit="submitSellForm(event)">
+                <form class="sell-form" id="sellForm"
+                      action="https://formspree.io/f/xojyejgd"
+                      method="POST"
+                      enctype="multipart/form-data">
                     <h3>📋 Submit Your Item</h3>
                     <div class="sell-form-row">
-                        <input type="text" id="sf_name" placeholder="Your Name" required>
-                        <input type="text" id="sf_contact" placeholder="Phone or Email" required>
+                        <input type="text" name="seller_name" placeholder="Your Name" required>
+                        <input type="text" name="seller_contact" placeholder="Phone or Email" required>
                     </div>
-                    <input type="text" id="sf_title" placeholder="Item Title (e.g. iPhone 13, Air Jordan Size 10)" required>
-                    <select id="sf_cat" required>
+                    <input type="text" name="item_title" placeholder="Item Title (e.g. iPhone 13, Air Jordan Size 10)" required>
+                    <select name="category" required>
                         <option value="" disabled selected>Select Category</option>
                         <option>📱 Electronics</option>
                         <option>🧸 Toys &amp; Kids</option>
@@ -668,16 +671,22 @@
                         <option>⚽ Sports &amp; Outdoors</option>
                         <option>📦 Other</option>
                     </select>
-                    <select id="sf_cond" required>
+                    <select name="condition" required>
                         <option value="" disabled selected>Item Condition</option>
                         <option>✨ Like New</option>
                         <option>👍 Good</option>
                         <option>⚠️ Fair / Some Wear</option>
                     </select>
-                    <input type="text" id="sf_price" placeholder="Your Asking Price (e.g. $50)">
-                    <textarea id="sf_desc" placeholder="Describe the item — brand, age, any issues, what's included..."></textarea>
+                    <input type="text" name="asking_price" placeholder="Your Asking Price (e.g. $50)">
+                    <textarea name="description" placeholder="Describe the item — brand, age, any issues, what's included..."></textarea>
+                    <label style="color:#9ca3af;font-size:0.82rem;display:block;margin-bottom:6px">
+                        📸 Upload Photos (up to 5 images)
+                    </label>
+                    <input type="file" name="photos" accept="image/*" multiple
+                           style="color:#d1d5db;padding:8px 0;margin-bottom:10px">
+                    <input type="hidden" name="_subject" value="New Seller Submission — KLTUF Store">
                     <button type="submit">Submit for Review →</button>
-                    <p class="form-note">After submitting, email your photos to kltuf9@gmail.com<br>with subject: SELL - [Your Item Name]</p>
+                    <p class="form-note">Photos upload directly · We review within 24 hours · You'll hear back at your contact info</p>
                 </form>
             </div>
         </div>
@@ -868,32 +877,6 @@ function checkoutZelle(e) {
     var itemList = cart.map(function(i){ return i.title + ' x' + i.qty; }).join(', ');
     var total = cartTotal().toFixed(2);
     window.location.href = 'payment.html?item=' + encodeURIComponent(itemList) + '&price=' + total;
-}
-
-/* ── SELLER FORM ── */
-function submitSellForm(e) {
-    e.preventDefault();
-    var name    = document.getElementById('sf_name').value;
-    var contact = document.getElementById('sf_contact').value;
-    var title   = document.getElementById('sf_title').value;
-    var cat     = document.getElementById('sf_cat').value;
-    var cond    = document.getElementById('sf_cond').value;
-    var price   = document.getElementById('sf_price').value;
-    var desc    = document.getElementById('sf_desc').value;
-
-    var subject = encodeURIComponent('SELL - ' + title);
-    var body = encodeURIComponent(
-        'SELLER SUBMISSION\n\n' +
-        'Name: ' + name + '\n' +
-        'Contact: ' + contact + '\n\n' +
-        'Item: ' + title + '\n' +
-        'Category: ' + cat + '\n' +
-        'Condition: ' + cond + '\n' +
-        'Asking Price: ' + price + '\n\n' +
-        'Description:\n' + desc + '\n\n' +
-        '---\nIMPORTANT: Please attach your item photos to this email before sending!'
-    );
-    window.location.href = 'mailto:kltuf9@gmail.com?subject=' + subject + '&body=' + body;
 }
 
 /* Init */
