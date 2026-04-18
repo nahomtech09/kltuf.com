@@ -683,7 +683,7 @@
                     <div class="sell-step-num">3</div>
                     <div class="sell-step-body">
                         <h4>You Get Paid Fast</h4>
-                        <p>Once sold, payout via Zelle, Venmo, or PayPal within 24 hours. We keep a small commission.</p>
+                        <p>Once sold, payout via Zelle, Venmo, or PayPal within 24 hours. KLTUF keeps a <strong style="color:#f0c040">15% commission</strong> — you receive 85% of the sale price.</p>
                     </div>
                 </div>
 
@@ -742,6 +742,13 @@
                     </select>
                     <input type="text" name="payout_account" id="payoutAccount" placeholder="Your Zelle / Venmo / PayPal email or username" required>
                     <input type="hidden" name="_subject" value="New Seller Submission — KLTUF Store">
+                    <label style="display:flex;align-items:flex-start;gap:10px;background:rgba(240,192,64,0.08);border:1px solid rgba(240,192,64,0.25);border-radius:8px;padding:12px;cursor:pointer;margin-bottom:4px">
+                        <input type="checkbox" name="commission_agreed" value="Yes — I agree to 15% commission" required
+                               style="margin-top:3px;flex-shrink:0;accent-color:#f0c040;width:16px;height:16px">
+                        <span style="color:#d1d5db;font-size:0.82rem;line-height:1.55">
+                            I understand that KLTUF Store retains a <strong style="color:#f0c040">15% commission</strong> on the final sale price. I will receive <strong style="color:#f0c040">85%</strong> of the amount my item sells for, paid out within 24 hours via my chosen method.
+                        </span>
+                    </label>
                     <button type="submit" id="sellSubmitBtn">Submit for Review →</button>
                     <p class="form-note">Photos upload directly · We review within 24 hours · You'll hear back at your contact info</p>
                 </form>
