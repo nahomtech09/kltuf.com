@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KLTUF Listings — Real Estate &amp; Rentals</title>
+    <meta name="description" content="Find houses, apartments, and rooms for rent or sale on KLTUF. Post your listing for free and connect with buyers and renters locally and globally.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1a1a1a; background: #f4f4f4; }
+
+        /* ── HEADER ── */
+        header {
+            background: #111827;
+            position: sticky; top: 0; z-index: 200;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+        }
+        .header-top {
+            display: flex; align-items: center; gap: 16px;
+            padding: 11px 22px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+        .logo-icon {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, #b8860b, #f0c040);
+            border-radius: 9px;
+            display: flex; align-items: center; justify-content: center;
+            color: #111; font-size: 20px; font-weight: 900;
+        }
+        .logo-text { font-size: 19px; font-weight: 800; color: #f0c040; letter-spacing: 3px; }
+        .header-right { margin-left: auto; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .header-nav a {
+            text-decoration: none; color: #d1d5db; font-size: 0.83rem;
+            font-weight: 500; padding: 6px 10px; border-radius: 6px; transition: color 0.2s;
+            white-space: nowrap;
+        }
+        .header-nav a:hover, .header-nav a.active { color: #f0c040; }
+        .header-nav a.sell-link {
+            background: linear-gradient(135deg, #b8860b, #f0c040);
+            color: #111; font-weight: 700; padding: 7px 14px;
+        }
+        .header-nav a.sell-link:hover { opacity: 0.88; color: #111; }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            color: white; text-align: center; padding: 46px 20px 40px;
+            border-bottom: 3px solid #c8971f;
+        }
+        .hero-badge {
+            display: inline-block; background: rgba(200,151,31,0.15);
+            border: 1px solid rgba(200,151,31,0.4); color: #f0c040;
+            font-size: 0.76rem; font-weight: 700; letter-spacing: 2px;
+            padding: 4px 14px; border-radius: 20px;
+            margin-bottom: 12px; text-transform: uppercase;
+        }
+        .hero h1 { font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; }
+        .hero h1 span { color: #f0c040; }
+        .hero p { font-size: 0.97rem; opacity: 0.75; max-width: 480px; margin: 0 auto 20px; }
+        .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .btn-hero-primary {
+            background: linear-gradient(135deg, #b8860b, #f0c040);
+            color: #111; text-decoration: none; font-weight: 700;
+            padding: 11px 24px; border-radius: 9px; font-size: 0.93rem;
+            transition: opacity 0.2s;
+        }
+        .btn-hero-primary:hover { opacity: 0.88; }
+        .btn-hero-secondary {
+            background: rgba(255,255,255,0.1); color: #fff;
+            text-decoration: none; font-weight: 600;
+            padding: 11px 24px; border-radius: 9px; font-size: 0.93rem;
+            border: 1px solid rgba(255,255,255,0.2); transition: background 0.2s;
+        }
+        .btn-hero-secondary:hover { background: rgba(255,255,255,0.18); }
+
+        /* ── FILTERS ── */
+        .filter-bar {
+            background: #fff; border-bottom: 1px solid #e5e7eb;
+            padding: 14px 22px; display: flex; gap: 10px; align-items: center;
+            flex-wrap: wrap; position: sticky; top: 63px; z-index: 100;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+        }
+        .filter-bar label { font-size: 0.8rem; font-weight: 600; color: #555; white-space: nowrap; }
+        .filter-bar select {
+            padding: 7px 12px; border: 1.5px solid #e5e7eb; border-radius: 7px;
+            font-family: inherit; font-size: 0.84rem; color: #374151;
+            background: #fff; outline: none; cursor: pointer; transition: border-color 0.2s;
+        }
+        .filter-bar select:focus { border-color: #c8971f; }
+        .filter-bar input[type="text"] {
+            padding: 7px 12px; border: 1.5px solid #e5e7eb; border-radius: 7px;
+            font-family: inherit; font-size: 0.84rem; color: #374151;
+            background: #fff; outline: none; transition: border-color 0.2s; flex: 1; min-width: 140px;
+        }
+        .filter-bar input[type="text"]:focus { border-color: #c8971f; }
+        .btn-filter {
+            padding: 7px 18px; background: linear-gradient(135deg, #b8860b, #f0c040);
+            color: #111; border: none; border-radius: 7px; font-weight: 700;
+            font-size: 0.84rem; cursor: pointer; transition: opacity 0.2s; white-space: nowrap;
+        }
+        .btn-filter:hover { opacity: 0.88; }
+
+        /* ── LISTINGS SECTION ── */
+        .listings-wrap { max-width: 1200px; margin: 28px auto; padding: 0 20px 60px; }
+        .listings-top {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 18px; flex-wrap: wrap; gap: 10px;
+        }
+        .listings-title { font-size: 1.15rem; font-weight: 700; }
+        .listings-count { font-size: 0.82rem; color: #888; margin-top: 2px; }
+        .btn-post-top {
+            background: linear-gradient(135deg, #b8860b, #f0c040);
+            color: #111; text-decoration: none; font-weight: 700;
+            padding: 9px 20px; border-radius: 8px; font-size: 0.88rem;
+            border: none; cursor: pointer; transition: opacity 0.2s;
+        }
+        .btn-post-top:hover { opacity: 0.88; }
+
+        .listings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
+
+        .listing-card {
+            background: #fff; border-radius: 13px; overflow: hidden;
+            box-shadow: 0 1px 7px rgba(0,0,0,0.07); border: 1px solid #e5e7eb;
+            transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column;
+        }
+        .listing-card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.11); }
+
+        .listing-img-wrap {
+            width: 100%; height: 210px; background: #f0ebe0;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; position: relative;
+        }
+        .listing-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .listing-card:hover .listing-img-wrap img { transform: scale(1.04); }
+        .listing-img-wrap .no-img { color: #bbb; font-size: 3rem; }
+
+        .type-badge {
+            position: absolute; top: 9px; left: 9px;
+            font-size: 0.67rem; font-weight: 700; padding: 3px 9px;
+            border-radius: 20px; backdrop-filter: blur(4px);
+        }
+        .type-badge.rent { background: rgba(109,30,212,0.85); color: #fff; }
+        .type-badge.sale { background: rgba(21,128,61,0.85); color: #fff; }
+
+        .prop-badge {
+            position: absolute; top: 9px; right: 9px;
+            background: rgba(17,24,39,0.75); color: #f0c040;
+            font-size: 0.67rem; font-weight: 700; padding: 3px 8px;
+            border-radius: 20px; backdrop-filter: blur(4px);
+        }
+
+        .listing-info { padding: 14px; flex: 1; display: flex; flex-direction: column; }
+        .listing-price { font-size: 1.25rem; font-weight: 800; color: #b8860b; margin-bottom: 4px; }
+        .listing-price small { font-size: 0.7rem; font-weight: 500; color: #888; }
+        .listing-title { font-size: 0.92rem; font-weight: 600; margin-bottom: 4px; line-height: 1.35; }
+        .listing-location { font-size: 0.78rem; color: #666; margin-bottom: 8px; }
+        .listing-location span { font-weight: 600; }
+        .listing-details { display: flex; gap: 12px; font-size: 0.76rem; color: #888; margin-bottom: 10px; flex-wrap: wrap; }
+        .listing-desc { font-size: 0.8rem; color: #555; line-height: 1.5; flex: 1; margin-bottom: 12px;
+            display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .btn-contact-listing {
+            width: 100%; padding: 9px; border: none; border-radius: 8px;
+            background: linear-gradient(135deg, #b8860b, #f0c040);
+            color: #111; font-weight: 700; font-size: 0.86rem;
+            cursor: pointer; transition: opacity 0.2s;
+        }
+        .btn-contact-listing:hover { opacity: 0.88; }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center; padding: 60px 20px; color: #888;
+            grid-column: 1 / -1;
+        }
+        .empty-state .es-icon { font-size: 3.5rem; margin-bottom: 14px; }
+        .empty-state h3 { font-size: 1.05rem; font-weight: 700; color: #555; margin-bottom: 8px; }
+        .empty-state p { font-size: 0.88rem; line-height: 1.6; margin-bottom: 18px; }
+
+        /* ── CONTACT MODAL ── */
+        .modal-overlay {
+            display: none; position: fixed; inset: 0; z-index: 500;
+            background: rgba(0,0,0,0.65); backdrop-filter: blur(3px);
+            align-items: center; justify-content: center; padding: 16px;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal-box {
+            background: #fff; border-radius: 16px; width: 100%; max-width: 480px;
+            padding: 30px 26px 26px; position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            animation: modalIn 0.22s ease;
+        }
+        @keyframes modalIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+        .modal-close {
+            position: absolute; top: 14px; right: 16px;
+            background: none; border: none; font-size: 1.5rem;
+            cursor: pointer; color: #888; line-height: 1;
+        }
+        .modal-close:hover { color: #111; }
+        .modal-box h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; }
+        .modal-box .modal-sub { font-size: 0.82rem; color: #888; margin-bottom: 18px; }
+        .contact-info { background: #f9f9f9; border-radius: 10px; padding: 14px 16px; margin-bottom: 18px; font-size: 0.88rem; }
+        .contact-info .ci-row { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
+        .contact-info .ci-row:last-child { margin-bottom: 0; }
+        .contact-info .ci-label { font-size: 0.75rem; font-weight: 700; color: #888; min-width: 50px; }
+        .contact-info .ci-val { font-weight: 600; color: #111; word-break: break-all; }
+        .contact-info a { color: #b8860b; text-decoration: none; }
+        .contact-info a:hover { text-decoration: underline; }
+        .modal-dismiss { width: 100%; padding: 10px; background: #111827; color: #fff; border: none; border-radius: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer; }
+        .modal-dismiss:hover { background: #1f2937; }
+
+        /* ── POST A LISTING SECTION ── */
+        .post-section {
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            padding: 64px 20px; border-top: 3px solid #c8971f; border-bottom: 3px solid #c8971f;
+        }
+        .post-inner { max-width: 900px; margin: 0 auto; }
+        .post-header { text-align: center; margin-bottom: 36px; }
+        .post-header .tag {
+            display: inline-block; background: rgba(200,151,31,0.2); color: #f0c040;
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+            padding: 4px 12px; border-radius: 20px; margin-bottom: 10px; text-transform: uppercase;
+        }
+        .post-header h2 { font-size: 1.75rem; font-weight: 800; color: #fff; margin-bottom: 7px; }
+        .post-header p { color: #9ca3af; font-size: 0.9rem; }
+
+        .post-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 38px; align-items: start; }
+
+        .post-benefits { }
+        .benefit-item { display: flex; gap: 14px; margin-bottom: 22px; }
+        .benefit-icon {
+            width: 38px; height: 38px; flex-shrink: 0;
+            background: linear-gradient(135deg, #b8860b, #f0c040);
+            border-radius: 10px; display: flex; align-items: center;
+            justify-content: center; font-size: 1.1rem;
+        }
+        .benefit-body h4 { color: #f0c040; font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; }
+        .benefit-body p { color: #9ca3af; font-size: 0.82rem; line-height: 1.5; }
+
+        .post-form {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(200,151,31,0.25);
+            border-radius: 15px; padding: 26px 22px;
+        }
+        .post-form h3 { color: #fff; font-size: 0.98rem; font-weight: 700; margin-bottom: 16px; }
+        .post-form input,
+        .post-form select,
+        .post-form textarea {
+            width: 100%; padding: 9px 13px;
+            background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 8px; color: #fff; font-family: inherit;
+            font-size: 0.86rem; outline: none; margin-bottom: 10px; transition: border-color 0.2s;
+        }
+        .post-form input::placeholder, .post-form textarea::placeholder { color: #6b7280; }
+        .post-form select { color: #9ca3af; }
+        .post-form select option { color: #111; background: #fff; }
+        .post-form input:focus, .post-form select:focus, .post-form textarea:focus { border-color: #c8971f; }
+        .post-form textarea { resize: vertical; min-height: 90px; }
+        .post-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+        .post-form-row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; }
+        .post-form button[type="submit"] {
+            width: 100%; padding: 12px;
+            background: linear-gradient(135deg, #b8860b, #f0c040);
+            color: #111; border: none; border-radius: 8px;
+            font-weight: 700; font-size: 0.93rem; cursor: pointer;
+            transition: opacity 0.2s; margin-top: 2px;
+        }
+        .post-form button[type="submit"]:hover { opacity: 0.88; }
+        .post-form .form-note { color: #6b7280; font-size: 0.73rem; margin-top: 8px; text-align: center; line-height: 1.5; }
+        .section-label { color: #9ca3af; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 8px; text-transform: uppercase; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #111827; color: #6b7280;
+            text-align: center; padding: 28px 20px; border-top: 3px solid #c8971f;
+        }
+        .footer-logo { font-size: 1.25rem; font-weight: 800; color: #f0c040; letter-spacing: 3px; margin-bottom: 8px; }
+        footer a { color: #f0c040; text-decoration: none; }
+        .footer-links { display: flex; justify-content: center; gap: 18px; margin: 8px 0; flex-wrap: wrap; }
+        .footer-links a { font-size: 0.8rem; color: #9ca3af; }
+        .footer-links a:hover { color: #f0c040; }
+        .footer-sub { font-size: 0.76rem; margin-top: 7px; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .post-layout { grid-template-columns: 1fr; }
+            .post-form-row, .post-form-row3 { grid-template-columns: 1fr; }
+            .filter-bar { top: 57px; }
+        }
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 1.65rem; }
+            .header-nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="contactModal" onclick="if(event.target===this)closeContactModal()">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeContactModal()">&#10005;</button>
+        <h3 id="modalTitle">Contact Seller</h3>
+        <p class="modal-sub" id="modalSub">Reach out directly about this listing.</p>
+        <div class="contact-info" id="modalContactInfo"></div>
+        <button class="modal-dismiss" onclick="closeContactModal()">Close</button>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <div class="header-top">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">K</div>
+            <span class="logo-text">KLTUF</span>
+        </a>
+        <div class="header-right">
+            <nav class="header-nav">
+                <a href="index.html">Shop</a>
+                <a href="listings.html" class="active">Listings</a>
+                <a href="index.html#payment">Payment</a>
+                <a href="#post" class="sell-link">+ Post Listing</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-badge">✦ Real Estate &amp; Rentals</div>
+    <h1>Find Your <span>Perfect Place</span></h1>
+    <p>Houses, apartments, rooms, and commercial spaces — for rent or for sale, locally and globally</p>
+    <div class="hero-btns">
+        <a href="#post" class="btn-hero-primary">+ Post a Listing</a>
+        <a href="#listings" class="btn-hero-secondary">Browse Listings</a>
+    </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar" id="filterBar">
+    <label>Type:</label>
+    <select id="fType" onchange="applyFilters()">
+        <option value="all">All</option>
+        <option value="rent">For Rent</option>
+        <option value="sale">For Sale</option>
+    </select>
+    <label>Property:</label>
+    <select id="fProp" onchange="applyFilters()">
+        <option value="all">All</option>
+        <option value="house">House</option>
+        <option value="apartment">Apartment</option>
+        <option value="room">Room</option>
+        <option value="commercial">Commercial</option>
+        <option value="land">Land</option>
+    </select>
+    <input type="text" id="fSearch" placeholder="City, state, or keyword..." oninput="applyFilters()">
+    <button class="btn-filter" onclick="applyFilters()">Search</button>
+</div>
+
+<!-- LISTINGS GRID -->
+<div class="listings-wrap" id="listings">
+    <div class="listings-top">
+        <div>
+            <div class="listings-title">Available Listings</div>
+            <div class="listings-count" id="listingsCount">0 listings</div>
+        </div>
+        <a href="#post" class="btn-post-top">+ Post a Listing</a>
+    </div>
+    <div class="listings-grid" id="listingsGrid">
+
+        <!-- ═══ ADD LISTING CARDS HERE (see format below) ═══
+        <div class="listing-card" data-type="rent" data-prop="apartment" data-loc="Dallas Texas USA">
+            <div class="listing-img-wrap">
+                <img src="images/listing1.jpg" alt="..." onerror="this.parentElement.innerHTML='<div class=no-img>🏠</div>'">
+                <span class="type-badge rent">For Rent</span>
+                <span class="prop-badge">Apartment</span>
+            </div>
+            <div class="listing-info">
+                <div class="listing-price">$1,200 <small>/month</small></div>
+                <div class="listing-title">2BR Apartment — Downtown Dallas</div>
+                <div class="listing-location">📍 <span>Dallas, Texas, USA</span></div>
+                <div class="listing-details"><span>🛏 2 Beds</span><span>🚿 1 Bath</span></div>
+                <div class="listing-desc">Spacious 2-bedroom apartment in the heart of downtown. Modern kitchen, in-unit laundry, parking included.</div>
+                <button class="btn-contact-listing"
+                    onclick="showContact('John Smith','555-123-4567','john@email.com','2BR Apartment Downtown Dallas')">
+                    Contact Seller
+                </button>
+            </div>
+        </div>
+        ═══ END EXAMPLE ═══ -->
+
+        <div class="empty-state">
+            <div class="es-icon">🏡</div>
+            <h3>No listings yet — be the first!</h3>
+            <p>Listings posted here will appear once approved.<br>Use the form below to submit your property.</p>
+            <a href="#post" class="btn-post-top">+ Post Your Listing</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- POST A LISTING SECTION -->
+<section class="post-section" id="post">
+    <div class="post-inner">
+        <div class="post-header">
+            <div class="tag">✦ For Owners &amp; Landlords</div>
+            <h2>Post a Listing</h2>
+            <p>Reach buyers and renters locally and globally — completely free</p>
+        </div>
+        <div class="post-layout">
+            <div class="post-benefits">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌍</div>
+                    <div class="benefit-body">
+                        <h4>Global Reach</h4>
+                        <p>Connect with buyers and renters from the US and abroad. Perfect for diaspora communities looking for homes.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📸</div>
+                    <div class="benefit-body">
+                        <h4>Photo Uploads</h4>
+                        <p>Upload up to 5 photos. High-quality images get more inquiries and faster responses.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-body">
+                        <h4>Fast Approval</h4>
+                        <p>Listings are reviewed and approved within 24 hours. No waiting weeks to go live.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💬</div>
+                    <div class="benefit-body">
+                        <h4>Direct Contact</h4>
+                        <p>Interested parties contact you directly via your phone or email — no middleman.</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="post-form" id="postForm"
+                  action="https://formspree.io/f/xojyejgd"
+                  method="POST">
+                <h3>📋 Submit Your Property</h3>
+
+                <p class="section-label">Listing Type</p>
+                <div class="post-form-row">
+                    <select name="listing_type" required>
+                        <option value="" disabled selected>For Rent / For Sale</option>
+                        <option value="For Rent">🏠 For Rent</option>
+                        <option value="For Sale">🏷️ For Sale</option>
+                    </select>
+                    <select name="property_type" required>
+                        <option value="" disabled selected>Property Type</option>
+                        <option>🏠 House</option>
+                        <option>🏢 Apartment</option>
+                        <option>🛏 Room</option>
+                        <option>🏬 Commercial</option>
+                        <option>🌿 Land / Lot</option>
+                        <option>📦 Other</option>
+                    </select>
+                </div>
+
+                <p class="section-label">Location</p>
+                <div class="post-form-row3">
+                    <input type="text" name="city" placeholder="City" required>
+                    <input type="text" name="state" placeholder="State / Region">
+                    <input type="text" name="country" placeholder="Country" required>
+                </div>
+
+                <p class="section-label">Price &amp; Details</p>
+                <div class="post-form-row">
+                    <input type="text" name="price" placeholder="Price (e.g. $1,200/mo)" required>
+                    <input type="text" name="size" placeholder="Size (e.g. 900 sqft, 3BR/2BA)">
+                </div>
+
+                <p class="section-label">Description</p>
+                <textarea name="description" placeholder="Describe the property — bedrooms, bathrooms, features, nearby amenities, move-in date..." required></textarea>
+
+                <p class="section-label">Your Contact Info</p>
+                <div class="post-form-row">
+                    <input type="text" name="contact_name" placeholder="Your Name" required>
+                    <input type="text" name="contact_phone" placeholder="Phone Number">
+                </div>
+                <input type="email" name="contact_email" placeholder="Email Address" required>
+
+                <p class="section-label">Photos (up to 5)</p>
+                <input type="file" id="listingPhotoInput" accept="image/*" multiple
+                       style="color:#d1d5db;padding:8px 0;margin-bottom:6px"
+                       onchange="uploadListingPhotos(this)">
+                <div id="listingPhotoStatus" style="font-size:0.78rem;margin-bottom:6px;min-height:18px;"></div>
+                <div id="listingPhotoPreviews" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;"></div>
+                <textarea name="photo_urls" id="listingPhotoUrls" style="display:none"></textarea>
+
+                <input type="hidden" name="_subject" value="New Property Listing — KLTUF">
+
+                <button type="submit" id="postSubmitBtn">Submit Listing for Review →</button>
+                <p class="form-note">Free to post · Approved within 24 hours · Buyers contact you directly</p>
+            </form>
+            <div id="postSuccess" style="display:none;text-align:center;padding:28px 16px;color:#f0c040;background:rgba(255,255,255,0.05);border:1px solid rgba(200,151,31,0.25);border-radius:15px;">
+                <div style="font-size:2.5rem;margin-bottom:12px">✅</div>
+                <h3 style="color:#f0c040;font-size:1.1rem;margin-bottom:8px">Listing Submitted!</h3>
+                <p style="color:#9ca3af;font-size:0.88rem;line-height:1.6">We'll review and publish your listing within 24 hours.<br>Interested renters and buyers will contact you directly.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-logo">KLTUF</div>
+    <div class="footer-links">
+        <a href="index.html">Shop</a>
+        <a href="listings.html">Listings</a>
+        <a href="index.html#sell">Sell With Us</a>
+        <a href="index.html#payment">Payment Info</a>
+        <a href="policies.html">Privacy &amp; Policies</a>
+    </div>
+    <p class="footer-sub">© 2026 KLTUF · kltuf.com · Connecting communities through commerce &amp; real estate.</p>
+    <p class="footer-sub" style="margin-top:6px;">
+        <a href="policies.html#privacy" style="color:#888;font-size:0.78rem;">Privacy Policy</a> ·
+        <a href="policies.html#terms" style="color:#888;font-size:0.78rem;">Terms of Service</a> ·
+        <a href="policies.html#refunds" style="color:#888;font-size:0.78rem;">Refund Policy</a>
+    </p>
+</footer>
+
+<script>
+/* ── LISTING CARDS FILTER ── */
+function applyFilters() {
+    var type = document.getElementById('fType').value;
+    var prop = document.getElementById('fProp').value;
+    var search = document.getElementById('fSearch').value.toLowerCase().trim();
+    var cards = document.querySelectorAll('#listingsGrid .listing-card');
+    var visible = 0;
+    cards.forEach(function(card) {
+        var typeMatch = type === 'all' || card.dataset.type === type;
+        var propMatch = prop === 'all' || card.dataset.prop === prop;
+        var locText = (card.dataset.loc || '') + ' ' + (card.querySelector('.listing-title') ? card.querySelector('.listing-title').textContent : '');
+        var searchMatch = !search || locText.toLowerCase().indexOf(search) !== -1;
+        var show = typeMatch && propMatch && searchMatch;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+    });
+    var emptyState = document.querySelector('.empty-state');
+    if (emptyState) emptyState.style.display = visible === 0 ? 'block' : 'none';
+    document.getElementById('listingsCount').textContent = visible + (visible === 1 ? ' listing' : ' listings');
+}
+
+/* ── CONTACT MODAL ── */
+function showContact(name, phone, email, title) {
+    document.getElementById('modalTitle').textContent = title || 'Contact';
+    var html = '';
+    if (name) html += '<div class="ci-row"><span class="ci-label">Name</span><span class="ci-val">' + name + '</span></div>';
+    if (phone) html += '<div class="ci-row"><span class="ci-label">Phone</span><span class="ci-val"><a href="tel:' + phone.replace(/\s/g,'') + '">' + phone + '</a></span></div>';
+    if (email) html += '<div class="ci-row"><span class="ci-label">Email</span><span class="ci-val"><a href="mailto:' + email + '">' + email + '</a></span></div>';
+    document.getElementById('modalContactInfo').innerHTML = html;
+    document.getElementById('contactModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeContactModal() {
+    document.getElementById('contactModal').classList.remove('open');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeContactModal(); });
+
+/* ── IMGBB PHOTO UPLOAD ── */
+var imgbbKey = 'da46f7358cc3f9970f8199924f237e22';
+var listingUploadedUrls = [];
+
+function uploadListingPhotos(input) {
+    var files = Array.from(input.files).slice(0, 5);
+    if (!files.length) return;
+    var status = document.getElementById('listingPhotoStatus');
+    var previews = document.getElementById('listingPhotoPreviews');
+    previews.innerHTML = '';
+    listingUploadedUrls = [];
+    document.getElementById('listingPhotoUrls').value = '';
+    status.style.color = '#f0c040';
+    status.textContent = '⏳ Uploading ' + files.length + ' photo(s)...';
+
+    var done = 0;
+    files.forEach(function(file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var b64 = e.target.result.split(',')[1];
+            var body = new FormData();
+            body.append('key', imgbbKey);
+            body.append('image', b64);
+            body.append('name', file.name);
+            fetch('https://api.imgbb.com/1/upload', { method: 'POST', body: body })
+                .then(function(r){ return r.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        listingUploadedUrls.push(data.data.url);
+                        var img = document.createElement('img');
+                        img.src = data.data.thumb ? data.data.thumb.url : data.data.url;
+                        img.style.cssText = 'width:60px;height:60px;object-fit:cover;border-radius:6px;border:2px solid #f0c040';
+                        previews.appendChild(img);
+                    }
+                    done++;
+                    if (done === files.length) {
+                        document.getElementById('listingPhotoUrls').value = listingUploadedUrls.join('\n');
+                        status.style.color = '#16a34a';
+                        status.textContent = '✅ ' + listingUploadedUrls.length + ' photo(s) uploaded';
+                    }
+                })
+                .catch(function() {
+                    done++;
+                    status.style.color = '#dc2626';
+                    status.textContent = '❌ Upload failed. Please try again.';
+                });
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
+/* ── FORM SUBMIT ── */
+document.getElementById('postForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (listingUploadedUrls.length === 0 && document.getElementById('listingPhotoInput').files.length > 0) {
+        alert('Please wait for photos to finish uploading.');
+        return;
+    }
+    var btn = document.getElementById('postSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+    fetch('https://formspree.io/f/xojyejgd', {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+    }).then(function(r) {
+        if (r.ok) {
+            document.getElementById('postForm').style.display = 'none';
+            document.getElementById('postSuccess').style.display = 'block';
+        } else {
+            btn.disabled = false;
+            btn.textContent = 'Submit Listing for Review →';
+            alert('Something went wrong. Please try again.');
+        }
+    }).catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Submit Listing for Review →';
+        alert('Something went wrong. Please try again.');
+    });
+});
+
+/* init count */
+applyFilters();
+</script>
+</body>
+</html>
