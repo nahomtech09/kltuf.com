@@ -346,6 +346,24 @@
         }
         .product-card.highlighted { animation: cardHighlight 2s ease forwards; }
 
+        /* ── SOLD OUT ── */
+        .sold-overlay {
+            display: none; position: absolute; inset: 0; z-index: 6;
+            background: rgba(0,0,0,0.55); align-items: center; justify-content: center;
+        }
+        .sold-overlay span {
+            background: #ef4444; color: #fff; font-size: 0.85rem; font-weight: 800;
+            padding: 6px 18px; border-radius: 20px; letter-spacing: 1.5px; text-transform: uppercase;
+        }
+        .product-card.sold .sold-overlay { display: flex; }
+        .product-card.sold .btn-add-cart,
+        .product-card.sold .btn-paypal,
+        .product-card.sold .btn-zelle { opacity: 0.35; pointer-events: none; cursor: default; }
+        .product-card.sold { opacity: 0.82; }
+
+        /* ── DESCRIPTION ── */
+        .product-desc { font-size: 0.78rem; color: #777; margin-bottom: 8px; line-height: 1.45; }
+
         /* ── HOW IT WORKS ── */
         .how-section { background: #fff; padding: 52px 20px; border-top: 1px solid #e5e7eb; }
         .how-steps { max-width: 840px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -585,6 +603,7 @@
         <button class="cat-nav-item" onclick="filterCat('clothing',this)">👕 Clothing</button>
         <button class="cat-nav-item" onclick="filterCat('sports',this)">⚽ Sports</button>
         <button class="cat-nav-item" onclick="filterCat('other',this)">📦 Other</button>
+        <button class="cat-nav-item" onclick="filterCat('sold',this)">🚫 Sold Out</button>
     </div>
 </header>
 
@@ -616,6 +635,7 @@
         <div class="cat-card" id="cat-clothing" onclick="filterCat('clothing',null,'cat-clothing')"><div class="cat-icon">👕</div><div class="cat-name">Clothing</div></div>
         <div class="cat-card" id="cat-sports" onclick="filterCat('sports',null,'cat-sports')"><div class="cat-icon">⚽</div><div class="cat-name">Sports</div></div>
         <div class="cat-card" id="cat-other" onclick="filterCat('other',null,'cat-other')"><div class="cat-icon">📦</div><div class="cat-name">Other</div></div>
+        <div class="cat-card" id="cat-sold" onclick="filterCat('sold',null,'cat-sold')"><div class="cat-icon">🚫</div><div class="cat-name">Sold Out</div></div>
     </div>
 </section>
 
@@ -633,10 +653,11 @@
         <!-- ═══ ADD MORE PRODUCTS BELOW — copy block above, update data-cat, data-title, id, price ═══ -->
 
         <!-- SOFA -->
-        <div class="product-card" id="sofa-likenew" data-cat="home" data-title="sofa couch sectional furniture living room like new">
+        <div class="product-card" id="sofa-likenew" data-cat="home" data-sold="false" data-title="sofa couch sectional furniture living room like new">
             <div style="position:relative;">
                 <span class="cat-badge" style="position:absolute;top:9px;left:9px;z-index:4;">🏡 Home</span>
                 <button class="btn-share" style="position:absolute;top:9px;right:9px;z-index:4;" onclick="shareItem('sofa-likenew',event)">🔗 Copy Link</button>
+                <div class="sold-overlay"><span>Sold Out</span></div>
                 <div class="carousel" id="c-sofa">
                     <div class="carousel-track" id="ct-sofa">
                         <img src="https://i.ibb.co/5gj10rLM/IMG-0992-jpeg.jpg" alt="Sofa 1">
@@ -657,6 +678,7 @@
                     <span class="product-condition likenew">✨ Like New</span>
                 </div>
                 <div class="product-title">Sofa</div>
+                <div class="product-desc">Only used 6 months — like new condition, great for any living room.</div>
                 <div class="product-shipping">🚚 Local pickup / shipping available</div>
                 <div class="product-price">$450.00</div>
                 <button class="btn-add-cart" onclick="addToCart(this,'sofa-likenew','Sofa',450,'https://i.ibb.co/5gj10rLM/IMG-0992-jpeg.jpg')">🛒 Add to Cart</button>
@@ -668,10 +690,11 @@
         </div>
 
         <!-- TODDLER CAR -->
-        <div class="product-card" id="toddler-car" data-cat="toys" data-title="toddler car ride on toy kids push car children">
+        <div class="product-card" id="toddler-car" data-cat="toys" data-sold="false" data-title="toddler car ride on toy kids push car children">
             <div style="position:relative;">
                 <span class="cat-badge" style="position:absolute;top:9px;left:9px;z-index:4;">🧸 Toys</span>
                 <button class="btn-share" style="position:absolute;top:9px;right:9px;z-index:4;" onclick="shareItem('toddler-car',event)">🔗 Copy Link</button>
+                <div class="sold-overlay"><span>Sold Out</span></div>
                 <div class="carousel" id="c-toddler-car">
                     <div class="carousel-track" id="ct-toddler-car">
                         <img src="https://i.ibb.co/bMLBg98Z/IMG-1221-jpeg.jpg" alt="Toddler Car 1">
@@ -690,6 +713,7 @@
                     <span class="product-condition">👍 Good</span>
                 </div>
                 <div class="product-title">Toddler Car</div>
+                <div class="product-desc">Fun ride-on push car, used and in good shape — great for toddlers ages 1-3.</div>
                 <div class="product-shipping">🚚 Local pickup / shipping available</div>
                 <div class="product-price">$20.00</div>
                 <button class="btn-add-cart" onclick="addToCart(this,'toddler-car','Toddler Car',20,'https://i.ibb.co/bMLBg98Z/IMG-1221-jpeg.jpg')">🛒 Add to Cart</button>
@@ -949,13 +973,16 @@ function filterProducts() {
     var cards = document.querySelectorAll('#productsGrid .product-card');
     var visible = 0;
     cards.forEach(function(card){
-        var catMatch = currentCat === 'all' || card.dataset.cat === currentCat;
+        var isSold = card.dataset.sold === 'true';
+        var catMatch = currentCat === 'sold' ? isSold
+                     : currentCat === 'all'  ? !isSold
+                     : (!isSold && card.dataset.cat === currentCat);
         var searchMatch = !query || (card.dataset.title || '').indexOf(query) !== -1;
         card.style.display = (catMatch && searchMatch) ? '' : 'none';
         if (catMatch && searchMatch) visible++;
     });
     document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
-    var names = { all:'All Items', electronics:'Electronics', toys:'Toys & Kids', home:'Home & Garden', clothing:'Clothing', sports:'Sports', other:'Other' };
+    var names = { all:'All Items', electronics:'Electronics', toys:'Toys & Kids', home:'Home & Garden', clothing:'Clothing', sports:'Sports', other:'Other', sold:'Sold Out' };
     document.getElementById('products-title').textContent = query ? 'Results: "' + query + '"' : (names[currentCat] || 'Items');
     document.getElementById('products-count').textContent = visible + (visible === 1 ? ' listing' : ' listings');
 }
