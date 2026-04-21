@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>KLTUF Staff Upload</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Segoe UI', sans-serif; background: #111827; color: #f0f0f0; min-height: 100vh; }
+
+        /* ── LOCK SCREEN ── */
+        #lockScreen {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            min-height: 100vh; padding: 32px 24px;
+        }
+        .lock-logo {
+            width: 72px; height: 72px;
+            background: linear-gradient(135deg, #b8860b, #f0c040);
+            border-radius: 18px; display: flex; align-items: center; justify-content: center;
+            font-size: 36px; font-weight: 900; color: #111827; margin-bottom: 20px;
+        }
+        .lock-title { font-size: 22px; font-weight: 700; color: #f0c040; margin-bottom: 6px; }
+        .lock-sub { font-size: 14px; color: #9ca3af; margin-bottom: 36px; text-align: center; }
+        #passwordInput {
+            width: 100%; max-width: 320px; padding: 16px 18px; font-size: 18px;
+            border: 2px solid #374151; border-radius: 14px; background: #1f2937;
+            color: #f0f0f0; outline: none; text-align: center; letter-spacing: 4px;
+            margin-bottom: 14px;
+        }
+        #passwordInput:focus { border-color: #f0c040; }
+        #lockBtn {
+            width: 100%; max-width: 320px; padding: 16px; font-size: 17px; font-weight: 700;
+            background: linear-gradient(135deg, #b8860b, #f0c040); color: #111827;
+            border: none; border-radius: 14px; cursor: pointer;
+        }
+        #lockError { color: #ef4444; font-size: 14px; margin-top: 12px; display: none; }
+
+        /* ── UPLOAD FORM ── */
+        #uploadScreen { display: none; padding: 0 0 60px 0; }
+
+        .top-bar {
+            background: #1f2937; padding: 14px 20px;
+            display: flex; align-items: center; gap: 12px;
+            border-bottom: 1px solid #374151; position: sticky; top: 0; z-index: 10;
+        }
+        .top-logo {
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, #b8860b, #f0c040);
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-size: 18px; font-weight: 900; color: #111827; flex-shrink: 0;
+        }
+        .top-bar h1 { font-size: 17px; font-weight: 700; color: #f0c040; }
+        .top-bar span { font-size: 12px; color: #9ca3af; display: block; }
+
+        .form-body { padding: 24px 20px; max-width: 500px; margin: 0 auto; }
+
+        .section-label {
+            font-size: 11px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; color: #f0c040; margin: 28px 0 10px;
+        }
+        .section-label:first-child { margin-top: 0; }
+
+        /* ── PHOTO UPLOAD AREA ── */
+        .photo-area {
+            background: #1f2937; border: 2px dashed #374151; border-radius: 16px;
+            padding: 28px 20px; text-align: center; cursor: pointer; position: relative;
+        }
+        .photo-area:active { border-color: #f0c040; background: #253044; }
+        .photo-area input[type=file] {
+            position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+        }
+        .camera-icon { font-size: 44px; margin-bottom: 10px; }
+        .photo-area p { font-size: 16px; font-weight: 600; color: #e5e7eb; margin-bottom: 4px; }
+        .photo-area small { font-size: 13px; color: #6b7280; }
+
+        #photoPreviews {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px;
+        }
+        .preview-wrap { position: relative; aspect-ratio: 1; border-radius: 10px; overflow: hidden; }
+        .preview-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .preview-wrap .rm {
+            position: absolute; top: 4px; right: 4px; width: 24px; height: 24px;
+            background: rgba(0,0,0,0.7); border-radius: 50%; border: none;
+            color: #fff; font-size: 14px; cursor: pointer; display: flex;
+            align-items: center; justify-content: center; line-height: 1;
+        }
+        .upload-status { margin-top: 10px; font-size: 13px; color: #9ca3af; text-align: center; }
+
+        /* ── FORM FIELDS ── */
+        label { display: block; font-size: 14px; color: #d1d5db; margin-bottom: 6px; }
+        .field { margin-bottom: 18px; }
+        input[type=text], input[type=number], select, textarea {
+            width: 100%; padding: 15px 16px; font-size: 16px;
+            background: #1f2937; border: 2px solid #374151; border-radius: 12px;
+            color: #f0f0f0; outline: none; appearance: none; -webkit-appearance: none;
+        }
+        input[type=text]:focus, input[type=number]:focus, select:focus, textarea:focus {
+            border-color: #f0c040;
+        }
+        select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%239ca3af'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; }
+        textarea { resize: none; height: 100px; }
+        input[type=number] { -moz-appearance: textfield; }
+        input[type=number]::-webkit-outer-spin-button,
+        input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+        .price-wrap { position: relative; }
+        .price-wrap span { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #6b7280; font-size: 18px; }
+        .price-wrap input { padding-left: 30px; }
+
+        .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+        /* ── SUBMIT BUTTON ── */
+        #submitBtn {
+            width: 100%; padding: 18px; font-size: 18px; font-weight: 700;
+            background: linear-gradient(135deg, #b8860b, #f0c040); color: #111827;
+            border: none; border-radius: 16px; cursor: pointer; margin-top: 10px;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        #submitBtn:disabled { opacity: 0.6; cursor: default; }
+        #formError { color: #ef4444; font-size: 14px; margin-top: 10px; display: none; text-align: center; }
+
+        /* ── SUCCESS SCREEN ── */
+        #successScreen {
+            display: none; flex-direction: column; align-items: center; justify-content: center;
+            min-height: 100vh; padding: 40px 24px; text-align: center;
+        }
+        .success-icon { font-size: 72px; margin-bottom: 20px; }
+        #successScreen h2 { font-size: 26px; font-weight: 800; color: #f0c040; margin-bottom: 10px; }
+        #successScreen p { font-size: 16px; color: #9ca3af; margin-bottom: 32px; line-height: 1.6; max-width: 280px; }
+        #addAnotherBtn {
+            padding: 16px 36px; font-size: 16px; font-weight: 700;
+            background: linear-gradient(135deg, #b8860b, #f0c040); color: #111827;
+            border: none; border-radius: 14px; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── LOCK SCREEN ── -->
+<div id="lockScreen">
+    <div class="lock-logo">K</div>
+    <div class="lock-title">KLTUF Staff Upload</div>
+    <div class="lock-sub">Enter your staff password to continue</div>
+    <input type="password" id="passwordInput" placeholder="••••••••" autocomplete="current-password">
+    <button id="lockBtn" onclick="unlock()">Unlock →</button>
+    <div id="lockError">Wrong password. Try again.</div>
+</div>
+
+<!-- ── UPLOAD FORM ── -->
+<div id="uploadScreen">
+    <div class="top-bar">
+        <div class="top-logo">K</div>
+        <div>
+            <h1>New Item Upload</h1>
+            <span>KLTUF Staff Portal</span>
+        </div>
+    </div>
+
+    <div class="form-body">
+
+        <div class="section-label">Photos</div>
+        <div class="photo-area" id="photoArea">
+            <input type="file" id="photoInput" accept="image/*" multiple onchange="handlePhotos(this)">
+            <div class="camera-icon">📷</div>
+            <p>Tap to add photos</p>
+            <small>Up to 5 photos — camera or gallery</small>
+        </div>
+        <div id="photoPreviews"></div>
+        <div class="upload-status" id="uploadStatus"></div>
+
+        <div class="section-label">Item Details</div>
+
+        <div class="field">
+            <label>Item Title *</label>
+            <input type="text" id="title" placeholder="e.g. Nike Air Max Size 10" maxlength="80">
+        </div>
+
+        <div class="field">
+            <label>Price *</label>
+            <div class="price-wrap">
+                <span>$</span>
+                <input type="number" id="price" placeholder="0.00" min="0" step="0.01">
+            </div>
+        </div>
+
+        <div class="row-2">
+            <div class="field">
+                <label>Category *</label>
+                <select id="category">
+                    <option value="">Select…</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="toys">Toys</option>
+                    <option value="home">Home</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="sports">Sports</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Condition *</label>
+                <select id="condition">
+                    <option value="">Select…</option>
+                    <option value="New">New</option>
+                    <option value="Like New">Like New</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Description <span style="color:#6b7280">(optional)</span></label>
+            <textarea id="description" placeholder="Any details a buyer should know…"></textarea>
+        </div>
+
+        <button id="submitBtn" onclick="submitForm()">
+            <span id="submitText">Submit Item</span>
+            <span id="submitSpinner" style="display:none">Uploading…</span>
+        </button>
+        <div id="formError"></div>
+
+    </div>
+</div>
+
+<!-- ── SUCCESS SCREEN ── -->
+<div id="successScreen">
+    <div class="success-icon">✅</div>
+    <h2>Item Submitted!</h2>
+    <p>Your item has been sent for review. It will be added to the store once approved.</p>
+    <button id="addAnotherBtn" onclick="resetForm()">Add Another Item</button>
+</div>
+
+<script>
+    const PASS = 'kltuf2026';
+    const IMGBB_KEY = 'da46f7358cc3f9970f8199924f237e22';
+    const FORMSPREE = 'https://formspree.io/f/xojyejgd';
+
+    let selectedFiles = [];
+    let uploadedUrls = [];
+
+    // ── UNLOCK ──
+    function unlock() {
+        const val = document.getElementById('passwordInput').value;
+        if (val === PASS) {
+            document.getElementById('lockScreen').style.display = 'none';
+            document.getElementById('uploadScreen').style.display = 'block';
+        } else {
+            document.getElementById('lockError').style.display = 'block';
+            document.getElementById('passwordInput').value = '';
+            document.getElementById('passwordInput').focus();
+        }
+    }
+    document.getElementById('passwordInput').addEventListener('keydown', e => {
+        if (e.key === 'Enter') unlock();
+    });
+
+    // ── PHOTO SELECTION ──
+    function handlePhotos(input) {
+        const files = Array.from(input.files);
+        const remaining = 5 - selectedFiles.length;
+        const toAdd = files.slice(0, remaining);
+        toAdd.forEach(f => {
+            selectedFiles.push(f);
+            addPreview(f, selectedFiles.length - 1);
+        });
+        input.value = '';
+        updatePhotoArea();
+    }
+
+    function addPreview(file, idx) {
+        const reader = new FileReader();
+        reader.onload = e => {
+            const wrap = document.createElement('div');
+            wrap.className = 'preview-wrap';
+            wrap.dataset.idx = idx;
+            wrap.innerHTML = `<img src="${e.target.result}"><button class="rm" onclick="removePhoto(${idx})">×</button>`;
+            document.getElementById('photoPreviews').appendChild(wrap);
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function removePhoto(idx) {
+        selectedFiles.splice(idx, 1);
+        const previews = document.getElementById('photoPreviews');
+        previews.innerHTML = '';
+        selectedFiles.forEach((f, i) => addPreview(f, i));
+        updatePhotoArea();
+    }
+
+    function updatePhotoArea() {
+        const area = document.getElementById('photoArea');
+        const input = document.getElementById('photoInput');
+        if (selectedFiles.length >= 5) {
+            input.disabled = true;
+            area.querySelector('p').textContent = '5 photos selected (max)';
+        } else {
+            input.disabled = false;
+            area.querySelector('p').textContent = 'Tap to add more photos';
+        }
+    }
+
+    // ── UPLOAD PHOTOS TO IMGBB ──
+    async function uploadPhotos() {
+        if (selectedFiles.length === 0) return [];
+        const status = document.getElementById('uploadStatus');
+        const urls = [];
+        for (let i = 0; i < selectedFiles.length; i++) {
+            status.textContent = `Uploading photo ${i + 1} of ${selectedFiles.length}…`;
+            const form = new FormData();
+            form.append('image', selectedFiles[i]);
+            const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`, {
+                method: 'POST', body: form
+            });
+            const data = await res.json();
+            if (data.success) {
+                urls.push(data.data.url);
+            } else {
+                throw new Error('Photo upload failed');
+            }
+        }
+        status.textContent = `✅ ${urls.length} photo(s) ready`;
+        return urls;
+    }
+
+    // ── SUBMIT ──
+    async function submitForm() {
+        const title     = document.getElementById('title').value.trim();
+        const price     = document.getElementById('price').value.trim();
+        const category  = document.getElementById('category').value;
+        const condition = document.getElementById('condition').value;
+        const desc      = document.getElementById('description').value.trim();
+        const errEl     = document.getElementById('formError');
+
+        errEl.style.display = 'none';
+
+        if (!title)     { showError('Please enter an item title.'); return; }
+        if (!price)     { showError('Please enter a price.'); return; }
+        if (!category)  { showError('Please select a category.'); return; }
+        if (!condition) { showError('Please select a condition.'); return; }
+
+        const btn = document.getElementById('submitBtn');
+        document.getElementById('submitText').style.display = 'none';
+        document.getElementById('submitSpinner').style.display = 'inline';
+        btn.disabled = true;
+
+        try {
+            const photoUrls = await uploadPhotos();
+
+            const photoLines = photoUrls.length > 0
+                ? photoUrls.map((u, i) => `Photo ${i+1}: ${u}`).join('\n')
+                : 'No photos submitted';
+
+            const body = {
+                _subject: `New Item Upload: ${title}`,
+                title, price: `$${price}`, category, condition,
+                description: desc || '(none)',
+                photos: photoLines,
+                submitted: new Date().toLocaleString()
+            };
+
+            const res = await fetch(FORMSPREE, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+
+            if (!res.ok) throw new Error('Submission failed');
+
+            document.getElementById('uploadScreen').style.display = 'none';
+            document.getElementById('successScreen').style.display = 'flex';
+
+        } catch (err) {
+            showError('Something went wrong. Check your connection and try again.');
+            document.getElementById('submitText').style.display = 'inline';
+            document.getElementById('submitSpinner').style.display = 'none';
+            btn.disabled = false;
+        }
+    }
+
+    function showError(msg) {
+        const el = document.getElementById('formError');
+        el.textContent = msg;
+        el.style.display = 'block';
+    }
+
+    // ── RESET FOR ANOTHER ITEM ──
+    function resetForm() {
+        selectedFiles = [];
+        uploadedUrls = [];
+        document.getElementById('photoPreviews').innerHTML = '';
+        document.getElementById('uploadStatus').textContent = '';
+        document.getElementById('title').value = '';
+        document.getElementById('price').value = '';
+        document.getElementById('category').value = '';
+        document.getElementById('condition').value = '';
+        document.getElementById('description').value = '';
+        document.getElementById('photoInput').disabled = false;
+        document.getElementById('photoArea').querySelector('p').textContent = 'Tap to add photos';
+        document.getElementById('submitText').style.display = 'inline';
+        document.getElementById('submitSpinner').style.display = 'none';
+        document.getElementById('submitBtn').disabled = false;
+        document.getElementById('formError').style.display = 'none';
+        document.getElementById('successScreen').style.display = 'none';
+        document.getElementById('uploadScreen').style.display = 'block';
+        window.scrollTo(0, 0);
+    }
+</script>
+</body>
+</html>
