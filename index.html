@@ -258,6 +258,26 @@
             transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column;
         }
         .product-card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.11); }
+        /* ── CAROUSEL ── */
+        .carousel { position: relative; width: 100%; height: 200px; overflow: hidden; background: #f9f9f9; }
+        .carousel-track { display: flex; height: 100%; transition: transform 0.3s ease; }
+        .carousel-track img { min-width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
+        .carousel-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.45); color: #fff; border: none;
+            width: 30px; height: 30px; border-radius: 50%; font-size: 14px;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            z-index: 5; backdrop-filter: blur(2px);
+        }
+        .carousel-btn.prev { left: 8px; }
+        .carousel-btn.next { right: 8px; }
+        .carousel-dots { position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; }
+        .carousel-dots span {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.2s;
+        }
+        .carousel-dots span.active { background: #f0c040; }
+
         .product-img-wrap {
             width: 100%; height: 200px; background: #f9f9f9;
             display: flex; align-items: center; justify-content: center;
@@ -614,10 +634,23 @@
 
         <!-- SOFA -->
         <div class="product-card" id="sofa-likenew" data-cat="home" data-title="sofa couch sectional furniture living room like new">
-            <div class="product-img-wrap">
-                <span class="cat-badge">🏡 Home</span>
-                <button class="btn-share" onclick="shareItem('sofa-likenew',event)">🔗 Copy Link</button>
-                <img src="https://i.ibb.co/5gj10rLM/IMG-0992-jpeg.jpg" alt="Sofa" onerror="this.style.display='none'">
+            <div style="position:relative;">
+                <span class="cat-badge" style="position:absolute;top:9px;left:9px;z-index:4;">🏡 Home</span>
+                <button class="btn-share" style="position:absolute;top:9px;right:9px;z-index:4;" onclick="shareItem('sofa-likenew',event)">🔗 Copy Link</button>
+                <div class="carousel" id="c-sofa">
+                    <div class="carousel-track" id="ct-sofa">
+                        <img src="https://i.ibb.co/5gj10rLM/IMG-0992-jpeg.jpg" alt="Sofa 1">
+                        <img src="https://i.ibb.co/cz67ZGZ/IMG-0991-jpeg.jpg" alt="Sofa 2">
+                        <img src="https://i.ibb.co/RkmfbtS3/IMG-0989-jpeg.jpg" alt="Sofa 3">
+                    </div>
+                    <button class="carousel-btn prev" onclick="slideCarousel('sofa',-1)">&#8249;</button>
+                    <button class="carousel-btn next" onclick="slideCarousel('sofa',1)">&#8250;</button>
+                    <div class="carousel-dots" id="cd-sofa">
+                        <span class="active" onclick="goSlide('sofa',0)"></span>
+                        <span onclick="goSlide('sofa',1)"></span>
+                        <span onclick="goSlide('sofa',2)"></span>
+                    </div>
+                </div>
             </div>
             <div class="product-info">
                 <div class="product-meta">
@@ -636,10 +669,21 @@
 
         <!-- TODDLER CAR -->
         <div class="product-card" id="toddler-car" data-cat="toys" data-title="toddler car ride on toy kids push car children">
-            <div class="product-img-wrap">
-                <span class="cat-badge">🧸 Toys</span>
-                <button class="btn-share" onclick="shareItem('toddler-car',event)">🔗 Copy Link</button>
-                <img src="https://i.ibb.co/bMLBg98Z/IMG-1221-jpeg.jpg" alt="Toddler Car" onerror="this.style.display='none'">
+            <div style="position:relative;">
+                <span class="cat-badge" style="position:absolute;top:9px;left:9px;z-index:4;">🧸 Toys</span>
+                <button class="btn-share" style="position:absolute;top:9px;right:9px;z-index:4;" onclick="shareItem('toddler-car',event)">🔗 Copy Link</button>
+                <div class="carousel" id="c-toddler-car">
+                    <div class="carousel-track" id="ct-toddler-car">
+                        <img src="https://i.ibb.co/bMLBg98Z/IMG-1221-jpeg.jpg" alt="Toddler Car 1">
+                        <img src="https://i.ibb.co/7tGk8Ww5/IMG-1220-png.png" alt="Toddler Car 2">
+                    </div>
+                    <button class="carousel-btn prev" onclick="slideCarousel('toddler-car',-1)">&#8249;</button>
+                    <button class="carousel-btn next" onclick="slideCarousel('toddler-car',1)">&#8250;</button>
+                    <div class="carousel-dots" id="cd-toddler-car">
+                        <span class="active" onclick="goSlide('toddler-car',0)"></span>
+                        <span onclick="goSlide('toddler-car',1)"></span>
+                    </div>
+                </div>
             </div>
             <div class="product-info">
                 <div class="product-meta">
@@ -1035,6 +1079,24 @@ function checkoutZelle(e) {
 
 /* Init */
 updateCartUI();
+
+/* ── CAROUSEL ── */
+var carouselIdx = {};
+function slideCarousel(id, dir) {
+    var track = document.getElementById('ct-' + id);
+    if (!track) return;
+    var total = track.children.length;
+    carouselIdx[id] = ((carouselIdx[id] || 0) + dir + total) % total;
+    goSlide(id, carouselIdx[id]);
+}
+function goSlide(id, idx) {
+    var track = document.getElementById('ct-' + id);
+    if (!track) return;
+    carouselIdx[id] = idx;
+    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    var dots = document.querySelectorAll('#cd-' + id + ' span');
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+}
 </script>
 <script>
 /* ImgBB photo upload */
