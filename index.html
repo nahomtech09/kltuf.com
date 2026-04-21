@@ -1055,9 +1055,18 @@ function hidePaymentPicker() {
     document.getElementById('btnProceed').style.display = 'block';
 }
 
+function buyPayPal(title, price) {
+    var url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick'
+        + '&business=kltufllc%40gmail.com'
+        + '&item_name=' + encodeURIComponent('KLTUF - ' + title)
+        + '&amount=' + price.toFixed(2)
+        + '&currency_code=USD&no_shipping=0';
+    window.open(url, '_blank');
+}
+
 function checkoutPayPal() {
     if (cart.length === 0) return;
-    var url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_cart&upload=1&business=freta%40kltuf.com&currency_code=USD';
+    var url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_cart&upload=1&business=kltufllc%40gmail.com&currency_code=USD';
     cart.forEach(function(item, i){
         var n = i + 1;
         url += '&item_name_' + n + '=' + encodeURIComponent(item.title);
