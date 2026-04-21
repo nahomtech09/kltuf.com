@@ -3,156 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pay with Zelle — KLTUF Store</title>
+    <title>Checkout — KLTUF Store</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f9f6f0; color: #1a1a1a; }
 
         header {
-            background: #111827;
-            padding: 14px 30px;
+            background: #111827; padding: 14px 30px;
             display: flex; align-items: center; gap: 12px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.3);
         }
         .logo-icon {
             width: 42px; height: 42px;
-            background: linear-gradient(135deg, #b8860b, #f0c040, #c8971f);
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            color: #111; font-size: 22px; font-weight: 900;
+            background: linear-gradient(135deg, #b8860b, #f0c040);
+            border-radius: 10px; display: flex; align-items: center;
+            justify-content: center; color: #111; font-size: 22px; font-weight: 900;
         }
         .logo-text { font-size: 20px; font-weight: 800; color: #f0c040; letter-spacing: 3px; }
 
-        .container { max-width: 480px; margin: 45px auto; padding: 0 20px 60px; }
+        .container { max-width: 480px; margin: 36px auto; padding: 0 18px 60px; }
+
+        /* ── ITEM BOX ── */
+        .item-box {
+            background: #fff; border-radius: 16px; padding: 20px 22px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07); border: 1px solid #f0e6c8;
+            margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;
+        }
+        .item-box .label { font-size: 0.75rem; color: #92660a; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+        .item-box .name  { font-size: 1rem; font-weight: 700; }
+        .item-box .price { font-size: 1.9rem; font-weight: 900; color: #b8860b; }
+
+        /* ── METHOD PICKER ── */
+        .method-picker { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+        .method-btn {
+            padding: 16px 10px; border-radius: 14px; border: 2px solid #e5e7eb;
+            background: #fff; cursor: pointer; text-align: center;
+            font-weight: 700; font-size: 0.92rem; transition: all 0.18s;
+        }
+        .method-btn .m-icon { font-size: 1.6rem; display: block; margin-bottom: 5px; }
+        .method-btn.active-paypal { border-color: #0070ba; background: #f0f7ff; color: #0070ba; }
+        .method-btn.active-zelle  { border-color: #6d1ed4; background: #f5f0ff; color: #6d1ed4; }
+        .method-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+        /* ── PANELS ── */
+        .panel { display: none; }
+        .panel.show { display: block; }
 
         .card {
-            background: #fff;
-            border-radius: 20px;
-            padding: 38px 35px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-            border: 1px solid #f0e6c8;
-            text-align: center;
+            background: #fff; border-radius: 20px; padding: 30px 26px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.09); border: 1px solid #e5e7eb;
         }
 
-        .zelle-icon { font-size: 3.2rem; margin-bottom: 10px; }
-        .card h1 { font-size: 1.7rem; font-weight: 800; color: #6d1ed4; margin-bottom: 5px; }
-        .card .tagline { font-size: 0.9rem; color: #888; margin-bottom: 25px; }
+        /* PayPal panel */
+        .paypal-header { text-align: center; margin-bottom: 22px; }
+        .paypal-header .icon { font-size: 2.8rem; margin-bottom: 8px; }
+        .paypal-header h2 { font-size: 1.4rem; font-weight: 800; color: #0070ba; }
+        .paypal-header p  { font-size: 0.88rem; color: #888; margin-top: 4px; }
 
-        .item-box {
-            background: #fdf2d0;
-            border: 1.5px solid #f0e6c8;
-            border-radius: 12px;
-            padding: 18px;
-            margin-bottom: 25px;
+        .paypal-pay-btn {
+            display: block; width: 100%; padding: 17px;
+            background: #0070ba; color: #fff; border: none; border-radius: 12px;
+            font-size: 1.05rem; font-weight: 800; cursor: pointer; margin-bottom: 16px;
+            transition: background 0.2s; text-decoration: none; text-align: center;
         }
-        .item-box .item-label { font-size: 0.8rem; color: #92660a; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
-        .item-box .item-name { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-        .item-box .item-price { font-size: 2rem; font-weight: 900; color: #b8860b; }
+        .paypal-pay-btn:hover { background: #005ea6; }
 
-        .steps { text-align: left; margin-bottom: 20px; }
-        .step { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 17px; }
+        .or-divider { text-align: center; color: #aaa; font-size: 0.82rem; margin: 10px 0; }
+
+        .paypal-email-box {
+            background: #f0f7ff; border: 2px dashed #0070ba; border-radius: 12px;
+            padding: 14px 18px; text-align: center; cursor: pointer;
+        }
+        .paypal-email-box .email { font-size: 1.05rem; font-weight: 700; color: #0070ba; }
+        .paypal-email-box .hint  { font-size: 0.75rem; color: #aaa; margin-top: 3px; }
+
+        /* Zelle panel */
+        .zelle-header { text-align: center; margin-bottom: 22px; }
+        .zelle-header .icon { font-size: 2.8rem; margin-bottom: 8px; }
+        .zelle-header h2 { font-size: 1.4rem; font-weight: 800; color: #6d1ed4; }
+        .zelle-header p  { font-size: 0.88rem; color: #888; margin-top: 4px; }
+
+        .steps { margin-bottom: 16px; }
+        .step { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 15px; }
         .step-num {
             width: 28px; height: 28px; flex-shrink: 0;
             background: linear-gradient(135deg, #b8860b, #f0c040);
-            color: #111;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 700; font-size: 0.85rem;
-            margin-top: 2px;
+            color: #111; border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-weight: 700; font-size: 0.85rem; margin-top: 2px;
         }
-        .step-text { font-size: 0.92rem; color: #444; line-height: 1.55; padding-top: 3px; }
+        .step-text { font-size: 0.91rem; color: #444; line-height: 1.55; padding-top: 3px; }
         .step-text strong { color: #1a1a1a; }
 
         .zelle-address {
-            background: #f5f0ff;
-            border: 2px dashed #6d1ed4;
-            border-radius: 12px;
-            padding: 14px 20px;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #6d1ed4;
-            margin: 4px 0 20px;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            position: relative;
+            background: #f5f0ff; border: 2px dashed #6d1ed4; border-radius: 12px;
+            padding: 14px 18px; font-size: 1.05rem; font-weight: 700; color: #6d1ed4;
+            margin: 4px 0 16px; cursor: pointer; text-align: center;
         }
-        .copy-hint { font-size: 0.75rem; color: #aaa; margin-top: 4px; font-weight: 400; }
+        .zelle-address .hint { font-size: 0.75rem; color: #aaa; font-weight: 400; margin-top: 3px; }
 
-        .qr-section { margin: 20px 0; }
-        .qr-section p { font-size: 0.85rem; color: #888; margin-bottom: 10px; }
-        .qr-box {
-            border: 2px dashed #f0e6c8;
-            border-radius: 14px;
-            padding: 28px 20px;
-            color: #bbb;
-            font-size: 0.85rem;
-            line-height: 1.7;
-        }
-        .qr-box img { width: 180px; border-radius: 12px; }
-
-        .note-box {
-            background: #f0fdf4;
-            border-left: 4px solid #22c55e;
-            border-radius: 8px;
-            padding: 12px 15px;
-            text-align: left;
-            font-size: 0.86rem;
-            color: #166534;
-            margin: 20px 0;
-        }
         .note-text {
-            background: #fdf2d0;
-            padding: 5px 10px;
-            border-radius: 6px;
-            font-family: monospace;
-            font-size: 0.9rem;
-            color: #92660a;
-            display: inline-block;
-            margin-top: 5px;
+            background: #fdf2d0; padding: 5px 10px; border-radius: 6px;
+            font-family: monospace; font-size: 0.9rem; color: #92660a;
+            display: inline-block; margin-top: 4px;
         }
 
+        /* shared */
+        .note-box {
+            background: #f0fdf4; border-left: 4px solid #22c55e; border-radius: 8px;
+            padding: 12px 15px; font-size: 0.85rem; color: #166534; margin: 16px 0;
+        }
         .warning-box {
-            background: #fffbeb;
-            border-left: 4px solid #f59e0b;
-            border-radius: 8px;
-            padding: 12px 15px;
-            text-align: left;
-            font-size: 0.84rem;
-            color: #92400e;
-            margin-bottom: 25px;
+            background: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 8px;
+            padding: 12px 15px; font-size: 0.83rem; color: #92400e; margin-bottom: 18px;
         }
-
-        .contact-line { font-size: 0.86rem; color: #666; margin-bottom: 22px; }
-        .contact-line a { color: #b8860b; text-decoration: none; font-weight: 600; }
-
         .back-btn {
-            display: inline-block;
-            padding: 12px 32px;
-            background: linear-gradient(135deg, #b8860b, #f0c040);
-            color: #111;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: opacity 0.2s;
+            display: block; width: 100%; padding: 14px;
+            background: linear-gradient(135deg, #b8860b, #f0c040); color: #111;
+            border-radius: 12px; text-decoration: none; font-weight: 700;
+            font-size: 0.95rem; text-align: center; margin-top: 18px; transition: opacity 0.2s;
         }
         .back-btn:hover { opacity: 0.88; }
     </style>
 
     <script>
+        var PAYPAL_EMAIL = 'kltufllc@gmail.com';
+        var ZELLE_EMAIL  = 'kltufllc@gmail.com';
+
         window.onload = function () {
-            const params = new URLSearchParams(window.location.search);
-            const item  = params.get('item')  || 'Item';
-            const price = params.get('price') || '0.00';
-            document.getElementById('item-name').textContent  = decodeURIComponent(item);
+            var params = new URLSearchParams(window.location.search);
+            var item   = decodeURIComponent(params.get('item')  || 'Item');
+            var price  = params.get('price') || '0.00';
+            var method = params.get('method') || '';
+
+            document.getElementById('item-name').textContent  = item;
             document.getElementById('item-price').textContent = '$' + price;
-            document.getElementById('note-text').textContent  = 'KLTUF - ' + decodeURIComponent(item);
+            document.getElementById('note-text').textContent  = 'KLTUF - ' + item;
+
+            // Build PayPal URL
+            var ppUrl = 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick'
+                + '&business=' + encodeURIComponent(PAYPAL_EMAIL)
+                + '&item_name=' + encodeURIComponent('KLTUF - ' + item)
+                + '&amount=' + encodeURIComponent(price)
+                + '&currency_code=USD&no_shipping=0';
+            document.getElementById('paypal-btn').href = ppUrl;
+
+            // Pre-select method if passed
+            if (method === 'paypal') selectMethod('paypal');
+            else selectMethod('zelle');
         };
 
-        function copyEmail() {
-            navigator.clipboard.writeText('freta@kltuf.com').then(function() {
-                document.getElementById('copy-hint').textContent = '✅ Copied!';
-                setTimeout(function(){ document.getElementById('copy-hint').textContent = 'Tap to copy'; }, 2000);
+        function selectMethod(m) {
+            document.getElementById('panel-paypal').classList.toggle('show', m === 'paypal');
+            document.getElementById('panel-zelle').classList.toggle('show',  m === 'zelle');
+            document.getElementById('btn-paypal').className = 'method-btn' + (m === 'paypal' ? ' active-paypal' : '');
+            document.getElementById('btn-zelle').className  = 'method-btn' + (m === 'zelle'  ? ' active-zelle'  : '');
+        }
+
+        function copyPayPalEmail() {
+            navigator.clipboard.writeText(PAYPAL_EMAIL).then(function() {
+                document.getElementById('pp-hint').textContent = '✅ Copied!';
+                setTimeout(function(){ document.getElementById('pp-hint').textContent = 'Tap to copy email'; }, 2000);
+            });
+        }
+        function copyZelleEmail() {
+            navigator.clipboard.writeText(ZELLE_EMAIL).then(function() {
+                document.getElementById('z-hint').textContent = '✅ Copied!';
+                setTimeout(function(){ document.getElementById('z-hint').textContent = 'Tap to copy'; }, 2000);
             });
         }
     </script>
@@ -167,74 +183,113 @@
 </header>
 
 <div class="container">
-    <div class="card">
 
-        <div class="zelle-icon">⚡</div>
-        <h1>Pay with Zelle</h1>
-        <p class="tagline">Instant · Free · Secure</p>
-
-        <div class="item-box">
-            <div class="item-label">You are purchasing</div>
-            <div class="item-name" id="item-name">Item</div>
-            <div class="item-price" id="item-price">$0.00</div>
+    <!-- Item summary -->
+    <div class="item-box">
+        <div>
+            <div class="label">You are purchasing</div>
+            <div class="name" id="item-name">Item</div>
         </div>
+        <div class="price" id="item-price">$0.00</div>
+    </div>
 
-        <div class="steps">
-            <div class="step">
-                <div class="step-num">1</div>
-                <div class="step-text">Open your <strong>bank app</strong> or the <strong>Zelle app</strong> and tap <strong>Send Money</strong></div>
+    <!-- Method picker -->
+    <div class="method-picker">
+        <button class="method-btn" id="btn-paypal" onclick="selectMethod('paypal')">
+            <span class="m-icon">💳</span>PayPal
+        </button>
+        <button class="method-btn" id="btn-zelle" onclick="selectMethod('zelle')">
+            <span class="m-icon">⚡</span>Zelle
+        </button>
+    </div>
+
+    <!-- PayPal Panel -->
+    <div id="panel-paypal" class="panel">
+        <div class="card">
+            <div class="paypal-header">
+                <div class="icon">💳</div>
+                <h2>Pay with PayPal</h2>
+                <p>Credit card, debit card, or PayPal balance</p>
             </div>
-            <div class="step">
-                <div class="step-num">2</div>
-                <div class="step-text">Search for or enter our Zelle email:</div>
+
+            <a id="paypal-btn" href="#" target="_blank" class="paypal-pay-btn">
+                Pay Now with PayPal →
+            </a>
+
+            <div class="or-divider">— or send manually to —</div>
+
+            <div class="paypal-email-box" onclick="copyPayPalEmail()">
+                <div class="email">kltufllc@gmail.com</div>
+                <div class="hint" id="pp-hint">Tap to copy email</div>
             </div>
+
+            <div class="note-box">
+                ✅ <strong>Confirm within 30 minutes</strong> during business hours (9am–9pm EST). Your item is reserved once payment is received.
+            </div>
+
+            <div class="warning-box">
+                ⚠️ <strong>Only send to verified accounts.</strong> Our PayPal is <strong>kltufllc@gmail.com</strong>. We will never ask you to send to a different address.
+            </div>
+
+            <a href="index.html" class="back-btn">← Back to Store</a>
         </div>
+    </div>
 
-        <div class="zelle-address" onclick="copyEmail()">
-            freta@kltuf.com
-            <div class="copy-hint" id="copy-hint">Tap to copy</div>
-        </div>
-
-        <div class="qr-section">
-            <p>Or scan our Zelle QR code:</p>
-            <div class="qr-box">
-                📱 Zelle QR Code<br><br>
-                <em>Upload your Zelle QR to images/zelle-qr.png</em>
+    <!-- Zelle Panel -->
+    <div id="panel-zelle" class="panel">
+        <div class="card">
+            <div class="zelle-header">
+                <div class="icon">⚡</div>
+                <h2>Pay with Zelle</h2>
+                <p>Instant · Free · Secure bank transfer</p>
             </div>
-        </div>
 
-        <div class="steps">
-            <div class="step">
-                <div class="step-num">3</div>
-                <div class="step-text">Enter the <strong>exact amount</strong> shown above</div>
-            </div>
-            <div class="step">
-                <div class="step-num">4</div>
-                <div class="step-text">
-                    In the <strong>note / memo</strong> field, type:<br>
-                    <span class="note-text" id="note-text">KLTUF - Item</span>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-text">Open your <strong>bank app</strong> or the <strong>Zelle app</strong> and tap <strong>Send Money</strong></div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-text">Search for or enter our Zelle email:</div>
                 </div>
             </div>
-            <div class="step">
-                <div class="step-num">5</div>
-                <div class="step-text">Send payment, then <strong>email us your confirmation screenshot</strong> so we can ship right away</div>
+
+            <div class="zelle-address" onclick="copyZelleEmail()">
+                kltufllc@gmail.com
+                <div class="hint" id="z-hint">Tap to copy</div>
             </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-text">Enter the <strong>exact amount</strong> shown above</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-text">
+                        In the <strong>note / memo</strong> field, type:<br>
+                        <span class="note-text" id="note-text">KLTUF - Item</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">5</div>
+                    <div class="step-text">Send payment, then <strong>screenshot your confirmation</strong> and email us so we can ship right away</div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                ✅ <strong>Confirm within 30 minutes</strong> during business hours (9am–9pm EST). Your item is reserved once payment is received.
+            </div>
+
+            <div class="warning-box">
+                ⚠️ <strong>Only send to verified accounts.</strong> Our Zelle is <strong>kltufllc@gmail.com</strong>. We will never ask you to send to a different address.
+            </div>
+
+            <a href="index.html" class="back-btn">← Back to Store</a>
         </div>
-
-        <div class="note-box">
-            ✅ <strong>We confirm within 30 minutes</strong> during business hours (9am–9pm EST). Your item is reserved once payment is received.
-        </div>
-
-        <div class="warning-box">
-            ⚠️ <strong>Only send to verified accounts.</strong> Our only Zelle email is <strong>freta@kltuf.com</strong>. We will never ask you to send to a different address.
-        </div>
-
-        <p class="contact-line">Questions? Email us at <a href="mailto:freta@kltuf.com">freta@kltuf.com</a></p>
-
-        <a href="index.html" class="back-btn">← Back to Store</a>
-
     </div>
-</div>
 
+</div>
 </body>
 </html>
