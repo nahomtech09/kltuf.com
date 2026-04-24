@@ -680,6 +680,37 @@
 
         <!-- ═══ ADD MORE PRODUCTS BELOW — copy block above, update data-cat, data-title, id, price ═══ -->
 
+        <!-- KIDS SCOOTER -->
+        <div class="product-card" id="kids-scooter" data-cat="toys" data-sold="false" data-title="kids scooter kemo 3 wheel kick scooter children red black">
+            <div style="position:relative;">
+                <span class="cat-badge" style="position:absolute;top:9px;left:9px;z-index:4;">🧸 Toys</span>
+                <button class="btn-share" style="position:absolute;top:9px;right:9px;z-index:4;" onclick="shareItem('kids-scooter',event)">🔗 Copy Link</button>
+                <div class="sold-overlay"><span>Sold Out</span></div>
+                <div class="carousel" id="c-kids-scooter">
+                    <div class="carousel-track" id="ct-kids-scooter">
+                        <img src="https://i.ibb.co/23WD2HQX/image-jpg.jpg" alt="Kids Scooter">
+                    </div>
+                    <div class="carousel-dots" id="cd-kids-scooter">
+                        <span class="active" onclick="goSlide('kids-scooter',0)"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-info">
+                <div class="product-meta">
+                    <span class="product-condition">👍 Good</span>
+                </div>
+                <div class="product-title">Kids Scooter</div>
+                <div class="product-desc">Red & black Kemo 3-wheel kick scooter in good condition. Great for kids — sturdy build with light-up wheels.</div>
+                <div class="product-shipping">🚚 Local pickup / shipping available</div>
+                <div class="product-price">$20.00</div>
+                <button class="btn-add-cart" onclick="addToCart(this,'kids-scooter','Kids Scooter',20,'https://i.ibb.co/23WD2HQX/image-jpg.jpg')">🛒 Add to Cart</button>
+                <div class="buy-direct">
+                    <button class="btn-paypal" onclick="buyPayPal('Kids Scooter',20)">💳 PayPal</button>
+                    <a class="btn-zelle" href="payment.html?item=Kids+Scooter&price=20">💜 Zelle</a>
+                </div>
+            </div>
+        </div>
+
         <!-- SOFA -->
         <div class="product-card" id="sofa-likenew" data-cat="home" data-sold="false" data-title="sofa couch sectional furniture living room like new">
             <div style="position:relative;">
