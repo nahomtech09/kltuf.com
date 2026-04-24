@@ -3,593 +3,562 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KLTUF Store — Buy &amp; Sell Quality Items</title>
-    <meta name="description" content="KLTUF Store — shop new and second-hand items at great prices. Buy and sell securely via PayPal or Zelle. New listings added daily.">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Store",
-      "name": "KLTUF Store",
-      "url": "https://kltuf.com",
-      "description": "Buy and sell new and second-hand items securely via PayPal or Zelle.",
-      "paymentAccepted": "PayPal, Zelle",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "KLTUF Listings",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Product",
-              "name": "Little Tikes First Slide",
-              "image": "https://kltuf.com/images/toddlerSlide.jpg",
-              "description": "Little Tikes First Slide — quality toddler slide in great condition.",
-              "brand": { "@type": "Brand", "name": "Little Tikes" },
-              "offers": {
-                "@type": "Offer",
-                "price": "35.00",
-                "priceCurrency": "USD",
-                "availability": "https://schema.org/InStock",
-                "url": "https://kltuf.com"
-              }
-            }
-          }
-        ]
-      }
-    }
-    </script>
+    <title>KLTUF — Quality Items at Great Prices</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1a1a1a; background: #f4f4f4; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1a1a1a; background: #fff; }
+
+        /* ── ANNOUNCEMENT BAR ── */
+        .announce-bar {
+            background: #1a1a1a; color: #fff;
+            text-align: center; padding: 10px 20px;
+            font-size: 0.8rem; letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        .announce-bar a { color: #c8a876; text-decoration: none; margin-left: 6px; font-weight: 600; }
 
         /* ── HEADER ── */
         header {
-            background: #111827;
-            position: sticky; top: 0; z-index: 200;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+            background: #fff;
+            border-bottom: 1px solid #e8e0d5;
+            padding: 0 40px;
         }
         .header-top {
-            display: flex; align-items: center; gap: 16px;
-            padding: 11px 22px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
-        }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
-        .logo-icon {
-            width: 40px; height: 40px;
-            background: linear-gradient(135deg, #b8860b, #f0c040);
-            border-radius: 9px;
-            display: flex; align-items: center; justify-content: center;
-            color: #111; font-size: 20px; font-weight: 900;
-        }
-        .logo-text { font-size: 19px; font-weight: 800; color: #f0c040; letter-spacing: 3px; }
-        .search-bar { flex: 1; display: flex; max-width: 580px; }
-        .search-bar input {
-            flex: 1; padding: 8px 14px; border: none;
-            border-radius: 7px 0 0 7px; font-size: 0.92rem; outline: none;
-        }
-        .search-bar button {
-            padding: 8px 16px;
-            background: linear-gradient(135deg, #b8860b, #f0c040);
-            color: #111; border: none; border-radius: 0 7px 7px 0;
-            font-weight: 700; cursor: pointer; font-size: 0.9rem;
-        }
-        .search-bar button:hover { opacity: 0.88; }
-        .header-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-        .header-nav a {
-            text-decoration: none; color: #d1d5db; font-size: 0.83rem;
-            font-weight: 500; padding: 6px 10px; border-radius: 6px; transition: color 0.2s;
-            white-space: nowrap;
-        }
-        .header-nav a:hover { color: #f0c040; }
-        .header-nav a.sell-link {
-            background: linear-gradient(135deg, #b8860b, #f0c040);
-            color: #111; font-weight: 700; padding: 7px 14px;
-        }
-        .header-nav a.sell-link:hover { opacity: 0.88; }
-
-        /* Cart button */
-        .cart-btn {
-            position: relative; background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15); border-radius: 8px;
-            padding: 7px 14px; cursor: pointer; display: flex;
-            align-items: center; gap: 7px; color: #fff;
-            font-size: 0.88rem; font-weight: 600; transition: background 0.2s;
-            white-space: nowrap;
-        }
-        .cart-btn:hover { background: rgba(240,192,64,0.15); }
-        .cart-count {
-            background: #f0c040; color: #111;
-            border-radius: 50%; width: 19px; height: 19px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.72rem; font-weight: 800; display: none;
-        }
-        .cart-count.visible { display: flex; }
-
-        /* Category nav */
-        .cat-nav {
-            background: #1f2937; padding: 0 22px;
-            display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none;
-        }
-        .cat-nav::-webkit-scrollbar { display: none; }
-        .cat-nav-item {
-            padding: 9px 15px; color: #9ca3af; font-size: 0.83rem;
-            font-weight: 500; cursor: pointer; border: none;
-            border-bottom: 2px solid transparent; background: none;
-            font-family: inherit; white-space: nowrap; transition: color 0.2s;
-        }
-        .cat-nav-item:hover { color: #f0c040; }
-        .cat-nav-item.active { color: #f0c040; border-bottom-color: #f0c040; }
-        .subcat-row { display: none; background: #111827; padding: 6px 22px 10px; gap: 8px; flex-wrap: wrap; border-bottom: 1px solid #1f2937; }
-        .subcat-row.show { display: flex; }
-        .subcat-btn { background: #1f2937; border: 1.5px solid #374151; border-radius: 20px; padding: 4px 14px; font-size: 0.78rem; font-weight: 600; color: #9ca3af; cursor: pointer; font-family: inherit; transition: all 0.15s; }
-        .subcat-btn:hover { border-color: #f0c040; color: #f0c040; }
-        .subcat-btn.active { background: #292215; border-color: #c8971f; color: #f0c040; }
-
-        /* ── CART SIDEBAR ── */
-        .cart-overlay {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.5);
-            z-index: 400; display: none; opacity: 0; transition: opacity 0.25s;
-        }
-        .cart-overlay.open { display: block; opacity: 1; }
-        .cart-sidebar {
-            position: fixed; top: 0; right: -420px; bottom: 0;
-            width: 380px; max-width: 95vw; background: #fff;
-            z-index: 500; display: flex; flex-direction: column;
-            box-shadow: -4px 0 30px rgba(0,0,0,0.2);
-            transition: right 0.28s cubic-bezier(0.4,0,0.2,1);
-        }
-        .cart-sidebar.open { right: 0; }
-        .cart-header-bar {
-            padding: 18px 20px; background: #111827;
             display: flex; align-items: center; justify-content: space-between;
-            border-bottom: 2px solid #c8971f; flex-shrink: 0;
+            height: 72px;
         }
-        .cart-header-bar h2 { color: #f0c040; font-size: 1.05rem; font-weight: 800; }
-        .cart-close {
-            background: none; border: none; color: #9ca3af;
-            font-size: 1.4rem; cursor: pointer; line-height: 1;
-            padding: 2px 6px; border-radius: 6px; transition: color 0.2s;
+        .logo { text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo-icon {
+            width: 42px; height: 42px;
+            background: linear-gradient(135deg, #1a1a1a, #3a3a3a);
+            border-radius: 8px; color: #c8a876;
+            font-size: 22px; font-weight: 900;
+            display: flex; align-items: center; justify-content: center;
+            letter-spacing: -1px;
         }
-        .cart-close:hover { color: #fff; }
-        .cart-items { flex: 1; overflow-y: auto; padding: 16px; }
-        .cart-empty { text-align: center; padding: 50px 20px; color: #aaa; }
-        .cart-empty .ce-icon { font-size: 3rem; margin-bottom: 12px; }
-        .cart-item {
-            display: flex; gap: 12px; padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0; align-items: flex-start;
+        .logo-name {
+            font-size: 22px; font-weight: 900;
+            letter-spacing: 5px; color: #1a1a1a;
+            text-transform: uppercase;
         }
-        .cart-item img {
-            width: 64px; height: 64px; object-fit: cover;
-            border-radius: 8px; flex-shrink: 0; background: #f4f4f4;
+        .logo-sub {
+            font-size: 0.62rem; color: #9a8a78;
+            letter-spacing: 2px; text-transform: uppercase;
+            display: block; margin-top: -3px;
         }
-        .ci-info { flex: 1; }
-        .ci-title { font-size: 0.88rem; font-weight: 600; line-height: 1.3; margin-bottom: 4px; }
-        .ci-price { font-size: 0.95rem; font-weight: 800; color: #b8860b; }
-        .ci-qty { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
-        .ci-qty button {
-            width: 24px; height: 24px; border: 1.5px solid #e5e7eb;
-            border-radius: 5px; background: #fff; cursor: pointer;
-            font-size: 0.9rem; font-weight: 700; display: flex;
-            align-items: center; justify-content: center; transition: border-color 0.2s;
-        }
-        .ci-qty button:hover { border-color: #c8971f; }
-        .ci-qty span { font-size: 0.88rem; font-weight: 600; min-width: 20px; text-align: center; }
-        .ci-remove { color: #dc2626; font-size: 0.75rem; cursor: pointer; margin-top: 4px; background: none; border: none; font-family: inherit; }
-        .ci-remove:hover { text-decoration: underline; }
 
-        .cart-footer { padding: 16px 20px; border-top: 1px solid #e5e7eb; flex-shrink: 0; }
-        .cart-total { display: flex; justify-content: space-between; margin-bottom: 14px; }
-        .cart-total span { font-size: 1rem; font-weight: 700; }
-        .cart-total .total-amt { color: #b8860b; font-size: 1.15rem; }
-        .btn-proceed {
-            background: linear-gradient(135deg, #b8860b, #f0c040); color: #111; border: none;
-            padding: 13px; border-radius: 9px; font-size: 0.95rem;
-            font-weight: 800; cursor: pointer; width: 100%; transition: opacity 0.2s;
+        nav {
+            display: flex; align-items: center; gap: 0;
         }
-        .btn-proceed:hover { opacity: 0.88; }
-        .payment-picker { display: none; flex-direction: column; gap: 9px; }
-        .payment-picker.open { display: flex; }
-        .pay-pick-label { font-size: 0.82rem; font-weight: 700; color: #555; text-align: center; margin-bottom: 2px; }
-        .btn-checkout-paypal {
-            background: #0070ba; color: #fff; border: none;
-            padding: 12px; border-radius: 9px; font-size: 0.9rem;
-            font-weight: 700; cursor: pointer; transition: background 0.2s; width: 100%;
+        nav a {
+            text-decoration: none; color: #3a3a3a;
+            font-size: 0.78rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.8px;
+            padding: 6px 14px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+            white-space: nowrap;
         }
-        .btn-checkout-paypal:hover { background: #005ea6; }
-        .btn-checkout-zelle {
-            background: #6d1ed4; color: #fff; border: none;
-            padding: 12px; border-radius: 9px; font-size: 0.9rem;
-            font-weight: 700; cursor: pointer; transition: background 0.2s; width: 100%;
-            text-decoration: none; text-align: center; display: block;
+        nav a:hover, nav a.active { color: #1a1a1a; border-bottom-color: #c8a876; }
+        nav a.sell-link { color: #c8a876; }
+        nav a.sell-link:hover { border-bottom-color: #c8a876; }
+
+        .header-icons {
+            display: flex; align-items: center; gap: 20px;
         }
-        .btn-checkout-zelle:hover { background: #5b18b3; }
-        .btn-back-cart {
-            background: none; border: none; color: #888; font-size: 0.82rem;
-            cursor: pointer; text-align: center; padding: 4px; text-decoration: underline;
+        .header-icons a {
+            text-decoration: none; color: #3a3a3a;
+            font-size: 1rem; position: relative;
+            display: flex; align-items: center;
         }
-        .btn-checkout-apple {
-            background: #000; color: #fff; border: none;
-            padding: 12px; border-radius: 9px; font-size: 0.95rem;
-            font-weight: 700; cursor: pointer; width: 100%; display: none;
-            align-items: center; justify-content: center; gap: 7px;
+        .cart-count {
+            position: absolute; top: -7px; right: -9px;
+            background: #1a1a1a; color: white;
+            font-size: 0.55rem; font-weight: 700;
+            width: 16px; height: 16px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
         }
-        .btn-checkout-apple.visible { display: flex; }
-        .btn-checkout-apple:hover { background: #222; }
-        .btn-checkout-card {
-            background: #1a56db; color: #fff; border: none;
-            padding: 12px; border-radius: 9px; font-size: 0.9rem;
-            font-weight: 700; cursor: pointer; width: 100%;
-            display: flex; align-items: center; justify-content: center; gap: 7px;
-        }
-        .btn-checkout-card:hover { background: #1648c8; }
-        .btn-back-cart:hover { color: #333; }
+        .social-icons { display: flex; gap: 12px; }
+        .social-icons a { color: #6b6b6b; font-size: 0.95rem; text-decoration: none; transition: color 0.2s; }
+        .social-icons a:hover { color: #1a1a1a; }
 
         /* ── HERO ── */
         .hero {
-            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-            color: white; text-align: center; padding: 46px 20px 40px;
-            border-bottom: 3px solid #c8971f;
+            background: linear-gradient(120deg, #f5f0e8 0%, #ede5d8 50%, #e8ddd0 100%);
+            min-height: 480px;
+            display: flex; align-items: center;
+            padding: 60px 60px;
+            position: relative; overflow: hidden;
         }
-        .hero-badge {
-            display: inline-block; background: rgba(200,151,31,0.15);
-            border: 1px solid rgba(200,151,31,0.4); color: #f0c040;
-            font-size: 0.76rem; font-weight: 700; letter-spacing: 2px;
-            padding: 4px 14px; border-radius: 20px;
-            margin-bottom: 12px; text-transform: uppercase;
+        .hero::after {
+            content: '';
+            position: absolute; right: 0; top: 0;
+            width: 50%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80') center/cover;
+            opacity: 0.35;
         }
-        .hero h1 { font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; }
-        .hero h1 span { color: #f0c040; }
-        .hero p { font-size: 0.97rem; opacity: 0.75; max-width: 440px; margin: 0 auto; }
+        .hero-content { position: relative; z-index: 1; max-width: 520px; }
+        .hero-tag {
+            display: inline-block;
+            background: #c8a876; color: #fff;
+            font-size: 0.68rem; font-weight: 700;
+            letter-spacing: 2.5px; text-transform: uppercase;
+            padding: 5px 14px; border-radius: 2px; margin-bottom: 18px;
+        }
+        .hero h1 {
+            font-size: 3.2rem; font-weight: 900;
+            letter-spacing: -1px; line-height: 1.1;
+            color: #1a1a1a; margin-bottom: 16px;
+        }
+        .hero h1 span { color: #c8a876; }
+        .hero p {
+            font-size: 1rem; color: #5a4a3a;
+            line-height: 1.7; margin-bottom: 32px;
+            max-width: 400px;
+        }
+        .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+        .btn-dark {
+            background: #1a1a1a; color: #fff;
+            padding: 14px 32px; border-radius: 3px;
+            font-weight: 700; font-size: 0.82rem;
+            text-decoration: none; letter-spacing: 1.5px;
+            text-transform: uppercase; transition: background 0.2s;
+        }
+        .btn-dark:hover { background: #2a2a2a; }
+        .btn-gold {
+            background: transparent; color: #1a1a1a;
+            padding: 14px 32px; border-radius: 3px;
+            font-weight: 700; font-size: 0.82rem;
+            text-decoration: none; letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: 2px solid #c8a876;
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn-gold:hover { background: #c8a876; color: #fff; }
 
         /* ── TRUST BAR ── */
-        .trust {
-            background: #1f2937; padding: 11px 20px;
-            display: flex; justify-content: center; gap: 32px;
-            flex-wrap: wrap; border-bottom: 1px solid rgba(255,255,255,0.05);
+        .trust-bar {
+            background: #f5f0e8; border-top: 1px solid #e8ddd0;
+            border-bottom: 1px solid #e8ddd0;
+            padding: 14px 20px;
+            display: flex; justify-content: center;
+            gap: 50px; flex-wrap: wrap;
         }
-        .trust-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: #9ca3af; font-weight: 500; }
+        .trust-item {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.75rem; color: #5a4a3a;
+            font-weight: 600; letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
 
-        /* ── CATEGORY CARDS ── */
-        .categories-section { max-width: 1200px; margin: 28px auto 0; padding: 0 20px; }
-        .categories-section h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; }
-        .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
-        .cat-card {
-            background: #fff; border-radius: 11px; padding: 16px 8px;
-            text-align: center; border: 1.5px solid #e5e7eb; cursor: pointer;
-            transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+        /* ── SECTION HEADERS ── */
+        .sec-head { text-align: center; margin-bottom: 40px; }
+        .sec-tag {
+            display: inline-block; font-size: 0.68rem;
+            font-weight: 700; letter-spacing: 3px;
+            text-transform: uppercase; color: #c8a876;
+            margin-bottom: 8px;
         }
-        .cat-card:hover { border-color: #c8971f; box-shadow: 0 4px 12px rgba(200,151,31,0.15); transform: translateY(-2px); }
-        .cat-card.active { border-color: #c8971f; background: #fdf8ec; }
-        .cat-card .cat-icon { font-size: 1.8rem; margin-bottom: 6px; }
-        .cat-card .cat-name { font-size: 0.74rem; font-weight: 600; color: #374151; }
+        .sec-head h2 {
+            font-size: 2rem; font-weight: 900;
+            color: #1a1a1a; letter-spacing: -0.5px;
+        }
+        .sec-head p { color: #7a6a5a; font-size: 0.88rem; margin-top: 8px; }
 
         /* ── PRODUCTS ── */
-        .products-section { max-width: 1200px; margin: 24px auto 46px; padding: 0 20px; }
-        .products-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; flex-wrap: wrap; gap: 10px; }
-        .products-title { font-size: 1.15rem; font-weight: 700; }
-        .products-count { font-size: 0.82rem; color: #888; margin-top: 2px; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); gap: 16px; }
-        .no-results { text-align: center; padding: 46px 20px; color: #888; display: none; }
-        .no-results .nr-icon { font-size: 2.8rem; margin-bottom: 10px; }
+        .products-section { padding: 70px 40px; background: #fff; }
+        .products-inner { max-width: 1320px; margin: 0 auto; }
+
+        .filter-bar {
+            display: flex; gap: 8px; margin-bottom: 36px;
+            flex-wrap: wrap; justify-content: center;
+        }
+        .filter-btn {
+            padding: 8px 22px; border-radius: 2px;
+            border: 1.5px solid #d8cfc4; background: #fff;
+            font-size: 0.75rem; font-weight: 600;
+            color: #5a4a3a; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 0.8px;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: #1a1a1a; color: #fff; border-color: #1a1a1a;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
 
         .product-card {
-            background: #fff; border-radius: 12px; overflow: hidden;
-            box-shadow: 0 1px 7px rgba(0,0,0,0.07); border: 1px solid #e5e7eb;
-            transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column;
+            background: #fff;
+            transition: transform 0.25s;
         }
-        .product-card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.11); }
-        /* ── CAROUSEL ── */
-        .carousel { position: relative; width: 100%; height: 200px; overflow: hidden; background: #f9f9f9; }
-        .carousel-track { display: flex; height: 100%; transition: transform 0.3s ease; }
-        .carousel-track img { min-width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
-        .carousel-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background: rgba(0,0,0,0.45); color: #fff; border: none;
-            width: 30px; height: 30px; border-radius: 50%; font-size: 14px;
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
-            z-index: 5; backdrop-filter: blur(2px);
-        }
-        .carousel-btn.prev { left: 8px; }
-        .carousel-btn.next { right: 8px; }
-        .carousel-dots { position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; }
-        .carousel-dots span {
-            width: 6px; height: 6px; border-radius: 50%;
-            background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.2s;
-        }
-        .carousel-dots span.active { background: #f0c040; }
+        .product-card:hover { transform: translateY(-4px); }
+        .product-card[data-cat] { display: none; }
+        .product-card.visible { display: block; }
 
-        .product-img-wrap {
-            width: 100%; height: 200px; background: #f9f9f9;
-            display: flex; align-items: center; justify-content: center;
-            overflow: hidden; position: relative;
+        .prod-img {
+            width: 100%; aspect-ratio: 1;
+            background: #f5f0e8; overflow: hidden;
+            position: relative; margin-bottom: 8px;
         }
-        .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-        .product-card:hover .product-img-wrap img { transform: scale(1.04); }
-        .product-img-wrap .no-img { color: #ccc; font-size: 0.82rem; text-align: center; }
-        .cat-badge {
-            position: absolute; top: 9px; left: 9px;
-            background: rgba(17,24,39,0.75); color: #f0c040;
-            font-size: 0.67rem; font-weight: 700; padding: 3px 8px;
-            border-radius: 20px; backdrop-filter: blur(4px);
+        .prod-img img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.5s, opacity 0.2s;
+        }
+        .product-card:hover .prod-img img { transform: scale(1.07); }
+        .no-img-ph {
+            position: absolute; inset: 0;
+            display: flex; align-items: center;
+            justify-content: center; color: #c8b8a8;
+            font-size: 2.5rem;
         }
 
-        .product-info { padding: 13px; flex: 1; display: flex; flex-direction: column; }
-        .product-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
-        .product-condition {
-            font-size: 0.68rem; font-weight: 600;
-            background: #fdf2d0; color: #92660a;
-            padding: 2px 7px; border-radius: 20px;
+        /* ── THUMBNAIL GALLERY ── */
+        .prod-thumbs {
+            display: flex; gap: 6px; margin-bottom: 14px;
+            flex-wrap: wrap;
         }
-        .product-condition.likenew { background: #f0fdf4; color: #16a34a; }
-        .product-condition.fair { background: #fef2f2; color: #dc2626; }
-        .product-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; line-height: 1.35; }
-        .product-shipping { font-size: 0.75rem; color: #16a34a; margin-bottom: 10px; font-weight: 500; }
-        .product-price { font-size: 1.3rem; font-weight: 800; color: #b8860b; margin-bottom: 12px; }
+        .prod-thumbs.hidden { display: none; }
+        .thumb {
+            width: 52px; height: 52px;
+            border: 2px solid #e8e0d5;
+            border-radius: 3px; overflow: hidden;
+            cursor: pointer; flex-shrink: 0;
+            transition: border-color 0.2s;
+        }
+        .thumb img {
+            width: 100%; height: 100%; object-fit: cover;
+            display: block;
+        }
+        .thumb.active { border-color: #c8a876; }
+        .thumb:hover { border-color: #1a1a1a; }
 
-        .btn-add-cart {
-            width: 100%; padding: 10px;
-            background: linear-gradient(135deg, #b8860b, #f0c040);
-            color: #111; border: none; border-radius: 8px;
-            font-size: 0.88rem; font-weight: 700; cursor: pointer;
-            transition: opacity 0.2s; margin-bottom: 8px;
+        .prod-badge {
+            position: absolute; top: 12px; left: 12px;
+            font-size: 0.62rem; font-weight: 700;
+            padding: 4px 10px; border-radius: 2px;
+            text-transform: uppercase; letter-spacing: 1px;
         }
-        .btn-add-cart:hover { opacity: 0.88; }
-        .btn-add-cart.added { background: #16a34a; color: #fff; }
+        .badge-available { background: #1a1a1a; color: #fff; }
+        .badge-sale { background: #c8a876; color: #fff; }
+        .badge-sold { background: #e8e0d5; color: #7a6a5a; }
 
-        .buy-direct { display: none; }
-        .btn-paypal {
-            flex: 1; background: #0070ba; color: white; border: none;
-            padding: 8px 4px; border-radius: 7px; font-size: 0.76rem;
-            font-weight: 600; cursor: pointer; transition: background 0.2s;
+        .prod-info { padding: 0 4px; }
+        .prod-cond {
+            font-size: 0.65rem; font-weight: 600;
+            color: #9a8a78; text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 5px;
         }
-        .btn-paypal:hover { background: #005ea6; }
+        .prod-title {
+            font-size: 0.9rem; font-weight: 600;
+            color: #1a1a1a; margin-bottom: 6px;
+            line-height: 1.4;
+        }
+        .prod-stars {
+            display: flex; align-items: center; gap: 4px;
+            margin-bottom: 8px;
+        }
+        .stars { color: #c8a876; font-size: 0.75rem; letter-spacing: 1px; }
+        .star-count { font-size: 0.72rem; color: #9a8a78; }
+        .prod-price {
+            font-size: 1.05rem; font-weight: 800;
+            color: #1a1a1a; margin-bottom: 14px;
+        }
+        .prod-btns { display: flex; flex-direction: column; gap: 8px; }
+        .btn-cart {
+            background: #1a1a1a; color: white; border: none;
+            padding: 11px; border-radius: 3px; font-size: 0.75rem;
+            font-weight: 700; cursor: pointer; width: 100%;
+            text-transform: uppercase; letter-spacing: 1px;
+            transition: background 0.2s;
+        }
+        .btn-cart:hover { background: #2a2a2a; }
         .btn-zelle {
-            flex: 1; background: #6d1ed4; color: white; border: none;
-            padding: 8px 4px; border-radius: 7px; font-size: 0.76rem;
-            font-weight: 600; cursor: pointer; text-align: center;
-            text-decoration: none; display: block; transition: background 0.2s;
+            background: #fff; color: #6d1ed4;
+            border: 1.5px solid #c8b8d8;
+            padding: 10px; border-radius: 3px;
+            font-size: 0.75rem; font-weight: 700;
+            text-align: center; text-decoration: none;
+            display: block; text-transform: uppercase;
+            letter-spacing: 1px; transition: background 0.2s;
         }
-        .btn-zelle:hover { background: #5b18b3; }
+        .btn-zelle:hover { background: #faf5ff; }
 
-        .btn-share {
-            position: absolute; top: 9px; right: 9px;
-            background: rgba(17,24,39,0.75); color: #f0c040;
-            border: none; border-radius: 20px; padding: 3px 9px;
-            font-size: 0.67rem; font-weight: 700; cursor: pointer;
-            backdrop-filter: blur(4px); transition: background 0.2s;
+        /* ── CATEGORY GRID ── */
+        .categories-section { background: #f5f0e8; padding: 70px 40px; }
+        .categories-inner { max-width: 1320px; margin: 0 auto; }
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
-        .btn-share:hover { background: rgba(17,24,39,0.95); }
-        @keyframes cardHighlight {
-            0%   { box-shadow: 0 0 0 4px #f0c040; }
-            70%  { box-shadow: 0 0 0 4px #f0c040; }
-            100% { box-shadow: 0 1px 7px rgba(0,0,0,0.07); }
+        .cat-card {
+            position: relative; border-radius: 4px;
+            overflow: hidden; aspect-ratio: 3/2;
+            cursor: pointer; text-decoration: none;
+            transition: transform 0.3s;
         }
-        .product-card.highlighted { animation: cardHighlight 2s ease forwards; }
+        .cat-card:hover { transform: translateY(-4px); }
+        .cat-card img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .cat-card:hover img { transform: scale(1.06); }
+        .cat-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.05) 55%);
+            display: flex; flex-direction: column;
+            align-items: flex-start; justify-content: flex-end;
+            padding: 24px;
+        }
+        .cat-name {
+            color: #fff; font-size: 1.1rem;
+            font-weight: 800; letter-spacing: 1px;
+            text-transform: uppercase; margin-bottom: 4px;
+        }
+        .cat-count { color: rgba(255,255,255,0.7); font-size: 0.72rem; margin-bottom: 12px; }
+        .cat-btn {
+            display: inline-block;
+            background: rgba(200,168,118,0.9);
+            color: #fff; font-size: 0.7rem;
+            font-weight: 700; padding: 6px 16px;
+            border-radius: 2px; letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: background 0.2s;
+        }
+        .cat-card:hover .cat-btn { background: #c8a876; }
 
-        /* ── SOLD OUT ── */
-        .sold-overlay {
-            display: none; position: absolute; inset: 0; z-index: 6;
-            background: rgba(0,0,0,0.55); align-items: center; justify-content: center;
+        /* ── SELL BANNER ── */
+        .sell-banner {
+            background: #1a1a1a; color: #fff;
+            padding: 80px 40px; text-align: center;
         }
-        .sold-overlay span {
-            background: #ef4444; color: #fff; font-size: 0.85rem; font-weight: 800;
-            padding: 6px 18px; border-radius: 20px; letter-spacing: 1.5px; text-transform: uppercase;
+        .sell-banner .sell-tag {
+            display: inline-block; background: #c8a876;
+            color: #fff; font-size: 0.68rem; font-weight: 700;
+            letter-spacing: 2.5px; text-transform: uppercase;
+            padding: 5px 14px; border-radius: 2px; margin-bottom: 20px;
         }
-        .product-card.sold .sold-overlay { display: flex; }
-        .product-card.sold .btn-add-cart,
-        .product-card.sold .btn-paypal,
-        .product-card.sold .btn-zelle { opacity: 0.35; pointer-events: none; cursor: default; }
-        .product-card.sold { opacity: 0.82; }
-
-        /* ── DESCRIPTION ── */
-        .product-desc { font-size: 0.78rem; color: #777; margin-bottom: 8px; line-height: 1.45; }
+        .sell-banner h2 {
+            font-size: 2.4rem; font-weight: 900;
+            margin-bottom: 14px; letter-spacing: -0.5px;
+        }
+        .sell-banner h2 span { color: #c8a876; }
+        .sell-banner p {
+            font-size: 0.95rem; opacity: 0.72;
+            max-width: 500px; margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+        .sell-steps {
+            display: flex; justify-content: center;
+            gap: 40px; flex-wrap: wrap; margin-bottom: 36px;
+        }
+        .sell-step { text-align: center; max-width: 120px; }
+        .sell-step .si { font-size: 1.8rem; margin-bottom: 8px; }
+        .sell-step h4 { font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; color: #c8a876; }
+        .sell-step p { font-size: 0.72rem; opacity: 0.65; line-height: 1.5; }
+        .btn-sell {
+            display: inline-block; background: #c8a876; color: #fff;
+            padding: 15px 38px; border-radius: 3px; font-weight: 700;
+            font-size: 0.82rem; text-decoration: none;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            transition: background 0.2s;
+        }
+        .btn-sell:hover { background: #b8986a; }
 
         /* ── HOW IT WORKS ── */
-        .how-section { background: #fff; padding: 52px 20px; border-top: 1px solid #e5e7eb; }
-        .how-steps { max-width: 840px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .how-card { background: #f9f9f9; border-radius: 13px; padding: 24px 18px; text-align: center; border: 1px solid #e5e7eb; }
-        .how-card .icon { font-size: 2rem; margin-bottom: 10px; }
-        .how-card h3 { font-size: 0.93rem; font-weight: 700; margin-bottom: 6px; }
-        .how-card p { font-size: 0.81rem; color: #666; line-height: 1.5; }
+        .how-section { background: #fff; padding: 70px 40px; }
+        .how-inner { max-width: 960px; margin: 0 auto; }
+        .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .how-card {
+            text-align: center; padding: 36px 24px;
+            border: 1px solid #e8e0d5; border-radius: 4px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .how-card:hover { border-color: #c8a876; transform: translateY(-3px); }
+        .how-num {
+            width: 48px; height: 48px;
+            background: #f5f0e8; color: #c8a876;
+            border-radius: 50%; font-size: 1.1rem;
+            font-weight: 900; display: flex;
+            align-items: center; justify-content: center;
+            margin: 0 auto 16px;
+        }
+        .how-card h3 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
+        .how-card p { font-size: 0.8rem; color: #7a6a5a; line-height: 1.65; }
 
-        /* ── PAYMENT INFO ── */
-        .payment-section { background: #f4f4f4; padding: 52px 20px; }
-        .payment-options { max-width: 680px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-        .payment-card {
-            background: #fff; border-radius: 13px; padding: 24px;
-            text-align: center; box-shadow: 0 1px 7px rgba(0,0,0,0.05);
-            border: 2px solid #e5e7eb; transition: border-color 0.2s;
+        /* ── PAYMENT ── */
+        .pay-section { background: #f5f0e8; padding: 60px 40px; }
+        .pay-inner { max-width: 760px; margin: 0 auto; }
+        .pay-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .pay-card {
+            background: #fff; border: 1.5px solid #e8e0d5;
+            border-radius: 4px; padding: 28px 20px;
+            text-align: center; transition: border-color 0.2s;
         }
-        .payment-card:hover { border-color: #c8971f; }
-        .payment-card .pay-icon { font-size: 2.4rem; margin-bottom: 9px; }
-        .payment-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 7px; }
-        .payment-card p { font-size: 0.82rem; color: #666; line-height: 1.55; }
-        .payment-email { font-weight: 700; color: #b8860b; font-size: 0.88rem; margin-top: 9px; }
+        .pay-card:hover { border-color: #c8a876; }
+        .pay-icon { font-size: 2rem; margin-bottom: 10px; }
+        .pay-card h3 { font-size: 0.88rem; font-weight: 700; margin-bottom: 5px; }
+        .pay-card p { font-size: 0.76rem; color: #7a6a5a; line-height: 1.55; }
 
-        /* ── SELL WITH US ── */
-        .sell-section {
-            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-            padding: 60px 20px; border-top: 3px solid #c8971f; border-bottom: 3px solid #c8971f;
+        /* ── NEWSLETTER ── */
+        .newsletter-section {
+            background: #1a1a1a; color: #fff;
+            padding: 55px 20px; text-align: center;
         }
-        .sell-inner { max-width: 900px; margin: 0 auto; }
-        .sell-header { text-align: center; margin-bottom: 34px; }
-        .sell-header .tag {
-            display: inline-block; background: rgba(200,151,31,0.2); color: #f0c040;
-            font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
-            padding: 4px 12px; border-radius: 20px; margin-bottom: 10px; text-transform: uppercase;
+        .newsletter-section h3 {
+            font-size: 1.4rem; font-weight: 800;
+            margin-bottom: 8px; letter-spacing: -0.3px;
         }
-        .sell-header h2 { font-size: 1.75rem; font-weight: 800; color: #fff; margin-bottom: 7px; }
-        .sell-header p { color: #9ca3af; font-size: 0.9rem; }
-
-        .sell-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: start; }
-        .sell-step { display: flex; gap: 14px; margin-bottom: 22px; }
-        .sell-step-num {
-            width: 32px; height: 32px; flex-shrink: 0;
-            background: linear-gradient(135deg, #b8860b, #f0c040);
-            color: #111; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: 0.85rem;
+        .newsletter-section p {
+            font-size: 0.85rem; opacity: 0.65;
+            margin-bottom: 22px;
         }
-        .sell-step-body h4 { color: #f0c040; font-size: 0.92rem; font-weight: 700; margin-bottom: 3px; }
-        .sell-step-body p { color: #9ca3af; font-size: 0.82rem; line-height: 1.5; }
-
-        .photo-info-box {
-            background: rgba(200,151,31,0.08);
-            border: 1px solid rgba(200,151,31,0.3);
-            border-radius: 11px; padding: 15px 16px; margin-top: 6px;
+        .newsletter-form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .newsletter-form input {
+            padding: 12px 20px; border: none;
+            border-radius: 3px; font-size: 0.85rem;
+            width: 280px; outline: none;
         }
-        .photo-info-box p { color: #d4a017; font-size: 0.82rem; line-height: 1.65; }
-        .photo-info-box strong { color: #f0c040; }
-        .photo-info-box a { color: #f0c040; }
-
-        .sell-approval-box {
-            background: rgba(22,163,74,0.1); border: 1px solid rgba(22,163,74,0.3);
-            border-radius: 11px; padding: 14px 16px; margin-top: 14px;
+        .newsletter-form button {
+            padding: 12px 28px; background: #c8a876;
+            color: #fff; border: none; border-radius: 3px;
+            font-size: 0.8rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px;
+            cursor: pointer; transition: background 0.2s;
         }
-        .sell-approval-box p { color: #86efac; font-size: 0.81rem; line-height: 1.6; }
-        .sell-approval-box strong { color: #4ade80; }
-
-        .sell-form {
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(200,151,31,0.25);
-            border-radius: 15px; padding: 26px 22px;
-        }
-        .sell-form h3 { color: #fff; font-size: 0.98rem; font-weight: 700; margin-bottom: 16px; }
-        .sell-form input,
-        .sell-form select,
-        .sell-form textarea {
-            width: 100%; padding: 9px 13px;
-            background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 8px; color: #fff; font-family: inherit;
-            font-size: 0.86rem; outline: none; margin-bottom: 10px; transition: border-color 0.2s;
-        }
-        .sell-form input::placeholder, .sell-form textarea::placeholder { color: #6b7280; }
-        .sell-form select { color: #9ca3af; }
-        .sell-form select option { color: #111; background: #fff; }
-        .sell-form input:focus, .sell-form select:focus, .sell-form textarea:focus { border-color: #c8971f; }
-        .sell-form textarea { resize: vertical; min-height: 80px; }
-        .sell-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
-        .sell-form button {
-            width: 100%; padding: 11px;
-            background: linear-gradient(135deg, #b8860b, #f0c040);
-            color: #111; border: none; border-radius: 8px;
-            font-weight: 700; font-size: 0.92rem; cursor: pointer;
-            transition: opacity 0.2s; margin-top: 2px;
-        }
-        .sell-form button:hover { opacity: 0.88; }
-        .sell-form .form-note { color: #6b7280; font-size: 0.73rem; margin-top: 8px; text-align: center; line-height: 1.5; }
-
-        /* ── CONTACT ── */
-        /* ── CONTACT MODAL ── */
-        .contact-overlay {
-            display: none; position: fixed; inset: 0; z-index: 500;
-            background: rgba(0,0,0,0.65); backdrop-filter: blur(3px);
-            align-items: center; justify-content: center; padding: 16px;
-        }
-        .contact-overlay.open { display: flex; }
-        .contact-modal {
-            background: #fff; border-radius: 16px; width: 100%; max-width: 500px;
-            padding: 32px 28px 28px; position: relative;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            animation: modalIn 0.22s ease;
-        }
-        @keyframes modalIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
-        .contact-modal-close {
-            position: absolute; top: 14px; right: 16px;
-            background: none; border: none; font-size: 1.5rem;
-            cursor: pointer; color: #888; line-height: 1;
-        }
-        .contact-modal-close:hover { color: #111; }
-        .contact-modal .section-header { margin-bottom: 20px; }
-        .contact-modal .section-header h2 { font-size: 1.4rem; }
-        .contact-inner { max-width: 660px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 28px; }
-        .section-header .tag {
-            display: inline-block; background: #fdf2d0; color: #92660a;
-            font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
-            padding: 4px 12px; border-radius: 20px; margin-bottom: 9px; text-transform: uppercase;
-        }
-        .section-header h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 6px; }
-        .section-header p { color: #666; font-size: 0.9rem; }
-
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
-        .contact-card { background: #f9f9f9; border-radius: 11px; padding: 18px; border: 1px solid #e5e7eb; text-align: center; }
-        .contact-card .c-icon { font-size: 1.7rem; margin-bottom: 7px; }
-        .contact-card h4 { font-size: 0.86rem; font-weight: 700; margin-bottom: 5px; }
-        .contact-card a { color: #b8860b; text-decoration: none; font-weight: 600; font-size: 0.83rem; word-break: break-all; }
-        .contact-card a:hover { text-decoration: underline; }
-        .contact-card p { font-size: 0.76rem; color: #888; margin-top: 3px; }
-
-        .contact-form { display: flex; flex-direction: column; gap: 11px; }
-        .contact-form input, .contact-form textarea {
-            width: 100%; padding: 10px 13px; border: 1.5px solid #e5e7eb;
-            border-radius: 8px; font-family: inherit; font-size: 0.88rem;
-            color: #1a1a1a; background: #fff; outline: none; transition: border-color 0.2s;
-        }
-        .contact-form input:focus, .contact-form textarea:focus { border-color: #c8971f; }
-        .contact-form textarea { resize: vertical; min-height: 95px; }
-        .contact-form button {
-            padding: 11px; background: linear-gradient(135deg, #b8860b, #f0c040);
-            color: #111; border: none; border-radius: 8px;
-            font-weight: 700; font-size: 0.92rem; cursor: pointer; transition: opacity 0.2s;
-        }
-        .contact-form button:hover { opacity: 0.88; }
+        .newsletter-form button:hover { background: #b8986a; }
 
         /* ── FOOTER ── */
-        footer {
-            background: #111827; color: #6b7280;
-            text-align: center; padding: 28px 20px; border-top: 3px solid #c8971f;
+        footer { background: #f5f0e8; border-top: 1px solid #e8ddd0; padding: 55px 40px 28px; }
+        .footer-grid {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px; margin-bottom: 40px;
         }
-        .footer-logo { font-size: 1.25rem; font-weight: 800; color: #f0c040; letter-spacing: 3px; margin-bottom: 8px; }
-        footer a { color: #f0c040; text-decoration: none; }
-        .footer-links { display: flex; justify-content: center; gap: 18px; margin: 8px 0; flex-wrap: wrap; }
-        .footer-links a { font-size: 0.8rem; color: #9ca3af; }
-        .footer-links a:hover { color: #f0c040; }
-        .footer-sub { font-size: 0.76rem; margin-top: 7px; }
+        .footer-brand .fn {
+            font-size: 18px; font-weight: 900;
+            letter-spacing: 4px; color: #1a1a1a;
+            display: block; margin-bottom: 12px;
+        }
+        .footer-brand p { font-size: 0.8rem; color: #7a6a5a; line-height: 1.7; max-width: 230px; }
+        .footer-social { display: flex; gap: 12px; margin-top: 16px; }
+        .footer-social a {
+            width: 34px; height: 34px;
+            background: #1a1a1a; color: #fff;
+            border-radius: 50%; display: flex;
+            align-items: center; justify-content: center;
+            font-size: 0.8rem; text-decoration: none;
+            transition: background 0.2s;
+        }
+        .footer-social a:hover { background: #c8a876; }
+        .footer-col h4 {
+            color: #1a1a1a; font-size: 0.72rem;
+            font-weight: 700; letter-spacing: 2px;
+            text-transform: uppercase; margin-bottom: 16px;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a {
+            color: #7a6a5a; text-decoration: none;
+            font-size: 0.8rem; transition: color 0.2s;
+        }
+        .footer-col ul li a:hover { color: #1a1a1a; }
+        .footer-bottom {
+            max-width: 1100px; margin: 0 auto;
+            border-top: 1px solid #e8ddd0; padding-top: 24px;
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 14px;
+        }
+        .footer-bottom p { font-size: 0.75rem; color: #9a8a78; }
+        .pay-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+        .pay-badge {
+            background: #fff; border: 1px solid #e8ddd0;
+            color: #7a6a5a; font-size: 0.65rem;
+            font-weight: 600; padding: 4px 10px; border-radius: 3px;
+        }
+
+        /* ── CART SIDEBAR ── */
+        .cart-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.5); z-index: 500;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s;
+        }
+        .cart-overlay.open { opacity: 1; pointer-events: all; }
+        .cart-side {
+            position: fixed; top: 0; right: -440px;
+            width: 400px; height: 100vh; background: #fff;
+            z-index: 600; display: flex; flex-direction: column;
+            transition: right 0.3s ease;
+            box-shadow: -4px 0 30px rgba(0,0,0,0.12);
+        }
+        .cart-side.open { right: 0; }
+        .cart-hd {
+            padding: 20px 24px; border-bottom: 1px solid #e8e0d5;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .cart-hd h3 { font-size: 0.88rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+        .cart-x { background: none; border: none; font-size: 1.3rem; cursor: pointer; color: #7a6a5a; }
+        .cart-body { flex: 1; overflow-y: auto; padding: 20px 24px; }
+        .cart-empty-msg { text-align: center; color: #9a8a78; padding: 50px 0; font-size: 0.85rem; }
+        .cart-item { display: flex; gap: 14px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #f0e8de; }
+        .ci-img { width: 72px; height: 72px; background: #f5f0e8; border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+        .ci-img img { width: 100%; height: 100%; object-fit: cover; }
+        .ci-info { flex: 1; }
+        .ci-name { font-size: 0.82rem; font-weight: 600; margin-bottom: 3px; }
+        .ci-price { font-size: 0.9rem; font-weight: 700; color: #c8a876; }
+        .ci-rm { background: none; border: none; color: #9ca3af; cursor: pointer; font-size: 0.72rem; margin-top: 5px; }
+        .cart-ft { padding: 20px 24px; border-top: 1px solid #e8e0d5; }
+        .cart-tot { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 16px; font-size: 0.9rem; }
+        .btn-pp {
+            display: block; width: 100%; background: #0070ba; color: white;
+            border: none; padding: 13px; border-radius: 3px;
+            font-size: 0.82rem; font-weight: 700; cursor: pointer;
+            text-align: center; text-decoration: none; margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .btn-ze {
+            display: block; width: 100%; background: #fff;
+            color: #6d1ed4; border: 1.5px solid #c8b8d8;
+            padding: 11px; border-radius: 3px; font-size: 0.82rem;
+            font-weight: 700; text-align: center; text-decoration: none;
+            letter-spacing: 0.5px;
+        }
 
         /* ── RESPONSIVE ── */
-        @media (max-width: 768px) {
-            .sell-layout { grid-template-columns: 1fr; }
-            .sell-form-row { grid-template-columns: 1fr; }
+        @media (max-width: 1100px) {
+            .products-grid { grid-template-columns: repeat(3, 1fr); }
         }
-        @media (max-width: 640px) {
-            .hero h1 { font-size: 1.65rem; }
-            .trust { gap: 10px; }
-            .how-steps, .payment-options, .contact-grid { grid-template-columns: 1fr; }
-            .header-nav { display: none; }
-            .search-bar { max-width: 100%; }
+        @media (max-width: 900px) {
+            header { padding: 0 20px; }
+            .hero { padding: 50px 30px; min-height: 380px; }
+            .hero h1 { font-size: 2.3rem; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+            .cat-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+            .how-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+            nav { display: none; }
+        }
+        @media (max-width: 560px) {
+            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .cat-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .pay-grid { grid-template-columns: 1fr; max-width: 280px; margin: 0 auto; }
+            .trust-bar { gap: 16px; }
+            .hero h1 { font-size: 1.9rem; }
+            .products-section, .categories-section, .how-section, .pay-section { padding: 50px 20px; }
         }
     </style>
 </head>
 <body>
 
-<!-- CART OVERLAY + SIDEBAR -->
-<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-<div class="cart-sidebar" id="cartSidebar">
-    <div class="cart-header-bar">
-        <h2>🛒 Your Cart</h2>
-        <button class="cart-close" onclick="closeCart()">✕</button>
-    </div>
-    <div class="cart-items" id="cartItems">
-        <div class="cart-empty">
-            <div class="ce-icon">🛒</div>
-            <p>Your cart is empty.<br>Browse items and add them here!</p>
-        </div>
-    </div>
-    <div class="cart-footer" id="cartFooter" style="display:none">
-        <div class="cart-total">
-            <span>Total</span>
-            <span class="total-amt" id="cartTotal">$0.00</span>
-        </div>
-        <button class="btn-proceed" id="btnProceed" onclick="showPaymentPicker()">Proceed to Checkout →</button>
-        <div class="payment-picker" id="paymentPicker">
-            <p class="pay-pick-label">How would you like to pay?</p>
-            <button class="btn-checkout-apple" id="applePayBtn" onclick="checkoutApplePay()"> Apple Pay</button>
-            <button class="btn-checkout-card" onclick="checkoutApplePay()">💳 Visa / Mastercard / Card</button>
-            <button class="btn-checkout-paypal" onclick="checkoutPayPal()">🅿️ PayPal</button>
-            <a href="#" class="btn-checkout-zelle" id="zelleCheckoutBtn" onclick="checkoutZelle(event)">⚡ Zelle</a>
-            <button class="btn-back-cart" onclick="hidePaymentPicker()">← Back</button>
-        </div>
-    </div>
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar">
+    Free Shipping on Orders $75+ &nbsp;·&nbsp; All Items Inspected &nbsp;·&nbsp; Free to List
+    <a href="sell.html">Sell With Us →</a>
 </div>
 
 <!-- HEADER -->
@@ -597,802 +566,339 @@
     <div class="header-top">
         <a href="index.html" class="logo">
             <div class="logo-icon">K</div>
-            <span class="logo-text">KLTUF</span>
+            <div>
+                <span class="logo-name">KLTUF</span>
+                <span class="logo-sub">Quality Finds</span>
+            </div>
         </a>
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search items..." oninput="filterProducts()">
-            <button onclick="filterProducts()">Search</button>
+
+        <nav>
+            <a href="#products" class="active">Shop All</a>
+            <a href="#categories">Home</a>
+            <a href="#categories">Women</a>
+            <a href="#categories">Men</a>
+            <a href="#categories">Kids</a>
+            <a href="#categories">Spices</a>
+            <a href="#categories">Habesha</a>
+            <a href="sell.html" class="sell-link">Sell With Us</a>
+        </nav>
+
+        <div class="header-icons">
+            <div class="social-icons">
+                <a href="#" title="Facebook">f</a>
+                <a href="#" title="Instagram">ig</a>
+                <a href="#" title="TikTok">tt</a>
+            </div>
+            <a href="mailto:freta@kltuf.com" title="Contact">✉</a>
+            <a href="#" onclick="openCart();return false;" title="Cart">
+                🛒<span class="cart-count" id="cart-count">0</span>
+            </a>
         </div>
-        <div class="header-right">
-            <nav class="header-nav">
-                <a href="#products">Shop</a>
-                <a href="listings.html">Homes &amp; Rentals</a>
-                <a href="#payment">Payment</a>
-                <a href="#" onclick="openContact();return false;">Contact</a>
-                <a href="#sell" class="sell-link">+ Sell Item</a>
-            </nav>
-            <button class="cart-btn" onclick="openCart()">
-                🛒 Cart
-                <span class="cart-count" id="cartCount">0</span>
-            </button>
-        </div>
-    </div>
-    <div class="cat-nav">
-        <button class="cat-nav-item active" onclick="filterCat('all',this)">🏠 All Items</button>
-        <button class="cat-nav-item" onclick="filterCat('electronics',this)">📱 Electronics</button>
-        <button class="cat-nav-item" onclick="filterCat('toys',this)">🧸 Toys &amp; Kids</button>
-        <button class="cat-nav-item" onclick="filterCat('home',this)">🏡 Home &amp; Garden</button>
-        <button class="cat-nav-item" onclick="filterCat('clothing',this)">👕 Clothing</button>
-        <button class="cat-nav-item" onclick="filterCat('sports',this)">⚽ Sports</button>
-        <button class="cat-nav-item" onclick="filterCat('other',this)">📦 Other</button>
-        <button class="cat-nav-item" onclick="filterCat('sold',this)">🚫 Sold Out</button>
-    </div>
-    <div class="subcat-row" id="subcat-clothing">
-        <span style="font-size:0.72rem;color:#6b7280;align-self:center;margin-right:2px;">Style:</span>
-        <button class="subcat-btn active" id="subcat-btn-all" onclick="filterSubcat('clothing',this)">All Clothing</button>
-        <button class="subcat-btn" id="subcat-btn-zuria" onclick="filterSubcat('zuria',this)">👗 Zuria</button>
-        <button class="subcat-btn" id="subcat-btn-chiffon" onclick="filterSubcat('chiffon',this)">🌸 Chiffon</button>
     </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-badge">✦ Trusted Resale Marketplace</div>
-    <h1>Buy &amp; Sell <span>Quality Items</span></h1>
-    <p>Every listing is inspected and verified before going live</p>
+    <div class="hero-content">
+        <div class="hero-tag">New Arrivals Weekly</div>
+        <h1>Quality Finds,<br><span>Unbeatable</span><br>Prices.</h1>
+        <p>Handpicked pre-owned items across all categories — inspected, priced right, and shipped fast nationwide.</p>
+        <div class="hero-btns">
+            <a href="#products" class="btn-dark">Shop Now</a>
+            <a href="sell.html" class="btn-gold">Sell With Us</a>
+        </div>
+    </div>
 </section>
 
 <!-- TRUST BAR -->
-<div class="trust">
-    <div class="trust-item">✅ Verified Listings</div>
-    <div class="trust-item">🚚 Fast Shipping</div>
-    <div class="trust-item">💬 Quick Response</div>
+<div class="trust-bar">
+    <div class="trust-item">✓ Verified Seller</div>
+    <div class="trust-item">✈ Fast Nationwide Shipping</div>
     <div class="trust-item">🔒 Secure Payments</div>
-    <div class="trust-item">🛒 Cart Checkout</div>
-    <div class="trust-item">💰 Sell With Us</div>
+    <div class="trust-item">✓ All Items Inspected</div>
+    <div class="trust-item">💬 Quick Response</div>
 </div>
-
-<!-- CATEGORY CARDS -->
-<section class="categories-section">
-    <h2>Browse by Category</h2>
-    <div class="categories-grid">
-        <div class="cat-card active" id="cat-all" onclick="filterCat('all',null,'cat-all')"><div class="cat-icon">🏠</div><div class="cat-name">All Items</div></div>
-        <div class="cat-card" id="cat-electronics" onclick="filterCat('electronics',null,'cat-electronics')"><div class="cat-icon">📱</div><div class="cat-name">Electronics</div></div>
-        <div class="cat-card" id="cat-toys" onclick="filterCat('toys',null,'cat-toys')"><div class="cat-icon">🧸</div><div class="cat-name">Toys &amp; Kids</div></div>
-        <div class="cat-card" id="cat-home" onclick="filterCat('home',null,'cat-home')"><div class="cat-icon">🏡</div><div class="cat-name">Home &amp; Garden</div></div>
-        <div class="cat-card" id="cat-clothing" onclick="filterCat('clothing',null,'cat-clothing')"><div class="cat-icon">👕</div><div class="cat-name">Clothing</div></div>
-        <div class="cat-card" id="cat-sports" onclick="filterCat('sports',null,'cat-sports')"><div class="cat-icon">⚽</div><div class="cat-name">Sports</div></div>
-        <div class="cat-card" id="cat-other" onclick="filterCat('other',null,'cat-other')"><div class="cat-icon">📦</div><div class="cat-name">Other</div></div>
-        <div class="cat-card" id="cat-sold" onclick="filterCat('sold',null,'cat-sold')"><div class="cat-icon">🚫</div><div class="cat-name">Sold Out</div></div>
-    </div>
-</section>
 
 <!-- PRODUCTS -->
 <section class="products-section" id="products">
-    <div class="products-top">
-        <div>
-            <div class="products-title" id="products-title">All Items</div>
-            <div class="products-count" id="products-count">0 listings</div>
-        </div>
-    </div>
-    <div class="products-grid" id="productsGrid">
-
-
-        <!-- ═══ ADD MORE PRODUCTS BELOW — copy block above, update data-cat, data-title, id, price ═══ -->
-
-        <!-- SOFA -->
-        <div class="product-card" id="sofa-likenew" data-cat="home" data-sold="false" data-title="sofa couch sectional furniture living room like new">
-            <div style="position:relative;">
-                <span class="cat-badge" style="position:absolute;top:9px;left:9px;z-index:4;">🏡 Home</span>
-                <button class="btn-share" style="position:absolute;top:9px;right:9px;z-index:4;" onclick="shareItem('sofa-likenew',event)">🔗 Copy Link</button>
-                <div class="sold-overlay"><span>Sold Out</span></div>
-                <div class="carousel" id="c-sofa">
-                    <div class="carousel-track" id="ct-sofa">
-                        <img src="https://i.ibb.co/5gj10rLM/IMG-0992-jpeg.jpg" alt="Sofa 1">
-                        <img src="https://i.ibb.co/cz67ZGZ/IMG-0991-jpeg.jpg" alt="Sofa 2">
-                        <img src="https://i.ibb.co/RkmfbtS3/IMG-0989-jpeg.jpg" alt="Sofa 3">
-                    </div>
-                    <button class="carousel-btn prev" onclick="slideCarousel('sofa',-1)">&#8249;</button>
-                    <button class="carousel-btn next" onclick="slideCarousel('sofa',1)">&#8250;</button>
-                    <div class="carousel-dots" id="cd-sofa">
-                        <span class="active" onclick="goSlide('sofa',0)"></span>
-                        <span onclick="goSlide('sofa',1)"></span>
-                        <span onclick="goSlide('sofa',2)"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="product-info">
-                <div class="product-meta">
-                    <span class="product-condition likenew">✨ Like New</span>
-                </div>
-                <div class="product-title">Sofa</div>
-                <div class="product-desc">Only used 6 months — like new condition, great for any living room.</div>
-                <div class="product-shipping">🚚 Local pickup / shipping available</div>
-                <div class="product-price">$450.00</div>
-                <button class="btn-add-cart" onclick="addToCart(this,'sofa-likenew','Sofa',450,'https://i.ibb.co/5gj10rLM/IMG-0992-jpeg.jpg')">🛒 Add to Cart</button>
-                <div class="buy-direct">
-                    <button class="btn-paypal" onclick="buyPayPal('Sofa',450)">💳 PayPal</button>
-                    <a class="btn-zelle" href="payment.html?item=Sofa&price=450">💜 Zelle</a>
-                </div>
-            </div>
+    <div class="products-inner">
+        <div class="sec-head">
+            <div class="sec-tag">Available Now</div>
+            <h2>Shop All Items</h2>
+            <p>Every item personally inspected and ready to ship</p>
         </div>
 
-        <!-- TODDLER CAR -->
-        <div class="product-card sold" id="toddler-car" data-cat="toys" data-sold="true" data-title="toddler car ride on toy kids push car children">
-            <div style="position:relative;">
-                <span class="cat-badge" style="position:absolute;top:9px;left:9px;z-index:4;">🧸 Toys</span>
-                <button class="btn-share" style="position:absolute;top:9px;right:9px;z-index:4;" onclick="shareItem('toddler-car',event)">🔗 Copy Link</button>
-                <div class="sold-overlay"><span>Sold Out</span></div>
-                <div class="carousel" id="c-toddler-car">
-                    <div class="carousel-track" id="ct-toddler-car">
-                        <img src="https://i.ibb.co/bMLBg98Z/IMG-1221-jpeg.jpg" alt="Toddler Car 1">
-                        <img src="https://i.ibb.co/7tGk8Ww5/IMG-1220-png.png" alt="Toddler Car 2">
-                    </div>
-                    <button class="carousel-btn prev" onclick="slideCarousel('toddler-car',-1)">&#8249;</button>
-                    <button class="carousel-btn next" onclick="slideCarousel('toddler-car',1)">&#8250;</button>
-                    <div class="carousel-dots" id="cd-toddler-car">
-                        <span class="active" onclick="goSlide('toddler-car',0)"></span>
-                        <span onclick="goSlide('toddler-car',1)"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="product-info">
-                <div class="product-meta">
-                    <span class="product-condition">👍 Good</span>
-                </div>
-                <div class="product-title">Toddler Car</div>
-                <div class="product-desc">Fun ride-on push car, used and in good shape — great for toddlers ages 1-3.</div>
-                <div class="product-shipping">🚚 Local pickup / shipping available</div>
-                <div class="product-price">$20.00</div>
-                <button class="btn-add-cart" onclick="addToCart(this,'toddler-car','Toddler Car',20,'https://i.ibb.co/bMLBg98Z/IMG-1221-jpeg.jpg')">🛒 Add to Cart</button>
-                <div class="buy-direct">
-                    <button class="btn-paypal" onclick="buyPayPal('Toddler Car',20)">💳 PayPal</button>
-                    <a class="btn-zelle" href="payment.html?item=Toddler+Car&price=20">💜 Zelle</a>
-                </div>
-            </div>
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterCat('all')">All Items</button>
+            <button class="filter-btn" onclick="filterCat('home')">Home</button>
+            <button class="filter-btn" onclick="filterCat('women')">Women</button>
+            <button class="filter-btn" onclick="filterCat('men')">Men</button>
+            <button class="filter-btn" onclick="filterCat('kids')">Kids</button>
+            <button class="filter-btn" onclick="filterCat('spices')">Spices</button>
+            <button class="filter-btn" onclick="filterCat('habesha')">Habesha</button>
         </div>
 
+        <div class="products-grid" id="products-grid">
+
+            <!-- ═══ ADD MORE PRODUCTS BELOW ═══ -->
+
+        </div>
     </div>
-    <div class="no-results" id="noResults">
-        <div class="nr-icon">🔍</div>
-        <p>No items in this category yet.<br>Check back soon — new listings added regularly!</p>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories-section" id="categories">
+    <div class="categories-inner">
+        <div class="sec-head">
+            <div class="sec-tag">Browse</div>
+            <h2>Shop by Category</h2>
+            <p>From everyday essentials to cultural treasures</p>
+        </div>
+        <div class="cat-grid">
+
+            <a class="cat-card" href="#products" onclick="filterCat('home')">
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" alt="Home">
+                <div class="cat-overlay">
+                    <div class="cat-name">Home</div>
+                    <div class="cat-count">Furniture · Décor · Appliances</div>
+                    <span class="cat-btn">Shop Now</span>
+                </div>
+            </a>
+
+            <a class="cat-card" href="#products" onclick="filterCat('women')">
+                <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=800&q=80" alt="Women">
+                <div class="cat-overlay">
+                    <div class="cat-name">Women</div>
+                    <div class="cat-count">Clothing · Bags · Accessories</div>
+                    <span class="cat-btn">Shop Now</span>
+                </div>
+            </a>
+
+            <a class="cat-card" href="#products" onclick="filterCat('men')">
+                <img src="https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&w=800&q=80" alt="Men">
+                <div class="cat-overlay">
+                    <div class="cat-name">Men</div>
+                    <div class="cat-count">Clothing · Shoes · Accessories</div>
+                    <span class="cat-btn">Shop Now</span>
+                </div>
+            </a>
+
+            <a class="cat-card" href="#products" onclick="filterCat('kids')">
+                <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80" alt="Kids">
+                <div class="cat-overlay">
+                    <div class="cat-name">Kids</div>
+                    <div class="cat-count">Toys · Clothing · Gear</div>
+                    <span class="cat-btn">Shop Now</span>
+                </div>
+            </a>
+
+            <a class="cat-card" href="#products" onclick="filterCat('spices')">
+                <img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?auto=format&fit=crop&w=800&q=80" alt="Spices">
+                <div class="cat-overlay">
+                    <div class="cat-name">Spices</div>
+                    <div class="cat-count">Authentic · Fresh · Imported</div>
+                    <span class="cat-btn">Shop Now</span>
+                </div>
+            </a>
+
+            <a class="cat-card" href="#products" onclick="filterCat('habesha')">
+                <img src="https://images.unsplash.com/photo-1529448005898-b19fc13465b7?auto=format&fit=crop&w=800&q=80" alt="Habesha">
+                <div class="cat-overlay">
+                    <div class="cat-name">Habesha Items</div>
+                    <div class="cat-count">Traditional · Cultural · Handmade</div>
+                    <span class="cat-btn">Shop Now</span>
+                </div>
+            </a>
+
+        </div>
     </div>
+</section>
+
+<!-- SELL BANNER -->
+<section class="sell-banner">
+    <div class="sell-tag">Now Open to Sellers</div>
+    <h2>Turn Your Items <span>Into Cash</span></h2>
+    <p>List anything — clothing, habesha items, electronics. We verify, list, sell, and pay you out fast.</p>
+    <div class="sell-steps">
+        <div class="sell-step"><div class="si">📸</div><h4>Submit</h4><p>Photos + details of your item</p></div>
+        <div class="sell-step"><div class="si">🔍</div><h4>We Verify</h4><p>Review &amp; approve within 24h</p></div>
+        <div class="sell-step"><div class="si">🛒</div><h4>Goes Live</h4><p>Listed on kltuf.com</p></div>
+        <div class="sell-step"><div class="si">💰</div><h4>You Get Paid</h4><p>Via Zelle or PayPal</p></div>
+    </div>
+    <a href="sell.html" class="btn-sell">Start Selling Free →</a>
 </section>
 
 <!-- HOW IT WORKS -->
 <section class="how-section" id="how">
-    <div class="section-header">
-        <div class="tag">How to Buy</div>
-        <h2>Simple &amp; Fast</h2>
-        <p>From browsing to doorstep in a few easy steps</p>
-    </div>
-    <div class="how-steps">
-        <div class="how-card"><div class="icon">🛍️</div><h3>1. Browse &amp; Add to Cart</h3><p>Search or filter by category. Add items to your cart or buy directly.</p></div>
-        <div class="how-card"><div class="icon">💳</div><h3>2. Pay Securely</h3><p>Checkout with PayPal, credit card, or Zelle. Confirmed within 30 minutes.</p></div>
-        <div class="how-card"><div class="icon">📦</div><h3>3. Fast Shipping</h3><p>Ships within 1–2 business days with tracking number provided.</p></div>
-    </div>
-</section>
-
-<!-- PAYMENT INFO -->
-<section class="payment-section" id="payment">
-    <div class="section-header">
-        <div class="tag">Payment Options</div>
-        <h2>We Accept</h2>
-        <p>Secure, flexible payment methods</p>
-    </div>
-    <div class="payment-options">
-        <div class="payment-card">
-            <div class="pay-icon">💳</div>
-            <h3>PayPal / Credit Card</h3>
-            <p>Pay with PayPal balance, bank account, or any credit/debit card. No PayPal account required.</p>
+    <div class="how-inner">
+        <div class="sec-head">
+            <div class="sec-tag">Simple Process</div>
+            <h2>How It Works</h2>
         </div>
-        <div class="payment-card">
-            <div class="pay-icon">⚡</div>
-            <h3>Zelle</h3>
-            <p>Instant free bank transfer. Click Zelle on any item or at cart checkout for instructions.</p>
-        </div>
-    </div>
-</section>
-
-<!-- SELL WITH US -->
-<section class="sell-section" id="sell">
-    <div class="sell-inner">
-        <div class="sell-header">
-            <div class="tag">✦ For Sellers</div>
-            <h2>Sell Your Item With Us</h2>
-            <p>Submit your item — we review, list, and handle the sale. You just get paid.</p>
-        </div>
-        <div class="sell-layout">
-            <div>
-                <div class="sell-step">
-                    <div class="sell-step-num">1</div>
-                    <div class="sell-step-body">
-                        <h4>Fill Out the Form</h4>
-                        <p>Enter item details — title, category, condition, and your asking price.</p>
-                    </div>
-                </div>
-                <div class="sell-step">
-                    <div class="sell-step-num">2</div>
-                    <div class="sell-step-body">
-                        <h4>We Review &amp; Approve</h4>
-                        <p>Every item is reviewed within 24 hours. We verify condition and price before listing.</p>
-                    </div>
-                </div>
-                <div class="sell-step">
-                    <div class="sell-step-num">3</div>
-                    <div class="sell-step-body">
-                        <h4>You Get Paid Fast</h4>
-                        <p>Once sold, payout via Zelle, Venmo, PayPal, or Telebirr within 24 hours. KLTUF keeps a <strong style="color:#f0c040">15% commission</strong> — you receive 85% of the sale price.</p>
-                    </div>
-                </div>
-
-
-                <div class="photo-info-box">
-                    <p>📸 <strong>Photo tips for faster approval:</strong><br>
-                    • Take photos in good natural lighting<br>
-                    • Include all sides and any damage<br>
-                    • Include original box/accessories if available</p>
-                </div>
-                <div class="sell-approval-box">
-                    <p>🔒 <strong>Verified listings only.</strong> All items are inspected and approved before going live. This protects buyers and builds trust for your listing.</p>
-                </div>
+        <div class="how-grid">
+            <div class="how-card">
+                <div class="how-num">1</div>
+                <h3>Pick an Item</h3>
+                <p>Browse by category or scroll all items. New products added regularly.</p>
             </div>
-            <div>
-                <form class="sell-form" id="sellForm"
-                      action="https://formspree.io/f/xojyejgd"
-                      method="POST">
-                    <h3>📋 Submit Your Item</h3>
-                    <div class="sell-form-row">
-                        <input type="text" name="seller_name" placeholder="Your Name" required>
-                        <input type="text" name="seller_contact" placeholder="Phone or Email" required>
-                    </div>
-                    <input type="text" name="item_title" placeholder="Item Title (e.g. iPhone 13, Air Jordan Size 10)" required>
-                    <select name="category" required>
-                        <option value="" disabled selected>Select Category</option>
-                        <option>📱 Electronics</option>
-                        <option>🧸 Toys &amp; Kids</option>
-                        <option>🏡 Home &amp; Garden</option>
-                        <option>👕 Clothing &amp; Shoes</option>
-                        <option>⚽ Sports &amp; Outdoors</option>
-                        <option>📦 Other</option>
-                    </select>
-                    <select name="condition" required>
-                        <option value="" disabled selected>Item Condition</option>
-                        <option>✨ Like New</option>
-                        <option>👍 Good</option>
-                        <option>⚠️ Fair / Some Wear</option>
-                    </select>
-                    <input type="text" name="asking_price" placeholder="Your Asking Price (e.g. $50)">
-                    <textarea name="description" placeholder="Describe the item — brand, age, any issues, what's included..."></textarea>
-                    <label style="color:#9ca3af;font-size:0.82rem;display:block;margin-bottom:6px">
-                        📸 Upload Photos (up to 5 images)
-                    </label>
-                    <input type="file" id="photoInput" accept="image/*" multiple
-                           style="color:#d1d5db;padding:8px 0;margin-bottom:6px"
-                           onchange="uploadPhotos(this)">
-                    <div id="photoStatus" style="font-size:0.78rem;margin-bottom:6px;min-height:18px;"></div>
-                    <div id="photoPreviews" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;"></div>
-                    <textarea name="photo_urls" id="photoUrls" style="display:none"></textarea>
-                    <select name="payout_method" required onchange="updatePayoutLabel(this)">
-                        <option value="" disabled selected>💰 How do you want to get paid?</option>
-                        <option value="Zelle">⚡ Zelle</option>
-                        <option value="Venmo">💜 Venmo</option>
-                        <option value="PayPal">💳 PayPal</option>
-                        <option value="Telebirr">🇪🇹 Telebirr (Ethiopia)</option>
-                    </select>
-                    <input type="text" name="payout_account" id="payoutAccount" placeholder="Your Zelle / Venmo / PayPal email or username" required>
-                    <input type="hidden" name="_subject" value="New Seller Submission — KLTUF Store">
-                    <label style="display:flex;align-items:flex-start;gap:10px;background:rgba(240,192,64,0.08);border:1px solid rgba(240,192,64,0.25);border-radius:8px;padding:12px;cursor:pointer;margin-bottom:4px">
-                        <input type="checkbox" name="commission_agreed" value="Yes — I agree to 15% commission" required
-                               style="margin-top:3px;flex-shrink:0;accent-color:#f0c040;width:16px;height:16px">
-                        <span style="color:#d1d5db;font-size:0.82rem;line-height:1.55">
-                            I understand that KLTUF Store retains a <strong style="color:#f0c040">15% commission</strong> on the final sale price. I will receive <strong style="color:#f0c040">85%</strong> of the amount my item sells for, paid out within 24 hours via my chosen method.
-                        </span>
-                    </label>
-                    <button type="submit" id="sellSubmitBtn">Submit for Review →</button>
-                    <p class="form-note">Photos upload directly · We review within 24 hours · You'll hear back at your contact info</p>
-                </form>
-                <div id="sellSuccess" style="display:none;text-align:center;padding:28px 16px;color:#f0c040;">
-                    <div style="font-size:2.5rem;margin-bottom:12px">✅</div>
-                    <h3 style="color:#f0c040;font-size:1.1rem;margin-bottom:8px">Submission Received!</h3>
-                    <p style="color:#9ca3af;font-size:0.88rem;line-height:1.6">Thank you! We'll review your item within 24 hours and get back to you at your contact info.</p>
-                </div>
+            <div class="how-card">
+                <div class="how-num">2</div>
+                <h3>Pay Securely</h3>
+                <p>PayPal, credit card, Zelle, or Venmo. Confirmed within minutes.</p>
+            </div>
+            <div class="how-card">
+                <div class="how-num">3</div>
+                <h3>Fast Shipping</h3>
+                <p>Ships within 1–2 business days with full tracking provided.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CONTACT -->
-<!-- CONTACT MODAL -->
-<div class="contact-overlay" id="contactOverlay" onclick="if(event.target===this)closeContact()">
-    <div class="contact-modal">
-        <button class="contact-modal-close" onclick="closeContact()">&#10005;</button>
-        <div class="section-header">
-            <div class="tag">Get In Touch</div>
-            <h2>Contact Us</h2>
-            <p>Questions about an item, order, or selling? We respond within 30 minutes.</p>
+<!-- PAYMENT -->
+<section class="pay-section" id="payment">
+    <div class="pay-inner">
+        <div class="sec-head">
+            <div class="sec-tag">Checkout</div>
+            <h2>Payment Methods</h2>
         </div>
-        <form class="contact-form" id="contactForm">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="text" name="subject" placeholder="Subject">
-            <textarea name="message" placeholder="Your message..."></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <div id="contactSuccess" style="display:none;text-align:center;padding:18px 0;color:#f0c040;font-size:1.1rem;font-weight:600;">
-            ✅ Message sent! We'll get back to you soon.
+        <div class="pay-grid">
+            <div class="pay-card"><div class="pay-icon">💳</div><h3>PayPal / Card</h3><p>Any credit or debit card. No PayPal account needed.</p></div>
+            <div class="pay-card"><div class="pay-icon">⚡</div><h3>Zelle</h3><p>Instant free bank transfer. Include item name in your note.</p></div>
+            <div class="pay-card"><div class="pay-icon">💵</div><h3>Venmo</h3><p>Quick and easy. We confirm right away.</p></div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- ABOUT KLTUF -->
-<section style="background:#fff;padding:52px 20px;border-top:1px solid #e5e7eb;">
-    <div style="max-width:820px;margin:0 auto;text-align:center;">
-        <div style="display:inline-block;background:#fdf2d0;color:#92660a;font-size:0.7rem;font-weight:700;letter-spacing:2px;padding:4px 12px;border-radius:20px;margin-bottom:12px;text-transform:uppercase;">About KLTUF</div>
-        <h2 style="font-size:1.65rem;font-weight:800;margin-bottom:14px;">Your Community Marketplace</h2>
-        <p style="font-size:0.95rem;color:#555;line-height:1.8;max-width:700px;margin:0 auto 24px;">
-            KLTUF is a trusted community platform where you can <strong>buy and sell new or used items</strong> — electronics, clothing, toys, home goods, and more — and also <strong>find or list real estate and rentals</strong>: houses, apartments, rooms, and commercial spaces, locally and globally.
-        </p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:16px;margin-top:10px;">
-            <div style="background:#f9f9f9;border-radius:13px;padding:20px 14px;border:1px solid #e5e7eb;">
-                <div style="font-size:1.8rem;margin-bottom:8px;">🛒</div>
-                <h4 style="font-size:0.88rem;font-weight:700;margin-bottom:5px;">Buy &amp; Sell</h4>
-                <p style="font-size:0.78rem;color:#666;line-height:1.5;">New and second-hand items. Every listing verified. Sell and get paid within 24 hours.</p>
-            </div>
-            <div style="background:#f9f9f9;border-radius:13px;padding:20px 14px;border:1px solid #e5e7eb;">
-                <div style="font-size:1.8rem;margin-bottom:8px;">🏠</div>
-                <h4 style="font-size:0.88rem;font-weight:700;margin-bottom:5px;">Real Estate &amp; Rentals</h4>
-                <p style="font-size:0.78rem;color:#666;line-height:1.5;">Houses, apartments, rooms, and land — for rent or for sale, across the US and worldwide.</p>
-            </div>
-            <div style="background:#f9f9f9;border-radius:13px;padding:20px 14px;border:1px solid #e5e7eb;">
-                <div style="font-size:1.8rem;margin-bottom:8px;">🌍</div>
-                <h4 style="font-size:0.88rem;font-weight:700;margin-bottom:5px;">Connect People</h4>
-                <p style="font-size:0.78rem;color:#666;line-height:1.5;">Bridging local communities and the diaspora — buyers, sellers, landlords, and renters in one place.</p>
-            </div>
-            <div style="background:#f9f9f9;border-radius:13px;padding:20px 14px;border:1px solid #e5e7eb;">
-                <div style="font-size:1.8rem;margin-bottom:8px;">🔒</div>
-                <h4 style="font-size:0.88rem;font-weight:700;margin-bottom:5px;">Trusted &amp; Safe</h4>
-                <p style="font-size:0.78rem;color:#666;line-height:1.5;">All items and listings reviewed before going live. Secure payments via PayPal and Zelle.</p>
-            </div>
-        </div>
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+    <h3>Stay in the Loop</h3>
+    <p>Get notified when new items drop. No spam, ever.</p>
+    <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email address">
+        <button type="button">Subscribe</button>
     </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <div class="footer-logo">KLTUF</div>
-    <div class="footer-links">
-        <a href="#products">Shop</a>
-        <a href="listings.html">Homes &amp; Rentals</a>
-        <a href="#sell">Sell With Us</a>
-        <a href="#payment">Payment Info</a>
-        <a href="#" onclick="openContact();return false;">Contact</a>
-        <a href="policies.html">Privacy &amp; Policies</a>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <span class="fn">KLTUF</span>
+            <p>Quality pre-owned items across all categories. Inspected, verified, and shipped fast. Anyone can sell with us.</p>
+            <div class="footer-social">
+                <a href="#">f</a>
+                <a href="#">ig</a>
+                <a href="#">tt</a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Shop</h4>
+            <ul>
+                <li><a href="#products" onclick="filterCat('all')">All Items</a></li>
+                <li><a href="#products" onclick="filterCat('home')">Home</a></li>
+                <li><a href="#products" onclick="filterCat('women')">Women</a></li>
+                <li><a href="#products" onclick="filterCat('men')">Men</a></li>
+                <li><a href="#products" onclick="filterCat('kids')">Kids</a></li>
+                <li><a href="#products" onclick="filterCat('spices')">Spices</a></li>
+                <li><a href="#products" onclick="filterCat('habesha')">Habesha Items</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Sell</h4>
+            <ul>
+                <li><a href="sell.html">Start Selling</a></li>
+                <li><a href="sell.html#how">How It Works</a></li>
+                <li><a href="sell.html#fees">Commission</a></li>
+                <li><a href="sell.html#faq">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <ul>
+                <li><a href="mailto:freta@kltuf.com">Contact Us</a></li>
+                <li><a href="payment.html">Payment Info</a></li>
+                <li><a href="#how">Shipping Info</a></li>
+            </ul>
+        </div>
     </div>
-    <p class="footer-sub">© 2026 KLTUF · kltuf.com · Your trusted community marketplace for goods, rentals &amp; real estate.</p>
-    <p class="footer-sub" style="margin-top:6px;">
-        <a href="policies.html#privacy" style="color:#888;font-size:0.78rem;">Privacy Policy</a> ·
-        <a href="policies.html#terms" style="color:#888;font-size:0.78rem;">Terms of Service</a> ·
-        <a href="policies.html#refunds" style="color:#888;font-size:0.78rem;">Refund Policy</a>
-    </p>
+    <div class="footer-bottom">
+        <p>© 2026 KLTUF Store · kltuf.com · All items personally inspected.</p>
+        <div class="pay-badges">
+            <span class="pay-badge">PayPal</span>
+            <span class="pay-badge">Zelle</span>
+            <span class="pay-badge">Venmo</span>
+            <span class="pay-badge">Visa</span>
+            <span class="pay-badge">Mastercard</span>
+        </div>
+    </div>
 </footer>
 
-<script>
-/* ── CATEGORY FILTER ── */
-var currentCat = 'all';
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-side" id="cart-side">
+    <div class="cart-hd">
+        <h3>Your Cart (<span id="cart-count2">0</span>)</h3>
+        <button class="cart-x" onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-body" id="cart-body">
+        <div class="cart-empty-msg">Your cart is empty</div>
+    </div>
+    <div class="cart-ft" id="cart-ft" style="display:none">
+        <div class="cart-tot"><span>Total</span><span id="cart-total">$0.00</span></div>
+        <a href="#" class="btn-pp" id="paypal-checkout" target="_blank">💳 Checkout with PayPal</a>
+        <a href="payment.html" class="btn-ze">⚡ Pay with Zelle</a>
+    </div>
+</div>
 
-function filterCat(cat, navBtn, cardId) {
-    currentCat = cat;
-    document.querySelectorAll('.cat-nav-item').forEach(function(b){ b.classList.remove('active'); });
-    if (navBtn) { navBtn.classList.add('active'); }
-    else {
-        document.querySelectorAll('.cat-nav-item').forEach(function(b){
-            if (b.textContent.toLowerCase().indexOf(cat === 'all' ? 'all' : cat) !== -1) b.classList.add('active');
+<script>
+    function switchImg(mainId, src, thumbEl, thumbsId) {
+        const mainImg = document.getElementById(mainId);
+        mainImg.style.opacity = '0';
+        setTimeout(() => { mainImg.src = src; mainImg.style.opacity = '1'; }, 150);
+        document.querySelectorAll('#' + thumbsId + ' .thumb').forEach(t => t.classList.remove('active'));
+        thumbEl.classList.add('active');
+    }
+
+    function filterCat(cat) {
+        const cards = document.querySelectorAll('.product-card[data-cat]');
+        cards.forEach(c => {
+            if (cat === 'all' || c.dataset.cat === cat) c.classList.add('visible');
+            else c.classList.remove('visible');
         });
-    }
-    document.querySelectorAll('.cat-card').forEach(function(c){ c.classList.remove('active'); });
-    var cardEl = document.getElementById(cardId || ('cat-' + cat));
-    if (cardEl) cardEl.classList.add('active');
-    // Show/hide clothing sub-categories
-    var subRow = document.getElementById('subcat-clothing');
-    if (cat === 'clothing') {
-        subRow.classList.add('show');
-        document.querySelectorAll('.subcat-btn').forEach(function(b){ b.classList.remove('active'); });
-        document.getElementById('subcat-btn-all').classList.add('active');
-    } else {
-        subRow.classList.remove('show');
-    }
-    filterProducts();
-}
-
-function filterSubcat(subcat, btn) {
-    currentCat = subcat;
-    document.querySelectorAll('.subcat-btn').forEach(function(b){ b.classList.remove('active'); });
-    btn.classList.add('active');
-    filterProducts();
-}
-
-function filterProducts() {
-    var query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
-    var cards = document.querySelectorAll('#productsGrid .product-card');
-    var visible = 0;
-    cards.forEach(function(card){
-        var isSold = card.dataset.sold === 'true';
-        var clothingGroup = ['clothing','zuria','chiffon'];
-        var catMatch = currentCat === 'sold'     ? isSold
-                     : currentCat === 'all'      ? !isSold
-                     : currentCat === 'clothing' ? (!isSold && clothingGroup.indexOf(card.dataset.cat) !== -1)
-                     : (!isSold && card.dataset.cat === currentCat);
-        var searchMatch = !query || (card.dataset.title || '').indexOf(query) !== -1;
-        card.style.display = (catMatch && searchMatch) ? '' : 'none';
-        if (catMatch && searchMatch) visible++;
-    });
-    document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
-    var names = { all:'All Items', electronics:'Electronics', toys:'Toys & Kids', home:'Home & Garden', clothing:'Clothing', zuria:'Clothing — Zuria', chiffon:'Clothing — Chiffon', sports:'Sports', other:'Other', sold:'Sold Out' };
-    document.getElementById('products-title').textContent = query ? 'Results: "' + query + '"' : (names[currentCat] || 'Items');
-    document.getElementById('products-count').textContent = visible + (visible === 1 ? ' listing' : ' listings');
-}
-
-/* ── CART ── */
-var cart = JSON.parse(localStorage.getItem('kltuf_cart') || '[]');
-
-function saveCart() { localStorage.setItem('kltuf_cart', JSON.stringify(cart)); }
-
-function addToCart(btn, id, title, price, img) {
-    var existing = cart.find(function(i){ return i.id === id; });
-    if (existing) {
-        existing.qty += 1;
-    } else {
-        cart.push({ id: id, title: title, price: price, img: img, qty: 1 });
-    }
-    saveCart();
-    updateCartUI();
-    btn.textContent = '✓ Added!';
-    btn.classList.add('added');
-    setTimeout(function(){ btn.textContent = '🛒 Add to Cart'; btn.classList.remove('added'); }, 1500);
-    openCart();
-}
-
-function removeFromCart(id) {
-    cart = cart.filter(function(i){ return i.id !== id; });
-    saveCart();
-    updateCartUI();
-}
-
-function changeQty(id, delta) {
-    var item = cart.find(function(i){ return i.id === id; });
-    if (!item) return;
-    item.qty += delta;
-    if (item.qty <= 0) { removeFromCart(id); return; }
-    saveCart();
-    updateCartUI();
-}
-
-function cartTotal() {
-    return cart.reduce(function(sum, i){ return sum + i.price * i.qty; }, 0);
-}
-
-function updateCartUI() {
-    var count = cart.reduce(function(s, i){ return s + i.qty; }, 0);
-    var countEl = document.getElementById('cartCount');
-    countEl.textContent = count;
-    countEl.classList.toggle('visible', count > 0);
-
-    var itemsEl = document.getElementById('cartItems');
-    var footerEl = document.getElementById('cartFooter');
-
-    if (cart.length === 0) {
-        itemsEl.innerHTML = '<div class="cart-empty"><div class="ce-icon">🛒</div><p>Your cart is empty.<br>Browse items and add them here!</p></div>';
-        footerEl.style.display = 'none';
-        return;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        const btn = [...document.querySelectorAll('.filter-btn')].find(b => b.textContent.toLowerCase().includes(cat === 'all' ? 'all' : cat));
+        if (btn) btn.classList.add('active');
+        document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
     }
 
-    var html = '';
-    cart.forEach(function(item){
-        html += '<div class="cart-item">' +
-            '<img src="' + item.img + '" onerror="this.style.display=\'none\'">' +
-            '<div class="ci-info">' +
-                '<div class="ci-title">' + item.title + '</div>' +
-                '<div class="ci-price">$' + (item.price * item.qty).toFixed(2) + '</div>' +
-                '<div class="ci-qty">' +
-                    '<button onclick="changeQty(\'' + item.id + '\',-1)">−</button>' +
-                    '<span>' + item.qty + '</span>' +
-                    '<button onclick="changeQty(\'' + item.id + '\',1)">+</button>' +
-                '</div>' +
-                '<button class="ci-remove" onclick="removeFromCart(\'' + item.id + '\')">Remove</button>' +
-            '</div></div>';
-    });
-    itemsEl.innerHTML = html;
-    document.getElementById('cartTotal').textContent = '$' + cartTotal().toFixed(2);
-    footerEl.style.display = 'block';
-}
-
-function openCart() {
-    document.getElementById('cartSidebar').classList.add('open');
-    document.getElementById('cartOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeCart() {
-    document.getElementById('cartSidebar').classList.remove('open');
-    document.getElementById('cartOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-    hidePaymentPicker();
-}
-
-function showPaymentPicker() {
-    document.getElementById('btnProceed').style.display = 'none';
-    document.getElementById('paymentPicker').classList.add('open');
-}
-function hidePaymentPicker() {
-    document.getElementById('paymentPicker').classList.remove('open');
-    document.getElementById('btnProceed').style.display = 'block';
-}
-
-function buyPayPal(title, price) {
-    var url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick'
-        + '&business=kltufllc%40gmail.com'
-        + '&item_name=' + encodeURIComponent('KLTUF - ' + title)
-        + '&amount=' + price.toFixed(2)
-        + '&currency_code=USD&no_shipping=0';
-    window.open(url, '_blank');
-}
-
-function checkoutPayPal() {
-    if (cart.length === 0) return;
-    var url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_cart&upload=1&business=kltufllc%40gmail.com&currency_code=USD';
-    cart.forEach(function(item, i){
-        var n = i + 1;
-        url += '&item_name_' + n + '=' + encodeURIComponent(item.title);
-        url += '&amount_' + n + '=' + item.price.toFixed(2);
-        url += '&quantity_' + n + '=' + item.qty;
-    });
-    window.open(url, '_blank');
-}
-
-function checkoutZelle(e) {
-    e.preventDefault();
-    if (cart.length === 0) return;
-    var itemList = cart.map(function(i){ return i.title + ' x' + i.qty; }).join(', ');
-    var total = cartTotal().toFixed(2);
-    window.location.href = 'payment.html?item=' + encodeURIComponent(itemList) + '&price=' + total;
-}
-
-/* Init */
-updateCartUI();
-
-/* ── CAROUSEL ── */
-var carouselIdx = {};
-function slideCarousel(id, dir) {
-    var track = document.getElementById('ct-' + id);
-    if (!track) return;
-    var total = track.children.length;
-    carouselIdx[id] = ((carouselIdx[id] || 0) + dir + total) % total;
-    goSlide(id, carouselIdx[id]);
-}
-function goSlide(id, idx) {
-    var track = document.getElementById('ct-' + id);
-    if (!track) return;
-    carouselIdx[id] = idx;
-    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
-    var dots = document.querySelectorAll('#cd-' + id + ' span');
-    dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
-}
-</script>
-<script>
-/* ImgBB photo upload */
-var imgbbKey = 'da46f7358cc3f9970f8199924f237e22';
-var uploadedUrls = [];
-
-function uploadPhotos(input) {
-    var files = Array.from(input.files).slice(0, 5);
-    if (!files.length) return;
-    var status = document.getElementById('photoStatus');
-    var previews = document.getElementById('photoPreviews');
-    previews.innerHTML = '';
-    uploadedUrls = [];
-    document.getElementById('photoUrls').value = '';
-    status.style.color = '#f0c040';
-    status.textContent = '⏳ Uploading ' + files.length + ' photo(s)...';
-
-    var done = 0;
-    files.forEach(function(file) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            var b64 = e.target.result.split(',')[1];
-            var body = new FormData();
-            body.append('key', imgbbKey);
-            body.append('image', b64);
-            body.append('name', file.name);
-            fetch('https://api.imgbb.com/1/upload', { method: 'POST', body: body })
-                .then(function(r){ return r.json(); })
-                .then(function(data) {
-                    if (data.success) {
-                        uploadedUrls.push(data.data.url);
-                        var img = document.createElement('img');
-                        img.src = data.data.thumb ? data.data.thumb.url : data.data.url;
-                        img.style.cssText = 'width:60px;height:60px;object-fit:cover;border-radius:6px;border:2px solid #f0c040';
-                        previews.appendChild(img);
-                    }
-                    done++;
-                    if (done === files.length) {
-                        document.getElementById('photoUrls').value = uploadedUrls.join('\n');
-                        status.style.color = '#16a34a';
-                        status.textContent = '✅ ' + uploadedUrls.length + ' photo(s) uploaded successfully';
-                    }
-                })
-                .catch(function() {
-                    done++;
-                    status.style.color = '#dc2626';
-                    status.textContent = '❌ Upload failed. Please try again.';
-                });
-        };
-        reader.readAsDataURL(file);
-    });
-}
-
-/* Sell form silent submit */
-document.getElementById('sellForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    if (uploadedUrls.length === 0 && document.getElementById('photoInput').files.length > 0) {
-        alert('Please wait for photos to finish uploading.');
-        return;
+    let cart = [];
+    function openCart() { document.getElementById('cart-overlay').classList.add('open'); document.getElementById('cart-side').classList.add('open'); }
+    function closeCart() { document.getElementById('cart-overlay').classList.remove('open'); document.getElementById('cart-side').classList.remove('open'); }
+    function renderCart() {
+        const n = cart.length;
+        document.getElementById('cart-count').textContent = n;
+        document.getElementById('cart-count2').textContent = n;
+        const body = document.getElementById('cart-body');
+        const ft = document.getElementById('cart-ft');
+        if (!n) { body.innerHTML = '<div class="cart-empty-msg">Your cart is empty</div>'; ft.style.display = 'none'; return; }
+        ft.style.display = 'block';
+        let total = 0;
+        body.innerHTML = cart.map((item, i) => {
+            total += item.price;
+            return `<div class="cart-item">
+                <div class="ci-img"><img src="${item.img}" onerror="this.style.display='none'" alt="${item.name}"></div>
+                <div class="ci-info">
+                    <div class="ci-name">${item.name}</div>
+                    <div class="ci-price">$${item.price.toFixed(2)}</div>
+                    <button class="ci-rm" onclick="removeFromCart(${i})">Remove</button>
+                </div>
+            </div>`;
+        }).join('');
+        document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
     }
-    var btn = document.getElementById('sellSubmitBtn');
-    btn.disabled = true;
-    btn.textContent = 'Submitting...';
-    fetch('https://formspree.io/f/xojyejgd', {
-        method: 'POST',
-        body: new FormData(this),
-        headers: { 'Accept': 'application/json' }
-    }).then(function(r) {
-        if (r.ok) {
-            document.getElementById('sellForm').style.display = 'none';
-            document.getElementById('sellSuccess').style.display = 'block';
-        } else {
-            btn.disabled = false;
-            btn.textContent = 'Submit for Review →';
-            alert('Something went wrong. Please try again.');
-        }
-    }).catch(function() {
-        btn.disabled = false;
-        btn.textContent = 'Submit for Review →';
-        alert('Something went wrong. Please try again.');
-    });
-});
-
-/* Payout label updater */
-function updatePayoutLabel(sel) {
-    var labels = { Zelle: 'Zelle phone or email', Venmo: 'Venmo username (e.g. @yourname)', PayPal: 'PayPal email address', Telebirr: 'Telebirr phone number (e.g. +251912345678)' };
-    var input = document.getElementById('payoutAccount');
-    if (input) input.placeholder = labels[sel.value] || 'Your payout account';
-}
-
-/* Product direct links */
-function copyProductLink(id, btn) {
-    var url = 'https://kltuf.com/#' + id;
-    navigator.clipboard.writeText(url).then(function() {
-        var orig = btn.textContent;
-        btn.textContent = '✅ Copied!';
-        setTimeout(function(){ btn.textContent = orig; }, 2000);
-    });
-}
-(function(){
-    var hash = window.location.hash.replace('#','');
-    if (!hash) return;
-    var card = document.getElementById(hash);
-    if (!card) return;
-    setTimeout(function(){
-        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        card.classList.add('highlighted');
-    }, 400);
-})();
-
-/* Contact modal */
-function openContact() {
-    document.getElementById('contactOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-}
-function closeContact() {
-    document.getElementById('contactOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-}
-document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeContact(); });
-
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var form = this;
-    fetch('https://formspree.io/f/xojyejgd', {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-    }).then(function(r) {
-        if (r.ok) {
-            form.style.display = 'none';
-            document.getElementById('contactSuccess').style.display = 'block';
-        } else {
-            alert('Something went wrong. Please use the contact form or try again later.');
-        }
-    }).catch(function() {
-        alert('Something went wrong. Please use the contact form or try again later.');
-    });
-});
-
-/* Email obfuscation — assembled at runtime so scrapers can't harvest it */
-(function(){
-    var u = 'freta', d = 'kltuf' + '.com';
-    var addr = u + '@' + d;
-    document.querySelectorAll('.em-addr').forEach(function(el){ el.textContent = addr; });
-    document.querySelectorAll('.em-link').forEach(function(el){ el.href = 'mailto:' + addr; el.textContent = addr; });
-})();
+    function removeFromCart(i) { cart.splice(i, 1); renderCart(); }
 </script>
 
-<!-- Stripe.js -->
-<script src="https://js.stripe.com/v3/"></script>
-<script>
-(function() {
-  var WORKER_URL = 'https://tiny-morning-80f9.kltufllc.workers.dev/';
-  var stripe = Stripe('pk_live_51TPihI1MWHfRn9GLXqpfcf7CJV25KN4rupeT2GgJo6n0THesehBlggxS8KRbQWfLNAmbUl59uQDP4nmkgbUNhjRI00sZa9YERr');
-
-  // Check Apple Pay availability and show button
-  function initApplePay() {
-    if (!window.ApplePaySession || !ApplePaySession.canMakePayments()) return;
-    var pr = stripe.paymentRequest({
-      country: 'US', currency: 'usd',
-      total: { label: 'KLTUF Store', amount: 100 },
-      requestPayerName: true, requestPayerEmail: true,
-    });
-    pr.canMakePayment().then(function(result) {
-      if (result && result.applePay) {
-        document.getElementById('applePayBtn').classList.add('visible');
-      }
-    });
-  }
-
-  window.checkoutApplePay = function() {
-    if (!cart || cart.length === 0) return;
-    var btn = document.getElementById('applePayBtn');
-    btn.textContent = ' Processing...';
-    btn.disabled = true;
-
-    var items = cart.map(function(i) {
-      return { title: i.title, price: i.price, qty: i.qty };
-    });
-
-    fetch(WORKER_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items: items })
-    })
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert('Payment error. Please try PayPal or Zelle.');
-        btn.textContent = ' Apple Pay';
-        btn.disabled = false;
-      }
-    })
-    .catch(function() {
-      alert('Connection error. Please try PayPal or Zelle.');
-      btn.textContent = ' Apple Pay';
-      btn.disabled = false;
-    });
-  };
-
-  // Show success message if returning from Stripe Checkout
-  if (window.location.search.indexOf('payment=success') !== -1) {
-    var msg = document.createElement('div');
-    msg.style.cssText = 'position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#065f46;color:#6ee7b7;padding:14px 24px;border-radius:10px;font-weight:700;z-index:9999;font-size:0.95rem;box-shadow:0 4px 12px rgba(0,0,0,0.3)';
-    msg.textContent = '✅ Payment successful! Thank you for your order.';
-    document.body.appendChild(msg);
-    setTimeout(function() { msg.remove(); }, 6000);
-    history.replaceState(null, '', '/');
-  }
-
-  initApplePay();
-})();
-</script>
 </body>
 </html>
