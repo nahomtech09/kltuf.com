@@ -232,7 +232,7 @@
 
 <script>
     const PASS = 'kltuf2026';
-    const IMGBB_KEY = 'da46f7358cc3f9970f8199924f237e22';
+    const IMGBB_PROXY = 'https://tiny-morning-80f9.kltufllc.workers.dev/imgbb-upload';
     const FORMSPREE = 'https://formspree.io/f/xojyejgd';
 
     let selectedFiles = [];
@@ -308,7 +308,7 @@
             status.textContent = `Uploading photo ${i + 1} of ${selectedFiles.length}…`;
             const form = new FormData();
             form.append('image', selectedFiles[i]);
-            const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`, {
+            const res = await fetch(IMGBB_PROXY, {
                 method: 'POST', body: form
             });
             const data = await res.json();
