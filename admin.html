@@ -5,45 +5,84 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>KLTUF Admin</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-height:100vh}
-  #loginScreen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
-  .login-box{background:#1f2937;border:1px solid #374151;border-radius:12px;padding:36px;width:100%;max-width:360px;text-align:center}
-  .login-box h2{color:#f0c040;font-size:1.4rem;margin-bottom:6px}
-  .login-box p{color:#9ca3af;font-size:0.85rem;margin-bottom:24px}
-  .login-box input{width:100%;padding:11px 14px;border-radius:8px;border:1px solid #374151;background:#111827;color:#f3f4f6;font-size:1rem;margin-bottom:14px;outline:none}
-  .login-box input:focus{border-color:#f0c040}
-  .btn-gold{background:#f0c040;color:#111827;font-weight:700;border:none;border-radius:8px;padding:12px 24px;cursor:pointer;font-size:1rem;width:100%}
-  .btn-gold:hover{background:#d4a017}
-  .err{color:#f87171;font-size:0.83rem;margin-top:10px;display:none}
-  #adminPanel{display:none;max-width:700px;margin:0 auto;padding:24px 16px}
-  .admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #374151}
-  .admin-header h1{color:#f0c040;font-size:1.2rem}
-  .btn-logout{background:transparent;color:#9ca3af;border:1px solid #374151;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:0.82rem}
-  .btn-logout:hover{color:#f3f4f6;border-color:#6b7280}
-  .status-msg{background:#065f46;color:#6ee7b7;border-radius:8px;padding:10px 14px;font-size:0.85rem;margin-bottom:16px;display:none}
-  .status-msg.err-msg{background:#7f1d1d;color:#fca5a5}
-  .product-row{background:#1f2937;border:1px solid #374151;border-radius:10px;padding:14px 16px;margin-bottom:12px;display:flex;align-items:center;gap:14px}
-  .prod-img{width:58px;height:58px;object-fit:cover;border-radius:7px;flex-shrink:0;background:#374151}
-  .prod-info{flex:1;min-width:0}
-  .prod-name{font-weight:700;font-size:0.97rem;color:#f3f4f6}
-  .prod-price{font-size:0.82rem;color:#9ca3af;margin-top:2px}
-  .prod-id{font-size:0.72rem;color:#6b7280;margin-top:1px}
-  .btn-group{display:flex;gap:6px;flex-wrap:wrap}
-  .btn-status{border:none;border-radius:6px;padding:7px 12px;cursor:pointer;font-size:0.78rem;font-weight:600;transition:opacity 0.15s}
-  .btn-avail{background:#16a34a;color:#fff}
-  .btn-sold{background:#dc2626;color:#fff}
-  .btn-oos{background:#d97706;color:#fff}
-  .btn-status:hover{opacity:0.8}
-  .btn-status.active{outline:2px solid #fff;outline-offset:1px}
-  .saving{opacity:0.5;pointer-events:none}
-  @media(max-width:480px){.product-row{flex-wrap:wrap}.prod-img{width:48px;height:48px}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-height:100vh}
+
+/* LOGIN / SETUP */
+.center-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.login-box{background:#1f2937;border:1px solid #374151;border-radius:12px;padding:36px;width:100%;max-width:360px;text-align:center}
+.login-box h2{color:#f0c040;font-size:1.4rem;margin-bottom:6px}
+.login-box p{color:#9ca3af;font-size:0.85rem;margin-bottom:24px}
+.login-box input{width:100%;padding:11px 14px;border-radius:8px;border:1px solid #374151;background:#111827;color:#f3f4f6;font-size:1rem;margin-bottom:14px;outline:none}
+.login-box input:focus{border-color:#f0c040}
+.btn-gold{background:#f0c040;color:#111827;font-weight:700;border:none;border-radius:8px;padding:12px 24px;cursor:pointer;font-size:1rem;width:100%}
+.btn-gold:hover{background:#d4a017}
+.err{color:#f87171;font-size:0.83rem;margin-top:10px;display:none}
+
+/* PANEL */
+#adminPanel{display:none}
+.panel-wrap{max-width:720px;margin:0 auto;padding:20px 16px}
+.admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid #374151}
+.admin-header h1{color:#f0c040;font-size:1.2rem}
+.btn-logout{background:transparent;color:#9ca3af;border:1px solid #374151;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:0.82rem}
+.btn-logout:hover{color:#f3f4f6;border-color:#6b7280}
+
+/* TABS */
+.tab-bar{display:flex;gap:6px;margin-bottom:20px}
+.tab{flex:1;padding:10px;border:1.5px solid #374151;border-radius:8px;background:#1f2937;color:#9ca3af;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.15s}
+.tab:hover{border-color:#f0c040;color:#f0c040}
+.tab.active{background:#292215;border-color:#c8971f;color:#f0c040}
+
+/* STATUS TAB */
+.status-msg{background:#065f46;color:#6ee7b7;border-radius:8px;padding:10px 14px;font-size:0.85rem;margin-bottom:14px;display:none}
+.status-msg.err-msg{background:#7f1d1d;color:#fca5a5}
+.product-row{background:#1f2937;border:1px solid #374151;border-radius:10px;padding:12px 14px;margin-bottom:10px;display:flex;align-items:center;gap:12px}
+.prod-img{width:56px;height:56px;object-fit:cover;border-radius:7px;flex-shrink:0;background:#374151}
+.prod-info{flex:1;min-width:0}
+.prod-name{font-weight:700;font-size:0.95rem}
+.prod-price{font-size:0.8rem;color:#9ca3af;margin-top:2px}
+.prod-id{font-size:0.7rem;color:#6b7280;margin-top:1px}
+.btn-group{display:flex;gap:5px;flex-wrap:wrap}
+.btn-status{border:none;border-radius:6px;padding:6px 11px;cursor:pointer;font-size:0.75rem;font-weight:600;transition:opacity 0.15s}
+.btn-avail{background:#16a34a;color:#fff}
+.btn-sold{background:#dc2626;color:#fff}
+.btn-oos{background:#d97706;color:#fff}
+.btn-status:hover{opacity:0.8}
+.btn-status.active{outline:2px solid #fff;outline-offset:1px}
+.saving{opacity:0.5;pointer-events:none}
+
+/* ADD PRODUCT TAB */
+.form-section{background:#1f2937;border:1px solid #374151;border-radius:10px;padding:18px;margin-bottom:14px}
+.form-section h3{color:#f0c040;font-size:0.9rem;font-weight:700;margin-bottom:14px}
+.field{margin-bottom:13px}
+.field label{display:block;font-size:0.8rem;color:#9ca3af;margin-bottom:5px;font-weight:600}
+.field input,.field select,.field textarea{width:100%;padding:10px 12px;border-radius:7px;border:1px solid #374151;background:#111827;color:#f3f4f6;font-size:0.92rem;font-family:inherit;outline:none}
+.field input:focus,.field select,.field textarea:focus{border-color:#f0c040}
+.field select{cursor:pointer}
+.field textarea{resize:vertical;min-height:80px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.photo-drop{border:2px dashed #374151;border-radius:8px;padding:22px;text-align:center;cursor:pointer;transition:border-color 0.15s;position:relative}
+.photo-drop:hover,.photo-drop.drag{border-color:#f0c040}
+.photo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.photo-drop p{color:#9ca3af;font-size:0.85rem;margin-top:6px}
+.photo-drop .icon{font-size:2rem}
+.preview-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.preview-item{position:relative;width:70px;height:70px}
+.preview-item img{width:100%;height:100%;object-fit:cover;border-radius:6px;border:1px solid #374151}
+.preview-item button{position:absolute;top:-5px;right:-5px;background:#dc2626;color:#fff;border:none;border-radius:50%;width:18px;height:18px;cursor:pointer;font-size:10px;line-height:18px;padding:0}
+.upload-bar{background:#1f2937;border-radius:6px;height:6px;margin-top:8px;overflow:hidden;display:none}
+.upload-bar-fill{background:#f0c040;height:100%;width:0;transition:width 0.3s}
+.btn-submit{background:#f0c040;color:#111827;font-weight:700;border:none;border-radius:8px;padding:13px;cursor:pointer;font-size:1rem;width:100%;margin-top:4px;font-family:inherit}
+.btn-submit:hover{background:#d4a017}
+.btn-submit:disabled{opacity:0.5;cursor:not-allowed}
+
+@media(max-width:480px){.product-row{flex-wrap:wrap}.prod-img{width:46px;height:46px}.row2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <!-- LOGIN -->
-<div id="loginScreen">
+<div class="center-screen" id="loginScreen">
   <div class="login-box">
     <h2>KLTUF Admin</h2>
     <p>Employee access only</p>
@@ -53,37 +92,110 @@
   </div>
 </div>
 
-<!-- TOKEN SETUP (first time) -->
-<div id="tokenScreen" style="display:none;align-items:center;justify-content:center;min-height:100vh;padding:20px">
+<!-- TOKEN SETUP (first time per device) -->
+<div class="center-screen" id="tokenScreen" style="display:none">
   <div class="login-box">
     <h2>One-Time Setup</h2>
-    <p>Paste the GitHub token (ask your manager). Saved only on this device.</p>
+    <p>Paste the GitHub token (ask your manager).<br>Saved only on this device.</p>
     <input type="password" id="tokenInput" placeholder="GitHub token (ghp_...)">
-    <button class="btn-gold" onclick="saveToken()">Save & Continue</button>
+    <button class="btn-gold" onclick="saveToken()">Save &amp; Continue</button>
     <div class="err" id="tokenErr">Token required</div>
   </div>
 </div>
 
 <!-- ADMIN PANEL -->
-<div id="adminPanel" style="display:none">
-  <div style="max-width:700px;margin:0 auto;padding:24px 16px">
+<div id="adminPanel">
+  <div class="panel-wrap">
     <div class="admin-header">
-      <h1>KLTUF Store — Product Status</h1>
+      <h1>KLTUF Admin Panel</h1>
       <button class="btn-logout" onclick="logout()">Log Out</button>
     </div>
-    <div class="status-msg" id="statusMsg"></div>
-    <div id="productList">Loading products...</div>
+    <div class="tab-bar">
+      <button class="tab active" id="tab-btn-status" onclick="showTab('status')">📋 Product Status</button>
+      <button class="tab" id="tab-btn-add" onclick="showTab('add')">➕ Add Product</button>
+    </div>
+
+    <!-- STATUS TAB -->
+    <div id="tab-status">
+      <div class="status-msg" id="statusMsg"></div>
+      <div id="productList">Loading products...</div>
+    </div>
+
+    <!-- ADD PRODUCT TAB -->
+    <div id="tab-add" style="display:none">
+      <div class="status-msg" id="addMsg"></div>
+      <div class="form-section">
+        <h3>Product Details</h3>
+        <div class="row2">
+          <div class="field">
+            <label>Product Name *</label>
+            <input type="text" id="f-name" placeholder="e.g. Habesha Zuria Dress" required>
+          </div>
+          <div class="field">
+            <label>Price (USD) *</label>
+            <input type="number" id="f-price" placeholder="25" min="1" step="1" required>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>Category *</label>
+            <select id="f-cat">
+              <option value="electronics">📱 Electronics</option>
+              <option value="toys">🧸 Toys &amp; Kids</option>
+              <option value="home">🏡 Home &amp; Garden</option>
+              <option value="clothing">👕 Clothing</option>
+              <option value="zuria" selected>👗 Zuria</option>
+              <option value="chiffon">🌸 Chiffon</option>
+              <option value="sports">⚽ Sports</option>
+              <option value="other">📦 Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Condition *</label>
+            <select id="f-cond">
+              <option value="✨ New">✨ New</option>
+              <option value="💎 Like New">💎 Like New</option>
+              <option value="👍 Good" selected>👍 Good</option>
+              <option value="👌 Fair">👌 Fair</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Description *</label>
+          <textarea id="f-desc" placeholder="Brief description of the item — size, color, material, etc."></textarea>
+        </div>
+        <div class="field">
+          <label>Shipping</label>
+          <input type="text" id="f-ship" value="Local pickup / shipping available">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3>Photos (up to 5)</h3>
+        <div class="photo-drop" id="photoDrop"
+             ondragover="event.preventDefault();this.classList.add('drag')"
+             ondragleave="this.classList.remove('drag')"
+             ondrop="handleDrop(event)">
+          <input type="file" id="photoInput" accept="image/*" multiple onchange="handleFiles(this.files)">
+          <div class="icon">📷</div>
+          <p>Tap to choose photos or drag &amp; drop<br><small style="color:#6b7280">JPG, PNG, WEBP — max 5 photos</small></p>
+        </div>
+        <div class="preview-row" id="previewRow"></div>
+        <div class="upload-bar" id="uploadBar"><div class="upload-bar-fill" id="uploadFill"></div></div>
+      </div>
+
+      <button class="btn-submit" id="submitBtn" onclick="submitProduct()">🚀 Add Product to Store</button>
+    </div>
   </div>
 </div>
 
 <script>
-// ── CONFIG ──────────────────────────────────────────────────────────────
 const PASS_HASH = "ec15a65b26d7d6dfa47e0fc6f55f5708f0ffd4b26ba635416d0afecc1e12fa39";
 const REPO      = "nahomtech09/kltuf.com";
 const FILE_PATH = "index.html";
-// Token is stored in employee's browser (localStorage) — never in code
-// ────────────────────────────────────────────────────────────────────────
+const IMGBB_KEY = "da46f7358cc3f9970f8199924f237e22";
 
+// ── AUTH ─────────────────────────────────────────────────────────────────
 async function sha256(str) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
   return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,"0")).join("");
@@ -94,12 +206,10 @@ async function login() {
   const hash = await sha256(pw);
   if (hash === PASS_HASH) {
     document.getElementById("loginScreen").style.display = "none";
-    const tok = localStorage.getItem("kltuf_gh_token");
-    if (!tok) {
+    if (!localStorage.getItem("kltuf_gh_token")) {
       document.getElementById("tokenScreen").style.display = "flex";
     } else {
-      document.getElementById("adminPanel").style.display = "block";
-      loadProducts();
+      openPanel();
     }
   } else {
     document.getElementById("loginErr").style.display = "block";
@@ -111,6 +221,10 @@ function saveToken() {
   if (!tok) { document.getElementById("tokenErr").style.display = "block"; return; }
   localStorage.setItem("kltuf_gh_token", tok);
   document.getElementById("tokenScreen").style.display = "none";
+  openPanel();
+}
+
+function openPanel() {
   document.getElementById("adminPanel").style.display = "block";
   loadProducts();
 }
@@ -122,6 +236,15 @@ function logout() {
   document.getElementById("pwInput").value = "";
 }
 
+// ── TABS ─────────────────────────────────────────────────────────────────
+function showTab(name) {
+  document.getElementById("tab-status").style.display = name === "status" ? "" : "none";
+  document.getElementById("tab-add").style.display    = name === "add"    ? "" : "none";
+  document.getElementById("tab-btn-status").classList.toggle("active", name === "status");
+  document.getElementById("tab-btn-add").classList.toggle("active", name === "add");
+}
+
+// ── STATUS TAB ────────────────────────────────────────────────────────────
 let currentContent = "", currentSha = "";
 
 async function loadProducts() {
@@ -132,7 +255,7 @@ async function loadProducts() {
       headers: { Authorization: `token ${localStorage.getItem("kltuf_gh_token")}`, Accept: "application/vnd.github.v3+json" }
     });
     const data = await r.json();
-    currentSha = data.sha;
+    currentSha     = data.sha;
     currentContent = atob(data.content.replace(/\n/g,""));
     renderProducts(currentContent);
   } catch(e) {
@@ -142,20 +265,17 @@ async function loadProducts() {
 
 function renderProducts(html) {
   const list = document.getElementById("productList");
-  // Parse product cards from the HTML string
-  const re = /<div class="product-card([^"]*)" id="([^"]+)" data-cat="([^"]+)" data-sold="([^"]+)"[^>]*>([\s\S]*?)(?=<div class="product-card|<!--\s*═|$)/g;
+  const re = /<div class="product-card([^"]*)" id="([^"]+)" data-cat="([^"]+)" data-sold="([^"]+)"[^>]*>([\s\S]*?)(?=<div class="product-card|<!--\s*═|<div id="noResults|$)/g;
   const products = [];
   let m;
   while ((m = re.exec(html)) !== null) {
     const classes = m[1].trim();
     const id      = m[2];
     const soldVal = m[4];
-    // Extract title and price
-    const titleM = m[0].match(/<div class="product-title">([^<]+)<\/div>/);
-    const priceM = m[0].match(/\$([0-9.]+)\.00/);
-    const imgM   = m[0].match(/src="(https:\/\/[^"]+?)"/);
-    products.push({
-      id,
+    const titleM  = m[0].match(/<div class="product-title">([^<]+)<\/div>/);
+    const priceM  = m[0].match(/\$([0-9.]+)\.00/);
+    const imgM    = m[0].match(/src="(https:\/\/[^"]+?)"/);
+    products.push({ id,
       title: titleM ? titleM[1] : id,
       price: priceM ? priceM[1] : "?",
       img:   imgM   ? imgM[1]   : "",
@@ -163,9 +283,7 @@ function renderProducts(html) {
       oos:   classes.includes("oos")
     });
   }
-
   if (!products.length) { list.textContent = "No products found."; return; }
-
   list.innerHTML = products.map(p => {
     const state = p.oos ? "oos" : (p.sold ? "sold" : "avail");
     return `<div class="product-row" id="row-${p.id}">
@@ -187,64 +305,221 @@ function renderProducts(html) {
 async function setStatus(id, newState) {
   const row = document.getElementById("row-"+id);
   row.classList.add("saving");
-  showMsg("Saving...", false);
-
-  // Update the HTML string
-  let updated = currentContent;
-
-  // Target the specific product-card div opening tag
-  const tagRe = new RegExp(
-    `(<div class="product-card)([^"]*?)(\\s*sold)?([^"]*?)(\\s*oos)?([^"]*)" id="${id}" data-cat="[^"]+" data-sold=")[^"]+(")`
-  );
-
+  showMsg("statusMsg", "Saving...", false);
   const soldVal  = newState !== "avail" ? "true" : "false";
   const newClass = newState === "sold" ? " sold" : newState === "oos" ? " oos" : "";
-
-  // Replace class list and data-sold
-  updated = updated.replace(
+  const updated  = currentContent.replace(
     new RegExp(`<div class="product-card([^"]*)" id="${id}" data-cat="([^"]+)" data-sold="[^"]+"`),
     `<div class="product-card${newClass}" id="${id}" data-cat="$2" data-sold="${soldVal}"`
   );
-
-  try {
-    const body = {
-      message: `Admin: set ${id} to ${newState}`,
-      content: btoa(unescape(encodeURIComponent(updated))),
-      sha: currentSha
-    };
-    const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
-      method: "PUT",
-      headers: {
-        Authorization: `token ${localStorage.getItem("kltuf_gh_token")}`,
-        Accept: "application/vnd.github.v3+json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(body)
-    });
-    const data = await r.json();
-    if (data.content) {
-      currentSha = data.content.sha;
-      currentContent = updated;
-      showMsg(`${id} marked as ${newState} — live in ~1 min`, false);
-      // Update button highlights
-      const btns = row.querySelectorAll(".btn-status");
-      btns.forEach(b => b.classList.remove("active"));
-      row.querySelector(`.btn-${newState === "avail" ? "avail" : newState === "sold" ? "sold" : "oos"}`).classList.add("active");
-    } else {
-      showMsg("GitHub error: " + (data.message || "unknown"), true);
-    }
-  } catch(e) {
-    showMsg("Network error. Try again.", true);
+  const ok = await pushToGitHub(updated, `Admin: set ${id} to ${newState}`);
+  if (ok) {
+    currentContent = updated;
+    showMsg("statusMsg", `${id} → ${newState} (live in ~1 min)`, false);
+    row.querySelectorAll(".btn-status").forEach(b => b.classList.remove("active"));
+    const key = newState === "avail" ? "avail" : newState === "sold" ? "sold" : "oos";
+    row.querySelector(`.btn-${key}`).classList.add("active");
+  } else {
+    showMsg("statusMsg", "GitHub error. Try again.", true);
   }
   row.classList.remove("saving");
 }
 
-function showMsg(text, isErr) {
-  const el = document.getElementById("statusMsg");
+// ── ADD PRODUCT TAB ───────────────────────────────────────────────────────
+let pendingFiles = [];
+
+function handleFiles(files) {
+  for (const f of files) {
+    if (pendingFiles.length >= 5) break;
+    if (!f.type.startsWith("image/")) continue;
+    pendingFiles.push(f);
+  }
+  renderPreviews();
+}
+
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById("photoDrop").classList.remove("drag");
+  handleFiles(e.dataTransfer.files);
+}
+
+function renderPreviews() {
+  const row = document.getElementById("previewRow");
+  row.innerHTML = pendingFiles.map((f,i) => {
+    const url = URL.createObjectURL(f);
+    return `<div class="preview-item">
+      <img src="${url}" alt="">
+      <button onclick="removePhoto(${i})">✕</button>
+    </div>`;
+  }).join("");
+}
+
+function removePhoto(i) {
+  pendingFiles.splice(i, 1);
+  renderPreviews();
+}
+
+async function uploadToImgBB(file, onProgress) {
+  const fd = new FormData();
+  fd.append("image", file);
+  const r = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`, { method:"POST", body:fd });
+  const d = await r.json();
+  if (!d.success) throw new Error("ImgBB upload failed");
+  return d.data.url;
+}
+
+function slugify(str) {
+  return str.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+}
+
+const CAT_LABELS = {
+  electronics:"📱 Electronics", toys:"🧸 Toys", home:"🏡 Home",
+  clothing:"👕 Clothing", zuria:"👗 Zuria", chiffon:"🌸 Chiffon",
+  sports:"⚽ Sports", other:"📦 Other"
+};
+
+async function submitProduct() {
+  const name  = document.getElementById("f-name").value.trim();
+  const price = parseFloat(document.getElementById("f-price").value);
+  const cat   = document.getElementById("f-cat").value;
+  const cond  = document.getElementById("f-cond").value;
+  const desc  = document.getElementById("f-desc").value.trim();
+  const ship  = document.getElementById("f-ship").value.trim() || "Local pickup / shipping available";
+
+  if (!name)              return alert("Enter a product name.");
+  if (!price || price<1)  return alert("Enter a valid price.");
+  if (!desc)              return alert("Enter a description.");
+  if (!pendingFiles.length) return alert("Add at least one photo.");
+
+  // Ensure index.html is loaded
+  if (!currentContent) {
+    showMsg("addMsg","Loading store data...",false);
+    await loadProducts();
+  }
+
+  const btn = document.getElementById("submitBtn");
+  btn.disabled = true;
+  btn.textContent = "Uploading photos...";
+  document.getElementById("uploadBar").style.display = "block";
+
+  // Upload all photos to ImgBB
+  const urls = [];
+  for (let i=0; i<pendingFiles.length; i++) {
+    document.getElementById("uploadFill").style.width = ((i/pendingFiles.length)*70)+"%";
+    try {
+      const url = await uploadToImgBB(pendingFiles[i]);
+      urls.push(url);
+    } catch(e) {
+      btn.disabled = false; btn.textContent = "🚀 Add Product to Store";
+      return showMsg("addMsg","Photo upload failed. Check connection.",true);
+    }
+  }
+  document.getElementById("uploadFill").style.width = "80%";
+  btn.textContent = "Saving to store...";
+
+  const id = slugify(name) + "-" + Date.now().toString(36);
+  const keywords = name.toLowerCase() + " " + cat;
+  const catLabel = CAT_LABELS[cat] || cat;
+  const firstImg = urls[0];
+
+  // Build carousel dots
+  const dots = urls.map((u,i) =>
+    `<span${i===0?' class="active"':''} onclick="goSlide('${id}',${i})"></span>`
+  ).join("\n                    ");
+  // Build img tags
+  const imgs = urls.map((u,i) =>
+    `<img src="${u}" alt="${name} ${i+1}">`
+  ).join("\n                        ");
+
+  const card = `
+        <div class="product-card" id="${id}" data-cat="${cat}" data-sold="false" data-title="${keywords}">
+            <div style="position:relative;">
+                <span class="cat-badge" style="position:absolute;top:9px;left:9px;z-index:4;">${catLabel}</span>
+                <button class="btn-share" style="position:absolute;top:9px;right:9px;z-index:4;" onclick="shareItem('${id}',event)">🔗 Copy Link</button>
+                <div class="sold-overlay"><span>Sold Out</span></div>
+                <div class="carousel" id="c-${id}">
+                    <div class="carousel-track" id="ct-${id}">
+                        ${imgs}
+                    </div>
+                    <button class="carousel-btn prev" onclick="slideCarousel('${id}',-1)">&#8249;</button>
+                    <button class="carousel-btn next" onclick="slideCarousel('${id}',1)">&#8250;</button>
+                    <div class="carousel-dots" id="cd-${id}">
+                    ${dots}
+                    </div>
+                </div>
+            </div>
+            <div class="product-info">
+                <div class="product-meta">
+                    <span class="product-condition">${cond}</span>
+                </div>
+                <div class="product-title">${name}</div>
+                <div class="product-desc">${desc}</div>
+                <div class="product-shipping">🚚 ${ship}</div>
+                <div class="product-price">$${price.toFixed(2)}</div>
+                <button class="btn-add-cart" onclick="addToCart(this,'${id}','${name}',${price},'${firstImg}')">🛒 Add to Cart</button>
+                <div class="buy-direct">
+                    <button class="btn-paypal" onclick="buyPayPal('${name}',${price})">💳 PayPal</button>
+                    <a class="btn-zelle" href="payment.html?item=${encodeURIComponent(name)}&price=${price}">💜 Zelle</a>
+                </div>
+            </div>
+        </div>`;
+
+  // Insert before the ADD MORE comment or noResults div
+  let updated = currentContent;
+  const anchor = '<!-- ═══ ADD MORE PRODUCTS BELOW';
+  const anchor2 = '<div id="noResults"';
+  if (updated.includes(anchor)) {
+    updated = updated.replace(anchor, card + "\n        " + anchor);
+  } else if (updated.includes(anchor2)) {
+    updated = updated.replace(anchor2, card + "\n        " + anchor2);
+  } else {
+    btn.disabled = false; btn.textContent = "🚀 Add Product to Store";
+    return showMsg("addMsg","Could not find insertion point in index.html.",true);
+  }
+
+  document.getElementById("uploadFill").style.width = "90%";
+  const ok = await pushToGitHub(updated, `Add product: ${name}`);
+  document.getElementById("uploadFill").style.width = "100%";
+
+  if (ok) {
+    currentContent = updated;
+    showMsg("addMsg", `"${name}" added! Live on kltuf.com in ~1 minute.`, false);
+    // Reset form
+    document.getElementById("f-name").value = "";
+    document.getElementById("f-price").value = "";
+    document.getElementById("f-desc").value = "";
+    pendingFiles = [];
+    renderPreviews();
+    renderProducts(currentContent);
+  } else {
+    showMsg("addMsg","GitHub error. Try again.",true);
+  }
+  document.getElementById("uploadBar").style.display = "none";
+  btn.disabled = false;
+  btn.textContent = "🚀 Add Product to Store";
+}
+
+// ── SHARED ────────────────────────────────────────────────────────────────
+async function pushToGitHub(content, message) {
+  try {
+    const body = { message, content: btoa(unescape(encodeURIComponent(content))), sha: currentSha };
+    const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
+      method:"PUT",
+      headers:{ Authorization:`token ${localStorage.getItem("kltuf_gh_token")}`, Accept:"application/vnd.github.v3+json", "Content-Type":"application/json" },
+      body: JSON.stringify(body)
+    });
+    const data = await r.json();
+    if (data.content) { currentSha = data.content.sha; return true; }
+    return false;
+  } catch(e) { return false; }
+}
+
+function showMsg(elId, text, isErr) {
+  const el = document.getElementById(elId);
   el.textContent = text;
   el.className = "status-msg" + (isErr ? " err-msg" : "");
   el.style.display = "block";
-  if (!isErr) setTimeout(() => { el.style.display = "none"; }, 4000);
+  if (!isErr) setTimeout(() => { el.style.display = "none"; }, 5000);
 }
 </script>
 </body>
