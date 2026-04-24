@@ -1214,8 +1214,7 @@ function goSlide(id, idx) {
 }
 </script>
 <script>
-/* ImgBB photo upload */
-var imgbbKey = 'da46f7358cc3f9970f8199924f237e22';
+/* ImgBB photo upload — key is kept server-side in Cloudflare Worker */
 var uploadedUrls = [];
 
 function uploadPhotos(input) {
@@ -1235,10 +1234,9 @@ function uploadPhotos(input) {
         reader.onload = function(e) {
             var b64 = e.target.result.split(',')[1];
             var body = new FormData();
-            body.append('key', imgbbKey);
             body.append('image', b64);
             body.append('name', file.name);
-            fetch('https://api.imgbb.com/1/upload', { method: 'POST', body: body })
+            fetch('https://tiny-morning-80f9.kltufllc.workers.dev/imgbb-upload', { method: 'POST', body: body })
                 .then(function(r){ return r.json(); })
                 .then(function(data) {
                     if (data.success) {
