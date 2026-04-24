@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KLTUF Admin</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-height:100vh}
+  #loginScreen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+  .login-box{background:#1f2937;border:1px solid #374151;border-radius:12px;padding:36px;width:100%;max-width:360px;text-align:center}
+  .login-box h2{color:#f0c040;font-size:1.4rem;margin-bottom:6px}
+  .login-box p{color:#9ca3af;font-size:0.85rem;margin-bottom:24px}
+  .login-box input{width:100%;padding:11px 14px;border-radius:8px;border:1px solid #374151;background:#111827;color:#f3f4f6;font-size:1rem;margin-bottom:14px;outline:none}
+  .login-box input:focus{border-color:#f0c040}
+  .btn-gold{background:#f0c040;color:#111827;font-weight:700;border:none;border-radius:8px;padding:12px 24px;cursor:pointer;font-size:1rem;width:100%}
+  .btn-gold:hover{background:#d4a017}
+  .err{color:#f87171;font-size:0.83rem;margin-top:10px;display:none}
+  #adminPanel{display:none;max-width:700px;margin:0 auto;padding:24px 16px}
+  .admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #374151}
+  .admin-header h1{color:#f0c040;font-size:1.2rem}
+  .btn-logout{background:transparent;color:#9ca3af;border:1px solid #374151;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:0.82rem}
+  .btn-logout:hover{color:#f3f4f6;border-color:#6b7280}
+  .status-msg{background:#065f46;color:#6ee7b7;border-radius:8px;padding:10px 14px;font-size:0.85rem;margin-bottom:16px;display:none}
+  .status-msg.err-msg{background:#7f1d1d;color:#fca5a5}
+  .product-row{background:#1f2937;border:1px solid #374151;border-radius:10px;padding:14px 16px;margin-bottom:12px;display:flex;align-items:center;gap:14px}
+  .prod-img{width:58px;height:58px;object-fit:cover;border-radius:7px;flex-shrink:0;background:#374151}
+  .prod-info{flex:1;min-width:0}
+  .prod-name{font-weight:700;font-size:0.97rem;color:#f3f4f6}
+  .prod-price{font-size:0.82rem;color:#9ca3af;margin-top:2px}
+  .prod-id{font-size:0.72rem;color:#6b7280;margin-top:1px}
+  .btn-group{display:flex;gap:6px;flex-wrap:wrap}
+  .btn-status{border:none;border-radius:6px;padding:7px 12px;cursor:pointer;font-size:0.78rem;font-weight:600;transition:opacity 0.15s}
+  .btn-avail{background:#16a34a;color:#fff}
+  .btn-sold{background:#dc2626;color:#fff}
+  .btn-oos{background:#d97706;color:#fff}
+  .btn-status:hover{opacity:0.8}
+  .btn-status.active{outline:2px solid #fff;outline-offset:1px}
+  .saving{opacity:0.5;pointer-events:none}
+  @media(max-width:480px){.product-row{flex-wrap:wrap}.prod-img{width:48px;height:48px}}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen">
+  <div class="login-box">
+    <h2>KLTUF Admin</h2>
+    <p>Employee access only</p>
+    <input type="password" id="pwInput" placeholder="Enter password" onkeydown="if(event.key==='Enter')login()">
+    <button class="btn-gold" onclick="login()">Log In</button>
+    <div class="err" id="loginErr">Incorrect password</div>
+  </div>
+</div>
+
+<!-- TOKEN SETUP (first time) -->
+<div id="tokenScreen" style="display:none;align-items:center;justify-content:center;min-height:100vh;padding:20px">
+  <div class="login-box">
+    <h2>One-Time Setup</h2>
+    <p>Paste the GitHub token (ask your manager). Saved only on this device.</p>
+    <input type="password" id="tokenInput" placeholder="GitHub token (ghp_...)">
+    <button class="btn-gold" onclick="saveToken()">Save & Continue</button>
+    <div class="err" id="tokenErr">Token required</div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel" style="display:none">
+  <div style="max-width:700px;margin:0 auto;padding:24px 16px">
+    <div class="admin-header">
+      <h1>KLTUF Store — Product Status</h1>
+      <button class="btn-logout" onclick="logout()">Log Out</button>
+    </div>
+    <div class="status-msg" id="statusMsg"></div>
+    <div id="productList">Loading products...</div>
+  </div>
+</div>
+
+<script>
+// ── CONFIG ──────────────────────────────────────────────────────────────
+const PASS_HASH = "ec15a65b26d7d6dfa47e0fc6f55f5708f0ffd4b26ba635416d0afecc1e12fa39";
+const REPO      = "nahomtech09/kltuf.com";
+const FILE_PATH = "index.html";
+// Token is stored in employee's browser (localStorage) — never in code
+// ────────────────────────────────────────────────────────────────────────
+
+async function sha256(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,"0")).join("");
+}
+
+async function login() {
+  const pw = document.getElementById("pwInput").value;
+  const hash = await sha256(pw);
+  if (hash === PASS_HASH) {
+    document.getElementById("loginScreen").style.display = "none";
+    const tok = localStorage.getItem("kltuf_gh_token");
+    if (!tok) {
+      document.getElementById("tokenScreen").style.display = "flex";
+    } else {
+      document.getElementById("adminPanel").style.display = "block";
+      loadProducts();
+    }
+  } else {
+    document.getElementById("loginErr").style.display = "block";
+  }
+}
+
+function saveToken() {
+  const tok = document.getElementById("tokenInput").value.trim();
+  if (!tok) { document.getElementById("tokenErr").style.display = "block"; return; }
+  localStorage.setItem("kltuf_gh_token", tok);
+  document.getElementById("tokenScreen").style.display = "none";
+  document.getElementById("adminPanel").style.display = "block";
+  loadProducts();
+}
+
+function logout() {
+  document.getElementById("loginScreen").style.display = "flex";
+  document.getElementById("adminPanel").style.display = "none";
+  document.getElementById("tokenScreen").style.display = "none";
+  document.getElementById("pwInput").value = "";
+}
+
+let currentContent = "", currentSha = "";
+
+async function loadProducts() {
+  const list = document.getElementById("productList");
+  list.textContent = "Loading...";
+  try {
+    const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
+      headers: { Authorization: `token ${localStorage.getItem("kltuf_gh_token")}`, Accept: "application/vnd.github.v3+json" }
+    });
+    const data = await r.json();
+    currentSha = data.sha;
+    currentContent = atob(data.content.replace(/\n/g,""));
+    renderProducts(currentContent);
+  } catch(e) {
+    list.textContent = "Failed to load. Check connection.";
+  }
+}
+
+function renderProducts(html) {
+  const list = document.getElementById("productList");
+  // Parse product cards from the HTML string
+  const re = /<div class="product-card([^"]*)" id="([^"]+)" data-cat="([^"]+)" data-sold="([^"]+)"[^>]*>([\s\S]*?)(?=<div class="product-card|<!--\s*═|$)/g;
+  const products = [];
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    const classes = m[1].trim();
+    const id      = m[2];
+    const soldVal = m[4];
+    // Extract title and price
+    const titleM = m[0].match(/<div class="product-title">([^<]+)<\/div>/);
+    const priceM = m[0].match(/\$([0-9.]+)\.00/);
+    const imgM   = m[0].match(/src="(https:\/\/[^"]+?)"/);
+    products.push({
+      id,
+      title: titleM ? titleM[1] : id,
+      price: priceM ? priceM[1] : "?",
+      img:   imgM   ? imgM[1]   : "",
+      sold:  soldVal === "true",
+      oos:   classes.includes("oos")
+    });
+  }
+
+  if (!products.length) { list.textContent = "No products found."; return; }
+
+  list.innerHTML = products.map(p => {
+    const state = p.oos ? "oos" : (p.sold ? "sold" : "avail");
+    return `<div class="product-row" id="row-${p.id}">
+      <img class="prod-img" src="${p.img}" onerror="this.style.background='#374151'" alt="">
+      <div class="prod-info">
+        <div class="prod-name">${p.title}</div>
+        <div class="prod-price">$${p.price}</div>
+        <div class="prod-id">ID: ${p.id}</div>
+      </div>
+      <div class="btn-group">
+        <button class="btn-status btn-avail${state==='avail'?' active':''}" onclick="setStatus('${p.id}','avail')">Available</button>
+        <button class="btn-status btn-sold${state==='sold'?' active':''}" onclick="setStatus('${p.id}','sold')">Sold Out</button>
+        <button class="btn-status btn-oos${state==='oos'?' active':''}" onclick="setStatus('${p.id}','oos')">Out of Stock</button>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+async function setStatus(id, newState) {
+  const row = document.getElementById("row-"+id);
+  row.classList.add("saving");
+  showMsg("Saving...", false);
+
+  // Update the HTML string
+  let updated = currentContent;
+
+  // Target the specific product-card div opening tag
+  const tagRe = new RegExp(
+    `(<div class="product-card)([^"]*?)(\\s*sold)?([^"]*?)(\\s*oos)?([^"]*)" id="${id}" data-cat="[^"]+" data-sold=")[^"]+(")`
+  );
+
+  const soldVal  = newState !== "avail" ? "true" : "false";
+  const newClass = newState === "sold" ? " sold" : newState === "oos" ? " oos" : "";
+
+  // Replace class list and data-sold
+  updated = updated.replace(
+    new RegExp(`<div class="product-card([^"]*)" id="${id}" data-cat="([^"]+)" data-sold="[^"]+"`),
+    `<div class="product-card${newClass}" id="${id}" data-cat="$2" data-sold="${soldVal}"`
+  );
+
+  try {
+    const body = {
+      message: `Admin: set ${id} to ${newState}`,
+      content: btoa(unescape(encodeURIComponent(updated))),
+      sha: currentSha
+    };
+    const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
+      method: "PUT",
+      headers: {
+        Authorization: `token ${localStorage.getItem("kltuf_gh_token")}`,
+        Accept: "application/vnd.github.v3+json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(body)
+    });
+    const data = await r.json();
+    if (data.content) {
+      currentSha = data.content.sha;
+      currentContent = updated;
+      showMsg(`${id} marked as ${newState} — live in ~1 min`, false);
+      // Update button highlights
+      const btns = row.querySelectorAll(".btn-status");
+      btns.forEach(b => b.classList.remove("active"));
+      row.querySelector(`.btn-${newState === "avail" ? "avail" : newState === "sold" ? "sold" : "oos"}`).classList.add("active");
+    } else {
+      showMsg("GitHub error: " + (data.message || "unknown"), true);
+    }
+  } catch(e) {
+    showMsg("Network error. Try again.", true);
+  }
+  row.classList.remove("saving");
+}
+
+function showMsg(text, isErr) {
+  const el = document.getElementById("statusMsg");
+  el.textContent = text;
+  el.className = "status-msg" + (isErr ? " err-msg" : "");
+  el.style.display = "block";
+  if (!isErr) setTimeout(() => { el.style.display = "none"; }, 4000);
+}
+</script>
+</body>
+</html>
