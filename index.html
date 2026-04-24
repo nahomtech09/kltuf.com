@@ -215,6 +215,13 @@
         }
         .btn-checkout-apple.visible { display: flex; }
         .btn-checkout-apple:hover { background: #222; }
+        .btn-checkout-card {
+            background: #1a56db; color: #fff; border: none;
+            padding: 12px; border-radius: 9px; font-size: 0.9rem;
+            font-weight: 700; cursor: pointer; width: 100%;
+            display: flex; align-items: center; justify-content: center; gap: 7px;
+        }
+        .btn-checkout-card:hover { background: #1648c8; }
         .btn-back-cart:hover { color: #333; }
 
         /* ── HERO ── */
@@ -577,7 +584,8 @@
         <div class="payment-picker" id="paymentPicker">
             <p class="pay-pick-label">How would you like to pay?</p>
             <button class="btn-checkout-apple" id="applePayBtn" onclick="checkoutApplePay()"> Apple Pay</button>
-            <button class="btn-checkout-paypal" onclick="checkoutPayPal()">💳 PayPal / Credit Card</button>
+            <button class="btn-checkout-card" onclick="checkoutApplePay()">💳 Visa / Mastercard / Card</button>
+            <button class="btn-checkout-paypal" onclick="checkoutPayPal()">🅿️ PayPal</button>
             <a href="#" class="btn-checkout-zelle" id="zelleCheckoutBtn" onclick="checkoutZelle(event)">⚡ Zelle</a>
             <button class="btn-back-cart" onclick="hidePaymentPicker()">← Back</button>
         </div>
