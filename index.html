@@ -119,6 +119,11 @@
         }
         .cat-nav-item:hover { color: #f0c040; }
         .cat-nav-item.active { color: #f0c040; border-bottom-color: #f0c040; }
+        .subcat-row { display: none; background: #111827; padding: 6px 22px 10px; gap: 8px; flex-wrap: wrap; border-bottom: 1px solid #1f2937; }
+        .subcat-row.show { display: flex; }
+        .subcat-btn { background: #1f2937; border: 1.5px solid #374151; border-radius: 20px; padding: 4px 14px; font-size: 0.78rem; font-weight: 600; color: #9ca3af; cursor: pointer; font-family: inherit; transition: all 0.15s; }
+        .subcat-btn:hover { border-color: #f0c040; color: #f0c040; }
+        .subcat-btn.active { background: #292215; border-color: #c8971f; color: #f0c040; }
 
         /* ── CART SIDEBAR ── */
         .cart-overlay {
@@ -605,6 +610,12 @@
         <button class="cat-nav-item" onclick="filterCat('other',this)">📦 Other</button>
         <button class="cat-nav-item" onclick="filterCat('sold',this)">🚫 Sold Out</button>
     </div>
+    <div class="subcat-row" id="subcat-clothing">
+        <span style="font-size:0.72rem;color:#6b7280;align-self:center;margin-right:2px;">Style:</span>
+        <button class="subcat-btn active" id="subcat-btn-all" onclick="filterSubcat('clothing',this)">All Clothing</button>
+        <button class="subcat-btn" id="subcat-btn-zuria" onclick="filterSubcat('zuria',this)">👗 Zuria</button>
+        <button class="subcat-btn" id="subcat-btn-chiffon" onclick="filterSubcat('chiffon',this)">🌸 Chiffon</button>
+    </div>
 </header>
 
 <!-- HERO -->
@@ -965,6 +976,22 @@ function filterCat(cat, navBtn, cardId) {
     document.querySelectorAll('.cat-card').forEach(function(c){ c.classList.remove('active'); });
     var cardEl = document.getElementById(cardId || ('cat-' + cat));
     if (cardEl) cardEl.classList.add('active');
+    // Show/hide clothing sub-categories
+    var subRow = document.getElementById('subcat-clothing');
+    if (cat === 'clothing') {
+        subRow.classList.add('show');
+        document.querySelectorAll('.subcat-btn').forEach(function(b){ b.classList.remove('active'); });
+        document.getElementById('subcat-btn-all').classList.add('active');
+    } else {
+        subRow.classList.remove('show');
+    }
+    filterProducts();
+}
+
+function filterSubcat(subcat, btn) {
+    currentCat = subcat;
+    document.querySelectorAll('.subcat-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
     filterProducts();
 }
 
@@ -974,15 +1001,17 @@ function filterProducts() {
     var visible = 0;
     cards.forEach(function(card){
         var isSold = card.dataset.sold === 'true';
-        var catMatch = currentCat === 'sold' ? isSold
-                     : currentCat === 'all'  ? !isSold
+        var clothingGroup = ['clothing','zuria','chiffon'];
+        var catMatch = currentCat === 'sold'     ? isSold
+                     : currentCat === 'all'      ? !isSold
+                     : currentCat === 'clothing' ? (!isSold && clothingGroup.indexOf(card.dataset.cat) !== -1)
                      : (!isSold && card.dataset.cat === currentCat);
         var searchMatch = !query || (card.dataset.title || '').indexOf(query) !== -1;
         card.style.display = (catMatch && searchMatch) ? '' : 'none';
         if (catMatch && searchMatch) visible++;
     });
     document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
-    var names = { all:'All Items', electronics:'Electronics', toys:'Toys & Kids', home:'Home & Garden', clothing:'Clothing', sports:'Sports', other:'Other', sold:'Sold Out' };
+    var names = { all:'All Items', electronics:'Electronics', toys:'Toys & Kids', home:'Home & Garden', clothing:'Clothing', zuria:'Clothing — Zuria', chiffon:'Clothing — Chiffon', sports:'Sports', other:'Other', sold:'Sold Out' };
     document.getElementById('products-title').textContent = query ? 'Results: "' + query + '"' : (names[currentCat] || 'Items');
     document.getElementById('products-count').textContent = visible + (visible === 1 ? ' listing' : ' listings');
 }
