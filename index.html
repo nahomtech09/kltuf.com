@@ -207,6 +207,14 @@
             background: none; border: none; color: #888; font-size: 0.82rem;
             cursor: pointer; text-align: center; padding: 4px; text-decoration: underline;
         }
+        .btn-checkout-apple {
+            background: #000; color: #fff; border: none;
+            padding: 12px; border-radius: 9px; font-size: 0.95rem;
+            font-weight: 700; cursor: pointer; width: 100%; display: none;
+            align-items: center; justify-content: center; gap: 7px;
+        }
+        .btn-checkout-apple.visible { display: flex; }
+        .btn-checkout-apple:hover { background: #222; }
         .btn-back-cart:hover { color: #333; }
 
         /* ── HERO ── */
@@ -568,6 +576,7 @@
         <button class="btn-proceed" id="btnProceed" onclick="showPaymentPicker()">Proceed to Checkout →</button>
         <div class="payment-picker" id="paymentPicker">
             <p class="pay-pick-label">How would you like to pay?</p>
+            <button class="btn-checkout-apple" id="applePayBtn" onclick="checkoutApplePay()"> Apple Pay</button>
             <button class="btn-checkout-paypal" onclick="checkoutPayPal()">💳 PayPal / Credit Card</button>
             <a href="#" class="btn-checkout-zelle" id="zelleCheckoutBtn" onclick="checkoutZelle(event)">⚡ Zelle</a>
             <button class="btn-back-cart" onclick="hidePaymentPicker()">← Back</button>
@@ -1307,6 +1316,74 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     var addr = u + '@' + d;
     document.querySelectorAll('.em-addr').forEach(function(el){ el.textContent = addr; });
     document.querySelectorAll('.em-link').forEach(function(el){ el.href = 'mailto:' + addr; el.textContent = addr; });
+})();
+</script>
+
+<!-- Stripe.js -->
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+(function() {
+  var WORKER_URL = 'WORKER_URL_PLACEHOLDER';
+  var stripe = Stripe('pk_test_51TPihnP8WU6FgOlm60S7YSez2FKnZkPTZp2blWZb2OyeW2D9voPGeyO3a1aPbwKqGi2hdPeXEK980wR10tYBqpOA00BwjAKUpE');
+
+  // Check Apple Pay availability and show button
+  function initApplePay() {
+    if (!window.ApplePaySession || !ApplePaySession.canMakePayments()) return;
+    var pr = stripe.paymentRequest({
+      country: 'US', currency: 'usd',
+      total: { label: 'KLTUF Store', amount: 100 },
+      requestPayerName: true, requestPayerEmail: true,
+    });
+    pr.canMakePayment().then(function(result) {
+      if (result && result.applePay) {
+        document.getElementById('applePayBtn').classList.add('visible');
+      }
+    });
+  }
+
+  window.checkoutApplePay = function() {
+    if (!cart || cart.length === 0) return;
+    var btn = document.getElementById('applePayBtn');
+    btn.textContent = ' Processing...';
+    btn.disabled = true;
+
+    var items = cart.map(function(i) {
+      return { title: i.title, price: i.price, qty: i.qty };
+    });
+
+    fetch(WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: items })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert('Payment error. Please try PayPal or Zelle.');
+        btn.textContent = ' Apple Pay';
+        btn.disabled = false;
+      }
+    })
+    .catch(function() {
+      alert('Connection error. Please try PayPal or Zelle.');
+      btn.textContent = ' Apple Pay';
+      btn.disabled = false;
+    });
+  };
+
+  // Show success message if returning from Stripe Checkout
+  if (window.location.search.indexOf('payment=success') !== -1) {
+    var msg = document.createElement('div');
+    msg.style.cssText = 'position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#065f46;color:#6ee7b7;padding:14px 24px;border-radius:10px;font-weight:700;z-index:9999;font-size:0.95rem;box-shadow:0 4px 12px rgba(0,0,0,0.3)';
+    msg.textContent = '✅ Payment successful! Thank you for your order.';
+    document.body.appendChild(msg);
+    setTimeout(function() { msg.remove(); }, 6000);
+    history.replaceState(null, '', '/');
+  }
+
+  initApplePay();
 })();
 </script>
 </body>
