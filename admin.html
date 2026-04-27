@@ -352,7 +352,20 @@ body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-heigh
           </div>
         </div>
         <button class="btn-search" id="eb-search-btn" onclick="searchEbay()">Search eBay</button>
-        <p class="info-note" style="margin-top:8px">No account or API key needed — uses eBay public search feed.</p>
+        <p class="info-note" style="margin-top:4px">No account or API key needed.</p>
+        <div class="fb-or" style="margin:14px 0">— or capture any individual listing with the bookmarklet —</div>
+        <div class="bm-area">
+          <div class="bm-steps">
+            <b>Step 1 —</b> Copy the code below and save it as a new browser bookmark (paste as the URL).<br>
+            <b>Step 2 —</b> Open any eBay listing page and click the bookmark.<br>
+            <b>Step 3 —</b> Come back here and click <b>Check for eBay Listing</b>.
+          </div>
+          <div class="bm-code-wrap" style="margin-top:10px">
+            <div class="bm-code" id="ebBmCode">loading...</div>
+            <button class="btn-copy-bm" onclick="copyEbayBookmarklet()">Copy</button>
+          </div>
+        </div>
+        <button class="btn-check-fb" style="background:#e53238;margin-top:10px" onclick="checkEbayImport()">Check for eBay Listing</button>
       </div>
 
       <!-- RESULTS GRID -->
@@ -718,6 +731,7 @@ function initSourceTab() {
   document.getElementById('markupSlider').value = markupPct;
   document.getElementById('markupDisplay').textContent = markupPct + '%';
   document.getElementById('bmCode').textContent = BOOKMARKLET_CODE;
+  document.getElementById('ebBmCode').textContent = EBAY_BM;
 }
 
 function updateMarkup(val) {
@@ -857,6 +871,36 @@ function parseCraigslistRSS(xml, maxprice) {
 }
 
 // ── eBay ──────────────────────────────────────────────────────────────────
+const EBAY_BM = `javascript:(function(){var d={source:'ebay',sourceUrl:location.href,images:[],title:'',price:0,desc:''};d.title=(document.querySelector('h1.x-item-title__mainTitle span')||document.querySelector('[itemprop="name"]')||{}).textContent||document.title.split('|')[0].trim();var pEl=document.querySelector('[itemprop="price"]');d.price=pEl?parseFloat(pEl.getAttribute('content')||pEl.textContent.replace(/[^0-9.]/g,''))||0:0;if(!d.price){var pm=(document.querySelector('.x-price-primary,.display-price')||{}).textContent||'';var m=pm.match(/\$([\d,]+(?:\.\d{2})?)/);d.price=m?parseFloat(m[1].replace(',','')):0;}d.images=[...document.querySelectorAll('.ux-image-carousel-item img,.filmstrip img,.img img')].filter(function(i){return i.src&&i.src.indexOf('ebayimg')>-1;}).map(function(i){return i.src.replace(/s-l\d+/,'s-l500');}).filter(function(v,i,a){return a.indexOf(v)===i;}).slice(0,5);d.desc=((document.querySelector('.vim.d-item-description,[data-testid="ux-layout-section-evo__item"]')||{}).innerText||'').trim().substring(0,500);localStorage.setItem('kltuf_source_import',JSON.stringify(d));alert('KLTUF: eBay listing captured! Go to kltuf.com/admin.html → Source Listings → eBay tab.');})();`;
+
+function copyEbayBookmarklet() {
+  navigator.clipboard.writeText(EBAY_BM).then(() => {
+    const btn = document.querySelector('#src-eb .btn-copy-bm');
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 2000);
+  });
+}
+
+function checkEbayImport() {
+  const raw = localStorage.getItem('kltuf_source_import');
+  if (!raw) { showMsg('srcMsg', 'No eBay listing captured yet. Use the bookmarklet on an eBay item page first.', true); return; }
+  try {
+    const d = JSON.parse(raw);
+    if (d.source !== 'ebay') { showMsg('srcMsg', 'The captured listing is not from eBay.', true); return; }
+    localStorage.removeItem('kltuf_source_import');
+    showSourceResults([{
+      title: d.title || 'eBay Listing',
+      sourcePrice: d.price || 0,
+      yourPrice: applyMarkup(d.price || 0),
+      images: d.images || [],
+      description: d.desc || '',
+      source: 'ebay',
+      sourceUrl: d.sourceUrl || ''
+    }]);
+    showMsg('srcMsg', 'eBay listing captured!', false);
+  } catch(e) { showMsg('srcMsg', 'Error reading captured listing. Try the bookmarklet again.', true); }
+}
+
 async function searchEbay() {
   const query     = document.getElementById('eb-query').value.trim();
   const maxprice  = document.getElementById('eb-maxprice').value.trim() || '100';
@@ -867,49 +911,51 @@ async function searchEbay() {
   const btn = document.getElementById('eb-search-btn');
   btn.disabled = true; btn.textContent = 'Searching...';
 
-  let ebayUrl = `https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(query)}&_sop=15&_udhi=${maxprice}&rt=nc&_rss=1`;
+  let ebayUrl = `https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(query)}&_sop=15&_udhi=${maxprice}`;
   if (bin === '1')   ebayUrl += '&LH_BIN=1';
   if (condition)     ebayUrl += `&LH_ItemCondition=${condition}`;
 
   try {
     const r = await fetch(CORS_PROXY + encodeURIComponent(ebayUrl));
-    const text = await r.text();
-    const items = parseEbayRSS(text);
+    const html = await r.text();
+    const items = parseEbayHTML(html);
     if (!items.length) {
-      showMsg('srcMsg', 'No results on eBay. Try different keywords or raise max price.', true);
+      showMsg('srcMsg', 'No results found. Try broader keywords, higher max price, or use the bookmarklet below.', true);
     } else {
       showMsg('srcMsg', `Found ${items.length} items on eBay.`, false);
       showSourceResults(items);
     }
   } catch(e) {
-    showMsg('srcMsg', 'eBay search failed. Check your connection and try again.', true);
+    showMsg('srcMsg', 'eBay search failed. Try the bookmarklet instead.', true);
   }
   btn.disabled = false; btn.textContent = 'Search eBay';
 }
 
-function parseEbayRSS(xml) {
-  const doc = new DOMParser().parseFromString(xml, 'text/xml');
-  const items = [...doc.querySelectorAll('item')];
+function parseEbayHTML(html) {
+  const doc = new DOMParser().parseFromString(html, 'text/html');
   const results = [];
-  for (const item of items.slice(0, 20)) {
-    const rawTitle = item.querySelector('title')?.textContent?.trim() || '';
-    const link     = item.textContent.match(/https:\/\/www\.ebay\.com\/itm\/[^\s<"]+/)?.[0] || '';
-    const desc     = item.querySelector('description')?.textContent || '';
+  const itemEls = [...doc.querySelectorAll('.s-item')];
+  for (const item of itemEls.slice(0, 25)) {
+    const titleEl = item.querySelector('.s-item__title span[role="heading"], .s-item__title');
+    const title   = (titleEl?.textContent || '').trim().replace(/^New Listing\s*/i, '');
+    if (!title || title.length < 3 || title === 'Shop on eBay') continue;
 
-    const priceMatch = rawTitle.match(/\$([\d]+(?:\.\d{2})?)[\s)]*$/);
-    const sourcePrice = priceMatch ? parseFloat(priceMatch[1]) : 0;
-    const cleanTitle  = rawTitle.replace(/\s*[-–(]\s*\$[\d.]+\)?$/, '').trim() || rawTitle;
+    const priceText  = item.querySelector('.s-item__price')?.textContent || '';
+    const priceMatch = priceText.match(/\$([\d,]+(?:\.\d{2})?)/);
+    const sourcePrice = priceMatch ? parseFloat(priceMatch[1].replace(',', '')) : 0;
 
-    const imgMatch = desc.match(/src=["']([^"']*(?:ebayimg|ebaystatic)[^"']*\.(?:jpg|jpeg|png|webp)[^"']*)["']/i);
-    const thumb    = imgMatch ? imgMatch[1].replace(/s-l\d+/, 's-l500') : '';
+    const link  = item.querySelector('a.s-item__link')?.getAttribute('href') || '';
+    const imgEl = item.querySelector('img');
+    const thumb = (imgEl?.getAttribute('data-src') || imgEl?.getAttribute('src') || '');
+    const cleanThumb = thumb && (thumb.includes('ebayimg') || thumb.includes('ebaystatic'))
+      ? thumb.replace(/s-l\d+/, 's-l500') : '';
 
-    if (!cleanTitle || cleanTitle.length < 3) continue;
     results.push({
-      title: cleanTitle,
+      title,
       sourcePrice,
       yourPrice: applyMarkup(sourcePrice),
-      images: thumb ? [thumb] : [],
-      description: desc.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().substring(0, 300) || 'eBay listing',
+      images: cleanThumb ? [cleanThumb] : [],
+      description: `eBay listing${sourcePrice ? ' — source price: $' + sourcePrice : ''}.`,
       source: 'ebay',
       sourceUrl: link
     });
