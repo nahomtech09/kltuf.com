@@ -323,49 +323,22 @@ body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-heigh
 
       <!-- EBAY PANEL -->
       <div id="src-eb" class="form-section" style="display:none">
-        <h3>eBay Search</h3>
-        <div class="row2">
-          <div class="field">
-            <label>Keywords *</label>
-            <input type="text" id="eb-query" placeholder="kids scooter">
-          </div>
-          <div class="field">
-            <label>Max Price ($)</label>
-            <input type="number" id="eb-maxprice" placeholder="50" min="1" value="50">
-          </div>
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label>Condition</label>
-            <select id="eb-condition">
-              <option value="">All conditions</option>
-              <option value="3000" selected>Used</option>
-              <option value="1000">New</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Listing type</label>
-            <select id="eb-listtype">
-              <option value="1">Buy It Now only</option>
-              <option value="0">All listings</option>
-            </select>
-          </div>
-        </div>
-        <button class="btn-search" id="eb-search-btn" onclick="searchEbay()">Search eBay</button>
-        <p class="info-note" style="margin-top:4px">No account or API key needed.</p>
-        <div class="fb-or" style="margin:14px 0">— or capture any individual listing with the bookmarklet —</div>
+        <h3>eBay — Capture Listings</h3>
         <div class="bm-area">
           <div class="bm-steps">
-            <b>Step 1 —</b> Copy the code below and save it as a new browser bookmark (paste as the URL).<br>
-            <b>Step 2 —</b> Open any eBay listing page and click the bookmark.<br>
-            <b>Step 3 —</b> Come back here and click <b>Check for eBay Listing</b>.
+            <b>Step 1 —</b> Copy the bookmarklet code below. In your browser create a new bookmark and paste the code as the URL.<br>
+            <b>Step 2 —</b> Go to eBay and search for cheap items (e.g. "kids scooter under $30").<br>
+            <b>Step 3 —</b> On the <b>search results page</b>, click the bookmark — captures up to 20 items at once.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Works on individual listing pages too.<br>
+            <b>Step 4 —</b> Come back here and click <b>Check for eBay Listings</b>.
           </div>
           <div class="bm-code-wrap" style="margin-top:10px">
             <div class="bm-code" id="ebBmCode">loading...</div>
             <button class="btn-copy-bm" onclick="copyEbayBookmarklet()">Copy</button>
           </div>
         </div>
-        <button class="btn-check-fb" style="background:#e53238;margin-top:10px" onclick="checkEbayImport()">Check for eBay Listing</button>
+        <button class="btn-check-fb" style="background:#e53238" onclick="checkEbayImport()">Check for eBay Listings</button>
+        <p class="info-note" style="margin-top:10px">No account or API key needed. Works on any eBay search results or listing page.</p>
       </div>
 
       <!-- RESULTS GRID -->
@@ -871,7 +844,7 @@ function parseCraigslistRSS(xml, maxprice) {
 }
 
 // ── eBay ──────────────────────────────────────────────────────────────────
-const EBAY_BM = `javascript:(function(){var d={source:'ebay',sourceUrl:location.href,images:[],title:'',price:0,desc:''};d.title=(document.querySelector('h1.x-item-title__mainTitle span')||document.querySelector('[itemprop="name"]')||{}).textContent||document.title.split('|')[0].trim();var pEl=document.querySelector('[itemprop="price"]');d.price=pEl?parseFloat(pEl.getAttribute('content')||pEl.textContent.replace(/[^0-9.]/g,''))||0:0;if(!d.price){var pm=(document.querySelector('.x-price-primary,.display-price')||{}).textContent||'';var m=pm.match(/\$([\d,]+(?:\.\d{2})?)/);d.price=m?parseFloat(m[1].replace(',','')):0;}d.images=[...document.querySelectorAll('.ux-image-carousel-item img,.filmstrip img,.img img')].filter(function(i){return i.src&&i.src.indexOf('ebayimg')>-1;}).map(function(i){return i.src.replace(/s-l\d+/,'s-l500');}).filter(function(v,i,a){return a.indexOf(v)===i;}).slice(0,5);d.desc=((document.querySelector('.vim.d-item-description,[data-testid="ux-layout-section-evo__item"]')||{}).innerText||'').trim().substring(0,500);localStorage.setItem('kltuf_source_import',JSON.stringify(d));alert('KLTUF: eBay listing captured! Go to kltuf.com/admin.html → Source Listings → eBay tab.');})();`;
+const EBAY_BM = `javascript:(function(){var isSRP=location.pathname.indexOf('/sch/')>-1||!!document.querySelector('.s-item');var items=[];if(isSRP){items=[...document.querySelectorAll('.s-item')].filter(function(e){var t=(e.querySelector('.s-item__title')||{}).textContent||'';return t.trim()&&t.trim()!=='Shop on eBay';}).slice(0,20).map(function(e){var t=((e.querySelector('.s-item__title span[role="heading"]')||e.querySelector('.s-item__title'))||{}).textContent||'';t=t.trim().replace(/^New Listing\\s*/i,'');var pt=(e.querySelector('.s-item__price')||{}).textContent||'';var pm=pt.match(/\\$([\\d,]+(?:\\.\\d{2})?)/);var price=pm?parseFloat(pm[1].replace(',','')):0;var link=(e.querySelector('a.s-item__link')||{}).href||'';var img=e.querySelector('img');var src=img?(img.getAttribute('data-src')||img.src||''):'';src=src.indexOf('ebayimg')>-1?src.replace(/s-l\\d+/,'s-l500'):'';return{title:t,price:price,images:src?[src]:[],sourceUrl:link,source:'ebay',desc:''};}).filter(function(i){return i.title&&i.title.length>3;});}else{var title=((document.querySelector('h1.x-item-title__mainTitle span')||document.querySelector('[itemprop="name"]')||{}).textContent||document.title.split('|')[0]).trim();var pEl=document.querySelector('[itemprop="price"]');var price=pEl?parseFloat(pEl.getAttribute('content')||0):0;if(!price){var pm2=(document.querySelector('.x-price-primary')||{}).textContent||'';var m2=pm2.match(/\\$([\\d,]+(?:\\.\\d{2})?)/);price=m2?parseFloat(m2[1].replace(',','')):0;}var imgs=[...document.querySelectorAll('.ux-image-carousel-item img,.filmstrip img')].filter(function(i){return i.src&&i.src.indexOf('ebayimg')>-1;}).map(function(i){return i.src.replace(/s-l\\d+/,'s-l500');}).filter(function(v,i,a){return a.indexOf(v)===i;}).slice(0,5);items=[{title:title,price:price,images:imgs,sourceUrl:location.href,source:'ebay',desc:''}];}if(!items.length){alert('No eBay listings found. Make sure you are on an eBay search results or item page.');return;}localStorage.setItem('kltuf_ebay_batch',JSON.stringify(items));alert('KLTUF: Captured '+items.length+' listing(s)! Go to kltuf.com/admin.html → Source Listings → eBay tab.');})();`;
 
 function copyEbayBookmarklet() {
   navigator.clipboard.writeText(EBAY_BM).then(() => {
@@ -882,23 +855,24 @@ function copyEbayBookmarklet() {
 }
 
 function checkEbayImport() {
-  const raw = localStorage.getItem('kltuf_source_import');
-  if (!raw) { showMsg('srcMsg', 'No eBay listing captured yet. Use the bookmarklet on an eBay item page first.', true); return; }
+  const raw = localStorage.getItem('kltuf_ebay_batch');
+  if (!raw) { showMsg('srcMsg', 'No eBay listings found. Use the bookmarklet on an eBay search results or listing page first.', true); return; }
   try {
-    const d = JSON.parse(raw);
-    if (d.source !== 'ebay') { showMsg('srcMsg', 'The captured listing is not from eBay.', true); return; }
-    localStorage.removeItem('kltuf_source_import');
-    showSourceResults([{
-      title: d.title || 'eBay Listing',
+    const arr = JSON.parse(raw);
+    localStorage.removeItem('kltuf_ebay_batch');
+    const results = arr.filter(d => d.title && d.title.length > 2).map(d => ({
+      title: d.title,
       sourcePrice: d.price || 0,
       yourPrice: applyMarkup(d.price || 0),
       images: d.images || [],
       description: d.desc || '',
       source: 'ebay',
       sourceUrl: d.sourceUrl || ''
-    }]);
-    showMsg('srcMsg', 'eBay listing captured!', false);
-  } catch(e) { showMsg('srcMsg', 'Error reading captured listing. Try the bookmarklet again.', true); }
+    }));
+    if (!results.length) { showMsg('srcMsg', 'No valid listings found in captured data.', true); return; }
+    showSourceResults(results);
+    showMsg('srcMsg', `Captured ${results.length} eBay listing(s)!`, false);
+  } catch(e) { showMsg('srcMsg', 'Error reading captured data. Try the bookmarklet again.', true); }
 }
 
 async function searchEbay() {
