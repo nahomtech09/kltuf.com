@@ -50,6 +50,9 @@ body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-heigh
 .btn-status:hover{opacity:0.8}
 .btn-status.active{outline:2px solid #fff;outline-offset:1px}
 .saving{opacity:0.5;pointer-events:none}
+.btn-fb{background:#1877f2;color:#fff;border:none;border-radius:6px;padding:6px 11px;cursor:pointer;font-size:0.75rem;font-weight:600;transition:opacity 0.15s;white-space:nowrap}
+.btn-fb:hover{opacity:0.85}
+.btn-fb.copied{background:#16a34a}
 
 /* ADD PRODUCT TAB */
 .form-section{background:#1f2937;border:1px solid #374151;border-radius:10px;padding:18px;margin-bottom:14px}
@@ -406,6 +409,7 @@ function showTab(name) {
 
 // ── STATUS TAB ────────────────────────────────────────────────────────────
 let currentContent = "", currentSha = "";
+let allProducts = [];
 
 async function loadProducts() {
   const list = document.getElementById("productList");
@@ -435,15 +439,22 @@ function renderProducts(html) {
     const titleM  = m[0].match(/<div class="product-title">([^<]+)<\/div>/);
     const priceM  = m[0].match(/\$([0-9.]+)\.00/);
     const imgM    = m[0].match(/src="(https:\/\/[^"]+?)"/);
+    const descM   = m[0].match(/<div class="product-desc">([^<]*)<\/div>/);
+    const condM   = m[0].match(/<span class="product-condition">([^<]*)<\/span>/);
+    const shipM   = m[0].match(/<div class="product-shipping">[^>]*>([^<]*)<\/div>/);
     products.push({ id,
       title: titleM ? titleM[1] : id,
       price: priceM ? priceM[1] : "?",
       img:   imgM   ? imgM[1]   : "",
       sold:  soldVal === "true",
-      oos:   classes.includes("oos")
+      oos:   classes.includes("oos"),
+      desc:  descM  ? descM[1].trim()  : "",
+      cond:  condM  ? condM[1].trim()  : "",
+      ship:  shipM  ? shipM[1].trim()  : "Local pickup / shipping available"
     });
   }
   if (!products.length) { list.textContent = "No products found."; return; }
+  allProducts = products;
   list.innerHTML = products.map(p => {
     const state = p.oos ? "oos" : (p.sold ? "sold" : "avail");
     return `<div class="product-row" id="row-${p.id}">
@@ -457,6 +468,7 @@ function renderProducts(html) {
         <button class="btn-status btn-avail${state==='avail'?' active':''}" onclick="setStatus('${p.id}','avail')">Available</button>
         <button class="btn-status btn-sold${state==='sold'?' active':''}" onclick="setStatus('${p.id}','sold')">Sold Out</button>
         <button class="btn-status btn-oos${state==='oos'?' active':''}" onclick="setStatus('${p.id}','oos')">Out of Stock</button>
+        <button class="btn-fb" id="fb-${p.id}" onclick="postToFacebook('${p.id}')">📘 Post to FB</button>
       </div>
     </div>`;
   }).join("");
@@ -483,6 +495,36 @@ async function setStatus(id, newState) {
     showMsg("statusMsg", "GitHub error. Try again.", true);
   }
   row.classList.remove("saving");
+}
+
+function postToFacebook(id) {
+  const p = allProducts.find(x => x.id === id);
+  if (!p) return;
+  const lines = [
+    p.title,
+    '',
+    `💰 Price: $${p.price}`,
+    p.cond ? `✨ Condition: ${p.cond}` : null,
+    '',
+    p.desc || '',
+    '',
+    `🚚 ${p.ship || 'Local pickup / shipping available'}`,
+    '',
+    `🔗 View & buy at kltuf.com → https://kltuf.com/#${p.id}`,
+    '— KLTUF Store'
+  ].filter(l => l !== null).join('\n').trim();
+
+  const btn = document.getElementById('fb-' + id);
+  navigator.clipboard.writeText(lines).then(() => {
+    btn.textContent = '✅ Copied!';
+    btn.classList.add('copied');
+    showMsg('statusMsg', 'Listing text copied! Opening Facebook Marketplace — paste into the description.', false);
+    setTimeout(() => window.open('https://www.facebook.com/marketplace/create/item', '_blank'), 400);
+    setTimeout(() => { btn.textContent = '📘 Post to FB'; btn.classList.remove('copied'); }, 3000);
+  }).catch(() => {
+    prompt('Copy this and paste on Facebook Marketplace:', lines);
+    window.open('https://www.facebook.com/marketplace/create/item', '_blank');
+  });
 }
 
 // ── ADD PRODUCT TAB ───────────────────────────────────────────────────────
