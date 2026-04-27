@@ -327,20 +327,32 @@ body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-heigh
         <div class="row2">
           <div class="field">
             <label>Keywords *</label>
-            <input type="text" id="eb-query" placeholder="kids scooter used">
+            <input type="text" id="eb-query" placeholder="kids scooter">
           </div>
           <div class="field">
             <label>Max Price ($)</label>
             <input type="number" id="eb-maxprice" placeholder="50" min="1" value="50">
           </div>
         </div>
+        <div class="row2">
+          <div class="field">
+            <label>Condition</label>
+            <select id="eb-condition">
+              <option value="">All conditions</option>
+              <option value="3000" selected>Used</option>
+              <option value="1000">New</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Listing type</label>
+            <select id="eb-listtype">
+              <option value="1">Buy It Now only</option>
+              <option value="0">All listings</option>
+            </select>
+          </div>
+        </div>
         <button class="btn-search" id="eb-search-btn" onclick="searchEbay()">Search eBay</button>
-        <p class="info-note" style="margin-top:8px">
-          Requires a free eBay Developer App ID.
-          <a href="https://developer.ebay.com/my/keys" target="_blank">Get one free at developer.ebay.com</a> →
-          My Account → Application Keys (takes ~2 min).
-          Your App ID is saved on this device.
-        </p>
+        <p class="info-note" style="margin-top:8px">No account or API key needed — uses eBay public search feed.</p>
       </div>
 
       <!-- RESULTS GRID -->
@@ -846,67 +858,63 @@ function parseCraigslistRSS(xml, maxprice) {
 
 // ── eBay ──────────────────────────────────────────────────────────────────
 async function searchEbay() {
-  const query    = document.getElementById('eb-query').value.trim();
-  const maxprice = document.getElementById('eb-maxprice').value.trim() || '50';
-  if (!query) { showMsg('srcMsg','Enter keywords to search.',true); return; }
-
-  let appId = localStorage.getItem('kltuf_ebay_appid') || '';
-  if (!appId) {
-    appId = prompt('Enter your free eBay Developer App ID (from developer.ebay.com → My Account → Application Keys):');
-    if (!appId || !appId.trim()) return;
-    localStorage.setItem('kltuf_ebay_appid', appId.trim());
-    appId = appId.trim();
-  }
+  const query     = document.getElementById('eb-query').value.trim();
+  const maxprice  = document.getElementById('eb-maxprice').value.trim() || '100';
+  const condition = document.getElementById('eb-condition').value;
+  const bin       = document.getElementById('eb-listtype').value;
+  if (!query) { showMsg('srcMsg', 'Enter keywords to search.', true); return; }
 
   const btn = document.getElementById('eb-search-btn');
   btn.disabled = true; btn.textContent = 'Searching...';
 
-  const ebayUrl = [
-    'https://svcs.ebay.com/services/search/FindingService/v1',
-    '?OPERATION-NAME=findItemsByKeywords',
-    '&SERVICE-VERSION=1.0.0',
-    `&SECURITY-APPNAME=${encodeURIComponent(appId)}`,
-    '&RESPONSE-DATA-FORMAT=JSON',
-    `&keywords=${encodeURIComponent(query)}`,
-    '&itemFilter(0).name=MaxPrice',
-    `&itemFilter(0).value=${maxprice}`,
-    '&itemFilter(0).paramName=Currency',
-    '&itemFilter(0).paramValue=USD',
-    '&itemFilter(1).name=ListingType',
-    '&itemFilter(1).value=FixedPrice',
-    '&sortOrder=PricePlusShippingLowest',
-    '&paginationInput.entriesPerPage=20'
-  ].join('');
+  let ebayUrl = `https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(query)}&_sop=15&_udhi=${maxprice}&rt=nc&_rss=1`;
+  if (bin === '1')   ebayUrl += '&LH_BIN=1';
+  if (condition)     ebayUrl += `&LH_ItemCondition=${condition}`;
 
-  const proxyUrl = CORS_PROXY + encodeURIComponent(ebayUrl);
   try {
-    const r = await fetch(proxyUrl);
-    const data = await r.json();
-    const items = data?.findItemsByKeywordsResponse?.[0]?.searchResult?.[0]?.item || [];
+    const r = await fetch(CORS_PROXY + encodeURIComponent(ebayUrl));
+    const text = await r.text();
+    const items = parseEbayRSS(text);
     if (!items.length) {
-      showMsg('srcMsg', 'No results on eBay. Try different keywords or increase max price.', true);
+      showMsg('srcMsg', 'No results on eBay. Try different keywords or raise max price.', true);
     } else {
-      const results = items.map(item => {
-        const sourcePrice = parseFloat(item?.sellingStatus?.[0]?.currentPrice?.[0]?.__value__ || 0);
-        const thumb = (item?.galleryURL?.[0] || '').replace('s-l140','s-l500');
-        return {
-          title: item?.title?.[0] || 'eBay Item',
-          sourcePrice,
-          yourPrice: applyMarkup(sourcePrice),
-          images: thumb ? [thumb] : [],
-          description: `${item?.condition?.[0]?.conditionDisplayName?.[0] || 'Used'} item from eBay.`,
-          source: 'ebay',
-          sourceUrl: item?.viewItemURL?.[0] || ''
-        };
-      });
-      showMsg('srcMsg', `Found ${results.length} items on eBay.`, false);
-      showSourceResults(results);
+      showMsg('srcMsg', `Found ${items.length} items on eBay.`, false);
+      showSourceResults(items);
     }
   } catch(e) {
-    localStorage.removeItem('kltuf_ebay_appid');
-    showMsg('srcMsg', 'eBay search failed. Your App ID may be invalid — it was cleared, try again.', true);
+    showMsg('srcMsg', 'eBay search failed. Check your connection and try again.', true);
   }
   btn.disabled = false; btn.textContent = 'Search eBay';
+}
+
+function parseEbayRSS(xml) {
+  const doc = new DOMParser().parseFromString(xml, 'text/xml');
+  const items = [...doc.querySelectorAll('item')];
+  const results = [];
+  for (const item of items.slice(0, 20)) {
+    const rawTitle = item.querySelector('title')?.textContent?.trim() || '';
+    const link     = item.textContent.match(/https:\/\/www\.ebay\.com\/itm\/[^\s<"]+/)?.[0] || '';
+    const desc     = item.querySelector('description')?.textContent || '';
+
+    const priceMatch = rawTitle.match(/\$([\d]+(?:\.\d{2})?)[\s)]*$/);
+    const sourcePrice = priceMatch ? parseFloat(priceMatch[1]) : 0;
+    const cleanTitle  = rawTitle.replace(/\s*[-–(]\s*\$[\d.]+\)?$/, '').trim() || rawTitle;
+
+    const imgMatch = desc.match(/src=["']([^"']*(?:ebayimg|ebaystatic)[^"']*\.(?:jpg|jpeg|png|webp)[^"']*)["']/i);
+    const thumb    = imgMatch ? imgMatch[1].replace(/s-l\d+/, 's-l500') : '';
+
+    if (!cleanTitle || cleanTitle.length < 3) continue;
+    results.push({
+      title: cleanTitle,
+      sourcePrice,
+      yourPrice: applyMarkup(sourcePrice),
+      images: thumb ? [thumb] : [],
+      description: desc.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().substring(0, 300) || 'eBay listing',
+      source: 'ebay',
+      sourceUrl: link
+    });
+  }
+  return results;
 }
 
 // ── Results ───────────────────────────────────────────────────────────────
