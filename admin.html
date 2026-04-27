@@ -28,8 +28,8 @@ body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-heigh
 .btn-logout:hover{color:#f3f4f6;border-color:#6b7280}
 
 /* TABS */
-.tab-bar{display:flex;gap:6px;margin-bottom:20px}
-.tab{flex:1;padding:10px;border:1.5px solid #374151;border-radius:8px;background:#1f2937;color:#9ca3af;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.15s}
+.tab-bar{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.tab{flex:1;padding:10px 6px;border:1.5px solid #374151;border-radius:8px;background:#1f2937;color:#9ca3af;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.15s;white-space:nowrap}
 .tab:hover{border-color:#f0c040;color:#f0c040}
 .tab.active{background:#292215;border-color:#c8971f;color:#f0c040}
 
@@ -76,7 +76,52 @@ body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-heigh
 .btn-submit:hover{background:#d4a017}
 .btn-submit:disabled{opacity:0.5;cursor:not-allowed}
 
-@media(max-width:480px){.product-row{flex-wrap:wrap}.prod-img{width:46px;height:46px}.row2{grid-template-columns:1fr}}
+/* SOURCE TAB */
+.src-subtabs{display:flex;gap:6px;margin-bottom:16px}
+.src-subtab{flex:1;padding:9px 6px;border:1.5px solid #374151;border-radius:8px;background:#1f2937;color:#9ca3af;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.15s}
+.src-subtab:hover{border-color:#f0c040;color:#f0c040}
+.src-subtab.active{background:#292215;border-color:#c8971f;color:#f0c040}
+.markup-row{display:flex;align-items:center;gap:12px}
+.markup-row label{color:#9ca3af;font-size:0.82rem;font-weight:600;white-space:nowrap}
+.markup-row input[type=range]{flex:1;accent-color:#f0c040;height:4px}
+.markup-val{background:#f0c040;color:#111827;font-weight:700;border-radius:6px;padding:4px 12px;font-size:0.9rem;min-width:52px;text-align:center}
+.bm-area{background:#111827;border:1px solid #374151;border-radius:8px;padding:14px;margin:10px 0}
+.bm-steps{color:#9ca3af;font-size:0.82rem;line-height:1.9;margin-top:0}
+.bm-steps b{color:#f3f4f6}
+.bm-code-wrap{display:flex;gap:8px;align-items:stretch;margin:8px 0}
+.bm-code{flex:1;background:#0d1117;border:1px solid #374151;border-radius:6px;padding:8px 10px;font-size:0.72rem;color:#a3e635;font-family:monospace;word-break:break-all;overflow:auto;max-height:60px;white-space:pre-wrap}
+.btn-copy-bm{background:#374151;color:#f3f4f6;border:none;border-radius:6px;padding:0 14px;cursor:pointer;font-size:0.78rem;font-weight:600;font-family:inherit;flex-shrink:0}
+.btn-copy-bm:hover{background:#4b5563}
+.btn-check-fb{background:#1877f2;color:#fff;font-weight:700;border:none;border-radius:8px;padding:10px 22px;cursor:pointer;font-size:0.9rem;font-family:inherit}
+.btn-check-fb:hover{opacity:0.85}
+.btn-search{background:#f0c040;color:#111827;font-weight:700;border:none;border-radius:8px;padding:11px 26px;cursor:pointer;font-size:0.9rem;font-family:inherit;margin-top:4px}
+.btn-search:hover{background:#d4a017}
+.btn-search:disabled{opacity:0.5;cursor:not-allowed}
+.info-note{font-size:0.78rem;color:#9ca3af;margin-top:8px;line-height:1.5}
+.info-note a{color:#60a5fa;text-decoration:none}
+.info-note a:hover{text-decoration:underline}
+.src-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.src-card{background:#1f2937;border:1px solid #374151;border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.src-thumb{width:100%;height:130px;object-fit:cover;background:#374151;display:block}
+.src-thumb-empty{width:100%;height:130px;background:#374151;display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+.src-card-body{padding:11px;flex:1;display:flex;flex-direction:column;gap:5px}
+.src-badge{display:inline-block;font-size:0.68rem;font-weight:700;border-radius:4px;padding:2px 7px;margin-bottom:2px}
+.src-badge.fb{background:#1877f2;color:#fff}
+.src-badge.cl{background:#e22026;color:#fff}
+.src-badge.eb{background:#e53238;color:#fff}
+.src-title{font-size:0.87rem;font-weight:600;color:#f3f4f6;line-height:1.35;flex:1}
+.src-prices{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin-top:2px}
+.src-orig{font-size:0.77rem;color:#6b7280;text-decoration:line-through}
+.src-yours{font-size:0.95rem;color:#6ee7b7;font-weight:700}
+.src-link{font-size:0.73rem;color:#60a5fa;text-decoration:none;margin-top:2px;display:inline-block}
+.src-link:hover{text-decoration:underline}
+.btn-import{background:#f0c040;color:#111827;font-weight:700;border:none;padding:10px;cursor:pointer;font-size:0.85rem;font-family:inherit;width:100%;margin-top:6px;border-radius:6px}
+.btn-import:hover{background:#d4a017}
+.btn-import:disabled{opacity:0.5;cursor:not-allowed}
+.src-empty{grid-column:1/-1;text-align:center;padding:32px 20px;color:#6b7280;font-size:0.88rem;border:1px dashed #374151;border-radius:10px}
+.fb-or{text-align:center;color:#4b5563;font-size:0.8rem;margin:12px 0}
+
+@media(max-width:520px){.src-grid{grid-template-columns:1fr}.row2{grid-template-columns:1fr}.product-row{flex-wrap:wrap}.prod-img{width:46px;height:46px}}
 </style>
 </head>
 <body>
@@ -111,8 +156,9 @@ body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-heigh
       <button class="btn-logout" onclick="logout()">Log Out</button>
     </div>
     <div class="tab-bar">
-      <button class="tab active" id="tab-btn-status" onclick="showTab('status')">📋 Product Status</button>
+      <button class="tab active" id="tab-btn-status" onclick="showTab('status')">📋 Status</button>
       <button class="tab" id="tab-btn-add" onclick="showTab('add')">➕ Add Product</button>
+      <button class="tab" id="tab-btn-source" onclick="showTab('source')">🔍 Source Listings</button>
     </div>
 
     <!-- STATUS TAB -->
@@ -186,6 +232,118 @@ body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-heigh
 
       <button class="btn-submit" id="submitBtn" onclick="submitProduct()">🚀 Add Product to Store</button>
     </div>
+
+    <!-- SOURCE LISTINGS TAB -->
+    <div id="tab-source" style="display:none">
+      <div class="status-msg" id="srcMsg"></div>
+
+      <!-- Markup -->
+      <div class="form-section">
+        <h3>💰 Markup Setting</h3>
+        <div class="markup-row">
+          <label>Add markup to source price:</label>
+          <input type="range" id="markupSlider" min="5" max="200" value="30" oninput="updateMarkup(this.value)">
+          <span class="markup-val" id="markupDisplay">30%</span>
+        </div>
+        <p class="info-note" style="margin-top:10px">Source price × (1 + markup) = your listing price. Example: $20 source + 30% = $26 on kltuf.com</p>
+      </div>
+
+      <!-- Sub-tabs -->
+      <div class="src-subtabs">
+        <button class="src-subtab active" id="sst-fb" onclick="showSrcTab('fb')">📘 Facebook</button>
+        <button class="src-subtab" id="sst-cl" onclick="showSrcTab('cl')">📋 Craigslist</button>
+        <button class="src-subtab" id="sst-eb" onclick="showSrcTab('eb')">🛍 eBay</button>
+      </div>
+
+      <!-- FACEBOOK PANEL -->
+      <div id="src-fb" class="form-section">
+        <h3>Facebook Marketplace</h3>
+        <div class="bm-area">
+          <div class="bm-steps">
+            <b>Step 1 —</b> Copy the bookmarklet code below, then create a new bookmark in your browser and paste it as the URL.<br>
+            <b>Step 2 —</b> Go to any Facebook Marketplace listing (must be logged into Facebook).<br>
+            <b>Step 3 —</b> Click the bookmark — it captures the listing data.<br>
+            <b>Step 4 —</b> Come back here and click <b>Check for Captured Listing</b>.
+          </div>
+          <div class="bm-code-wrap" style="margin-top:10px">
+            <div class="bm-code" id="bmCode">loading...</div>
+            <button class="btn-copy-bm" onclick="copyBookmarklet()">Copy</button>
+          </div>
+        </div>
+        <button class="btn-check-fb" onclick="checkFBImport()">Check for Captured Listing</button>
+        <div class="fb-or">— or paste URL manually —</div>
+        <div class="row2">
+          <div class="field" style="grid-column:1/-1">
+            <label>Facebook Marketplace listing URL</label>
+            <input type="url" id="fb-url" placeholder="https://www.facebook.com/marketplace/item/...">
+          </div>
+        </div>
+        <button class="btn-search" onclick="extractFBFromUrl()">Extract from URL</button>
+        <p class="info-note" style="margin-top:10px">Note: Facebook photos require you to be logged in. After importing, you may need to download and re-upload the photos manually.</p>
+      </div>
+
+      <!-- CRAIGSLIST PANEL -->
+      <div id="src-cl" class="form-section" style="display:none">
+        <h3>Craigslist Search</h3>
+        <div class="row2">
+          <div class="field">
+            <label>City (craigslist subdomain)</label>
+            <input type="text" id="cl-city" placeholder="seattle" value="seattle">
+          </div>
+          <div class="field">
+            <label>Category</label>
+            <select id="cl-cat">
+              <option value="foa">For Sale — All</option>
+              <option value="ela">Electronics</option>
+              <option value="toa">Toys &amp; Games</option>
+              <option value="hsa">Household Items</option>
+              <option value="cla">Clothing &amp; Accessories</option>
+              <option value="sga">Sporting Goods</option>
+              <option value="baa">Baby &amp; Kid Stuff</option>
+              <option value="fua">Furniture</option>
+            </select>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>Keywords *</label>
+            <input type="text" id="cl-query" placeholder="kids scooter">
+          </div>
+          <div class="field">
+            <label>Max Price ($)</label>
+            <input type="number" id="cl-maxprice" placeholder="50" min="1">
+          </div>
+        </div>
+        <button class="btn-search" id="cl-search-btn" onclick="searchCraigslist()">Search Craigslist</button>
+        <p class="info-note" style="margin-top:10px">Common cities: seattle, chicago, newyork, losangeles, miami, boston, atlanta, dallas, houston, denver</p>
+      </div>
+
+      <!-- EBAY PANEL -->
+      <div id="src-eb" class="form-section" style="display:none">
+        <h3>eBay Search</h3>
+        <div class="row2">
+          <div class="field">
+            <label>Keywords *</label>
+            <input type="text" id="eb-query" placeholder="kids scooter used">
+          </div>
+          <div class="field">
+            <label>Max Price ($)</label>
+            <input type="number" id="eb-maxprice" placeholder="50" min="1" value="50">
+          </div>
+        </div>
+        <button class="btn-search" id="eb-search-btn" onclick="searchEbay()">Search eBay</button>
+        <p class="info-note" style="margin-top:8px">
+          Requires a free eBay Developer App ID.
+          <a href="https://developer.ebay.com/my/keys" target="_blank">Get one free at developer.ebay.com</a> →
+          My Account → Application Keys (takes ~2 min).
+          Your App ID is saved on this device.
+        </p>
+      </div>
+
+      <!-- RESULTS GRID -->
+      <div id="srcResults"></div>
+    </div>
+
   </div>
 </div>
 
@@ -194,6 +352,7 @@ const PASS_HASH = "ec15a65b26d7d6dfa47e0fc6f55f5708f0ffd4b26ba635416d0afecc1e12f
 const REPO      = "nahomtech09/kltuf.com";
 const FILE_PATH = "index.html";
 const IMGBB_PROXY = "https://tiny-morning-80f9.kltufllc.workers.dev/imgbb-upload";
+const CORS_PROXY = "https://corsproxy.io/?";
 
 // ── AUTH ─────────────────────────────────────────────────────────────────
 async function sha256(str) {
@@ -227,6 +386,7 @@ function saveToken() {
 function openPanel() {
   document.getElementById("adminPanel").style.display = "block";
   loadProducts();
+  initSourceTab();
 }
 
 function logout() {
@@ -238,10 +398,10 @@ function logout() {
 
 // ── TABS ─────────────────────────────────────────────────────────────────
 function showTab(name) {
-  document.getElementById("tab-status").style.display = name === "status" ? "" : "none";
-  document.getElementById("tab-add").style.display    = name === "add"    ? "" : "none";
-  document.getElementById("tab-btn-status").classList.toggle("active", name === "status");
-  document.getElementById("tab-btn-add").classList.toggle("active", name === "add");
+  ["status","add","source"].forEach(t => {
+    document.getElementById("tab-"+t).style.display   = t===name ? "" : "none";
+    document.getElementById("tab-btn-"+t).classList.toggle("active", t===name);
+  });
 }
 
 // ── STATUS TAB ────────────────────────────────────────────────────────────
@@ -359,7 +519,7 @@ function removePhoto(i) {
   renderPreviews();
 }
 
-async function uploadToImgBB(file, onProgress) {
+async function uploadToImgBB(file) {
   const fd = new FormData();
   fd.append("image", file);
   const r = await fetch(IMGBB_PROXY, { method:"POST", body:fd });
@@ -391,7 +551,6 @@ async function submitProduct() {
   if (!desc)              return alert("Enter a description.");
   if (!pendingFiles.length) return alert("Add at least one photo.");
 
-  // Ensure index.html is loaded
   if (!currentContent) {
     showMsg("addMsg","Loading store data...",false);
     await loadProducts();
@@ -402,7 +561,6 @@ async function submitProduct() {
   btn.textContent = "Uploading photos...";
   document.getElementById("uploadBar").style.display = "block";
 
-  // Upload all photos to ImgBB
   const urls = [];
   for (let i=0; i<pendingFiles.length; i++) {
     document.getElementById("uploadFill").style.width = ((i/pendingFiles.length)*70)+"%";
@@ -422,11 +580,9 @@ async function submitProduct() {
   const catLabel = CAT_LABELS[cat] || cat;
   const firstImg = urls[0];
 
-  // Build carousel dots
   const dots = urls.map((u,i) =>
     `<span${i===0?' class="active"':''} onclick="goSlide('${id}',${i})"></span>`
   ).join("\n                    ");
-  // Build img tags
   const imgs = urls.map((u,i) =>
     `<img src="${u}" alt="${name} ${i+1}">`
   ).join("\n                        ");
@@ -464,7 +620,6 @@ async function submitProduct() {
             </div>
         </div>`;
 
-  // Insert before the ADD MORE comment or noResults div
   let updated = currentContent;
   const anchor = '<!-- ═══ ADD MORE PRODUCTS BELOW';
   const anchor2 = '<div id="noResults"';
@@ -484,7 +639,6 @@ async function submitProduct() {
   if (ok) {
     currentContent = updated;
     showMsg("addMsg", `"${name}" added! Live on kltuf.com in ~1 minute.`, false);
-    // Reset form
     document.getElementById("f-name").value = "";
     document.getElementById("f-price").value = "";
     document.getElementById("f-desc").value = "";
@@ -497,6 +651,298 @@ async function submitProduct() {
   document.getElementById("uploadBar").style.display = "none";
   btn.disabled = false;
   btn.textContent = "🚀 Add Product to Store";
+}
+
+// ── SOURCE TAB ────────────────────────────────────────────────────────────
+let markupPct = 30;
+let currentResults = [];
+
+const BOOKMARKLET_CODE = `javascript:(function(){var d={source:'facebook',sourceUrl:location.href,images:[],title:'',price:0,desc:''};var h1=document.querySelector('h1');d.title=h1?h1.innerText.trim():document.title.split(/[|·]/)[0].replace('Marketplace - ','').trim();var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null,false);var node;while(node=walker.nextNode()){var m=node.textContent.trim().match(/^\\\$([\d,]+)(\.\d{2})?$/);if(m){d.price=parseFloat(m[1].replace(',',''));break;}}d.images=[...document.querySelectorAll('img')].filter(function(i){return i.src.indexOf('fbcdn')>-1&&i.naturalWidth>200;}).map(function(i){return i.src;}).filter(function(v,i,a){return a.indexOf(v)===i;}).slice(0,5);var textNodes=[...document.querySelectorAll('div,span,p')].filter(function(el){return el.childElementCount===0&&el.innerText&&el.innerText.length>80&&el.innerText.length<1500&&!el.closest('nav')&&!el.closest('header');});d.desc=textNodes.slice(0,3).map(function(el){return el.innerText.trim();}).join(' ').substring(0,600);localStorage.setItem('kltuf_source_import',JSON.stringify(d));alert('KLTUF: Listing captured! Go back to kltuf.com/admin.html → Source Listings tab and click Check.');})();`;
+
+function initSourceTab() {
+  markupPct = parseInt(localStorage.getItem('kltuf_markup') || '30');
+  document.getElementById('markupSlider').value = markupPct;
+  document.getElementById('markupDisplay').textContent = markupPct + '%';
+  document.getElementById('bmCode').textContent = BOOKMARKLET_CODE;
+}
+
+function updateMarkup(val) {
+  markupPct = parseInt(val) || 30;
+  localStorage.setItem('kltuf_markup', markupPct);
+  document.getElementById('markupDisplay').textContent = markupPct + '%';
+  reRenderResults();
+}
+
+function applyMarkup(price) {
+  if (!price || price <= 0) return 0;
+  return Math.ceil(price * (1 + markupPct / 100));
+}
+
+function showSrcTab(name) {
+  ['fb','cl','eb'].forEach(t => {
+    document.getElementById('src-'+t).style.display = t===name ? '' : 'none';
+    document.getElementById('sst-'+t).classList.toggle('active', t===name);
+  });
+  document.getElementById('srcResults').innerHTML = '';
+  currentResults = [];
+}
+
+function copyBookmarklet() {
+  navigator.clipboard.writeText(BOOKMARKLET_CODE).then(() => {
+    const btn = document.querySelector('.btn-copy-bm');
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 2000);
+  });
+}
+
+// ── Facebook ──────────────────────────────────────────────────────────────
+function checkFBImport() {
+  const raw = localStorage.getItem('kltuf_source_import');
+  if (!raw) {
+    showMsg('srcMsg', 'No captured listing found. Use the bookmarklet on a Facebook Marketplace listing first.', true);
+    return;
+  }
+  try {
+    const d = JSON.parse(raw);
+    localStorage.removeItem('kltuf_source_import');
+    const sp = d.price || 0;
+    showSourceResults([{
+      title: d.title || 'Facebook Listing',
+      sourcePrice: sp,
+      yourPrice: applyMarkup(sp),
+      images: d.images || [],
+      description: d.desc || '',
+      source: 'facebook',
+      sourceUrl: d.sourceUrl || ''
+    }]);
+    showMsg('srcMsg', 'Listing captured from Facebook!', false);
+  } catch(e) {
+    showMsg('srcMsg', 'Error reading captured listing. Try the bookmarklet again.', true);
+  }
+}
+
+function extractFBFromUrl() {
+  const url = document.getElementById('fb-url').value.trim();
+  if (!url || !url.includes('facebook.com')) {
+    showMsg('srcMsg', 'Enter a valid Facebook Marketplace URL.', true);
+    return;
+  }
+  showSourceResults([{
+    title: 'Facebook Listing (manual entry)',
+    sourcePrice: 0,
+    yourPrice: 0,
+    images: [],
+    description: 'Fetched from URL — fill in details after importing.',
+    source: 'facebook',
+    sourceUrl: url
+  }]);
+  showMsg('srcMsg', 'Listing added. Click Import and fill in the details.', false);
+}
+
+// ── Craigslist ────────────────────────────────────────────────────────────
+async function searchCraigslist() {
+  const city = (document.getElementById('cl-city').value.trim() || 'seattle').toLowerCase().replace(/\s/g,'');
+  const cat  = document.getElementById('cl-cat').value;
+  const query = document.getElementById('cl-query').value.trim();
+  const maxprice = document.getElementById('cl-maxprice').value.trim();
+  if (!query) { showMsg('srcMsg','Enter keywords to search.',true); return; }
+
+  const btn = document.getElementById('cl-search-btn');
+  btn.disabled = true; btn.textContent = 'Searching...';
+
+  let rssUrl = `https://${city}.craigslist.org/search/${cat}?query=${encodeURIComponent(query)}&format=rss&availabilityMode=0&sale_date=all+dates`;
+  if (maxprice) rssUrl += `&max_price=${maxprice}`;
+
+  const proxyUrl = CORS_PROXY + encodeURIComponent(rssUrl);
+  try {
+    const r = await fetch(proxyUrl);
+    const text = await r.text();
+    const items = parseCraigslistRSS(text, maxprice ? parseInt(maxprice) : 0);
+    if (!items.length) {
+      showMsg('srcMsg', `No results in ${city}. Try a different city or keywords.`, true);
+    } else {
+      showMsg('srcMsg', `Found ${items.length} listings on Craigslist.`, false);
+      showSourceResults(items);
+    }
+  } catch(e) {
+    showMsg('srcMsg', 'Craigslist search failed. Check the city name and try again.', true);
+  }
+  btn.disabled = false; btn.textContent = 'Search Craigslist';
+}
+
+function parseCraigslistRSS(xml, maxprice) {
+  const doc = new DOMParser().parseFromString(xml, 'text/xml');
+  const items = [...doc.querySelectorAll('item')];
+  const results = [];
+  for (const item of items.slice(0, 20)) {
+    const title = item.querySelector('title')?.textContent?.trim() || '';
+    const link  = item.querySelector('link')?.textContent?.trim() || '';
+    const desc  = item.querySelector('description')?.textContent || '';
+
+    const priceMatch = (title + ' ' + desc).match(/\$\s*([\d,]+)/);
+    const sourcePrice = priceMatch ? parseFloat(priceMatch[1].replace(',','')) : 0;
+    if (maxprice > 0 && sourcePrice > maxprice) continue;
+
+    const imgMatch = desc.match(/src="([^"]+\.(?:jpg|jpeg|png|webp)[^"]*)"/i);
+    const thumb = imgMatch ? imgMatch[1].replace('300x300','600x450').replace('50x50c','600x450') : '';
+
+    const cleanTitle = title.replace(/\s*\$[\d,]+\s*/g,'').trim() || 'Craigslist Listing';
+    const cleanDesc  = desc.replace(/<[^>]+>/g,'').trim().substring(0,400);
+
+    results.push({
+      title: cleanTitle,
+      sourcePrice,
+      yourPrice: applyMarkup(sourcePrice),
+      images: thumb ? [thumb] : [],
+      description: cleanDesc,
+      source: 'craigslist',
+      sourceUrl: link
+    });
+  }
+  return results;
+}
+
+// ── eBay ──────────────────────────────────────────────────────────────────
+async function searchEbay() {
+  const query    = document.getElementById('eb-query').value.trim();
+  const maxprice = document.getElementById('eb-maxprice').value.trim() || '50';
+  if (!query) { showMsg('srcMsg','Enter keywords to search.',true); return; }
+
+  let appId = localStorage.getItem('kltuf_ebay_appid') || '';
+  if (!appId) {
+    appId = prompt('Enter your free eBay Developer App ID (from developer.ebay.com → My Account → Application Keys):');
+    if (!appId || !appId.trim()) return;
+    localStorage.setItem('kltuf_ebay_appid', appId.trim());
+    appId = appId.trim();
+  }
+
+  const btn = document.getElementById('eb-search-btn');
+  btn.disabled = true; btn.textContent = 'Searching...';
+
+  const ebayUrl = [
+    'https://svcs.ebay.com/services/search/FindingService/v1',
+    '?OPERATION-NAME=findItemsByKeywords',
+    '&SERVICE-VERSION=1.0.0',
+    `&SECURITY-APPNAME=${encodeURIComponent(appId)}`,
+    '&RESPONSE-DATA-FORMAT=JSON',
+    `&keywords=${encodeURIComponent(query)}`,
+    '&itemFilter(0).name=MaxPrice',
+    `&itemFilter(0).value=${maxprice}`,
+    '&itemFilter(0).paramName=Currency',
+    '&itemFilter(0).paramValue=USD',
+    '&itemFilter(1).name=ListingType',
+    '&itemFilter(1).value=FixedPrice',
+    '&sortOrder=PricePlusShippingLowest',
+    '&paginationInput.entriesPerPage=20'
+  ].join('');
+
+  const proxyUrl = CORS_PROXY + encodeURIComponent(ebayUrl);
+  try {
+    const r = await fetch(proxyUrl);
+    const data = await r.json();
+    const items = data?.findItemsByKeywordsResponse?.[0]?.searchResult?.[0]?.item || [];
+    if (!items.length) {
+      showMsg('srcMsg', 'No results on eBay. Try different keywords or increase max price.', true);
+    } else {
+      const results = items.map(item => {
+        const sourcePrice = parseFloat(item?.sellingStatus?.[0]?.currentPrice?.[0]?.__value__ || 0);
+        const thumb = (item?.galleryURL?.[0] || '').replace('s-l140','s-l500');
+        return {
+          title: item?.title?.[0] || 'eBay Item',
+          sourcePrice,
+          yourPrice: applyMarkup(sourcePrice),
+          images: thumb ? [thumb] : [],
+          description: `${item?.condition?.[0]?.conditionDisplayName?.[0] || 'Used'} item from eBay.`,
+          source: 'ebay',
+          sourceUrl: item?.viewItemURL?.[0] || ''
+        };
+      });
+      showMsg('srcMsg', `Found ${results.length} items on eBay.`, false);
+      showSourceResults(results);
+    }
+  } catch(e) {
+    localStorage.removeItem('kltuf_ebay_appid');
+    showMsg('srcMsg', 'eBay search failed. Your App ID may be invalid — it was cleared, try again.', true);
+  }
+  btn.disabled = false; btn.textContent = 'Search eBay';
+}
+
+// ── Results ───────────────────────────────────────────────────────────────
+function showSourceResults(results) {
+  currentResults = results;
+  reRenderResults();
+}
+
+function reRenderResults() {
+  const grid = document.getElementById('srcResults');
+  if (!currentResults.length) { grid.innerHTML = ''; return; }
+
+  const badgeClass = {facebook:'fb', craigslist:'cl', ebay:'eb'};
+  const badgeLabel = {facebook:'Facebook', craigslist:'Craigslist', ebay:'eBay'};
+
+  grid.innerHTML = `<div class="src-grid">${currentResults.map((item, i) => {
+    const bc = badgeClass[item.source] || 'cl';
+    const bl = badgeLabel[item.source] || item.source;
+    const imgHtml = item.images[0]
+      ? `<img class="src-thumb" src="${item.images[0]}" alt="" onerror="this.style.display='none'">`
+      : `<div class="src-thumb-empty">📷</div>`;
+    const origPrice = item.sourcePrice > 0 ? `<span class="src-orig">$${item.sourcePrice.toFixed(2)}</span>` : '';
+    const yourPrice = item.yourPrice > 0 ? `<span class="src-yours">$${item.yourPrice}</span>` : '<span class="src-yours">Enter price</span>';
+    const viewLink  = item.sourceUrl ? `<a class="src-link" href="${item.sourceUrl}" target="_blank">View original ↗</a>` : '';
+    return `<div class="src-card">
+      ${imgHtml}
+      <div class="src-card-body">
+        <span class="src-badge ${bc}">${bl}</span>
+        <div class="src-title">${item.title}</div>
+        <div class="src-prices">${origPrice}${yourPrice}</div>
+        ${viewLink}
+      </div>
+      <button class="btn-import" onclick="importListing(${i})">Import to Store →</button>
+    </div>`;
+  }).join('')}</div>`;
+}
+
+async function importListing(i) {
+  const item = currentResults[i];
+  const btn = document.querySelectorAll('.btn-import')[i];
+  btn.disabled = true;
+  btn.textContent = 'Importing...';
+
+  // Pre-fill form
+  showTab('add');
+  document.getElementById('f-name').value  = item.title;
+  document.getElementById('f-price').value = item.yourPrice || '';
+  document.getElementById('f-desc').value  = item.description || '';
+
+  // Try to fetch images for non-Facebook sources
+  pendingFiles = [];
+  if (item.images.length > 0 && item.source !== 'facebook') {
+    showMsg('addMsg', 'Fetching photos from source...', false);
+    for (let j = 0; j < Math.min(item.images.length, 5); j++) {
+      try {
+        const proxyUrl = CORS_PROXY + encodeURIComponent(item.images[j]);
+        const r = await fetch(proxyUrl);
+        if (!r.ok) continue;
+        const blob = await r.blob();
+        if (!blob.type.startsWith('image/')) continue;
+        const ext = blob.type.includes('png') ? 'png' : 'jpg';
+        pendingFiles.push(new File([blob], `import-${j}.${ext}`, {type: blob.type}));
+      } catch(e) { /* skip */ }
+    }
+    renderPreviews();
+    if (pendingFiles.length > 0) {
+      showMsg('addMsg', `Imported ${pendingFiles.length} photo(s). Review and publish!`, false);
+    } else {
+      showMsg('addMsg', 'Could not auto-fetch photos. Add photos manually below.', false);
+    }
+  } else if (item.source === 'facebook' && item.images.length > 0) {
+    showMsg('addMsg', 'FB photos require login — download them from Facebook and upload below.', false);
+  } else {
+    showMsg('addMsg', 'Listing pre-filled. Add photos and publish.', false);
+  }
+
+  window.scrollTo(0, 0);
+  if (btn) { btn.disabled = false; btn.textContent = 'Import to Store →'; }
 }
 
 // ── SHARED ────────────────────────────────────────────────────────────────
@@ -519,7 +965,7 @@ function showMsg(elId, text, isErr) {
   el.textContent = text;
   el.className = "status-msg" + (isErr ? " err-msg" : "");
   el.style.display = "block";
-  if (!isErr) setTimeout(() => { el.style.display = "none"; }, 5000);
+  if (!isErr) setTimeout(() => { el.style.display = "none"; }, 6000);
 }
 </script>
 </body>
