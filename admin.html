@@ -452,8 +452,11 @@ async function loadProducts() {
       headers: { Authorization: `token ${localStorage.getItem("kltuf_gh_token")}`, Accept: "application/vnd.github.v3+json" }
     });
     const data = await r.json();
-    currentSha     = data.sha;
-    currentContent = atob(data.content.replace(/\n/g,""));
+    currentSha = data.sha;
+    const binary = atob(data.content.replace(/\n/g,""));
+    const bytes  = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    currentContent = new TextDecoder('utf-8').decode(bytes);
     renderProducts(currentContent);
   } catch(e) {
     list.textContent = "Failed to load. Check connection.";
@@ -664,7 +667,7 @@ async function submitProduct() {
   // Insert before the ADD MORE comment or noResults div
   let updated = currentContent;
   const anchor = '<!-- ═══ ADD MORE PRODUCTS BELOW';
-  const anchor2 = '<div id="noResults"';
+  const anchor2 = 'id="noResults"';
   if (updated.includes(anchor)) {
     updated = updated.replace(anchor, card + "\n        " + anchor);
   } else if (updated.includes(anchor2)) {
