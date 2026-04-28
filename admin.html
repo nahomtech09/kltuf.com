@@ -68,10 +68,25 @@ body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-heigh
 .ebay-card-price{font-size:0.78rem;color:#9ca3af}
 .ebay-card-price span{color:#f0c040;font-weight:700}
 .ebay-card-cond{font-size:0.72rem;color:#6b7280}
-.btn-import{margin-top:auto;background:#16a34a;color:#fff;border:none;border-radius:6px;padding:7px;cursor:pointer;font-size:0.8rem;font-weight:700;width:100%}
+.ebay-card-btns{display:flex;gap:6px;margin-top:auto}
+.btn-import{flex:1;background:#16a34a;color:#fff;border:none;border-radius:6px;padding:7px;cursor:pointer;font-size:0.78rem;font-weight:700}
 .btn-import:hover{background:#15803d}
+.btn-fb{flex:1;background:#1877f2;color:#fff;border:none;border-radius:6px;padding:7px;cursor:pointer;font-size:0.78rem;font-weight:700}
+.btn-fb:hover{background:#1558b0}
 .ebay-status{color:#9ca3af;font-size:0.85rem;text-align:center;padding:20px}
 .ebay-count{font-size:0.8rem;color:#6b7280;margin-bottom:10px}
+/* FB MODAL */
+.fb-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:999;align-items:center;justify-content:center;padding:16px}
+.fb-modal-bg.open{display:flex}
+.fb-modal{background:#1f2937;border:1px solid #374151;border-radius:12px;width:100%;max-width:480px;padding:22px;position:relative}
+.fb-modal h3{color:#1877f2;font-size:1rem;margin-bottom:14px}
+.fb-modal textarea{width:100%;background:#111827;border:1px solid #374151;border-radius:8px;color:#f3f4f6;font-size:0.85rem;padding:12px;resize:none;height:200px;font-family:inherit;outline:none}
+.fb-modal-btns{display:flex;gap:8px;margin-top:12px}
+.btn-copy{flex:1;background:#f0c040;color:#111827;font-weight:700;border:none;border-radius:8px;padding:11px;cursor:pointer;font-size:0.9rem}
+.btn-copy:hover{background:#d4a017}
+.btn-openfb{flex:1;background:#1877f2;color:#fff;font-weight:700;border:none;border-radius:8px;padding:11px;cursor:pointer;font-size:0.9rem}
+.btn-openfb:hover{background:#1558b0}
+.btn-modal-close{position:absolute;top:12px;right:14px;background:transparent;border:none;color:#9ca3af;font-size:1.2rem;cursor:pointer}
 
 /* ADD PRODUCT TAB */
 .form-section{background:#1f2937;border:1px solid #374151;border-radius:10px;padding:18px;margin-bottom:14px}
@@ -161,6 +176,20 @@ body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-heigh
         <div class="ebay-count" id="ebay-count"></div>
         <div id="ebay-results" class="ebay-results">
           <div class="ebay-status">Search eBay to find items to list on kltuf.com</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FACEBOOK MODAL -->
+    <div class="fb-modal-bg" id="fbModalBg" onclick="if(event.target===this)closeFbModal()">
+      <div class="fb-modal">
+        <button class="btn-modal-close" onclick="closeFbModal()">✕</button>
+        <h3>📘 Facebook Marketplace Listing</h3>
+        <textarea id="fbPostText" readonly></textarea>
+        <div style="font-size:0.75rem;color:#6b7280;margin-top:8px">1. Copy the text &nbsp;→&nbsp; 2. Open Facebook &nbsp;→&nbsp; 3. Paste &amp; post — buyers click your kltuf.com link to purchase</div>
+        <div class="fb-modal-btns">
+          <button class="btn-copy" onclick="copyFbText()">📋 Copy Text</button>
+          <button class="btn-openfb" onclick="window.open('https://www.facebook.com/marketplace/create/item','_blank')">📘 Open Facebook</button>
         </div>
       </div>
     </div>
@@ -322,19 +351,51 @@ function renderEbayResults(items) {
     const yourPrice = (item.price * (1 + markup / 100)).toFixed(2);
     const img = item.image || '';
     const cond = item.condition || 'Used';
-    const title = item.title.replace(/"/g, '&quot;');
+    const data = JSON.stringify({title:item.title, price:yourPrice, image:img, condition:cond});
     return `<div class="ebay-card">
       <img src="${img}" alt="" onerror="this.style.display='none'">
       <div class="ebay-card-body">
         <div class="ebay-card-title">${item.title}</div>
         <div class="ebay-card-price">eBay: $${item.price.toFixed(2)} → <span>$${yourPrice}</span></div>
         <div class="ebay-card-cond">${cond}</div>
-        <button class="btn-import" onclick='importEbayItem(${JSON.stringify({title:item.title,price:yourPrice,image:img,condition:cond})})'>
-          ➕ Import to Store
-        </button>
+        <div class="ebay-card-btns">
+          <button class="btn-import" onclick='importEbayItem(${data})'>➕ Import</button>
+          <button class="btn-fb" onclick='openFbModal(${data})'>📘 Facebook</button>
+        </div>
       </div>
     </div>`;
   }).join("");
+}
+
+function openFbModal(item) {
+  const text =
+`${item.title}
+
+💰 Price: $${item.price}
+📦 Condition: ${item.condition}
+
+✅ Buy securely online at:
+https://kltuf.com
+
+👉 Visit kltuf.com to purchase — fast checkout with PayPal, Apple Pay, or Card.
+
+#forsale #kltuf #resale`;
+  document.getElementById("fbPostText").value = text;
+  document.getElementById("fbModalBg").classList.add("open");
+}
+
+function closeFbModal() {
+  document.getElementById("fbModalBg").classList.remove("open");
+}
+
+function copyFbText() {
+  const ta = document.getElementById("fbPostText");
+  ta.select();
+  navigator.clipboard.writeText(ta.value).then(() => {
+    const btn = document.querySelector(".btn-copy");
+    btn.textContent = "✅ Copied!";
+    setTimeout(() => { btn.textContent = "📋 Copy Text"; }, 2000);
+  });
 }
 
 function importEbayItem(item) {
