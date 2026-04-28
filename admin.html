@@ -75,6 +75,17 @@ body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-heigh
 .btn-fb:hover{background:#1558b0}
 .ebay-status{color:#9ca3af;font-size:0.85rem;text-align:center;padding:20px}
 .ebay-count{font-size:0.8rem;color:#6b7280;margin-bottom:10px}
+/* ALI BOOKMARKLET */
+.ali-section{margin-top:14px}
+.ali-steps{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.ali-step{display:flex;align-items:flex-start;gap:10px;font-size:0.85rem;color:#d1d5db}
+.ali-step-num{background:#f0c040;color:#111827;font-weight:700;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.78rem}
+.bookmarklet-wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:4px}
+.bookmarklet-btn{display:inline-block;background:#f59e0b;color:#111827;font-weight:700;border-radius:7px;padding:8px 14px;font-size:0.85rem;cursor:grab;text-decoration:none;border:2px dashed #d97706;white-space:nowrap}
+.bookmarklet-btn:hover{background:#d97706;color:#fff}
+.bookmarklet-note{font-size:0.75rem;color:#6b7280;margin-top:6px}
+.ali-pending{background:#1e3a5f;border:1px solid #1877f2;border-radius:8px;padding:12px 14px;margin-bottom:14px;display:none;font-size:0.85rem;color:#93c5fd}
+.ali-pending button{background:#1877f2;color:#fff;border:none;border-radius:6px;padding:5px 12px;cursor:pointer;font-weight:700;margin-left:10px;font-size:0.82rem}
 /* FB MODAL */
 .fb-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:999;align-items:center;justify-content:center;padding:16px}
 .fb-modal-bg.open{display:flex}
@@ -178,6 +189,31 @@ body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-heigh
           <div class="ebay-status">Search eBay to find items to list on kltuf.com</div>
         </div>
       </div>
+
+      <!-- ALIBABA / ALIEXPRESS -->
+      <div class="form-section ali-section">
+        <h3>📦 Alibaba / AliExpress</h3>
+        <div class="ali-steps">
+          <div class="ali-step">
+            <div class="ali-step-num">1</div>
+            <div>
+              Drag this button to your browser bookmarks bar:
+              <div class="bookmarklet-wrap">
+                <a class="bookmarklet-btn" id="aliBookmarklet" href="#">📦 Import to KLTUF</a>
+              </div>
+              <div class="bookmarklet-note">Drag the yellow button above into your browser's bookmarks/favorites bar</div>
+            </div>
+          </div>
+          <div class="ali-step">
+            <div class="ali-step-num">2</div>
+            <div>Go to <strong style="color:#f0c040">alibaba.com</strong> or <strong style="color:#f0c040">aliexpress.com</strong> and open any product page</div>
+          </div>
+          <div class="ali-step">
+            <div class="ali-step-num">3</div>
+            <div>Click <strong>"📦 Import to KLTUF"</strong> in your bookmarks bar — product data flies into the Add Product form automatically</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- FACEBOOK MODAL -->
@@ -196,6 +232,10 @@ body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-heigh
 
     <!-- ADD PRODUCT TAB -->
     <div id="tab-add" style="display:none">
+      <div class="ali-pending" id="aliPending">
+        📦 Product imported from Alibaba/AliExpress — form pre-filled below. Adjust price &amp; category, then add photos.
+        <button onclick="document.getElementById('aliPending').style.display='none'">✕</button>
+      </div>
       <div class="status-msg" id="addMsg"></div>
       <div class="form-section">
         <h3>Product Details</h3>
@@ -300,6 +340,12 @@ function saveToken() {
 function openPanel() {
   document.getElementById("adminPanel").style.display = "block";
   loadProducts();
+  // Process any pending Alibaba/AliExpress import
+  if (window._pendingAliImport) {
+    showTab('add');
+    importAliItem(window._pendingAliImport);
+    window._pendingAliImport = null;
+  }
 }
 
 function logout() {
@@ -712,6 +758,50 @@ async function pushToGitHub(content, message) {
     if (data.content) { currentSha = data.content.sha; return true; }
     return false;
   } catch(e) { return false; }
+}
+
+// ── ALIBABA / ALIEXPRESS BOOKMARKLET ─────────────────────────────────────
+(function setupBookmarklet() {
+  const code = `(function(){
+    var h=location.hostname;
+    if(!h.includes('alibaba')&&!h.includes('aliexpress')){alert('Please open this on alibaba.com or aliexpress.com');return;}
+    var title='',price=0,image='';
+    var ts=['h1[class*="title" i]','h1[class*="Title"]','.product-name h1','.title--wrap h1','h1'];
+    for(var i=0;i<ts.length;i++){var e=document.querySelector(ts[i]);if(e&&e.innerText.trim()){title=e.innerText.trim().slice(0,200);break;}}
+    var ps=['[class*="current"][class*="price" i]','[class*="price"][class*="current" i]','[class*="Price"][class*="current"]','[class*="product-price" i]','[class*="price-range" i]','.price'];
+    for(var i=0;i<ps.length;i++){var e=document.querySelector(ps[i]);if(e){var m=e.innerText.match(/[0-9][0-9,]*\\.?[0-9]*/);if(m){price=parseFloat(m[0].replace(/,/g,''));break;}}}
+    var is=['[class*="gallery" i] img','[class*="Gallery"] img','[class*="main-img" i]','[class*="MainImage"]','[class*="product-image" i] img','.image-view img','img[class*="src-modules"]'];
+    for(var i=0;i<is.length;i++){var e=document.querySelector(is[i]);if(e&&e.src&&e.src.indexOf('http')===0&&e.src.indexOf('placeholder')<0){image=e.src;break;}}
+    if(image.indexOf('//')==0)image='https:'+image;
+    if(!title){alert('No product found. Make sure you are on a product page.');return;}
+    var d=btoa(unescape(encodeURIComponent(JSON.stringify({title:title,price:price,image:image,condition:'New'}))));
+    window.open('https://kltuf.com/admin.html#kltuf-import='+d,'_blank');
+  })();`;
+  const el = document.getElementById('aliBookmarklet');
+  if (el) el.href = 'javascript:' + code;
+})();
+
+// Read incoming Alibaba/AliExpress import from URL hash
+(function readAliHash() {
+  const hash = location.hash;
+  if (hash.includes('kltuf-import=')) {
+    try {
+      const b64 = hash.split('kltuf-import=')[1];
+      window._pendingAliImport = JSON.parse(decodeURIComponent(escape(atob(b64))));
+      history.replaceState(null, '', location.pathname);
+    } catch(e) {}
+  }
+})();
+
+function importAliItem(item) {
+  document.getElementById('f-name').value  = item.title || '';
+  document.getElementById('f-price').value = item.price || '';
+  document.getElementById('f-desc').value  = 'Condition: ' + (item.condition || 'New') + '.';
+  document.getElementById('f-cond').value  = '✨ New';
+  if (item.image) loadImageFromUrl(item.image);
+  document.getElementById('aliPending').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById('f-name').focus();
 }
 
 function showMsg(elId, text, isErr) {
