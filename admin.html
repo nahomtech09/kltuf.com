@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>KLTUF Admin</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://tiny-morning-80f9.kltufllc.workers.dev https://api.github.com;">
+<meta http-equiv="Referrer-Policy" content="no-referrer">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-height:100vh}
@@ -136,7 +139,7 @@ body{font-family:system-ui,sans-serif;background:#111827;color:#f3f4f6;min-heigh
     <p>Employee access only</p>
     <input type="password" id="pwInput" placeholder="Enter password" onkeydown="if(event.key==='Enter')login()">
     <button class="btn-gold" onclick="login()">Log In</button>
-    <div class="err" id="loginErr">Incorrect password</div>
+    <div class="err" id="loginErr"></div>
   </div>
 </div>
 
@@ -315,9 +318,26 @@ async function sha256(str) {
 }
 
 async function login() {
+  const LOCKOUT_KEY = 'kltuf_lockout_until';
+  const ATTEMPT_KEY = 'kltuf_login_attempts';
+  const MAX_ATTEMPTS = 5;
+  const LOCKOUT_MS = 15 * 60 * 1000;
+  const errEl = document.getElementById("loginErr");
+
+  const lockUntil = parseInt(localStorage.getItem(LOCKOUT_KEY) || '0');
+  if (Date.now() < lockUntil) {
+    const mins = Math.ceil((lockUntil - Date.now()) / 60000);
+    errEl.textContent = `Too many attempts. Try again in ${mins} min.`;
+    errEl.style.display = "block";
+    return;
+  }
+
   const pw = document.getElementById("pwInput").value;
   const hash = await sha256(pw);
   if (hash === PASS_HASH) {
+    localStorage.removeItem(LOCKOUT_KEY);
+    localStorage.removeItem(ATTEMPT_KEY);
+    errEl.style.display = "none";
     document.getElementById("loginScreen").style.display = "none";
     if (!localStorage.getItem("kltuf_gh_token")) {
       document.getElementById("tokenScreen").style.display = "flex";
@@ -325,7 +345,17 @@ async function login() {
       openPanel();
     }
   } else {
-    document.getElementById("loginErr").style.display = "block";
+    const attempts = parseInt(localStorage.getItem(ATTEMPT_KEY) || '0') + 1;
+    if (attempts >= MAX_ATTEMPTS) {
+      localStorage.setItem(LOCKOUT_KEY, String(Date.now() + LOCKOUT_MS));
+      localStorage.removeItem(ATTEMPT_KEY);
+      errEl.textContent = "Too many attempts. Locked out for 15 minutes.";
+    } else {
+      localStorage.setItem(ATTEMPT_KEY, String(attempts));
+      const left = MAX_ATTEMPTS - attempts;
+      errEl.textContent = `Incorrect password. ${left} attempt${left === 1 ? '' : 's'} remaining.`;
+    }
+    errEl.style.display = "block";
   }
 }
 
