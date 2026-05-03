@@ -125,41 +125,6 @@
         .back-btn:hover { opacity: 0.88; }
     </style>
 
-    <script>
-        var PAYPAL_EMAIL = 'kltufllc@gmail.com';
-        var ZELLE_EMAIL  = 'kltufllc@gmail.com';
-
-        window.onload = function () {
-            var params = new URLSearchParams(window.location.search);
-            var item   = decodeURIComponent(params.get('item')  || 'Item');
-            var price  = params.get('price') || '0.00';
-            var method = params.get('method') || '';
-
-            document.getElementById('item-name').textContent  = item;
-            document.getElementById('item-price').textContent = '$' + price;
-            document.getElementById('note-text').textContent  = 'KLTUF - ' + item;
-
-            // Build PayPal URL
-            var ppUrl = 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick'
-                + '&business=' + encodeURIComponent(PAYPAL_EMAIL)
-                + '&item_name=' + encodeURIComponent('KLTUF - ' + item)
-                + '&amount=' + encodeURIComponent(price)
-                + '&currency_code=USD&no_shipping=0';
-            document.getElementById('paypal-btn').href = ppUrl;
-
-            // Pre-select method if passed
-            if (method === 'paypal') selectMethod('paypal');
-            else selectMethod('zelle');
-        };
-
-        function selectMethod(m) {
-            document.getElementById('panel-paypal').classList.toggle('show', m === 'paypal');
-            document.getElementById('panel-zelle').classList.toggle('show',  m === 'zelle');
-            document.getElementById('btn-paypal').className = 'method-btn' + (m === 'paypal' ? ' active-paypal' : '');
-            document.getElementById('btn-zelle').className  = 'method-btn' + (m === 'zelle'  ? ' active-zelle'  : '');
-        }
-
-    </script>
 </head>
 <body>
 
@@ -286,5 +251,35 @@
     </div>
 
 </div>
+<script>
+    var PAYPAL_EMAIL = 'kltufllc@gmail.com';
+
+    var params = new URLSearchParams(window.location.search);
+    var item   = decodeURIComponent(params.get('item')  || 'Item');
+    var price  = parseFloat(params.get('price')) || 0;
+    var priceStr = price.toFixed(2);
+    var method = params.get('method') || '';
+
+    document.getElementById('item-name').textContent  = item;
+    document.getElementById('item-price').textContent = '$' + priceStr;
+    document.getElementById('note-text').textContent  = 'KLTUF - ' + item;
+
+    var ppUrl = 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick'
+        + '&business=' + encodeURIComponent(PAYPAL_EMAIL)
+        + '&item_name=' + encodeURIComponent('KLTUF - ' + item)
+        + '&amount=' + encodeURIComponent(priceStr)
+        + '&currency_code=USD&no_shipping=0';
+    document.getElementById('paypal-btn').href = ppUrl;
+
+    if (method === 'paypal') selectMethod('paypal');
+    else selectMethod('zelle');
+
+    function selectMethod(m) {
+        document.getElementById('panel-paypal').classList.toggle('show', m === 'paypal');
+        document.getElementById('panel-zelle').classList.toggle('show',  m === 'zelle');
+        document.getElementById('btn-paypal').className = 'method-btn' + (m === 'paypal' ? ' active-paypal' : '');
+        document.getElementById('btn-zelle').className  = 'method-btn' + (m === 'zelle'  ? ' active-zelle'  : '');
+    }
+</script>
 </body>
 </html>
