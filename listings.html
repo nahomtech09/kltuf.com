@@ -461,35 +461,37 @@
 
                 <p class="section-label">Location</p>
                 <div class="post-form-row3">
-                    <input type="text" name="city" placeholder="City" required>
-                    <input type="text" name="state" placeholder="State / Region">
-                    <input type="text" name="country" placeholder="Country" required>
+                    <input type="text" name="city" placeholder="City" required maxlength="100">
+                    <input type="text" name="state" placeholder="State / Region" maxlength="100">
+                    <input type="text" name="country" placeholder="Country" required maxlength="100">
                 </div>
 
                 <p class="section-label">Price &amp; Details</p>
                 <div class="post-form-row">
-                    <input type="text" name="price" placeholder="Price (e.g. $1,200/mo)" required>
-                    <input type="text" name="size" placeholder="Size (e.g. 900 sqft, 3BR/2BA)">
+                    <input type="text" name="price" placeholder="Price (e.g. $1,200/mo)" required maxlength="50">
+                    <input type="text" name="size" placeholder="Size (e.g. 900 sqft, 3BR/2BA)" maxlength="80">
                 </div>
 
                 <p class="section-label">Description</p>
-                <textarea name="description" placeholder="Describe the property — bedrooms, bathrooms, features, nearby amenities, move-in date..." required></textarea>
+                <textarea name="description" placeholder="Describe the property — bedrooms, bathrooms, features, nearby amenities, move-in date..." required maxlength="2000"></textarea>
 
                 <p class="section-label">Your Contact Info</p>
                 <div class="post-form-row">
-                    <input type="text" name="contact_name" placeholder="Your Name" required>
-                    <input type="text" name="contact_phone" placeholder="Phone Number">
+                    <input type="text" name="contact_name" placeholder="Your Name" required maxlength="100">
+                    <input type="tel" name="contact_phone" placeholder="Phone Number" maxlength="30">
                 </div>
-                <input type="email" name="contact_email" placeholder="Email Address" required>
+                <input type="email" name="contact_email" placeholder="Email Address" required maxlength="150">
 
                 <p class="section-label">Photos (up to 5)</p>
-                <input type="file" id="listingPhotoInput" accept="image/*" multiple
+                <input type="file" id="listingPhotoInput" accept="image/jpeg,image/png,image/webp,image/gif" multiple
                        style="color:#d1d5db;padding:8px 0;margin-bottom:6px"
                        onchange="uploadListingPhotos(this)">
                 <div id="listingPhotoStatus" style="font-size:0.78rem;margin-bottom:6px;min-height:18px;"></div>
                 <div id="listingPhotoPreviews" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;"></div>
                 <textarea name="photo_urls" id="listingPhotoUrls" style="display:none"></textarea>
 
+                <!-- honeypot — bots fill this, humans don't -->
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                 <input type="hidden" name="_subject" value="New Property Listing — KLTUF">
 
                 <button type="submit" id="postSubmitBtn">Submit Listing for Review →</button>
@@ -568,6 +570,20 @@ var listingUploadedUrls = [];
 function uploadListingPhotos(input) {
     var files = Array.from(input.files).slice(0, 5);
     if (!files.length) return;
+    var oversized = files.filter(function(f){ return f.size > 10 * 1024 * 1024; });
+    if (oversized.length) {
+        document.getElementById('listingPhotoStatus').style.color = '#dc2626';
+        document.getElementById('listingPhotoStatus').textContent = '❌ Each photo must be under 10 MB.';
+        input.value = '';
+        return;
+    }
+    var badType = files.filter(function(f){ return !f.type.startsWith('image/'); });
+    if (badType.length) {
+        document.getElementById('listingPhotoStatus').style.color = '#dc2626';
+        document.getElementById('listingPhotoStatus').textContent = '❌ Only image files are allowed.';
+        input.value = '';
+        return;
+    }
     var status = document.getElementById('listingPhotoStatus');
     var previews = document.getElementById('listingPhotoPreviews');
     previews.innerHTML = '';
