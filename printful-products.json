@@ -1,118 +1,3522 @@
 [
   {
-    "id": "d544e0fa1277",
-    "pid": "69f8e1b4feed9979d10d364d",
-    "title": "Women's Eritrean Kemis Dress \u2014 Tibeb Print",
-    "cat": "prints",
-    "gender": "women",
+    "id": "431_10_eritrean",
+    "printify_id": "69f8e91b94d0fd5ee50cbc87",
+    "title": "Women's Eritrean Classic Tibeb T-Shirt Dress",
     "price": 49.99,
-    "retail": 125.0,
-    "image": "https://images-api.printify.com/mockup/69f8e1b4feed9979d10d364d/62083/94569/womens-eritrean-kemis-dress-tibeb-print.jpg?camera_label=front",
+    "image": "https://images-api.printify.com/mockup/69f8e91b94d0fd5ee50cbc87/62083/94569/womens-eritrean-classic-tibeb-t-shirt-dress.jpg?camera_label=front",
     "images": [
-      "https://images-api.printify.com/mockup/69f8e1b4feed9979d10d364d/62083/94569/womens-eritrean-kemis-dress-tibeb-print.jpg?camera_label=front",
-      "https://images-api.printify.com/mockup/69f8e1b4feed9979d10d364d/62083/3198/womens-eritrean-kemis-dress-tibeb-print.jpg?camera_label=back",
-      "https://images-api.printify.com/mockup/69f8e1b4feed9979d10d364d/62083/3199/womens-eritrean-kemis-dress-tibeb-print.jpg?camera_label=front-person",
-      "https://images-api.printify.com/mockup/69f8e1b4feed9979d10d364d/62083/3200/womens-eritrean-kemis-dress-tibeb-print.jpg?camera_label=back-person"
+      "https://images-api.printify.com/mockup/69f8e91b94d0fd5ee50cbc87/62083/94569/womens-eritrean-classic-tibeb-t-shirt-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e91b94d0fd5ee50cbc87/62083/3198/womens-eritrean-classic-tibeb-t-shirt-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e91b94d0fd5ee50cbc87/62083/3199/womens-eritrean-classic-tibeb-t-shirt-dress.jpg?camera_label=front-person"
     ],
-    "source": "printify",
-    "sizes": [
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "2XL"
-    ],
-    "printify_product_id": "69f8e1b4feed9979d10d364d",
-    "printify_shop_id": 27424239,
-    "printify_variants": [
+    "variants": [
       {
         "id": 62083,
-        "title": "XS"
+        "title": "XS",
+        "price": 49.99
       },
       {
         "id": 62084,
-        "title": "S"
+        "title": "S",
+        "price": 49.99
       },
       {
         "id": 62085,
-        "title": "M"
+        "title": "M",
+        "price": 49.99
       },
       {
         "id": 62086,
-        "title": "L"
+        "title": "L",
+        "price": 49.99
       },
       {
         "id": 62087,
-        "title": "XL"
+        "title": "XL",
+        "price": 49.99
       },
       {
         "id": 62088,
-        "title": "2XL"
+        "title": "2XL",
+        "price": 49.99
       }
     ],
-    "updated": "2026-05-04T18:33:45.865452+00:00"
+    "gender": "women",
+    "design": "eritrean",
+    "garment": "T-Shirt Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e91b94d0fd5ee50cbc87",
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
   },
   {
-    "id": "68d71dba3558",
-    "pid": "69f8e1bc1d416397f3054a0a",
-    "title": "Men's Eritrean Zuria Shirt \u2014 Tibeb Print",
-    "cat": "prints",
-    "gender": "men",
-    "price": 39.99,
-    "retail": 80.0,
-    "image": "https://images-api.printify.com/mockup/69f8e1bc1d416397f3054a0a/95121/78995/mens-eritrean-zuria-shirt-tibeb-print.jpg?camera_label=front",
+    "id": "431_10_ethiopian",
+    "printify_id": "69f8e927402e954b3f097788",
+    "title": "Women's Ethiopian Habesha Style T-Shirt Dress",
+    "price": 49.99,
+    "image": "https://images-api.printify.com/mockup/69f8e927402e954b3f097788/62083/94569/womens-ethiopian-habesha-style-t-shirt-dress.jpg?camera_label=front",
     "images": [
-      "https://images-api.printify.com/mockup/69f8e1bc1d416397f3054a0a/95121/78995/mens-eritrean-zuria-shirt-tibeb-print.jpg?camera_label=front",
-      "https://images-api.printify.com/mockup/69f8e1bc1d416397f3054a0a/95121/79922/mens-eritrean-zuria-shirt-tibeb-print.jpg?camera_label=back"
+      "https://images-api.printify.com/mockup/69f8e927402e954b3f097788/62083/94569/womens-ethiopian-habesha-style-t-shirt-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e927402e954b3f097788/62083/3198/womens-ethiopian-habesha-style-t-shirt-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e927402e954b3f097788/62083/3199/womens-ethiopian-habesha-style-t-shirt-dress.jpg?camera_label=front-person"
     ],
+    "variants": [
+      {
+        "id": 62083,
+        "title": "XS",
+        "price": 49.99
+      },
+      {
+        "id": 62084,
+        "title": "S",
+        "price": 49.99
+      },
+      {
+        "id": 62085,
+        "title": "M",
+        "price": 49.99
+      },
+      {
+        "id": 62086,
+        "title": "L",
+        "price": 49.99
+      },
+      {
+        "id": 62087,
+        "title": "XL",
+        "price": 49.99
+      },
+      {
+        "id": 62088,
+        "title": "2XL",
+        "price": 49.99
+      }
+    ],
+    "gender": "women",
+    "design": "ethiopian",
+    "garment": "T-Shirt Dress",
     "source": "printify",
-    "sizes": [
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "2XL",
-      "3XL",
-      "4XL"
+    "printify_shop_id": "27424239",
+    "pid": "69f8e927402e954b3f097788",
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+  },
+  {
+    "id": "431_10_modern",
+    "printify_id": "69f8e93349f19eefe60f5f45",
+    "title": "Women's Modern Tibeb Print T-Shirt Dress",
+    "price": 49.99,
+    "image": "https://images-api.printify.com/mockup/69f8e93349f19eefe60f5f45/62083/94569/womens-modern-tibeb-print-t-shirt-dress.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e93349f19eefe60f5f45/62083/94569/womens-modern-tibeb-print-t-shirt-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e93349f19eefe60f5f45/62083/3198/womens-modern-tibeb-print-t-shirt-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e93349f19eefe60f5f45/62083/3199/womens-modern-tibeb-print-t-shirt-dress.jpg?camera_label=front-person"
     ],
-    "printify_product_id": "69f8e1bc1d416397f3054a0a",
-    "printify_shop_id": 27424239,
-    "printify_variants": [
+    "variants": [
+      {
+        "id": 62083,
+        "title": "XS",
+        "price": 49.99
+      },
+      {
+        "id": 62084,
+        "title": "S",
+        "price": 49.99
+      },
+      {
+        "id": 62085,
+        "title": "M",
+        "price": 49.99
+      },
+      {
+        "id": 62086,
+        "title": "L",
+        "price": 49.99
+      },
+      {
+        "id": 62087,
+        "title": "XL",
+        "price": 49.99
+      },
+      {
+        "id": 62088,
+        "title": "2XL",
+        "price": 49.99
+      }
+    ],
+    "gender": "women",
+    "design": "modern",
+    "garment": "T-Shirt Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e93349f19eefe60f5f45",
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+  },
+  {
+    "id": "431_10_royal",
+    "printify_id": "69f8e9401d416397f3054bc8",
+    "title": "Women's Royal Tibeb Pattern T-Shirt Dress",
+    "price": 49.99,
+    "image": "https://images-api.printify.com/mockup/69f8e9401d416397f3054bc8/62083/94569/womens-royal-tibeb-pattern-t-shirt-dress.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e9401d416397f3054bc8/62083/94569/womens-royal-tibeb-pattern-t-shirt-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e9401d416397f3054bc8/62083/3198/womens-royal-tibeb-pattern-t-shirt-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e9401d416397f3054bc8/62083/3199/womens-royal-tibeb-pattern-t-shirt-dress.jpg?camera_label=front-person"
+    ],
+    "variants": [
+      {
+        "id": 62083,
+        "title": "XS",
+        "price": 49.99
+      },
+      {
+        "id": 62084,
+        "title": "S",
+        "price": 49.99
+      },
+      {
+        "id": 62085,
+        "title": "M",
+        "price": 49.99
+      },
+      {
+        "id": 62086,
+        "title": "L",
+        "price": 49.99
+      },
+      {
+        "id": 62087,
+        "title": "XL",
+        "price": 49.99
+      },
+      {
+        "id": 62088,
+        "title": "2XL",
+        "price": 49.99
+      }
+    ],
+    "gender": "women",
+    "design": "royal",
+    "garment": "T-Shirt Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e9401d416397f3054bc8",
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+  },
+  {
+    "id": "1709_332_eritrean",
+    "printify_id": "69f8e96c09f3b73024024284",
+    "title": "Women's Eritrean Classic Tibeb Casual Dress",
+    "price": 49.99,
+    "image": "https://images-api.printify.com/mockup/69f8e96c09f3b73024024284/117205/120389/womens-eritrean-classic-tibeb-casual-dress.jpg?camera_label=size-chart",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e96c09f3b73024024284/117205/120374/womens-eritrean-classic-tibeb-casual-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e96c09f3b73024024284/117205/120375/womens-eritrean-classic-tibeb-casual-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e96c09f3b73024024284/117205/120389/womens-eritrean-classic-tibeb-casual-dress.jpg?camera_label=size-chart"
+    ],
+    "variants": [
+      {
+        "id": 117205,
+        "title": "2XS",
+        "price": 49.99
+      },
+      {
+        "id": 117206,
+        "title": "XS",
+        "price": 49.99
+      },
+      {
+        "id": 117207,
+        "title": "S",
+        "price": 49.99
+      },
+      {
+        "id": 117208,
+        "title": "M",
+        "price": 49.99
+      },
+      {
+        "id": 117209,
+        "title": "L",
+        "price": 49.99
+      },
+      {
+        "id": 117210,
+        "title": "XL",
+        "price": 49.99
+      },
+      {
+        "id": 117211,
+        "title": "2XL",
+        "price": 49.99
+      },
+      {
+        "id": 117212,
+        "title": "3XL",
+        "price": 49.99
+      },
+      {
+        "id": 117213,
+        "title": "4XL",
+        "price": 49.99
+      }
+    ],
+    "gender": "women",
+    "design": "eritrean",
+    "garment": "Casual Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e96c09f3b73024024284",
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+  },
+  {
+    "id": "1709_332_ethiopian",
+    "printify_id": "69f8e979b07574b970070815",
+    "title": "Women's Ethiopian Habesha Style Casual Dress",
+    "price": 49.99,
+    "image": "https://images-api.printify.com/mockup/69f8e979b07574b970070815/117205/120389/womens-ethiopian-habesha-style-casual-dress.jpg?camera_label=size-chart",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e979b07574b970070815/117205/120374/womens-ethiopian-habesha-style-casual-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e979b07574b970070815/117205/120375/womens-ethiopian-habesha-style-casual-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e979b07574b970070815/117205/120389/womens-ethiopian-habesha-style-casual-dress.jpg?camera_label=size-chart"
+    ],
+    "variants": [
+      {
+        "id": 117205,
+        "title": "2XS",
+        "price": 49.99
+      },
+      {
+        "id": 117206,
+        "title": "XS",
+        "price": 49.99
+      },
+      {
+        "id": 117207,
+        "title": "S",
+        "price": 49.99
+      },
+      {
+        "id": 117208,
+        "title": "M",
+        "price": 49.99
+      },
+      {
+        "id": 117209,
+        "title": "L",
+        "price": 49.99
+      },
+      {
+        "id": 117210,
+        "title": "XL",
+        "price": 49.99
+      },
+      {
+        "id": 117211,
+        "title": "2XL",
+        "price": 49.99
+      },
+      {
+        "id": 117212,
+        "title": "3XL",
+        "price": 49.99
+      },
+      {
+        "id": 117213,
+        "title": "4XL",
+        "price": 49.99
+      }
+    ],
+    "gender": "women",
+    "design": "ethiopian",
+    "garment": "Casual Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e979b07574b970070815",
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+  },
+  {
+    "id": "1709_332_modern",
+    "printify_id": "69f8e97fbd4ffcafc5027feb",
+    "title": "Women's Modern Tibeb Print Casual Dress",
+    "price": 49.99,
+    "image": "https://images-api.printify.com/mockup/69f8e97fbd4ffcafc5027feb/117205/120389/womens-modern-tibeb-print-casual-dress.jpg?camera_label=size-chart",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e97fbd4ffcafc5027feb/117205/120374/womens-modern-tibeb-print-casual-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e97fbd4ffcafc5027feb/117205/120375/womens-modern-tibeb-print-casual-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e97fbd4ffcafc5027feb/117205/120389/womens-modern-tibeb-print-casual-dress.jpg?camera_label=size-chart"
+    ],
+    "variants": [
+      {
+        "id": 117205,
+        "title": "2XS",
+        "price": 49.99
+      },
+      {
+        "id": 117206,
+        "title": "XS",
+        "price": 49.99
+      },
+      {
+        "id": 117207,
+        "title": "S",
+        "price": 49.99
+      },
+      {
+        "id": 117208,
+        "title": "M",
+        "price": 49.99
+      },
+      {
+        "id": 117209,
+        "title": "L",
+        "price": 49.99
+      },
+      {
+        "id": 117210,
+        "title": "XL",
+        "price": 49.99
+      },
+      {
+        "id": 117211,
+        "title": "2XL",
+        "price": 49.99
+      },
+      {
+        "id": 117212,
+        "title": "3XL",
+        "price": 49.99
+      },
+      {
+        "id": 117213,
+        "title": "4XL",
+        "price": 49.99
+      }
+    ],
+    "gender": "women",
+    "design": "modern",
+    "garment": "Casual Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e97fbd4ffcafc5027feb",
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+  },
+  {
+    "id": "1709_332_royal",
+    "printify_id": "69f8e989b2846202f1024f09",
+    "title": "Women's Royal Tibeb Pattern Casual Dress",
+    "price": 49.99,
+    "image": "https://images-api.printify.com/mockup/69f8e989b2846202f1024f09/117205/120389/womens-royal-tibeb-pattern-casual-dress.jpg?camera_label=size-chart",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e989b2846202f1024f09/117205/120374/womens-royal-tibeb-pattern-casual-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e989b2846202f1024f09/117205/120375/womens-royal-tibeb-pattern-casual-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e989b2846202f1024f09/117205/120389/womens-royal-tibeb-pattern-casual-dress.jpg?camera_label=size-chart"
+    ],
+    "variants": [
+      {
+        "id": 117205,
+        "title": "2XS",
+        "price": 49.99
+      },
+      {
+        "id": 117206,
+        "title": "XS",
+        "price": 49.99
+      },
+      {
+        "id": 117207,
+        "title": "S",
+        "price": 49.99
+      },
+      {
+        "id": 117208,
+        "title": "M",
+        "price": 49.99
+      },
+      {
+        "id": 117209,
+        "title": "L",
+        "price": 49.99
+      },
+      {
+        "id": 117210,
+        "title": "XL",
+        "price": 49.99
+      },
+      {
+        "id": 117211,
+        "title": "2XL",
+        "price": 49.99
+      },
+      {
+        "id": 117212,
+        "title": "3XL",
+        "price": 49.99
+      },
+      {
+        "id": 117213,
+        "title": "4XL",
+        "price": 49.99
+      }
+    ],
+    "gender": "women",
+    "design": "royal",
+    "garment": "Casual Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e989b2846202f1024f09",
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+  },
+  {
+    "id": "783_90_eritrean",
+    "printify_id": "69f8e990c1f268dee601ee3b",
+    "title": "Women's Eritrean Classic Tibeb Hoodie Dress",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8e990c1f268dee601ee3b/74892/21500/womens-eritrean-classic-tibeb-hoodie-dress.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e990c1f268dee601ee3b/74892/21500/womens-eritrean-classic-tibeb-hoodie-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e990c1f268dee601ee3b/74892/21518/womens-eritrean-classic-tibeb-hoodie-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e990c1f268dee601ee3b/74892/21673/womens-eritrean-classic-tibeb-hoodie-dress.jpg?camera_label=on-person-front"
+    ],
+    "variants": [
+      {
+        "id": 74892,
+        "title": "S / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74893,
+        "title": "M / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74894,
+        "title": "L / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74895,
+        "title": "XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74896,
+        "title": "2XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      }
+    ],
+    "gender": "women",
+    "design": "eritrean",
+    "garment": "Hoodie Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e990c1f268dee601ee3b",
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+  },
+  {
+    "id": "783_90_ethiopian",
+    "printify_id": "69f8e995dea5c2315107bea4",
+    "title": "Women's Ethiopian Habesha Style Hoodie Dress",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8e995dea5c2315107bea4/74892/21500/womens-ethiopian-habesha-style-hoodie-dress.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e995dea5c2315107bea4/74892/21500/womens-ethiopian-habesha-style-hoodie-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e995dea5c2315107bea4/74892/21518/womens-ethiopian-habesha-style-hoodie-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e995dea5c2315107bea4/74892/21673/womens-ethiopian-habesha-style-hoodie-dress.jpg?camera_label=on-person-front"
+    ],
+    "variants": [
+      {
+        "id": 74892,
+        "title": "S / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74893,
+        "title": "M / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74894,
+        "title": "L / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74895,
+        "title": "XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74896,
+        "title": "2XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      }
+    ],
+    "gender": "women",
+    "design": "ethiopian",
+    "garment": "Hoodie Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e995dea5c2315107bea4",
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+  },
+  {
+    "id": "783_90_modern",
+    "printify_id": "69f8e99a011b67ecf8079845",
+    "title": "Women's Modern Tibeb Print Hoodie Dress",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8e99a011b67ecf8079845/74892/21500/womens-modern-tibeb-print-hoodie-dress.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e99a011b67ecf8079845/74892/21500/womens-modern-tibeb-print-hoodie-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e99a011b67ecf8079845/74892/21518/womens-modern-tibeb-print-hoodie-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e99a011b67ecf8079845/74892/21673/womens-modern-tibeb-print-hoodie-dress.jpg?camera_label=on-person-front"
+    ],
+    "variants": [
+      {
+        "id": 74892,
+        "title": "S / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74893,
+        "title": "M / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74894,
+        "title": "L / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74895,
+        "title": "XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74896,
+        "title": "2XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      }
+    ],
+    "gender": "women",
+    "design": "modern",
+    "garment": "Hoodie Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e99a011b67ecf8079845",
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+  },
+  {
+    "id": "783_90_royal",
+    "printify_id": "69f8e9a009f3b7302402428d",
+    "title": "Women's Royal Tibeb Pattern Hoodie Dress",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8e9a009f3b7302402428d/74892/21500/womens-royal-tibeb-pattern-hoodie-dress.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e9a009f3b7302402428d/74892/21500/womens-royal-tibeb-pattern-hoodie-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e9a009f3b7302402428d/74892/21518/womens-royal-tibeb-pattern-hoodie-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e9a009f3b7302402428d/74892/21673/womens-royal-tibeb-pattern-hoodie-dress.jpg?camera_label=on-person-front"
+    ],
+    "variants": [
+      {
+        "id": 74892,
+        "title": "S / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74893,
+        "title": "M / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74894,
+        "title": "L / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74895,
+        "title": "XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74896,
+        "title": "2XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      }
+    ],
+    "gender": "women",
+    "design": "royal",
+    "garment": "Hoodie Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e9a009f3b7302402428d",
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+  },
+  {
+    "id": "276_10_eritrean",
+    "printify_id": "69f8e9a616dd0e9bb504c91f",
+    "title": "Women's Eritrean Classic Tibeb Racerback Dress",
+    "price": 44.99,
+    "image": "https://images-api.printify.com/mockup/69f8e9a616dd0e9bb504c91f/43001/588/womens-eritrean-classic-tibeb-racerback-dress.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e9a616dd0e9bb504c91f/43001/588/womens-eritrean-classic-tibeb-racerback-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e9a616dd0e9bb504c91f/43001/626/womens-eritrean-classic-tibeb-racerback-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e9a616dd0e9bb504c91f/43001/627/womens-eritrean-classic-tibeb-racerback-dress.jpg?camera_label=front-side"
+    ],
+    "variants": [
+      {
+        "id": 43001,
+        "title": "XS",
+        "price": 44.99
+      },
+      {
+        "id": 43002,
+        "title": "S",
+        "price": 44.99
+      },
+      {
+        "id": 43003,
+        "title": "M",
+        "price": 44.99
+      },
+      {
+        "id": 43004,
+        "title": "L",
+        "price": 44.99
+      },
+      {
+        "id": 43005,
+        "title": "XL",
+        "price": 44.99
+      },
+      {
+        "id": 43006,
+        "title": "2XL",
+        "price": 44.99
+      }
+    ],
+    "gender": "women",
+    "design": "eritrean",
+    "garment": "Racerback Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e9a616dd0e9bb504c91f",
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+  },
+  {
+    "id": "276_10_ethiopian",
+    "printify_id": "69f8e9af9f68ab7cf0021650",
+    "title": "Women's Ethiopian Habesha Style Racerback Dress",
+    "price": 44.99,
+    "image": "https://images-api.printify.com/mockup/69f8e9af9f68ab7cf0021650/43001/588/womens-ethiopian-habesha-style-racerback-dress.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e9af9f68ab7cf0021650/43001/588/womens-ethiopian-habesha-style-racerback-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e9af9f68ab7cf0021650/43001/626/womens-ethiopian-habesha-style-racerback-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e9af9f68ab7cf0021650/43001/627/womens-ethiopian-habesha-style-racerback-dress.jpg?camera_label=front-side"
+    ],
+    "variants": [
+      {
+        "id": 43001,
+        "title": "XS",
+        "price": 44.99
+      },
+      {
+        "id": 43002,
+        "title": "S",
+        "price": 44.99
+      },
+      {
+        "id": 43003,
+        "title": "M",
+        "price": 44.99
+      },
+      {
+        "id": 43004,
+        "title": "L",
+        "price": 44.99
+      },
+      {
+        "id": 43005,
+        "title": "XL",
+        "price": 44.99
+      },
+      {
+        "id": 43006,
+        "title": "2XL",
+        "price": 44.99
+      }
+    ],
+    "gender": "women",
+    "design": "ethiopian",
+    "garment": "Racerback Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e9af9f68ab7cf0021650",
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+  },
+  {
+    "id": "276_10_modern",
+    "printify_id": "69f8e9b77cb8a3547c0c518c",
+    "title": "Women's Modern Tibeb Print Racerback Dress",
+    "price": 44.99,
+    "image": "https://images-api.printify.com/mockup/69f8e9b77cb8a3547c0c518c/43001/588/womens-modern-tibeb-print-racerback-dress.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e9b77cb8a3547c0c518c/43001/588/womens-modern-tibeb-print-racerback-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e9b77cb8a3547c0c518c/43001/626/womens-modern-tibeb-print-racerback-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e9b77cb8a3547c0c518c/43001/627/womens-modern-tibeb-print-racerback-dress.jpg?camera_label=front-side"
+    ],
+    "variants": [
+      {
+        "id": 43001,
+        "title": "XS",
+        "price": 44.99
+      },
+      {
+        "id": 43002,
+        "title": "S",
+        "price": 44.99
+      },
+      {
+        "id": 43003,
+        "title": "M",
+        "price": 44.99
+      },
+      {
+        "id": 43004,
+        "title": "L",
+        "price": 44.99
+      },
+      {
+        "id": 43005,
+        "title": "XL",
+        "price": 44.99
+      },
+      {
+        "id": 43006,
+        "title": "2XL",
+        "price": 44.99
+      }
+    ],
+    "gender": "women",
+    "design": "modern",
+    "garment": "Racerback Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e9b77cb8a3547c0c518c",
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+  },
+  {
+    "id": "276_10_royal",
+    "printify_id": "69f8e9bf402e954b3f0977b1",
+    "title": "Women's Royal Tibeb Pattern Racerback Dress",
+    "price": 44.99,
+    "image": "https://images-api.printify.com/mockup/69f8e9bf402e954b3f0977b1/43001/588/womens-royal-tibeb-pattern-racerback-dress.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e9bf402e954b3f0977b1/43001/588/womens-royal-tibeb-pattern-racerback-dress.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e9bf402e954b3f0977b1/43001/626/womens-royal-tibeb-pattern-racerback-dress.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e9bf402e954b3f0977b1/43001/627/womens-royal-tibeb-pattern-racerback-dress.jpg?camera_label=front-side"
+    ],
+    "variants": [
+      {
+        "id": 43001,
+        "title": "XS",
+        "price": 44.99
+      },
+      {
+        "id": 43002,
+        "title": "S",
+        "price": 44.99
+      },
+      {
+        "id": 43003,
+        "title": "M",
+        "price": 44.99
+      },
+      {
+        "id": 43004,
+        "title": "L",
+        "price": 44.99
+      },
+      {
+        "id": 43005,
+        "title": "XL",
+        "price": 44.99
+      },
+      {
+        "id": 43006,
+        "title": "2XL",
+        "price": 44.99
+      }
+    ],
+    "gender": "women",
+    "design": "royal",
+    "garment": "Racerback Dress",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e9bf402e954b3f0977b1",
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+  },
+  {
+    "id": "1261_47_eritrean",
+    "printify_id": "69f8e9d47cb8a3547c0c5195",
+    "title": "Men's Eritrean Classic Tibeb Long Sleeve Shirt",
+    "price": 44.99,
+    "image": "https://images-api.printify.com/mockup/69f8e9d47cb8a3547c0c5195/95121/78995/mens-eritrean-classic-tibeb-long-sleeve-shirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e9d47cb8a3547c0c5195/95121/78995/mens-eritrean-classic-tibeb-long-sleeve-shirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e9d47cb8a3547c0c5195/95121/79922/mens-eritrean-classic-tibeb-long-sleeve-shirt.jpg?camera_label=back"
+    ],
+    "variants": [
       {
         "id": 95121,
-        "title": "XS"
+        "title": "XS",
+        "price": 44.99
       },
       {
         "id": 95122,
-        "title": "S"
+        "title": "S",
+        "price": 44.99
       },
       {
         "id": 95123,
-        "title": "M"
+        "title": "M",
+        "price": 44.99
       },
       {
         "id": 95124,
-        "title": "L"
+        "title": "L",
+        "price": 44.99
       },
       {
         "id": 95125,
-        "title": "XL"
+        "title": "XL",
+        "price": 44.99
       },
       {
         "id": 95126,
-        "title": "2XL"
+        "title": "2XL",
+        "price": 44.99
       },
       {
         "id": 95127,
-        "title": "3XL"
+        "title": "3XL",
+        "price": 44.99
       },
       {
         "id": 95128,
-        "title": "4XL"
+        "title": "4XL",
+        "price": 44.99
       }
     ],
-    "updated": "2026-05-04T18:33:46.301369+00:00"
+    "gender": "men",
+    "design": "eritrean",
+    "garment": "Long Sleeve Shirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e9d47cb8a3547c0c5195",
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+  },
+  {
+    "id": "1261_47_ethiopian",
+    "printify_id": "69f8e9dd94d0fd5ee50cbcad",
+    "title": "Men's Ethiopian Habesha Style Long Sleeve Shirt",
+    "price": 44.99,
+    "image": "https://images-api.printify.com/mockup/69f8e9dd94d0fd5ee50cbcad/95121/78995/mens-ethiopian-habesha-style-long-sleeve-shirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e9dd94d0fd5ee50cbcad/95121/78995/mens-ethiopian-habesha-style-long-sleeve-shirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e9dd94d0fd5ee50cbcad/95121/79922/mens-ethiopian-habesha-style-long-sleeve-shirt.jpg?camera_label=back"
+    ],
+    "variants": [
+      {
+        "id": 95121,
+        "title": "XS",
+        "price": 44.99
+      },
+      {
+        "id": 95122,
+        "title": "S",
+        "price": 44.99
+      },
+      {
+        "id": 95123,
+        "title": "M",
+        "price": 44.99
+      },
+      {
+        "id": 95124,
+        "title": "L",
+        "price": 44.99
+      },
+      {
+        "id": 95125,
+        "title": "XL",
+        "price": 44.99
+      },
+      {
+        "id": 95126,
+        "title": "2XL",
+        "price": 44.99
+      },
+      {
+        "id": 95127,
+        "title": "3XL",
+        "price": 44.99
+      },
+      {
+        "id": 95128,
+        "title": "4XL",
+        "price": 44.99
+      }
+    ],
+    "gender": "men",
+    "design": "ethiopian",
+    "garment": "Long Sleeve Shirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e9dd94d0fd5ee50cbcad",
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+  },
+  {
+    "id": "1261_47_modern",
+    "printify_id": "69f8e9e4b2846202f1024f1a",
+    "title": "Men's Modern Tibeb Print Long Sleeve Shirt",
+    "price": 44.99,
+    "image": "https://images-api.printify.com/mockup/69f8e9e4b2846202f1024f1a/95121/78995/mens-modern-tibeb-print-long-sleeve-shirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e9e4b2846202f1024f1a/95121/78995/mens-modern-tibeb-print-long-sleeve-shirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e9e4b2846202f1024f1a/95121/79922/mens-modern-tibeb-print-long-sleeve-shirt.jpg?camera_label=back"
+    ],
+    "variants": [
+      {
+        "id": 95121,
+        "title": "XS",
+        "price": 44.99
+      },
+      {
+        "id": 95122,
+        "title": "S",
+        "price": 44.99
+      },
+      {
+        "id": 95123,
+        "title": "M",
+        "price": 44.99
+      },
+      {
+        "id": 95124,
+        "title": "L",
+        "price": 44.99
+      },
+      {
+        "id": 95125,
+        "title": "XL",
+        "price": 44.99
+      },
+      {
+        "id": 95126,
+        "title": "2XL",
+        "price": 44.99
+      },
+      {
+        "id": 95127,
+        "title": "3XL",
+        "price": 44.99
+      },
+      {
+        "id": 95128,
+        "title": "4XL",
+        "price": 44.99
+      }
+    ],
+    "gender": "men",
+    "design": "modern",
+    "garment": "Long Sleeve Shirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e9e4b2846202f1024f1a",
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+  },
+  {
+    "id": "1261_47_royal",
+    "printify_id": "69f8e9e91d416397f3054bf1",
+    "title": "Men's Royal Tibeb Pattern Long Sleeve Shirt",
+    "price": 44.99,
+    "image": "https://images-api.printify.com/mockup/69f8e9e91d416397f3054bf1/95121/78995/mens-royal-tibeb-pattern-long-sleeve-shirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e9e91d416397f3054bf1/95121/78995/mens-royal-tibeb-pattern-long-sleeve-shirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e9e91d416397f3054bf1/95121/79922/mens-royal-tibeb-pattern-long-sleeve-shirt.jpg?camera_label=back"
+    ],
+    "variants": [
+      {
+        "id": 95121,
+        "title": "XS",
+        "price": 44.99
+      },
+      {
+        "id": 95122,
+        "title": "S",
+        "price": 44.99
+      },
+      {
+        "id": 95123,
+        "title": "M",
+        "price": 44.99
+      },
+      {
+        "id": 95124,
+        "title": "L",
+        "price": 44.99
+      },
+      {
+        "id": 95125,
+        "title": "XL",
+        "price": 44.99
+      },
+      {
+        "id": 95126,
+        "title": "2XL",
+        "price": 44.99
+      },
+      {
+        "id": 95127,
+        "title": "3XL",
+        "price": 44.99
+      },
+      {
+        "id": 95128,
+        "title": "4XL",
+        "price": 44.99
+      }
+    ],
+    "gender": "men",
+    "design": "royal",
+    "garment": "Long Sleeve Shirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e9e91d416397f3054bf1",
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+  },
+  {
+    "id": "1478_14_eritrean",
+    "printify_id": "69f8e9ffb2846202f1024f24",
+    "title": "Men's Eritrean Classic Tibeb T-Shirt",
+    "price": 39.99,
+    "image": "https://images-api.printify.com/mockup/69f8e9ffb2846202f1024f24/107103/102839/mens-eritrean-classic-tibeb-t-shirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8e9ffb2846202f1024f24/107103/102839/mens-eritrean-classic-tibeb-t-shirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e9ffb2846202f1024f24/107103/103303/mens-eritrean-classic-tibeb-t-shirt.jpg?camera_label=front"
+    ],
+    "variants": [
+      {
+        "id": 107103,
+        "title": "XS",
+        "price": 39.99
+      },
+      {
+        "id": 107104,
+        "title": "S",
+        "price": 39.99
+      },
+      {
+        "id": 107105,
+        "title": "M",
+        "price": 39.99
+      },
+      {
+        "id": 107106,
+        "title": "L",
+        "price": 39.99
+      },
+      {
+        "id": 107107,
+        "title": "XL",
+        "price": 39.99
+      },
+      {
+        "id": 107108,
+        "title": "2XL",
+        "price": 39.99
+      },
+      {
+        "id": 107109,
+        "title": "3XL",
+        "price": 39.99
+      },
+      {
+        "id": 107223,
+        "title": "5XL",
+        "price": 39.99
+      },
+      {
+        "id": 107224,
+        "title": "4XL",
+        "price": 39.99
+      }
+    ],
+    "gender": "men",
+    "design": "eritrean",
+    "garment": "T-Shirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8e9ffb2846202f1024f24",
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+  },
+  {
+    "id": "1478_14_ethiopian",
+    "printify_id": "69f8ea04be136844f000743e",
+    "title": "Men's Ethiopian Habesha Style T-Shirt",
+    "price": 39.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea04be136844f000743e/107103/102839/mens-ethiopian-habesha-style-t-shirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea04be136844f000743e/107103/102839/mens-ethiopian-habesha-style-t-shirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea04be136844f000743e/107103/103303/mens-ethiopian-habesha-style-t-shirt.jpg?camera_label=front"
+    ],
+    "variants": [
+      {
+        "id": 107103,
+        "title": "XS",
+        "price": 39.99
+      },
+      {
+        "id": 107104,
+        "title": "S",
+        "price": 39.99
+      },
+      {
+        "id": 107105,
+        "title": "M",
+        "price": 39.99
+      },
+      {
+        "id": 107106,
+        "title": "L",
+        "price": 39.99
+      },
+      {
+        "id": 107107,
+        "title": "XL",
+        "price": 39.99
+      },
+      {
+        "id": 107108,
+        "title": "2XL",
+        "price": 39.99
+      },
+      {
+        "id": 107109,
+        "title": "3XL",
+        "price": 39.99
+      },
+      {
+        "id": 107223,
+        "title": "5XL",
+        "price": 39.99
+      },
+      {
+        "id": 107224,
+        "title": "4XL",
+        "price": 39.99
+      }
+    ],
+    "gender": "men",
+    "design": "ethiopian",
+    "garment": "T-Shirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea04be136844f000743e",
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+  },
+  {
+    "id": "1478_14_modern",
+    "printify_id": "69f8ea0be748bd56ec09b0e1",
+    "title": "Men's Modern Tibeb Print T-Shirt",
+    "price": 39.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea0be748bd56ec09b0e1/107103/102839/mens-modern-tibeb-print-t-shirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea0be748bd56ec09b0e1/107103/102839/mens-modern-tibeb-print-t-shirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea0be748bd56ec09b0e1/107103/103303/mens-modern-tibeb-print-t-shirt.jpg?camera_label=front"
+    ],
+    "variants": [
+      {
+        "id": 107103,
+        "title": "XS",
+        "price": 39.99
+      },
+      {
+        "id": 107104,
+        "title": "S",
+        "price": 39.99
+      },
+      {
+        "id": 107105,
+        "title": "M",
+        "price": 39.99
+      },
+      {
+        "id": 107106,
+        "title": "L",
+        "price": 39.99
+      },
+      {
+        "id": 107107,
+        "title": "XL",
+        "price": 39.99
+      },
+      {
+        "id": 107108,
+        "title": "2XL",
+        "price": 39.99
+      },
+      {
+        "id": 107109,
+        "title": "3XL",
+        "price": 39.99
+      },
+      {
+        "id": 107223,
+        "title": "5XL",
+        "price": 39.99
+      },
+      {
+        "id": 107224,
+        "title": "4XL",
+        "price": 39.99
+      }
+    ],
+    "gender": "men",
+    "design": "modern",
+    "garment": "T-Shirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea0be748bd56ec09b0e1",
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+  },
+  {
+    "id": "1478_14_royal",
+    "printify_id": "69f8ea12ddeb35742e0428b3",
+    "title": "Men's Royal Tibeb Pattern T-Shirt",
+    "price": 39.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea12ddeb35742e0428b3/107103/102839/mens-royal-tibeb-pattern-t-shirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea12ddeb35742e0428b3/107103/102839/mens-royal-tibeb-pattern-t-shirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea12ddeb35742e0428b3/107103/103303/mens-royal-tibeb-pattern-t-shirt.jpg?camera_label=front"
+    ],
+    "variants": [
+      {
+        "id": 107103,
+        "title": "XS",
+        "price": 39.99
+      },
+      {
+        "id": 107104,
+        "title": "S",
+        "price": 39.99
+      },
+      {
+        "id": 107105,
+        "title": "M",
+        "price": 39.99
+      },
+      {
+        "id": 107106,
+        "title": "L",
+        "price": 39.99
+      },
+      {
+        "id": 107107,
+        "title": "XL",
+        "price": 39.99
+      },
+      {
+        "id": 107108,
+        "title": "2XL",
+        "price": 39.99
+      },
+      {
+        "id": 107109,
+        "title": "3XL",
+        "price": 39.99
+      },
+      {
+        "id": 107223,
+        "title": "5XL",
+        "price": 39.99
+      },
+      {
+        "id": 107224,
+        "title": "4XL",
+        "price": 39.99
+      }
+    ],
+    "gender": "men",
+    "design": "royal",
+    "garment": "T-Shirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea12ddeb35742e0428b3",
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+  },
+  {
+    "id": "1485_14_eritrean",
+    "printify_id": "69f8ea1a5da263f75f052ff3",
+    "title": "Men's Eritrean Classic Tibeb Crewneck Sweatshirt",
+    "price": 54.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea1a5da263f75f052ff3/107548/103814/mens-eritrean-classic-tibeb-crewneck-sweatshirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea1a5da263f75f052ff3/107548/103814/mens-eritrean-classic-tibeb-crewneck-sweatshirt.jpg?camera_label=front"
+    ],
+    "variants": [
+      {
+        "id": 107548,
+        "title": "S",
+        "price": 54.99
+      },
+      {
+        "id": 107549,
+        "title": "M",
+        "price": 54.99
+      },
+      {
+        "id": 107550,
+        "title": "L",
+        "price": 54.99
+      },
+      {
+        "id": 107551,
+        "title": "XL",
+        "price": 54.99
+      },
+      {
+        "id": 107552,
+        "title": "2XL",
+        "price": 54.99
+      },
+      {
+        "id": 107553,
+        "title": "3XL",
+        "price": 54.99
+      },
+      {
+        "id": 107554,
+        "title": "4XL",
+        "price": 54.99
+      }
+    ],
+    "gender": "men",
+    "design": "eritrean",
+    "garment": "Crewneck Sweatshirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea1a5da263f75f052ff3",
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+  },
+  {
+    "id": "1485_14_ethiopian",
+    "printify_id": "69f8ea23300b32baed0d05ee",
+    "title": "Men's Ethiopian Habesha Style Crewneck Sweatshirt",
+    "price": 54.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea23300b32baed0d05ee/107548/103814/mens-ethiopian-habesha-style-crewneck-sweatshirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea23300b32baed0d05ee/107548/103814/mens-ethiopian-habesha-style-crewneck-sweatshirt.jpg?camera_label=front"
+    ],
+    "variants": [
+      {
+        "id": 107548,
+        "title": "S",
+        "price": 54.99
+      },
+      {
+        "id": 107549,
+        "title": "M",
+        "price": 54.99
+      },
+      {
+        "id": 107550,
+        "title": "L",
+        "price": 54.99
+      },
+      {
+        "id": 107551,
+        "title": "XL",
+        "price": 54.99
+      },
+      {
+        "id": 107552,
+        "title": "2XL",
+        "price": 54.99
+      },
+      {
+        "id": 107553,
+        "title": "3XL",
+        "price": 54.99
+      },
+      {
+        "id": 107554,
+        "title": "4XL",
+        "price": 54.99
+      }
+    ],
+    "gender": "men",
+    "design": "ethiopian",
+    "garment": "Crewneck Sweatshirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea23300b32baed0d05ee",
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+  },
+  {
+    "id": "1485_14_modern",
+    "printify_id": "69f8ea31e46a0e018a034e72",
+    "title": "Men's Modern Tibeb Print Crewneck Sweatshirt",
+    "price": 54.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea31e46a0e018a034e72/107548/103814/mens-modern-tibeb-print-crewneck-sweatshirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea31e46a0e018a034e72/107548/103814/mens-modern-tibeb-print-crewneck-sweatshirt.jpg?camera_label=front"
+    ],
+    "variants": [
+      {
+        "id": 107548,
+        "title": "S",
+        "price": 54.99
+      },
+      {
+        "id": 107549,
+        "title": "M",
+        "price": 54.99
+      },
+      {
+        "id": 107550,
+        "title": "L",
+        "price": 54.99
+      },
+      {
+        "id": 107551,
+        "title": "XL",
+        "price": 54.99
+      },
+      {
+        "id": 107552,
+        "title": "2XL",
+        "price": 54.99
+      },
+      {
+        "id": 107553,
+        "title": "3XL",
+        "price": 54.99
+      },
+      {
+        "id": 107554,
+        "title": "4XL",
+        "price": 54.99
+      }
+    ],
+    "gender": "men",
+    "design": "modern",
+    "garment": "Crewneck Sweatshirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea31e46a0e018a034e72",
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+  },
+  {
+    "id": "1485_14_royal",
+    "printify_id": "69f8ea3addeb35742e0428bd",
+    "title": "Men's Royal Tibeb Pattern Crewneck Sweatshirt",
+    "price": 54.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea3addeb35742e0428bd/107548/103814/mens-royal-tibeb-pattern-crewneck-sweatshirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea3addeb35742e0428bd/107548/103814/mens-royal-tibeb-pattern-crewneck-sweatshirt.jpg?camera_label=front"
+    ],
+    "variants": [
+      {
+        "id": 107548,
+        "title": "S",
+        "price": 54.99
+      },
+      {
+        "id": 107549,
+        "title": "M",
+        "price": 54.99
+      },
+      {
+        "id": 107550,
+        "title": "L",
+        "price": 54.99
+      },
+      {
+        "id": 107551,
+        "title": "XL",
+        "price": 54.99
+      },
+      {
+        "id": 107552,
+        "title": "2XL",
+        "price": 54.99
+      },
+      {
+        "id": 107553,
+        "title": "3XL",
+        "price": 54.99
+      },
+      {
+        "id": 107554,
+        "title": "4XL",
+        "price": 54.99
+      }
+    ],
+    "gender": "men",
+    "design": "royal",
+    "garment": "Crewneck Sweatshirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea3addeb35742e0428bd",
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+  },
+  {
+    "id": "1028_90_eritrean",
+    "printify_id": "69f8ea42402e954b3f0977d4",
+    "title": "Men's Eritrean Classic Tibeb Hoodie",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea42402e954b3f0977d4/79863/48836/mens-eritrean-classic-tibeb-hoodie.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea42402e954b3f0977d4/79863/48836/mens-eritrean-classic-tibeb-hoodie.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea42402e954b3f0977d4/79863/48209/mens-eritrean-classic-tibeb-hoodie.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8ea42402e954b3f0977d4/79863/48190/mens-eritrean-classic-tibeb-hoodie.jpg?camera_label=person-front"
+    ],
+    "variants": [
+      {
+        "id": 79861,
+        "title": "S / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79862,
+        "title": "M / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79863,
+        "title": "L / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79864,
+        "title": "XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79865,
+        "title": "2XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79866,
+        "title": "3XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79867,
+        "title": "4XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      }
+    ],
+    "gender": "men",
+    "design": "eritrean",
+    "garment": "Hoodie",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea42402e954b3f0977d4",
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+  },
+  {
+    "id": "1028_90_ethiopian",
+    "printify_id": "69f8ea49ddeb35742e0428c2",
+    "title": "Men's Ethiopian Habesha Style Hoodie",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea49ddeb35742e0428c2/79863/48836/mens-ethiopian-habesha-style-hoodie.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea49ddeb35742e0428c2/79863/48836/mens-ethiopian-habesha-style-hoodie.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea49ddeb35742e0428c2/79863/48209/mens-ethiopian-habesha-style-hoodie.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8ea49ddeb35742e0428c2/79863/48190/mens-ethiopian-habesha-style-hoodie.jpg?camera_label=person-front"
+    ],
+    "variants": [
+      {
+        "id": 79861,
+        "title": "S / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79862,
+        "title": "M / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79863,
+        "title": "L / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79864,
+        "title": "XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79865,
+        "title": "2XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79866,
+        "title": "3XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79867,
+        "title": "4XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      }
+    ],
+    "gender": "men",
+    "design": "ethiopian",
+    "garment": "Hoodie",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea49ddeb35742e0428c2",
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+  },
+  {
+    "id": "1028_90_modern",
+    "printify_id": "69f8ea4f7cb8a3547c0c51b1",
+    "title": "Men's Modern Tibeb Print Hoodie",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea4f7cb8a3547c0c51b1/79863/48836/mens-modern-tibeb-print-hoodie.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea4f7cb8a3547c0c51b1/79863/48836/mens-modern-tibeb-print-hoodie.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea4f7cb8a3547c0c51b1/79863/48209/mens-modern-tibeb-print-hoodie.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8ea4f7cb8a3547c0c51b1/79863/48190/mens-modern-tibeb-print-hoodie.jpg?camera_label=person-front"
+    ],
+    "variants": [
+      {
+        "id": 79861,
+        "title": "S / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79862,
+        "title": "M / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79863,
+        "title": "L / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79864,
+        "title": "XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79865,
+        "title": "2XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79866,
+        "title": "3XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79867,
+        "title": "4XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      }
+    ],
+    "gender": "men",
+    "design": "modern",
+    "garment": "Hoodie",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea4f7cb8a3547c0c51b1",
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+  },
+  {
+    "id": "1028_90_royal",
+    "printify_id": "69f8ea56ad13db4d4a039d00",
+    "title": "Men's Royal Tibeb Pattern Hoodie",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea56ad13db4d4a039d00/79863/48836/mens-royal-tibeb-pattern-hoodie.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea56ad13db4d4a039d00/79863/48836/mens-royal-tibeb-pattern-hoodie.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea56ad13db4d4a039d00/79863/48209/mens-royal-tibeb-pattern-hoodie.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8ea56ad13db4d4a039d00/79863/48190/mens-royal-tibeb-pattern-hoodie.jpg?camera_label=person-front"
+    ],
+    "variants": [
+      {
+        "id": 79861,
+        "title": "S / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79862,
+        "title": "M / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79863,
+        "title": "L / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79864,
+        "title": "XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79865,
+        "title": "2XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79866,
+        "title": "3XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 79867,
+        "title": "4XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      }
+    ],
+    "gender": "men",
+    "design": "royal",
+    "garment": "Hoodie",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea56ad13db4d4a039d00",
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+  },
+  {
+    "id": "281_10_eritrean",
+    "printify_id": "69f8ea5c9822413bd10383fe",
+    "title": "Unisex's Eritrean Classic Tibeb Cut & Sew Tee",
+    "price": 39.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea5c9822413bd10383fe/43111/634/unisexs-eritrean-classic-tibeb-cut-sew-tee.jpg?camera_label=flat-front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea5c9822413bd10383fe/43111/634/unisexs-eritrean-classic-tibeb-cut-sew-tee.jpg?camera_label=flat-front",
+      "https://images-api.printify.com/mockup/69f8ea5c9822413bd10383fe/43111/109176/unisexs-eritrean-classic-tibeb-cut-sew-tee.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea5c9822413bd10383fe/43111/636/unisexs-eritrean-classic-tibeb-cut-sew-tee.jpg?camera_label=flat-back"
+    ],
+    "variants": [
+      {
+        "id": 43100,
+        "title": "Black stitching / 4 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43101,
+        "title": "Black stitching / 6 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43102,
+        "title": "White stitching / 4 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43103,
+        "title": "White stitching / 6 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43104,
+        "title": "Black stitching / 4 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43105,
+        "title": "Black stitching / 6 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43106,
+        "title": "White stitching / 4 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43107,
+        "title": "White stitching / 6 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43108,
+        "title": "Black stitching / 4 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43109,
+        "title": "Black stitching / 6 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43110,
+        "title": "White stitching / 4 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43111,
+        "title": "White stitching / 6 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43112,
+        "title": "Black stitching / 4 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43113,
+        "title": "Black stitching / 6 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43114,
+        "title": "White stitching / 4 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43115,
+        "title": "White stitching / 6 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43116,
+        "title": "Black stitching / 4 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43117,
+        "title": "Black stitching / 6 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43118,
+        "title": "White stitching / 4 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43119,
+        "title": "White stitching / 6 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43120,
+        "title": "Black stitching / 4 oz. / 3XL",
+        "price": 39.99
+      },
+      {
+        "id": 43121,
+        "title": "Black stitching / 6 oz. / 3XL",
+        "price": 39.99
+      },
+      {
+        "id": 43122,
+        "title": "White stitching / 4 oz. / 3XL",
+        "price": 39.99
+      },
+      {
+        "id": 43123,
+        "title": "White stitching / 6 oz. / 3XL",
+        "price": 39.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "eritrean",
+    "garment": "Cut & Sew Tee",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea5c9822413bd10383fe",
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+  },
+  {
+    "id": "281_10_ethiopian",
+    "printify_id": "69f8ea62ddeb35742e0428ca",
+    "title": "Unisex's Ethiopian Habesha Style Cut & Sew Tee",
+    "price": 39.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea62ddeb35742e0428ca/43111/634/unisexs-ethiopian-habesha-style-cut-sew-tee.jpg?camera_label=flat-front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea62ddeb35742e0428ca/43111/634/unisexs-ethiopian-habesha-style-cut-sew-tee.jpg?camera_label=flat-front",
+      "https://images-api.printify.com/mockup/69f8ea62ddeb35742e0428ca/43111/109176/unisexs-ethiopian-habesha-style-cut-sew-tee.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea62ddeb35742e0428ca/43111/636/unisexs-ethiopian-habesha-style-cut-sew-tee.jpg?camera_label=flat-back"
+    ],
+    "variants": [
+      {
+        "id": 43100,
+        "title": "Black stitching / 4 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43101,
+        "title": "Black stitching / 6 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43102,
+        "title": "White stitching / 4 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43103,
+        "title": "White stitching / 6 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43104,
+        "title": "Black stitching / 4 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43105,
+        "title": "Black stitching / 6 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43106,
+        "title": "White stitching / 4 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43107,
+        "title": "White stitching / 6 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43108,
+        "title": "Black stitching / 4 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43109,
+        "title": "Black stitching / 6 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43110,
+        "title": "White stitching / 4 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43111,
+        "title": "White stitching / 6 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43112,
+        "title": "Black stitching / 4 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43113,
+        "title": "Black stitching / 6 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43114,
+        "title": "White stitching / 4 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43115,
+        "title": "White stitching / 6 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43116,
+        "title": "Black stitching / 4 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43117,
+        "title": "Black stitching / 6 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43118,
+        "title": "White stitching / 4 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43119,
+        "title": "White stitching / 6 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43120,
+        "title": "Black stitching / 4 oz. / 3XL",
+        "price": 39.99
+      },
+      {
+        "id": 43121,
+        "title": "Black stitching / 6 oz. / 3XL",
+        "price": 39.99
+      },
+      {
+        "id": 43122,
+        "title": "White stitching / 4 oz. / 3XL",
+        "price": 39.99
+      },
+      {
+        "id": 43123,
+        "title": "White stitching / 6 oz. / 3XL",
+        "price": 39.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "ethiopian",
+    "garment": "Cut & Sew Tee",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea62ddeb35742e0428ca",
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+  },
+  {
+    "id": "281_10_modern",
+    "printify_id": "69f8ea68402e954b3f0977db",
+    "title": "Unisex's Modern Tibeb Print Cut & Sew Tee",
+    "price": 39.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea68402e954b3f0977db/43111/634/unisexs-modern-tibeb-print-cut-sew-tee.jpg?camera_label=flat-front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea68402e954b3f0977db/43111/634/unisexs-modern-tibeb-print-cut-sew-tee.jpg?camera_label=flat-front",
+      "https://images-api.printify.com/mockup/69f8ea68402e954b3f0977db/43111/109176/unisexs-modern-tibeb-print-cut-sew-tee.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea68402e954b3f0977db/43111/636/unisexs-modern-tibeb-print-cut-sew-tee.jpg?camera_label=flat-back"
+    ],
+    "variants": [
+      {
+        "id": 43100,
+        "title": "Black stitching / 4 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43101,
+        "title": "Black stitching / 6 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43102,
+        "title": "White stitching / 4 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43103,
+        "title": "White stitching / 6 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43104,
+        "title": "Black stitching / 4 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43105,
+        "title": "Black stitching / 6 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43106,
+        "title": "White stitching / 4 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43107,
+        "title": "White stitching / 6 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43108,
+        "title": "Black stitching / 4 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43109,
+        "title": "Black stitching / 6 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43110,
+        "title": "White stitching / 4 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43111,
+        "title": "White stitching / 6 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43112,
+        "title": "Black stitching / 4 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43113,
+        "title": "Black stitching / 6 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43114,
+        "title": "White stitching / 4 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43115,
+        "title": "White stitching / 6 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43116,
+        "title": "Black stitching / 4 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43117,
+        "title": "Black stitching / 6 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43118,
+        "title": "White stitching / 4 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43119,
+        "title": "White stitching / 6 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43120,
+        "title": "Black stitching / 4 oz. / 3XL",
+        "price": 39.99
+      },
+      {
+        "id": 43121,
+        "title": "Black stitching / 6 oz. / 3XL",
+        "price": 39.99
+      },
+      {
+        "id": 43122,
+        "title": "White stitching / 4 oz. / 3XL",
+        "price": 39.99
+      },
+      {
+        "id": 43123,
+        "title": "White stitching / 6 oz. / 3XL",
+        "price": 39.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "modern",
+    "garment": "Cut & Sew Tee",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea68402e954b3f0977db",
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+  },
+  {
+    "id": "281_10_royal",
+    "printify_id": "69f8ea6e05bcfe3fcd046782",
+    "title": "Unisex's Royal Tibeb Pattern Cut & Sew Tee",
+    "price": 39.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea6e05bcfe3fcd046782/43111/634/unisexs-royal-tibeb-pattern-cut-sew-tee.jpg?camera_label=flat-front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea6e05bcfe3fcd046782/43111/634/unisexs-royal-tibeb-pattern-cut-sew-tee.jpg?camera_label=flat-front",
+      "https://images-api.printify.com/mockup/69f8ea6e05bcfe3fcd046782/43111/109176/unisexs-royal-tibeb-pattern-cut-sew-tee.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea6e05bcfe3fcd046782/43111/636/unisexs-royal-tibeb-pattern-cut-sew-tee.jpg?camera_label=flat-back"
+    ],
+    "variants": [
+      {
+        "id": 43100,
+        "title": "Black stitching / 4 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43101,
+        "title": "Black stitching / 6 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43102,
+        "title": "White stitching / 4 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43103,
+        "title": "White stitching / 6 oz. / S",
+        "price": 39.99
+      },
+      {
+        "id": 43104,
+        "title": "Black stitching / 4 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43105,
+        "title": "Black stitching / 6 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43106,
+        "title": "White stitching / 4 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43107,
+        "title": "White stitching / 6 oz. / M",
+        "price": 39.99
+      },
+      {
+        "id": 43108,
+        "title": "Black stitching / 4 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43109,
+        "title": "Black stitching / 6 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43110,
+        "title": "White stitching / 4 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43111,
+        "title": "White stitching / 6 oz. / L",
+        "price": 39.99
+      },
+      {
+        "id": 43112,
+        "title": "Black stitching / 4 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43113,
+        "title": "Black stitching / 6 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43114,
+        "title": "White stitching / 4 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43115,
+        "title": "White stitching / 6 oz. / XL",
+        "price": 39.99
+      },
+      {
+        "id": 43116,
+        "title": "Black stitching / 4 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43117,
+        "title": "Black stitching / 6 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43118,
+        "title": "White stitching / 4 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43119,
+        "title": "White stitching / 6 oz. / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 43120,
+        "title": "Black stitching / 4 oz. / 3XL",
+        "price": 39.99
+      },
+      {
+        "id": 43121,
+        "title": "Black stitching / 6 oz. / 3XL",
+        "price": 39.99
+      },
+      {
+        "id": 43122,
+        "title": "White stitching / 4 oz. / 3XL",
+        "price": 39.99
+      },
+      {
+        "id": 43123,
+        "title": "White stitching / 6 oz. / 3XL",
+        "price": 39.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "royal",
+    "garment": "Cut & Sew Tee",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea6e05bcfe3fcd046782",
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+  },
+  {
+    "id": "449_10_eritrean",
+    "printify_id": "69f8ea7614cb5cf1e00d228c",
+    "title": "Unisex's Eritrean Classic Tibeb Sweatshirt",
+    "price": 54.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea7614cb5cf1e00d228c/63219/4700/unisexs-eritrean-classic-tibeb-sweatshirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea7614cb5cf1e00d228c/63219/4700/unisexs-eritrean-classic-tibeb-sweatshirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea7614cb5cf1e00d228c/63219/4701/unisexs-eritrean-classic-tibeb-sweatshirt.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8ea7614cb5cf1e00d228c/63219/81609/unisexs-eritrean-classic-tibeb-sweatshirt.jpg?camera_label=person-1"
+    ],
+    "variants": [
+      {
+        "id": 63219,
+        "title": "XS",
+        "price": 54.99
+      },
+      {
+        "id": 63220,
+        "title": "S",
+        "price": 54.99
+      },
+      {
+        "id": 63221,
+        "title": "M",
+        "price": 54.99
+      },
+      {
+        "id": 63222,
+        "title": "L",
+        "price": 54.99
+      },
+      {
+        "id": 63223,
+        "title": "XL",
+        "price": 54.99
+      },
+      {
+        "id": 63224,
+        "title": "2XL",
+        "price": 54.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "eritrean",
+    "garment": "Sweatshirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea7614cb5cf1e00d228c",
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+  },
+  {
+    "id": "449_10_ethiopian",
+    "printify_id": "69f8ea7cad13db4d4a039d0c",
+    "title": "Unisex's Ethiopian Habesha Style Sweatshirt",
+    "price": 54.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea7cad13db4d4a039d0c/63219/4700/unisexs-ethiopian-habesha-style-sweatshirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea7cad13db4d4a039d0c/63219/4700/unisexs-ethiopian-habesha-style-sweatshirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea7cad13db4d4a039d0c/63219/4701/unisexs-ethiopian-habesha-style-sweatshirt.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8ea7cad13db4d4a039d0c/63219/81609/unisexs-ethiopian-habesha-style-sweatshirt.jpg?camera_label=person-1"
+    ],
+    "variants": [
+      {
+        "id": 63219,
+        "title": "XS",
+        "price": 54.99
+      },
+      {
+        "id": 63220,
+        "title": "S",
+        "price": 54.99
+      },
+      {
+        "id": 63221,
+        "title": "M",
+        "price": 54.99
+      },
+      {
+        "id": 63222,
+        "title": "L",
+        "price": 54.99
+      },
+      {
+        "id": 63223,
+        "title": "XL",
+        "price": 54.99
+      },
+      {
+        "id": 63224,
+        "title": "2XL",
+        "price": 54.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "ethiopian",
+    "garment": "Sweatshirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea7cad13db4d4a039d0c",
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+  },
+  {
+    "id": "449_10_modern",
+    "printify_id": "69f8ea84402e954b3f0977e0",
+    "title": "Unisex's Modern Tibeb Print Sweatshirt",
+    "price": 54.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea84402e954b3f0977e0/63219/4700/unisexs-modern-tibeb-print-sweatshirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea84402e954b3f0977e0/63219/4700/unisexs-modern-tibeb-print-sweatshirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea84402e954b3f0977e0/63219/4701/unisexs-modern-tibeb-print-sweatshirt.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8ea84402e954b3f0977e0/63219/81609/unisexs-modern-tibeb-print-sweatshirt.jpg?camera_label=person-1"
+    ],
+    "variants": [
+      {
+        "id": 63219,
+        "title": "XS",
+        "price": 54.99
+      },
+      {
+        "id": 63220,
+        "title": "S",
+        "price": 54.99
+      },
+      {
+        "id": 63221,
+        "title": "M",
+        "price": 54.99
+      },
+      {
+        "id": 63222,
+        "title": "L",
+        "price": 54.99
+      },
+      {
+        "id": 63223,
+        "title": "XL",
+        "price": 54.99
+      },
+      {
+        "id": 63224,
+        "title": "2XL",
+        "price": 54.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "modern",
+    "garment": "Sweatshirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea84402e954b3f0977e0",
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+  },
+  {
+    "id": "449_10_royal",
+    "printify_id": "69f8ea8affbc831dea089e41",
+    "title": "Unisex's Royal Tibeb Pattern Sweatshirt",
+    "price": 54.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea8affbc831dea089e41/63219/4700/unisexs-royal-tibeb-pattern-sweatshirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea8affbc831dea089e41/63219/4700/unisexs-royal-tibeb-pattern-sweatshirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea8affbc831dea089e41/63219/4701/unisexs-royal-tibeb-pattern-sweatshirt.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8ea8affbc831dea089e41/63219/81609/unisexs-royal-tibeb-pattern-sweatshirt.jpg?camera_label=person-1"
+    ],
+    "variants": [
+      {
+        "id": 63219,
+        "title": "XS",
+        "price": 54.99
+      },
+      {
+        "id": 63220,
+        "title": "S",
+        "price": 54.99
+      },
+      {
+        "id": 63221,
+        "title": "M",
+        "price": 54.99
+      },
+      {
+        "id": 63222,
+        "title": "L",
+        "price": 54.99
+      },
+      {
+        "id": 63223,
+        "title": "XL",
+        "price": 54.99
+      },
+      {
+        "id": 63224,
+        "title": "2XL",
+        "price": 54.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "royal",
+    "garment": "Sweatshirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea8affbc831dea089e41",
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+  },
+  {
+    "id": "450_10_eritrean",
+    "printify_id": "69f8ea91300b32baed0d0609",
+    "title": "Unisex's Eritrean Classic Tibeb Pullover Hoodie",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea91300b32baed0d0609/63240/101818/unisexs-eritrean-classic-tibeb-pullover-hoodie.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea91300b32baed0d0609/63240/101818/unisexs-eritrean-classic-tibeb-pullover-hoodie.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea91300b32baed0d0609/63240/4761/unisexs-eritrean-classic-tibeb-pullover-hoodie.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8ea91300b32baed0d0609/63240/101819/unisexs-eritrean-classic-tibeb-pullover-hoodie.jpg?camera_label=person-front-1"
+    ],
+    "variants": [
+      {
+        "id": 63240,
+        "title": "XS",
+        "price": 59.99
+      },
+      {
+        "id": 63241,
+        "title": "S",
+        "price": 59.99
+      },
+      {
+        "id": 63242,
+        "title": "M",
+        "price": 59.99
+      },
+      {
+        "id": 63243,
+        "title": "L",
+        "price": 59.99
+      },
+      {
+        "id": 63244,
+        "title": "XL",
+        "price": 59.99
+      },
+      {
+        "id": 63245,
+        "title": "2XL",
+        "price": 59.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "eritrean",
+    "garment": "Pullover Hoodie",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea91300b32baed0d0609",
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+  },
+  {
+    "id": "450_10_ethiopian",
+    "printify_id": "69f8ea9ae748bd56ec09b100",
+    "title": "Unisex's Ethiopian Habesha Style Pullover Hoodie",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea9ae748bd56ec09b100/63240/101818/unisexs-ethiopian-habesha-style-pullover-hoodie.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea9ae748bd56ec09b100/63240/101818/unisexs-ethiopian-habesha-style-pullover-hoodie.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea9ae748bd56ec09b100/63240/4761/unisexs-ethiopian-habesha-style-pullover-hoodie.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8ea9ae748bd56ec09b100/63240/101819/unisexs-ethiopian-habesha-style-pullover-hoodie.jpg?camera_label=person-front-1"
+    ],
+    "variants": [
+      {
+        "id": 63240,
+        "title": "XS",
+        "price": 59.99
+      },
+      {
+        "id": 63241,
+        "title": "S",
+        "price": 59.99
+      },
+      {
+        "id": 63242,
+        "title": "M",
+        "price": 59.99
+      },
+      {
+        "id": 63243,
+        "title": "L",
+        "price": 59.99
+      },
+      {
+        "id": 63244,
+        "title": "XL",
+        "price": 59.99
+      },
+      {
+        "id": 63245,
+        "title": "2XL",
+        "price": 59.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "ethiopian",
+    "garment": "Pullover Hoodie",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea9ae748bd56ec09b100",
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+  },
+  {
+    "id": "450_10_modern",
+    "printify_id": "69f8ea9fb07574b970070873",
+    "title": "Unisex's Modern Tibeb Print Pullover Hoodie",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8ea9fb07574b970070873/63240/101818/unisexs-modern-tibeb-print-pullover-hoodie.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ea9fb07574b970070873/63240/101818/unisexs-modern-tibeb-print-pullover-hoodie.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ea9fb07574b970070873/63240/4761/unisexs-modern-tibeb-print-pullover-hoodie.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8ea9fb07574b970070873/63240/101819/unisexs-modern-tibeb-print-pullover-hoodie.jpg?camera_label=person-front-1"
+    ],
+    "variants": [
+      {
+        "id": 63240,
+        "title": "XS",
+        "price": 59.99
+      },
+      {
+        "id": 63241,
+        "title": "S",
+        "price": 59.99
+      },
+      {
+        "id": 63242,
+        "title": "M",
+        "price": 59.99
+      },
+      {
+        "id": 63243,
+        "title": "L",
+        "price": 59.99
+      },
+      {
+        "id": 63244,
+        "title": "XL",
+        "price": 59.99
+      },
+      {
+        "id": 63245,
+        "title": "2XL",
+        "price": 59.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "modern",
+    "garment": "Pullover Hoodie",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ea9fb07574b970070873",
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+  },
+  {
+    "id": "450_10_royal",
+    "printify_id": "69f8eaa5feed9979d10d3858",
+    "title": "Unisex's Royal Tibeb Pattern Pullover Hoodie",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8eaa5feed9979d10d3858/63240/101818/unisexs-royal-tibeb-pattern-pullover-hoodie.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8eaa5feed9979d10d3858/63240/101818/unisexs-royal-tibeb-pattern-pullover-hoodie.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8eaa5feed9979d10d3858/63240/4761/unisexs-royal-tibeb-pattern-pullover-hoodie.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8eaa5feed9979d10d3858/63240/101819/unisexs-royal-tibeb-pattern-pullover-hoodie.jpg?camera_label=person-front-1"
+    ],
+    "variants": [
+      {
+        "id": 63240,
+        "title": "XS",
+        "price": 59.99
+      },
+      {
+        "id": 63241,
+        "title": "S",
+        "price": 59.99
+      },
+      {
+        "id": 63242,
+        "title": "M",
+        "price": 59.99
+      },
+      {
+        "id": 63243,
+        "title": "L",
+        "price": 59.99
+      },
+      {
+        "id": 63244,
+        "title": "XL",
+        "price": 59.99
+      },
+      {
+        "id": 63245,
+        "title": "2XL",
+        "price": 59.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "royal",
+    "garment": "Pullover Hoodie",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8eaa5feed9979d10d3858",
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+  },
+  {
+    "id": "592_83_eritrean",
+    "printify_id": "69f8eaaec7a7db441d0c6289",
+    "title": "Unisex's Eritrean Classic Tibeb Fashion Hoodie",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8eaaec7a7db441d0c6289/74644/19527/unisexs-eritrean-classic-tibeb-fashion-hoodie.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8eaaec7a7db441d0c6289/74644/19527/unisexs-eritrean-classic-tibeb-fashion-hoodie.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8eaaec7a7db441d0c6289/74644/21126/unisexs-eritrean-classic-tibeb-fashion-hoodie.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8eaaec7a7db441d0c6289/74644/20670/unisexs-eritrean-classic-tibeb-fashion-hoodie.jpg?camera_label=man-front"
+    ],
+    "variants": [
+      {
+        "id": 74644,
+        "title": "S / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74645,
+        "title": "M / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74646,
+        "title": "L / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74647,
+        "title": "XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74648,
+        "title": "2XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "eritrean",
+    "garment": "Fashion Hoodie",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8eaaec7a7db441d0c6289",
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+  },
+  {
+    "id": "592_83_ethiopian",
+    "printify_id": "69f8eab6c1f268dee601ee82",
+    "title": "Unisex's Ethiopian Habesha Style Fashion Hoodie",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8eab6c1f268dee601ee82/74644/19527/unisexs-ethiopian-habesha-style-fashion-hoodie.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8eab6c1f268dee601ee82/74644/19527/unisexs-ethiopian-habesha-style-fashion-hoodie.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8eab6c1f268dee601ee82/74644/21126/unisexs-ethiopian-habesha-style-fashion-hoodie.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8eab6c1f268dee601ee82/74644/20670/unisexs-ethiopian-habesha-style-fashion-hoodie.jpg?camera_label=man-front"
+    ],
+    "variants": [
+      {
+        "id": 74644,
+        "title": "S / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74645,
+        "title": "M / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74646,
+        "title": "L / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74647,
+        "title": "XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74648,
+        "title": "2XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "ethiopian",
+    "garment": "Fashion Hoodie",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8eab6c1f268dee601ee82",
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+  },
+  {
+    "id": "592_83_modern",
+    "printify_id": "69f8eabd9822413bd1038415",
+    "title": "Unisex's Modern Tibeb Print Fashion Hoodie",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8eabd9822413bd1038415/74644/19527/unisexs-modern-tibeb-print-fashion-hoodie.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8eabd9822413bd1038415/74644/19527/unisexs-modern-tibeb-print-fashion-hoodie.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8eabd9822413bd1038415/74644/21126/unisexs-modern-tibeb-print-fashion-hoodie.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8eabd9822413bd1038415/74644/20670/unisexs-modern-tibeb-print-fashion-hoodie.jpg?camera_label=man-front"
+    ],
+    "variants": [
+      {
+        "id": 74644,
+        "title": "S / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74645,
+        "title": "M / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74646,
+        "title": "L / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74647,
+        "title": "XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74648,
+        "title": "2XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "modern",
+    "garment": "Fashion Hoodie",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8eabd9822413bd1038415",
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+  },
+  {
+    "id": "592_83_royal",
+    "printify_id": "69f8eac3c1f268dee601ee86",
+    "title": "Unisex's Royal Tibeb Pattern Fashion Hoodie",
+    "price": 59.99,
+    "image": "https://images-api.printify.com/mockup/69f8eac3c1f268dee601ee86/74644/19527/unisexs-royal-tibeb-pattern-fashion-hoodie.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8eac3c1f268dee601ee86/74644/19527/unisexs-royal-tibeb-pattern-fashion-hoodie.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8eac3c1f268dee601ee86/74644/21126/unisexs-royal-tibeb-pattern-fashion-hoodie.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8eac3c1f268dee601ee86/74644/20670/unisexs-royal-tibeb-pattern-fashion-hoodie.jpg?camera_label=man-front"
+    ],
+    "variants": [
+      {
+        "id": 74644,
+        "title": "S / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74645,
+        "title": "M / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74646,
+        "title": "L / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74647,
+        "title": "XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      },
+      {
+        "id": 74648,
+        "title": "2XL / Seam thread color automatically matched to design",
+        "price": 59.99
+      }
+    ],
+    "gender": "unisex",
+    "design": "royal",
+    "garment": "Fashion Hoodie",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8eac3c1f268dee601ee86",
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+  },
+  {
+    "id": "627_10_eritrean",
+    "printify_id": "69f8eacb25819cdf3d05a8c0",
+    "title": "Women's Eritrean Classic Tibeb Crop Tee",
+    "price": 39.99,
+    "image": "https://images-api.printify.com/mockup/69f8eacb25819cdf3d05a8c0/73371/18723/womens-eritrean-classic-tibeb-crop-tee.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8eacb25819cdf3d05a8c0/73371/18723/womens-eritrean-classic-tibeb-crop-tee.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8eacb25819cdf3d05a8c0/73371/18725/womens-eritrean-classic-tibeb-crop-tee.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8eacb25819cdf3d05a8c0/73371/19275/womens-eritrean-classic-tibeb-crop-tee.jpg?camera_label=on-person-front"
+    ],
+    "variants": [
+      {
+        "id": 73371,
+        "title": "Black stitching / XS",
+        "price": 39.99
+      },
+      {
+        "id": 73372,
+        "title": "Black stitching / S",
+        "price": 39.99
+      },
+      {
+        "id": 73373,
+        "title": "Black stitching / M",
+        "price": 39.99
+      },
+      {
+        "id": 73374,
+        "title": "Black stitching / L",
+        "price": 39.99
+      },
+      {
+        "id": 73375,
+        "title": "Black stitching / XL",
+        "price": 39.99
+      },
+      {
+        "id": 73376,
+        "title": "Black stitching / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 73377,
+        "title": "White stitching / XS",
+        "price": 39.99
+      },
+      {
+        "id": 73378,
+        "title": "White stitching / S",
+        "price": 39.99
+      },
+      {
+        "id": 73379,
+        "title": "White stitching / M",
+        "price": 39.99
+      },
+      {
+        "id": 73380,
+        "title": "White stitching / L",
+        "price": 39.99
+      },
+      {
+        "id": 73381,
+        "title": "White stitching / XL",
+        "price": 39.99
+      },
+      {
+        "id": 73382,
+        "title": "White stitching / 2XL",
+        "price": 39.99
+      }
+    ],
+    "gender": "women",
+    "design": "eritrean",
+    "garment": "Crop Tee",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8eacb25819cdf3d05a8c0",
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+  },
+  {
+    "id": "627_10_ethiopian",
+    "printify_id": "69f8ead15359ce415f01eb8a",
+    "title": "Women's Ethiopian Habesha Style Crop Tee",
+    "price": 39.99,
+    "image": "https://images-api.printify.com/mockup/69f8ead15359ce415f01eb8a/73371/18723/womens-ethiopian-habesha-style-crop-tee.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ead15359ce415f01eb8a/73371/18723/womens-ethiopian-habesha-style-crop-tee.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ead15359ce415f01eb8a/73371/18725/womens-ethiopian-habesha-style-crop-tee.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8ead15359ce415f01eb8a/73371/19275/womens-ethiopian-habesha-style-crop-tee.jpg?camera_label=on-person-front"
+    ],
+    "variants": [
+      {
+        "id": 73371,
+        "title": "Black stitching / XS",
+        "price": 39.99
+      },
+      {
+        "id": 73372,
+        "title": "Black stitching / S",
+        "price": 39.99
+      },
+      {
+        "id": 73373,
+        "title": "Black stitching / M",
+        "price": 39.99
+      },
+      {
+        "id": 73374,
+        "title": "Black stitching / L",
+        "price": 39.99
+      },
+      {
+        "id": 73375,
+        "title": "Black stitching / XL",
+        "price": 39.99
+      },
+      {
+        "id": 73376,
+        "title": "Black stitching / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 73377,
+        "title": "White stitching / XS",
+        "price": 39.99
+      },
+      {
+        "id": 73378,
+        "title": "White stitching / S",
+        "price": 39.99
+      },
+      {
+        "id": 73379,
+        "title": "White stitching / M",
+        "price": 39.99
+      },
+      {
+        "id": 73380,
+        "title": "White stitching / L",
+        "price": 39.99
+      },
+      {
+        "id": 73381,
+        "title": "White stitching / XL",
+        "price": 39.99
+      },
+      {
+        "id": 73382,
+        "title": "White stitching / 2XL",
+        "price": 39.99
+      }
+    ],
+    "gender": "women",
+    "design": "ethiopian",
+    "garment": "Crop Tee",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ead15359ce415f01eb8a",
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+  },
+  {
+    "id": "627_10_modern",
+    "printify_id": "69f8ead8feed9979d10d386d",
+    "title": "Women's Modern Tibeb Print Crop Tee",
+    "price": 39.99,
+    "image": "https://images-api.printify.com/mockup/69f8ead8feed9979d10d386d/73371/18723/womens-modern-tibeb-print-crop-tee.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8ead8feed9979d10d386d/73371/18723/womens-modern-tibeb-print-crop-tee.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8ead8feed9979d10d386d/73371/18725/womens-modern-tibeb-print-crop-tee.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8ead8feed9979d10d386d/73371/19275/womens-modern-tibeb-print-crop-tee.jpg?camera_label=on-person-front"
+    ],
+    "variants": [
+      {
+        "id": 73371,
+        "title": "Black stitching / XS",
+        "price": 39.99
+      },
+      {
+        "id": 73372,
+        "title": "Black stitching / S",
+        "price": 39.99
+      },
+      {
+        "id": 73373,
+        "title": "Black stitching / M",
+        "price": 39.99
+      },
+      {
+        "id": 73374,
+        "title": "Black stitching / L",
+        "price": 39.99
+      },
+      {
+        "id": 73375,
+        "title": "Black stitching / XL",
+        "price": 39.99
+      },
+      {
+        "id": 73376,
+        "title": "Black stitching / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 73377,
+        "title": "White stitching / XS",
+        "price": 39.99
+      },
+      {
+        "id": 73378,
+        "title": "White stitching / S",
+        "price": 39.99
+      },
+      {
+        "id": 73379,
+        "title": "White stitching / M",
+        "price": 39.99
+      },
+      {
+        "id": 73380,
+        "title": "White stitching / L",
+        "price": 39.99
+      },
+      {
+        "id": 73381,
+        "title": "White stitching / XL",
+        "price": 39.99
+      },
+      {
+        "id": 73382,
+        "title": "White stitching / 2XL",
+        "price": 39.99
+      }
+    ],
+    "gender": "women",
+    "design": "modern",
+    "garment": "Crop Tee",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8ead8feed9979d10d386d",
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+  },
+  {
+    "id": "627_10_royal",
+    "printify_id": "69f8eadebe136844f0007486",
+    "title": "Women's Royal Tibeb Pattern Crop Tee",
+    "price": 39.99,
+    "image": "https://images-api.printify.com/mockup/69f8eadebe136844f0007486/73371/18723/womens-royal-tibeb-pattern-crop-tee.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8eadebe136844f0007486/73371/18723/womens-royal-tibeb-pattern-crop-tee.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8eadebe136844f0007486/73371/18725/womens-royal-tibeb-pattern-crop-tee.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8eadebe136844f0007486/73371/19275/womens-royal-tibeb-pattern-crop-tee.jpg?camera_label=on-person-front"
+    ],
+    "variants": [
+      {
+        "id": 73371,
+        "title": "Black stitching / XS",
+        "price": 39.99
+      },
+      {
+        "id": 73372,
+        "title": "Black stitching / S",
+        "price": 39.99
+      },
+      {
+        "id": 73373,
+        "title": "Black stitching / M",
+        "price": 39.99
+      },
+      {
+        "id": 73374,
+        "title": "Black stitching / L",
+        "price": 39.99
+      },
+      {
+        "id": 73375,
+        "title": "Black stitching / XL",
+        "price": 39.99
+      },
+      {
+        "id": 73376,
+        "title": "Black stitching / 2XL",
+        "price": 39.99
+      },
+      {
+        "id": 73377,
+        "title": "White stitching / XS",
+        "price": 39.99
+      },
+      {
+        "id": 73378,
+        "title": "White stitching / S",
+        "price": 39.99
+      },
+      {
+        "id": 73379,
+        "title": "White stitching / M",
+        "price": 39.99
+      },
+      {
+        "id": 73380,
+        "title": "White stitching / L",
+        "price": 39.99
+      },
+      {
+        "id": 73381,
+        "title": "White stitching / XL",
+        "price": 39.99
+      },
+      {
+        "id": 73382,
+        "title": "White stitching / 2XL",
+        "price": 39.99
+      }
+    ],
+    "gender": "women",
+    "design": "royal",
+    "garment": "Crop Tee",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8eadebe136844f0007486",
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+  },
+  {
+    "id": "1255_47_eritrean",
+    "printify_id": "69f8eae425819cdf3d05a8cd",
+    "title": "Women's Eritrean Classic Tibeb Long Sleeve V-Neck Shirt",
+    "price": 44.99,
+    "image": "https://images-api.printify.com/mockup/69f8eae425819cdf3d05a8cd/94876/79608/womens-eritrean-classic-tibeb-long-sleeve-v-neck-shirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8eae425819cdf3d05a8cd/94876/79608/womens-eritrean-classic-tibeb-long-sleeve-v-neck-shirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8eae425819cdf3d05a8cd/94876/81616/womens-eritrean-classic-tibeb-long-sleeve-v-neck-shirt.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8eae425819cdf3d05a8cd/94876/82182/womens-eritrean-classic-tibeb-long-sleeve-v-neck-shirt.jpg?camera_label=person-front"
+    ],
+    "variants": [
+      {
+        "id": 94876,
+        "title": "XS",
+        "price": 44.99
+      },
+      {
+        "id": 94877,
+        "title": "S",
+        "price": 44.99
+      },
+      {
+        "id": 94878,
+        "title": "M",
+        "price": 44.99
+      },
+      {
+        "id": 94879,
+        "title": "L",
+        "price": 44.99
+      },
+      {
+        "id": 94880,
+        "title": "XL",
+        "price": 44.99
+      },
+      {
+        "id": 94881,
+        "title": "2XL",
+        "price": 44.99
+      },
+      {
+        "id": 94882,
+        "title": "3XL",
+        "price": 44.99
+      },
+      {
+        "id": 94883,
+        "title": "4XL",
+        "price": 44.99
+      }
+    ],
+    "gender": "women",
+    "design": "eritrean",
+    "garment": "Long Sleeve V-Neck Shirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8eae425819cdf3d05a8cd",
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+  },
+  {
+    "id": "1255_47_ethiopian",
+    "printify_id": "69f8eaecadcc49d563069af5",
+    "title": "Women's Ethiopian Habesha Style Long Sleeve V-Neck Shirt",
+    "price": 44.99,
+    "image": "https://images-api.printify.com/mockup/69f8eaecadcc49d563069af5/94876/79608/womens-ethiopian-habesha-style-long-sleeve-v-neck-shirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8eaecadcc49d563069af5/94876/79608/womens-ethiopian-habesha-style-long-sleeve-v-neck-shirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8eaecadcc49d563069af5/94876/81616/womens-ethiopian-habesha-style-long-sleeve-v-neck-shirt.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8eaecadcc49d563069af5/94876/82182/womens-ethiopian-habesha-style-long-sleeve-v-neck-shirt.jpg?camera_label=person-front"
+    ],
+    "variants": [
+      {
+        "id": 94876,
+        "title": "XS",
+        "price": 44.99
+      },
+      {
+        "id": 94877,
+        "title": "S",
+        "price": 44.99
+      },
+      {
+        "id": 94878,
+        "title": "M",
+        "price": 44.99
+      },
+      {
+        "id": 94879,
+        "title": "L",
+        "price": 44.99
+      },
+      {
+        "id": 94880,
+        "title": "XL",
+        "price": 44.99
+      },
+      {
+        "id": 94881,
+        "title": "2XL",
+        "price": 44.99
+      },
+      {
+        "id": 94882,
+        "title": "3XL",
+        "price": 44.99
+      },
+      {
+        "id": 94883,
+        "title": "4XL",
+        "price": 44.99
+      }
+    ],
+    "gender": "women",
+    "design": "ethiopian",
+    "garment": "Long Sleeve V-Neck Shirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8eaecadcc49d563069af5",
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+  },
+  {
+    "id": "1255_47_modern",
+    "printify_id": "69f8eaf2b07574b970070898",
+    "title": "Women's Modern Tibeb Print Long Sleeve V-Neck Shirt",
+    "price": 44.99,
+    "image": "https://images-api.printify.com/mockup/69f8eaf2b07574b970070898/94876/79608/womens-modern-tibeb-print-long-sleeve-v-neck-shirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8eaf2b07574b970070898/94876/79608/womens-modern-tibeb-print-long-sleeve-v-neck-shirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8eaf2b07574b970070898/94876/81616/womens-modern-tibeb-print-long-sleeve-v-neck-shirt.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8eaf2b07574b970070898/94876/82182/womens-modern-tibeb-print-long-sleeve-v-neck-shirt.jpg?camera_label=person-front"
+    ],
+    "variants": [
+      {
+        "id": 94876,
+        "title": "XS",
+        "price": 44.99
+      },
+      {
+        "id": 94877,
+        "title": "S",
+        "price": 44.99
+      },
+      {
+        "id": 94878,
+        "title": "M",
+        "price": 44.99
+      },
+      {
+        "id": 94879,
+        "title": "L",
+        "price": 44.99
+      },
+      {
+        "id": 94880,
+        "title": "XL",
+        "price": 44.99
+      },
+      {
+        "id": 94881,
+        "title": "2XL",
+        "price": 44.99
+      },
+      {
+        "id": 94882,
+        "title": "3XL",
+        "price": 44.99
+      },
+      {
+        "id": 94883,
+        "title": "4XL",
+        "price": 44.99
+      }
+    ],
+    "gender": "women",
+    "design": "modern",
+    "garment": "Long Sleeve V-Neck Shirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8eaf2b07574b970070898",
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+  },
+  {
+    "id": "1255_47_royal",
+    "printify_id": "69f8eaf857781ad3ba0bbe84",
+    "title": "Women's Royal Tibeb Pattern Long Sleeve V-Neck Shirt",
+    "price": 44.99,
+    "image": "https://images-api.printify.com/mockup/69f8eaf857781ad3ba0bbe84/94876/79608/womens-royal-tibeb-pattern-long-sleeve-v-neck-shirt.jpg?camera_label=front",
+    "images": [
+      "https://images-api.printify.com/mockup/69f8eaf857781ad3ba0bbe84/94876/79608/womens-royal-tibeb-pattern-long-sleeve-v-neck-shirt.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8eaf857781ad3ba0bbe84/94876/81616/womens-royal-tibeb-pattern-long-sleeve-v-neck-shirt.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8eaf857781ad3ba0bbe84/94876/82182/womens-royal-tibeb-pattern-long-sleeve-v-neck-shirt.jpg?camera_label=person-front"
+    ],
+    "variants": [
+      {
+        "id": 94876,
+        "title": "XS",
+        "price": 44.99
+      },
+      {
+        "id": 94877,
+        "title": "S",
+        "price": 44.99
+      },
+      {
+        "id": 94878,
+        "title": "M",
+        "price": 44.99
+      },
+      {
+        "id": 94879,
+        "title": "L",
+        "price": 44.99
+      },
+      {
+        "id": 94880,
+        "title": "XL",
+        "price": 44.99
+      },
+      {
+        "id": 94881,
+        "title": "2XL",
+        "price": 44.99
+      },
+      {
+        "id": 94882,
+        "title": "3XL",
+        "price": 44.99
+      },
+      {
+        "id": 94883,
+        "title": "4XL",
+        "price": 44.99
+      }
+    ],
+    "gender": "women",
+    "design": "royal",
+    "garment": "Long Sleeve V-Neck Shirt",
+    "source": "printify",
+    "printify_shop_id": "27424239",
+    "pid": "69f8eaf857781ad3ba0bbe84",
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
   }
 ]
