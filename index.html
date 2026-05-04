@@ -1156,7 +1156,7 @@ function addHabeshaToCart(idx) {
     if (!p) return;
     var existing = cart.find(function(i){ return i.id === p.id; });
     if (existing) { existing.qty += 1; }
-    else { cart.push({ id: p.id, title: p.title.substring(0,80), price: p.price, img: p.image, qty: 1, pid: p.pid || '', vid: p.vid || '', sku: p.sku || '' }); }
+    else { cart.push({ id: p.id, title: p.title.substring(0,80), price: p.price, img: p.image, qty: 1, pid: p.pid || '', vid: p.vid || '', sku: p.sku || '', source: p.source || 'ethiopianclothing', product_url: p.product_url || '' }); }
     saveCart(); updateCartUI(); openCart();
 }
 
@@ -1523,7 +1523,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
     var items = cart.map(function(i) {
       var item = { title: i.title, price: i.price, qty: i.qty };
-      if (i.pid) { item.pid = i.pid; item.vid = i.vid || ''; item.sku = i.sku || ''; }
+      if (i.pid) { item.pid = i.pid; item.vid = i.vid || ''; item.sku = i.sku || ''; item.source = i.source || ''; item.product_url = i.product_url || ''; }
       return item;
     });
 
