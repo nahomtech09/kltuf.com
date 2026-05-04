@@ -1094,7 +1094,7 @@ function addCJToCart(idx) {
 }
 
 function loadCJDeals() {
-    fetch('https://deals.kltuf.com/products.json?t=' + Date.now())
+    fetch('/cj-products.json?t=' + Date.now())
         .then(function(r){ return r.json(); })
         .then(function(prods){
             var grid = document.getElementById('productsGrid');
