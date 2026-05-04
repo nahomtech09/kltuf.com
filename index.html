@@ -1099,7 +1099,7 @@ function loadCJDeals() {
         .then(function(r){ return r.json(); })
         .then(function(prods){
             var grid = document.getElementById('productsGrid');
-            var catMap = { electronics:'electronics', phones:'electronics', office:'electronics', home:'home', toys:'toys', sports:'sports', beauty:'other', jewelry:'other', bags:'other', pets:'other', fashion:'clothing' };
+            var catMap = { electronics:'electronics', phones:'electronics', office:'electronics', home:'home', toys:'toys', sports:'sports', beauty:'other', jewelry:'other', bags:'other', pets:'other', fashion:'clothing', auto:'other' };
             var loaded = 0;
             prods.forEach(function(p, idx){
                 try {
