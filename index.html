@@ -631,6 +631,7 @@
         <button class="cat-nav-item" onclick="filterCat('sports',this)">⚽ Sports</button>
         <button class="cat-nav-item" onclick="filterCat('other',this)">📦 Other</button>
         <button class="cat-nav-item" onclick="filterCat('deals',this)">🔥 New Deals</button>
+        <button class="cat-nav-item" onclick="showCustomPrints(this)">🎨 Custom Prints</button>
         <button class="cat-nav-item" onclick="filterCat('sold',this)">🚫 Sold Out</button>
     </div>
     <div class="subcat-row" id="subcat-clothing">
@@ -794,6 +795,24 @@
         <div class="nr-icon">🔍</div>
         <p>No items in this category yet.<br>Check back soon — new listings added regularly!</p>
     </div>
+</section>
+
+<!-- CUSTOM PRINTS SECTION -->
+<section id="customPrintsSection" style="display:none;max-width:1200px;margin:24px auto 46px;padding:0 20px;">
+    <div class="products-top">
+        <div>
+            <div class="products-title">🎨 Custom Prints — Habesha &amp; Tibeb Designs</div>
+            <div class="products-count" id="customPrintsCount">56 products</div>
+        </div>
+    </div>
+    <div style="margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap;" id="designFilterRow">
+        <button class="subcat-btn active" onclick="filterDesign('all',this)">All Designs</button>
+        <button class="subcat-btn" onclick="filterDesign('eritrean',this)">🇪🇷 Eritrean Classic</button>
+        <button class="subcat-btn" onclick="filterDesign('ethiopian',this)">🇪🇹 Ethiopian Habesha</button>
+        <button class="subcat-btn" onclick="filterDesign('modern',this)">✨ Modern Tibeb</button>
+        <button class="subcat-btn" onclick="filterDesign('royal',this)">👑 Royal Tibeb</button>
+    </div>
+    <div class="products-grid" id="customPrintsGrid"></div>
 </section>
 
 <!-- HOW IT WORKS -->
@@ -1438,6 +1457,94 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 })();
 </script>
 <script>
+/* ── CUSTOM PRINTS ── */
+var _printifyProducts = [];
+var _currentDesign = 'all';
+
+function showCustomPrints(btn) {
+    document.querySelectorAll('.cat-nav-item').forEach(function(b){ b.classList.remove('active'); });
+    if (btn) btn.classList.add('active');
+    document.getElementById('products').style.display = 'none';
+    document.querySelector('.categories-section').style.display = 'none';
+    document.getElementById('customPrintsSection').style.display = 'block';
+    if (!_printifyProducts.length) {
+        fetch('/printful-products.json').then(function(r){ return r.json(); }).then(function(products){
+            _printifyProducts = products;
+            renderCustomPrints();
+        }).catch(function(){ document.getElementById('customPrintsGrid').innerHTML = '<p style="color:#888;">Could not load products. Please try again.</p>'; });
+    } else {
+        renderCustomPrints();
+    }
+}
+
+function hideCustomPrints() {
+    document.getElementById('customPrintsSection').style.display = 'none';
+    document.getElementById('products').style.display = '';
+    document.querySelector('.categories-section').style.display = '';
+}
+
+function filterDesign(design, btn) {
+    _currentDesign = design;
+    document.querySelectorAll('#designFilterRow .subcat-btn').forEach(function(b){ b.classList.remove('active'); });
+    if (btn) btn.classList.add('active');
+    renderCustomPrints();
+}
+
+function renderCustomPrints() {
+    var list = _currentDesign === 'all' ? _printifyProducts : _printifyProducts.filter(function(p){ return p.design === _currentDesign; });
+    document.getElementById('customPrintsCount').textContent = list.length + ' products';
+    var grid = document.getElementById('customPrintsGrid');
+    var designLabels = {eritrean:'🇪🇷 Eritrean Classic', ethiopian:'🇪🇹 Ethiopian Habesha', modern:'✨ Modern Tibeb', royal:'👑 Royal Tibeb'};
+    grid.innerHTML = list.map(function(p){
+        var imgs = (p.images && p.images.length) ? p.images : [p.image || ''];
+        var id = 'cp-' + p.id;
+        var multi = imgs.length > 1;
+        var imgTags = imgs.map(function(u){ return '<img src="'+u+'" alt="'+p.title.replace(/"/g,'&quot;')+'" loading="lazy">'; }).join('');
+        var dots = multi ? '<div class="carousel-dots" id="cd-'+id+'">'+imgs.map(function(_,i){ return '<span'+(i===0?' class="active"':'')+' onclick="goSlide(\''+id+'\','+i+')"></span>'; }).join('')+'</div>' : '';
+        var variants = p.variants || [];
+        var sizeOpts = variants.map(function(v){ return '<option value="'+v.id+'">'+v.title+' — $'+v.price.toFixed(2)+'</option>'; }).join('');
+        var dLabel = designLabels[p.design] || p.design || '';
+        var titleSafe = (p.title||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+        return '<div class="product-card" data-cat="clothing" data-sold="false" data-source="printify">'+
+            '<div style="position:relative;">'+
+                '<span class="cat-badge" style="position:absolute;top:9px;left:9px;z-index:4;">'+dLabel+'</span>'+
+                '<div class="carousel" id="c-'+id+'">'+
+                    (multi ? '<button class="carousel-btn prev" onclick="slideCarousel(\''+id+'\',-1,event)">&#8249;</button>' : '')+
+                    '<div class="carousel-track" id="ct-'+id+'">'+imgTags+'</div>'+
+                    (multi ? '<button class="carousel-btn next" onclick="slideCarousel(\''+id+'\',1,event)">&#8250;</button>' : '')+
+                    dots+
+                '</div>'+
+            '</div>'+
+            '<div class="product-info">'+
+                '<div class="product-title">'+p.title+'</div>'+
+                '<div class="product-desc" style="font-size:0.8rem;color:#666;margin-bottom:6px;">'+( p.description || 'Custom all-over print · Habesha/Tibeb design · Ships in 3–7 days')+'</div>'+
+                '<div class="product-shipping">🖨️ Print-on-demand · Ships 3–7 days</div>'+
+                '<select id="size-'+id+'" style="width:100%;margin:8px 0;padding:6px 10px;border:1px solid #d1d5db;border-radius:6px;font-size:0.85rem;">'+
+                    '<option value="">— Choose a size —</option>'+sizeOpts+
+                '</select>'+
+                '<div class="product-price">$'+p.price.toFixed(2)+'</div>'+
+                '<button class="btn-add-cart" onclick="addPrintifyToCart(this,\''+id+'\',\''+titleSafe+'\','+p.price+',\''+imgs[0]+'\',\''+p.printify_id+'\')">🛒 Add to Cart</button>'+
+            '</div>'+
+        '</div>';
+    }).join('');
+}
+
+function addPrintifyToCart(btn, id, title, price, img, printifyId) {
+    var sel = document.getElementById('size-' + id);
+    if (sel && !sel.value) { sel.style.border = '1.5px solid #e53e3e'; setTimeout(function(){ sel.style.border = ''; }, 2000); return; }
+    var variantId = sel ? sel.value : '';
+    var variantTitle = sel ? sel.options[sel.selectedIndex].text : '';
+    var fullTitle = title + (variantTitle ? ' (' + variantTitle.split('—')[0].trim() + ')' : '');
+    addToCart(btn, id + '-' + variantId, fullTitle, price, img, {source:'printify', pid: printifyId, vid: variantId});
+}
+
+/* Override filterCat to hide custom prints section */
+var _origFilterCat = filterCat;
+filterCat = function(cat, navBtn, cardId) {
+    hideCustomPrints();
+    _origFilterCat(cat, navBtn, cardId);
+};
+
 /* Load CJ deals from same-origin JSON into main grid so they're searchable */
 (function(){
   var catIcons = {electronics:'📱',phones:'📱',home:'🏡',toys:'🧸',sports:'⚽',beauty:'💄',jewelry:'💍',bags:'👜',office:'💼',pets:'🐾',fashion:'👗',auto:'🚗',other:'📦'};
