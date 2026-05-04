@@ -1155,7 +1155,7 @@ var printfulProducts = [];
 function addPrintfulToCart(idx, sizeIdx) {
     var p = printfulProducts[idx];
     if (!p) return;
-    var variants = p.printify_variants || p.printful_variants || [];
+    var variants = p.variants || p.printify_variants || p.printful_variants || [];
     var si = (sizeIdx !== undefined && sizeIdx !== null) ? parseInt(sizeIdx) : 0;
     var variant = variants[si] || variants[0] || {};
     var cartId = p.id + '-' + (variant.id || si);
@@ -1183,7 +1183,7 @@ function loadPrintfulProducts() {
             prods.forEach(function(p, idx){
                 try {
                     printfulProducts[idx] = p;
-                    var savings = p.retail > p.price ? Math.round((1 - p.price / p.retail) * 100) : 0;
+                    var savings = (p.retail && p.retail > p.price) ? Math.round((1 - p.price / p.retail) * 100) : 0;
                     var imgs = p.images && p.images.length ? p.images : [p.image];
                     var carouselImgs = imgs.map(function(img){
                         return '<img src="' + img + '" alt="" loading="lazy" onerror="this.src=\'https://placehold.co/400x500/1a1a2e/f0c040?text=Custom+Print\'">';
@@ -1192,7 +1192,7 @@ function loadPrintfulProducts() {
                         return '<span' + (i===0?' class="active"':'') + ' onclick="goSlide(\'' + p.id + '\',' + i + ')"></span>';
                     }).join('') : '';
                     var navBtns = imgs.length > 1 ? '<button class="carousel-btn prev" onclick="slideCarousel(\'' + p.id + '\',-1)">&#8249;</button><button class="carousel-btn next" onclick="slideCarousel(\'' + p.id + '\',1)">&#8250;</button>' : '';
-                    var variants = p.printify_variants || p.printful_variants || [];
+                    var variants = p.variants || p.printify_variants || p.printful_variants || [];
                     var sizeOptions = variants.length > 0
                         ? '<select id="sz-' + idx + '" style="width:100%;padding:6px 8px;border-radius:8px;border:1px solid #374151;background:#1f2937;color:#f9fafb;font-size:0.82rem;margin-bottom:8px;">' +
                           variants.map(function(v, si){ return '<option value="' + si + '">' + (v.title || v.size || ('Size ' + si)) + '</option>'; }).join('') + '</select>'
@@ -1203,7 +1203,7 @@ function loadPrintfulProducts() {
                         ? '<span style="background:#1e3a5f;color:#bfdbfe;font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:10px;margin-right:4px;">👔 Men\'s</span>'
                         : '';
                     var retailNote = savings > 0
-                        ? '<div style="font-size:0.7rem;color:#9ca3af;margin-bottom:4px;">Real handmade: <s>$' + p.retail.toFixed(0) + '+</s> <span style="color:#22c55e;font-weight:700;">Save ' + savings + '%</span></div>'
+                        ? '<div style="font-size:0.7rem;color:#9ca3af;margin-bottom:4px;">Real handmade: <s>$' + (p.retail||0).toFixed(0) + '+</s> <span style="color:#22c55e;font-weight:700;">Save ' + savings + '%</span></div>'
                         : '';
                     var card = document.createElement('div');
                     card.className = 'product-card';
