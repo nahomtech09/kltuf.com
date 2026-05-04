@@ -6,10 +6,13 @@
     "cat": "prints",
     "gender": "women",
     "price": 49.99,
-    "retail": 124.98,
-    "image": "",
+    "retail": 125.0,
+    "image": "https://images-api.printify.com/mockup/69f8e1b4feed9979d10d364d/62083/94569/womens-eritrean-kemis-dress-tibeb-print.jpg?camera_label=front",
     "images": [
-      ""
+      "https://images-api.printify.com/mockup/69f8e1b4feed9979d10d364d/62083/94569/womens-eritrean-kemis-dress-tibeb-print.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e1b4feed9979d10d364d/62083/3198/womens-eritrean-kemis-dress-tibeb-print.jpg?camera_label=back",
+      "https://images-api.printify.com/mockup/69f8e1b4feed9979d10d364d/62083/3199/womens-eritrean-kemis-dress-tibeb-print.jpg?camera_label=front-person",
+      "https://images-api.printify.com/mockup/69f8e1b4feed9979d10d364d/62083/3200/womens-eritrean-kemis-dress-tibeb-print.jpg?camera_label=back-person"
     ],
     "source": "printify",
     "sizes": [
@@ -48,7 +51,7 @@
         "title": "2XL"
       }
     ],
-    "updated": "2026-05-04T18:13:25.186060+00:00"
+    "updated": "2026-05-04T18:33:45.865452+00:00"
   },
   {
     "id": "68d71dba3558",
@@ -57,10 +60,11 @@
     "cat": "prints",
     "gender": "men",
     "price": 39.99,
-    "retail": 99.98,
-    "image": "",
+    "retail": 80.0,
+    "image": "https://images-api.printify.com/mockup/69f8e1bc1d416397f3054a0a/95121/78995/mens-eritrean-zuria-shirt-tibeb-print.jpg?camera_label=front",
     "images": [
-      ""
+      "https://images-api.printify.com/mockup/69f8e1bc1d416397f3054a0a/95121/78995/mens-eritrean-zuria-shirt-tibeb-print.jpg?camera_label=front",
+      "https://images-api.printify.com/mockup/69f8e1bc1d416397f3054a0a/95121/79922/mens-eritrean-zuria-shirt-tibeb-print.jpg?camera_label=back"
     ],
     "source": "printify",
     "sizes": [
@@ -109,6 +113,6 @@
         "title": "4XL"
       }
     ],
-    "updated": "2026-05-04T18:13:25.186083+00:00"
+    "updated": "2026-05-04T18:33:46.301369+00:00"
   }
 ]
