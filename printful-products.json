@@ -1,0 +1,178 @@
+[
+  {
+    "id": "595f68961823",
+    "pid": "431011678",
+    "title": "\u1261\u1293 Buna Coffee Mug",
+    "cat": "prints",
+    "price": 30.99,
+    "retail": 29.98,
+    "cost": 19.99,
+    "image": "https://files.cdn.printful.com/",
+    "images": [
+      "https://files.cdn.printful.com/"
+    ],
+    "source": "printful",
+    "sizes": [
+      "11 oz"
+    ],
+    "printful_sync_product_id": 431011678,
+    "printful_variants": [
+      {
+        "id": 5293409201,
+        "size": "11 oz",
+        "retail_price": 19.99
+      }
+    ],
+    "updated": "2026-05-04T00:00:00+00:00"
+  },
+  {
+    "id": "45542c60ba3a",
+    "pid": "431011674",
+    "title": "Eritrea Flag Tee",
+    "cat": "prints",
+    "price": 46.99,
+    "retail": 44.98,
+    "cost": 29.99,
+    "image": "https://files.cdn.printful.com/",
+    "images": [
+      "https://files.cdn.printful.com/"
+    ],
+    "source": "printful",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "printful_sync_product_id": 431011674,
+    "printful_variants": [
+      {
+        "id": 5293409191,
+        "size": "S",
+        "retail_price": 29.99
+      },
+      {
+        "id": 5293409192,
+        "size": "M",
+        "retail_price": 29.99
+      },
+      {
+        "id": 5293409193,
+        "size": "L",
+        "retail_price": 29.99
+      },
+      {
+        "id": 5293409194,
+        "size": "XL",
+        "retail_price": 29.99
+      },
+      {
+        "id": 5293409195,
+        "size": "2XL",
+        "retail_price": 29.99
+      }
+    ],
+    "updated": "2026-05-04T00:00:00+00:00"
+  },
+  {
+    "id": "b3d2f18f0cf6",
+    "pid": "431011668",
+    "title": "Ethiopia Flag Hoodie",
+    "cat": "prints",
+    "price": 69.99,
+    "retail": 74.98,
+    "cost": 49.99,
+    "image": "https://files.cdn.printful.com/",
+    "images": [
+      "https://files.cdn.printful.com/"
+    ],
+    "source": "printful",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "printful_sync_product_id": 431011668,
+    "printful_variants": [
+      {
+        "id": 5293409118,
+        "size": "S",
+        "retail_price": 49.99
+      },
+      {
+        "id": 5293409119,
+        "size": "M",
+        "retail_price": 49.99
+      },
+      {
+        "id": 5293409120,
+        "size": "L",
+        "retail_price": 49.99
+      },
+      {
+        "id": 5293409121,
+        "size": "XL",
+        "retail_price": 49.99
+      },
+      {
+        "id": 5293409122,
+        "size": "2XL",
+        "retail_price": 49.99
+      }
+    ],
+    "updated": "2026-05-04T00:00:00+00:00"
+  },
+  {
+    "id": "37bffbf7ccd8",
+    "pid": "431011666",
+    "title": "Habesha \u1203\u1260\u123b Classic Tee",
+    "cat": "prints",
+    "price": 46.99,
+    "retail": 44.98,
+    "cost": 29.99,
+    "image": "https://files.cdn.printful.com/",
+    "images": [
+      "https://files.cdn.printful.com/"
+    ],
+    "source": "printful",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "printful_sync_product_id": 431011666,
+    "printful_variants": [
+      {
+        "id": 5293409111,
+        "size": "S",
+        "retail_price": 29.99
+      },
+      {
+        "id": 5293409112,
+        "size": "M",
+        "retail_price": 29.99
+      },
+      {
+        "id": 5293409113,
+        "size": "L",
+        "retail_price": 29.99
+      },
+      {
+        "id": 5293409114,
+        "size": "XL",
+        "retail_price": 29.99
+      },
+      {
+        "id": 5293409115,
+        "size": "2XL",
+        "retail_price": 29.99
+      }
+    ],
+    "updated": "2026-05-04T00:00:00+00:00"
+  }
+]
