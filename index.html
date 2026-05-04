@@ -630,6 +630,7 @@
         <button class="cat-nav-item" onclick="filterCat('clothing',this)">👕 Clothing</button>
         <button class="cat-nav-item" onclick="filterCat('sports',this)">⚽ Sports</button>
         <button class="cat-nav-item" onclick="filterCat('other',this)">📦 Other</button>
+        <button class="cat-nav-item" onclick="filterCat('deals',this)">🔥 New Deals</button>
         <button class="cat-nav-item" onclick="filterCat('sold',this)">🚫 Sold Out</button>
     </div>
     <div class="subcat-row" id="subcat-clothing">
@@ -1060,13 +1061,14 @@ function filterProducts() {
         var catMatch = currentCat === 'sold'     ? isSold
                      : currentCat === 'all'      ? !isSold
                      : currentCat === 'clothing' ? (!isSold && clothingGroup.indexOf(card.dataset.cat) !== -1)
+                     : currentCat === 'deals'    ? (!isSold && card.dataset.source === 'cj')
                      : (!isSold && card.dataset.cat === currentCat);
         var searchMatch = !query || (card.dataset.title || '').indexOf(query) !== -1;
         card.style.display = (catMatch && searchMatch) ? '' : 'none';
         if (catMatch && searchMatch) visible++;
     });
     document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
-    var names = { all:'All Items', electronics:'Electronics', toys:'Toys & Kids', home:'Home & Garden', clothing:'Clothing', zuria:'Clothing — Zuria', chiffon:'Clothing — Chiffon', sports:'Sports', other:'Other', sold:'Sold Out' };
+    var names = { all:'All Items', deals:'🔥 New Deals', electronics:'Electronics', toys:'Toys & Kids', home:'Home & Garden', clothing:'Clothing', zuria:'Clothing — Zuria', chiffon:'Clothing — Chiffon', sports:'Sports', other:'Other', sold:'Sold Out' };
     document.getElementById('products-title').textContent = query ? 'Results: "' + query + '"' : (names[currentCat] || 'Items');
     document.getElementById('products-count').textContent = visible + (visible === 1 ? ' listing' : ' listings');
 }
@@ -1076,12 +1078,14 @@ var cart = JSON.parse(localStorage.getItem('kltuf_cart') || '[]');
 
 function saveCart() { localStorage.setItem('kltuf_cart', JSON.stringify(cart)); }
 
-function addToCart(btn, id, title, price, img) {
+function addToCart(btn, id, title, price, img, extra) {
     var existing = cart.find(function(i){ return i.id === id; });
     if (existing) {
         existing.qty += 1;
     } else {
-        cart.push({ id: id, title: title, price: price, img: img, qty: 1 });
+        var item = { id: id, title: title, price: price, img: img, qty: 1 };
+        if (extra) { item.pid = extra.pid; item.vid = extra.vid; item.source = extra.source; }
+        cart.push(item);
     }
     saveCart();
     updateCartUI();
@@ -1393,7 +1397,9 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     btn.disabled = true;
 
     var items = cart.map(function(i) {
-      return { title: i.title, price: i.price, qty: i.qty };
+      var it = { title: i.title, price: i.price, qty: i.qty };
+      if (i.pid) { it.pid = i.pid; it.vid = i.vid; it.source = i.source || 'cj'; }
+      return it;
     });
 
     fetch(WORKER_URL, {
@@ -1429,6 +1435,54 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   }
 
   initApplePay();
+})();
+</script>
+<script>
+/* Load CJ deals from same-origin JSON into main grid so they're searchable */
+(function(){
+  var catIcons = {electronics:'📱',phones:'📱',home:'🏡',toys:'🧸',sports:'⚽',beauty:'💄',jewelry:'💍',bags:'👜',office:'💼',pets:'🐾',fashion:'👗',auto:'🚗',other:'📦'};
+  fetch('/cj-products.json').then(function(r){ return r.json(); }).then(function(products){
+    var grid = document.getElementById('productsGrid');
+    products.forEach(function(p){
+      if (!p || !p.id || !p.price) return;
+      var id = 'cj-' + p.id;
+      var imgs = (p.images && p.images.length) ? p.images : [p.image || ''];
+      imgs = imgs.filter(Boolean);
+      if (!imgs.length) return;
+      var cat = p.cat || 'other';
+      var icon = catIcons[cat] || '📦';
+      var catLabel = cat.charAt(0).toUpperCase() + cat.slice(1);
+      var multi = imgs.length > 1;
+      var dots = multi ? imgs.map(function(_,i){ return '<span'+(i===0?' class="active"':'')+' onclick="goSlide(\''+id+'\','+i+')"></span>'; }).join('') : '';
+      var imgTags = imgs.map(function(u){ return '<img src="'+u+'" alt="'+p.title.replace(/"/g,'&quot;')+'" loading="lazy">'; }).join('');
+      var card = document.createElement('div');
+      card.className = 'product-card';
+      card.dataset.cat = cat;
+      card.dataset.sold = 'false';
+      card.dataset.title = (p.title || '').toLowerCase();
+      card.dataset.source = 'cj';
+      var titleSafe = (p.title||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+      card.innerHTML =
+        '<div style="position:relative;">' +
+          '<span class="cat-badge" style="position:absolute;top:9px;left:9px;z-index:4;">'+icon+' '+catLabel+'</span>' +
+          '<span style="position:absolute;top:9px;right:9px;z-index:4;background:#f59e0b;color:#000;font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:8px;">🔥 Deal</span>' +
+          '<div class="carousel" id="c-'+id+'">' +
+            (multi ? '<button class="carousel-btn prev" onclick="slideCarousel(\''+id+'\',-1,event)">&#8249;</button>' : '') +
+            '<div class="carousel-track" id="ct-'+id+'">'+imgTags+'</div>' +
+            (multi ? '<button class="carousel-btn next" onclick="slideCarousel(\''+id+'\',1,event)">&#8250;</button>' : '') +
+            (multi ? '<div class="carousel-dots" id="cd-'+id+'">'+dots+'</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="product-info">' +
+          '<div class="product-title">'+p.title+'</div>' +
+          '<div class="product-shipping">🚚 Ships 7–15 days · Free returns</div>' +
+          '<div class="product-price">$'+p.price.toFixed(2)+'</div>' +
+          '<button class="btn-add-cart" onclick="addToCart(this,\''+id+'\',\''+titleSafe+'\','+p.price+',\''+imgs[0]+'\',{pid:\''+p.pid+'\',vid:\''+p.vid+'\',source:\'cj\'})">🛒 Add to Cart</button>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+    filterProducts();
+  }).catch(function(){});
 })();
 </script>
 </body>
