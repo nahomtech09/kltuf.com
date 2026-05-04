@@ -630,7 +630,6 @@
         <button class="cat-nav-item" onclick="filterCat('sports',this)">⚽ Sports</button>
         <button class="cat-nav-item" onclick="filterCat('other',this)">📦 Other</button>
         <button class="cat-nav-item" onclick="filterCat('deals',this)">🔥 New Deals</button>
-        <button class="cat-nav-item" onclick="filterCat('prints',this)">🎨 Custom Prints</button>
         <button class="cat-nav-item" onclick="filterCat('sold',this)">🚫 Sold Out</button>
     </div>
     <div class="subcat-row" id="subcat-clothing">
@@ -670,7 +669,6 @@
         <div class="cat-card" id="cat-sports" onclick="filterCat('sports',null,'cat-sports')"><div class="cat-icon">⚽</div><div class="cat-name">Sports</div></div>
         <div class="cat-card" id="cat-other" onclick="filterCat('other',null,'cat-other')"><div class="cat-icon">📦</div><div class="cat-name">Other</div></div>
         <div class="cat-card" id="cat-deals" onclick="filterCat('deals',null,'cat-deals')"><div class="cat-icon">🔥</div><div class="cat-name">New Deals</div></div>
-        <div class="cat-card" id="cat-prints" onclick="filterCat('prints',null,'cat-prints')"><div class="cat-icon">🎨</div><div class="cat-name">Custom Prints</div></div>
         <div class="cat-card" id="cat-sold" onclick="filterCat('sold',null,'cat-sold')"><div class="cat-icon">🚫</div><div class="cat-name">Sold Out</div></div>
     </div>
 </section>
@@ -1062,8 +1060,6 @@ function filterProducts() {
         var isSold = card.dataset.sold === 'true';
         var clothingGroup = ['clothing','zuria','chiffon'];
         var catMatch = currentCat === 'deals'    ? (!isSold && card.dataset.cj === 'true')
-                     : currentCat === 'habesha'  ? (!isSold && card.dataset.habesha === 'true')
-                     : currentCat === 'prints'   ? (!isSold && card.dataset.prints === 'true')
                      : currentCat === 'sold'     ? isSold
                      : currentCat === 'all'      ? !isSold
                      : currentCat === 'clothing' ? (!isSold && clothingGroup.indexOf(card.dataset.cat) !== -1)
@@ -1073,7 +1069,7 @@ function filterProducts() {
         if (catMatch && searchMatch) visible++;
     });
     document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
-    var names = { all:'All Items', electronics:'Electronics', toys:'Toys & Kids', home:'Home & Garden', clothing:'Clothing', zuria:'Clothing — Zuria', chiffon:'Clothing — Chiffon', sports:'Sports', other:'Other', sold:'Sold Out', deals:'🔥 New Deals', habesha:'🇪🇷🇪🇹 Habesha', prints:'🎨 Custom Prints' };
+    var names = { all:'All Items', electronics:'Electronics', toys:'Toys & Kids', home:'Home & Garden', clothing:'Clothing', zuria:'Clothing — Zuria', chiffon:'Clothing — Chiffon', sports:'Sports', other:'Other', sold:'Sold Out', deals:'🔥 New Deals' };
     document.getElementById('products-title').textContent = query ? 'Results: "' + query + '"' : (names[currentCat] || 'Items');
     document.getElementById('products-count').textContent = visible + (visible === 1 ? ' listing' : ' listings');
 }
@@ -1151,155 +1147,6 @@ function loadCJDeals() {
         });
 }
 
-var habeshaProducts = [];
-function addHabeshaToCart(idx) {
-    var p = habeshaProducts[idx];
-    if (!p) return;
-    var existing = cart.find(function(i){ return i.id === p.id; });
-    if (existing) { existing.qty += 1; }
-    else { cart.push({ id: p.id, title: p.title.substring(0,80), price: p.price, img: p.image, qty: 1, pid: p.pid || '', vid: p.vid || '', sku: p.sku || '', source: p.source || 'ethiopianclothing', product_url: p.product_url || '' }); }
-    saveCart(); updateCartUI(); openCart();
-}
-
-function loadHabeshaDeals() {
-    fetch('/habesha-products.json?t=' + Date.now())
-        .then(function(r){ return r.json(); })
-        .then(function(prods){
-            var grid = document.getElementById('productsGrid');
-            prods.forEach(function(p, idx){
-                try {
-                    habeshaProducts[idx] = p;
-                    var savings = Math.round((1 - p.price / p.retail) * 100);
-                    var imgs = p.images && p.images.length ? p.images : [p.image];
-                    var carouselImgs = imgs.map(function(img){ return '<img src="' + img + '" alt="" loading="lazy" onerror="this.src=\'https://placehold.co/400x300/1f2937/f0c040?text=Habesha\'">'; }).join('');
-                    var dots = imgs.map(function(_, i){ return '<span' + (i===0?' class="active"':'') + ' onclick="goSlide(\'' + p.id + '\',' + i + ')"></span>'; }).join('');
-                    var navBtns = imgs.length > 1 ? '<button class="carousel-btn prev" onclick="slideCarousel(\'' + p.id + '\',-1)">&#8249;</button><button class="carousel-btn next" onclick="slideCarousel(\'' + p.id + '\',1)">&#8250;</button>' : '';
-                    var card = document.createElement('div');
-                    card.className = 'product-card';
-                    card.setAttribute('data-cat', 'clothing');
-                    card.setAttribute('data-habesha', 'true');
-                    card.setAttribute('data-sold', 'false');
-                    card.setAttribute('data-title', p.title.toLowerCase());
-                    card.innerHTML =
-                        '<div style="position:relative;">' +
-                            '<span style="position:absolute;top:9px;left:9px;z-index:4;background:linear-gradient(135deg,#166534,#16a34a);color:#fff;font-size:0.7rem;font-weight:800;padding:4px 10px;border-radius:20px;">🇪🇷🇪🇹 Habesha</span>' +
-                            '<div class="carousel" id="c-' + p.id + '">' +
-                                '<div class="carousel-track" id="ct-' + p.id + '">' + carouselImgs + '</div>' +
-                                navBtns +
-                                '<div class="carousel-dots" id="cd-' + p.id + '">' + dots + '</div>' +
-                            '</div>' +
-                        '</div>' +
-                        '<div class="product-info">' +
-                            '<div class="product-meta"><span class="product-condition likenew">✨ New</span></div>' +
-                            '<div class="product-title">' + p.title.substring(0,80) + (p.title.length>80?'...':'') + '</div>' +
-                            '<div style="font-size:0.72rem;color:#22c55e;margin-bottom:6px;">✅ Free Shipping</div>' +
-                            '<div class="product-price">$' + p.price.toFixed(2) + ' <span style="font-size:0.78rem;color:#9ca3af;text-decoration:line-through;margin-left:4px;">$' + p.retail.toFixed(2) + '</span> <span style="font-size:0.7rem;background:#14532d;color:#86efac;padding:2px 8px;border-radius:10px;font-weight:700;margin-left:4px;">-' + savings + '%</span></div>' +
-                            '<button class="btn-add-cart" onclick="addHabeshaToCart(' + idx + ')">🛒 Add to Cart</button>' +
-                        '</div>';
-                    grid.appendChild(card);
-                } catch(err) { console.error('Habesha card error', err); }
-            });
-            filterProducts();
-        })
-        .catch(function(e){ console.error('Habesha fetch failed:', e); });
-}
-
-var printfulProducts = [];
-
-function addPrintfulToCart(idx, sizeIdx) {
-    var p = printfulProducts[idx];
-    if (!p) return;
-    var variants = p.printify_variants || p.printful_variants || [];
-    var si = (sizeIdx !== undefined && sizeIdx !== null) ? parseInt(sizeIdx) : 0;
-    var variant = variants[si] || variants[0] || {};
-    var cartId = p.id + '-' + (variant.id || si);
-    var sizeLabel = variant.title || (p.sizes && p.sizes[si]) || '';
-    var fullTitle = p.title.substring(0,70) + (sizeLabel ? ' (' + sizeLabel + ')' : '');
-    var existing = cart.find(function(i){ return i.id === cartId; });
-    if (existing) { existing.qty += 1; }
-    else {
-        cart.push({
-            id: cartId,
-            title: fullTitle,
-            price: p.price,
-            img: p.image,
-            qty: 1,
-            pid: p.pid || p.printify_product_id || '',
-            vid: String(variant.id || ''),
-            source: p.source || 'printify',
-            printify_shop_id: p.printify_shop_id || '',
-        });
-    }
-    saveCart(); updateCartUI(); openCart();
-}
-
-function loadPrintfulProducts() {
-    fetch('/printful-products.json?t=' + Date.now())
-        .then(function(r){ return r.json(); })
-        .then(function(prods){
-            var grid = document.getElementById('productsGrid');
-            prods.forEach(function(p, idx){
-                try {
-                    printfulProducts[idx] = p;
-                    var savings = p.retail > p.price ? Math.round((1 - p.price / p.retail) * 100) : 0;
-                    var imgs = p.images && p.images.length ? p.images : [p.image];
-                    var carouselImgs = imgs.map(function(img){
-                        return '<img src="' + img + '" alt="" loading="lazy" onerror="this.src=\'https://placehold.co/400x500/1a1a2e/f0c040?text=Traditional+Print\'">';
-                    }).join('');
-                    var dots = imgs.length > 1 ? imgs.map(function(_, i){
-                        return '<span' + (i===0?' class="active"':'') + ' onclick="goSlide(\'' + p.id + '\',' + i + ')"></span>';
-                    }).join('') : '';
-                    var navBtns = imgs.length > 1 ? '<button class="carousel-btn prev" onclick="slideCarousel(\'' + p.id + '\',-1)">&#8249;</button><button class="carousel-btn next" onclick="slideCarousel(\'' + p.id + '\',1)">&#8250;</button>' : '';
-
-                    var variants = p.printify_variants || p.printful_variants || [];
-                    var sizeOptions = variants.length > 0
-                        ? '<select id="sz-' + idx + '" style="width:100%;padding:6px 8px;border-radius:8px;border:1px solid #374151;background:#1f2937;color:#f9fafb;font-size:0.82rem;margin-bottom:8px;">' +
-                          variants.map(function(v, si){
-                              return '<option value="' + si + '">' + (v.title || v.size || ('Size ' + si)) + '</option>';
-                          }).join('') + '</select>'
-                        : '';
-
-                    var genderBadge = p.gender === 'women'
-                        ? '<span style="background:#831843;color:#fce7f3;font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:10px;margin-right:4px;">👗 Women\'s</span>'
-                        : p.gender === 'men'
-                        ? '<span style="background:#1e3a5f;color:#bfdbfe;font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:10px;margin-right:4px;">👔 Men\'s</span>'
-                        : '';
-
-                    var retailNote = savings > 0
-                        ? '<div style="font-size:0.7rem;color:#9ca3af;margin-bottom:4px;">Real handmade: <s>$' + p.retail.toFixed(0) + '+</s> <span style="color:#22c55e;font-weight:700;">Save ' + savings + '%</span></div>'
-                        : '';
-
-                    var card = document.createElement('div');
-                    card.className = 'product-card';
-                    card.setAttribute('data-cat', 'prints');
-                    card.setAttribute('data-prints', 'true');
-                    card.setAttribute('data-sold', 'false');
-                    card.setAttribute('data-title', p.title.toLowerCase());
-                    card.innerHTML =
-                        '<div style="position:relative;">' +
-                            '<span style="position:absolute;top:9px;left:9px;z-index:4;background:linear-gradient(135deg,#92400e,#d97706);color:#fff;font-size:0.7rem;font-weight:800;padding:4px 10px;border-radius:20px;">🇪🇷 Habesha Print</span>' +
-                            '<div class="carousel" id="c-' + p.id + '">' +
-                                '<div class="carousel-track" id="ct-' + p.id + '">' + carouselImgs + '</div>' +
-                                navBtns +
-                                (dots ? '<div class="carousel-dots" id="cd-' + p.id + '">' + dots + '</div>' : '') +
-                            '</div>' +
-                        '</div>' +
-                        '<div class="product-info">' +
-                            '<div class="product-meta">' + genderBadge + '<span class="product-condition likenew">✨ Made to Order</span></div>' +
-                            '<div class="product-title">' + p.title.substring(0,80) + '</div>' +
-                            '<div style="font-size:0.72rem;color:#22c55e;margin-bottom:6px;">🚀 Ships 5–7 days · Traditional tibeb pattern</div>' +
-                            retailNote +
-                            sizeOptions +
-                            '<div class="product-price">$' + p.price.toFixed(2) + '</div>' +
-                            '<button class="btn-add-cart" onclick="addPrintfulToCart(' + idx + ', document.getElementById(\'sz-' + idx + '\') ? parseInt(document.getElementById(\'sz-' + idx + '\').value) : 0)">🛒 Add to Cart</button>' +
-                        '</div>';
-                    grid.appendChild(card);
-                } catch(err) { console.error('Habesha card error', err); }
-            });
-            filterProducts();
-        })
-        .catch(function(e){ /* printful-products.json not yet live — silently skip */ });
-}
 
 function addToCart(btn, id, title, price, img) {
     var existing = cart.find(function(i){ return i.id === id; });
@@ -1425,8 +1272,6 @@ function checkoutZelle(e) {
 updateCartUI();
 filterProducts();
 loadCJDeals();
-loadHabeshaDeals();
-loadPrintfulProducts();
 
 /* ── CAROUSEL ── */
 var carouselIdx = {};
