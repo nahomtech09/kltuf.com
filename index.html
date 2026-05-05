@@ -1103,7 +1103,7 @@ function addToCart(btn, id, title, price, img, extra) {
         existing.qty += 1;
     } else {
         var item = { id: id, title: title, price: price, img: img, qty: 1 };
-        if (extra) { item.pid = extra.pid; item.vid = extra.vid; item.source = extra.source; }
+        if (extra) { item.pid = extra.pid; item.vid = extra.vid; item.sku = extra.sku; item.source = extra.source; }
         cart.push(item);
     }
     saveCart();
@@ -1417,7 +1417,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
     var items = cart.map(function(i) {
       var it = { title: i.title, price: i.price, qty: i.qty };
-      if (i.pid) { it.pid = i.pid; it.vid = i.vid; it.source = i.source || 'cj'; }
+      if (i.pid) { it.pid = i.pid; it.vid = i.vid; it.sku = i.sku || ''; it.source = i.source || 'cj'; }
       return it;
     });
 
@@ -1584,7 +1584,7 @@ filterCat = function(cat, navBtn, cardId) {
           '<div class="product-title">'+p.title+'</div>' +
           '<div class="product-shipping">🚚 Ships 7–15 days · Free returns</div>' +
           '<div class="product-price">$'+p.price.toFixed(2)+'</div>' +
-          '<button class="btn-add-cart" onclick="addToCart(this,\''+id+'\',\''+titleSafe+'\','+p.price+',\''+imgs[0]+'\',{pid:\''+p.pid+'\',vid:\''+p.vid+'\',source:\'cj\'})">🛒 Add to Cart</button>' +
+          '<button class="btn-add-cart" onclick="addToCart(this,\''+id+'\',\''+titleSafe+'\','+p.price+',\''+imgs[0]+'\',{pid:\''+p.pid+'\',vid:\''+p.vid+'\',sku:\''+( p.sku||'')+'\',source:\'cj\'})">🛒 Add to Cart</button>' +
         '</div>';
       grid.appendChild(card);
     });
