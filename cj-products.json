@@ -16,8 +16,73 @@
       "https://cf.cjdropshipping.com/quick/product/ba51e65e-ad20-4864-a65a-4e4c45ab71f2.jpg"
     ],
     "trending": true,
-    "updated": "2026-05-05T18:27:06.807155+00:00",
-    "source": "cj"
+    "updated": "2026-05-05T18:29:13.660834+00:00",
+    "source": "cj",
+    "manual": true
+  },
+  {
+    "id": "492f8e4a1116",
+    "pid": "2604300246171628000",
+    "vid": "2604300246171628500",
+    "sku": "CJYD286257701AZ",
+    "title": "Summer Thin Baby Hat For Boys And Girls",
+    "cat": "toys",
+    "price": 2.99,
+    "retail": 3.11,
+    "cost": 1.73,
+    "image": "https://oss-cf.cjdropshipping.com/product/2026/04/30/02/2754c23b-af76-40b1-bab7-ad7f06250c2b_trans.jpeg",
+    "images": [
+      "https://oss-cf.cjdropshipping.com/product/2026/04/30/02/2754c23b-af76-40b1-bab7-ad7f06250c2b_trans.jpeg",
+      "https://oss-cf.cjdropshipping.com/product/2026/04/30/02/e5c09436-3b00-48c0-a105-06d9f6d97a10_trans.jpeg",
+      "https://oss-cf.cjdropshipping.com/product/2026/04/30/02/36105a75-4105-46ed-b0af-ec865b20eca9_trans.jpeg",
+      "https://cf.cjdropshipping.com/quick/product/c60a37c7-6a04-41a7-b7f6-0ae1dc3c2af4.jpg",
+      "https://oss-cf.cjdropshipping.com/product/2026/04/30/02/a65ce0f7-768d-44ba-a9ab-4ac04c42bd13_trans.jpeg",
+      "https://oss-cf.cjdropshipping.com/product/2026/04/30/02/ea9afa96-2d6f-4819-b31f-fe22f8639ef7_trans.jpeg"
+    ],
+    "trending": true,
+    "updated": "2026-05-05T18:29:13.660834+00:00",
+    "source": "cj",
+    "manual": true
+  },
+  {
+    "id": "eb79ac567402",
+    "pid": "2603120327151632400",
+    "vid": "2603120327151632700",
+    "sku": "CJYD278445601AZ",
+    "title": "Baby Fisherman Hat Children's Sun Hat",
+    "cat": "toys",
+    "price": 2.99,
+    "retail": 3.13,
+    "cost": 1.74,
+    "image": "https://oss-cf.cjdropshipping.com/product/2026/03/12/03/430a93d4-b185-4f94-8ab9-7797f8a90cf8_trans.jpeg",
+    "images": [
+      "https://oss-cf.cjdropshipping.com/product/2026/03/12/03/430a93d4-b185-4f94-8ab9-7797f8a90cf8_trans.jpeg",
+      "https://oss-cf.cjdropshipping.com/product/2026/03/12/03/e45547d9-7f70-4f74-b0ba-af304a685985_trans.jpeg",
+      "https://oss-cf.cjdropshipping.com/product/2026/03/12/03/311968e5-e04f-4840-bfed-3682ecd98ba0_trans.jpeg"
+    ],
+    "trending": true,
+    "updated": "2026-05-05T18:29:13.660834+00:00",
+    "source": "cj",
+    "manual": true
+  },
+  {
+    "id": "bd0a24b68ee7",
+    "pid": "2046205160501374977",
+    "vid": "2046205160560095233",
+    "sku": "CJCS28456940001",
+    "title": "Children's Toddler Bathing Cap - Keeps Water From Eyes",
+    "cat": "toys",
+    "price": 2.99,
+    "retail": 2.47,
+    "cost": 1.37,
+    "image": "https://cf.cjdropshipping.com/17766432/685b4786-dc41-42c5-b83f-56b88aca57f2.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/17766432/685b4786-dc41-42c5-b83f-56b88aca57f2.jpg"
+    ],
+    "trending": true,
+    "updated": "2026-05-05T18:29:13.660834+00:00",
+    "source": "cj",
+    "manual": true
   },
   {
     "id": "874e8435ba2f",
