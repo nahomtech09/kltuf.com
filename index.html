@@ -441,6 +441,28 @@
     z-index: 2;
   }
   .product-tag.gold { background: var(--gold); color: var(--royal); }
+  .ship-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-size: 0.62rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 5px 9px;
+    font-weight: 600;
+    z-index: 2;
+    border-radius: 0;
+  }
+  .ship-badge.usa { background: var(--forest); color: var(--cream); }
+  .ship-badge.intl { background: var(--cream); color: var(--charcoal); border: 1px solid var(--border); }
+  .ship-line {
+    font-size: 0.72rem;
+    color: var(--charcoal);
+    margin-top: 6px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+  .ship-line .dot { color: var(--gold-dark); margin: 0 6px; }
 
   .product-info {
     padding: 20px 8px;
@@ -983,7 +1005,7 @@
 
 <!-- Announcement Bar -->
 <div class="announcement">
-  Free US shipping on orders <span class="gold">$75+</span> · Modern Habesha apparel, shipped fast
+  Free US shipping on orders <span class="gold">$75+</span> · USA-made items ship in 2–7 days
 </div>
 
 <!-- Header -->
@@ -1036,8 +1058,8 @@
     <div class="trust-grid">
       <div class="trust-item">
         <div class="icon">🚚</div>
-        <h4>Shipped Fast</h4>
-        <p>Days, not weeks</p>
+        <h4>USA-Made: 2–7 Days</h4>
+        <p>Look for the 🇺🇸 badge</p>
       </div>
       <div class="trust-item">
         <div class="icon">✂️</div>
@@ -1134,6 +1156,7 @@
 
     <div class="category-bar" id="categoryBar">
       <button class="cat-btn active" data-cat="all">All</button>
+      <button class="cat-btn" data-cat="usa">🇺🇸 Ships Fast</button>
       <button class="cat-btn" data-cat="modern">Modern Tibeb</button>
       <button class="cat-btn" data-cat="royal">Royal Tibeb</button>
       <button class="cat-btn" data-cat="eritrean">Eritrean Classic</button>
@@ -1258,6 +1281,7 @@
 
   function filterByCategory(cat, products) {
     if (cat === 'all') return products;
+    if (cat === 'usa') return products.filter(p => p.shipping_origin === 'USA');
     if (cat === 'zuria') return products.filter(p => /dress/i.test(p.garment));
     if (cat === 'couples') return products.filter(p => p.gender === 'women' || p.gender === 'men');
     if (cat === 'kids') return [];
@@ -1281,9 +1305,17 @@
       const gender = p.gender ? p.gender.charAt(0).toUpperCase()+p.gender.slice(1) : '';
       const titleSafe = p.title.replace(/'/g, "\\'");
       const isPremium = p.design === 'royal';
+      const isUSA = p.shipping_origin === 'USA';
+      const shipBadge = isUSA
+        ? '<div class="ship-badge usa">🇺🇸 Ships Fast</div>'
+        : '<div class="ship-badge intl">🌍 Intl</div>';
+      const shipLine = isUSA
+        ? `Made in USA <span class="dot">·</span> Ships in ${p.shipping_days} days`
+        : `Ships internationally <span class="dot">·</span> ~${p.shipping_days} days`;
       return `
         <div class="product-card">
           ${isPremium ? '<div class="product-tag gold">Royal</div>' : ''}
+          ${shipBadge}
           <div class="img-wrap">
             <img class="front" src="${front}" alt="${p.title}" loading="lazy"/>
             <img class="back" src="${back}" alt="" loading="lazy"/>
@@ -1292,6 +1324,7 @@
             <div class="product-design">${design} · ${gender}</div>
             <div class="product-title">${p.title.replace(/^(Women's|Men's|Unisex)\s/, '')}</div>
             <div class="product-price">$${p.price.toFixed(2)}</div>
+            <div class="ship-line">${shipLine}</div>
             <div class="product-actions">
               <select class="size-select" id="sz-${p.id}">${sizes}</select>
               <button class="btn-add" onclick="addPrintifyToCart('${p.id}','${titleSafe}',${p.price},'${front}','${p.printify_id}','sz-${p.id}')">Add</button>
