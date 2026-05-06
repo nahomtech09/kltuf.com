@@ -48,7 +48,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e91b94d0fd5ee50cbc87",
-    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "431_10_ethiopian",
@@ -99,7 +102,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e927402e954b3f097788",
-    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "431_10_modern",
@@ -150,7 +156,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e93349f19eefe60f5f45",
-    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "431_10_royal",
@@ -201,7 +210,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e9401d416397f3054bc8",
-    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "1709_332_eritrean",
@@ -267,7 +279,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e96c09f3b73024024284",
-    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "1709_332_ethiopian",
@@ -333,7 +348,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e979b07574b970070815",
-    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "1709_332_modern",
@@ -399,7 +417,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e97fbd4ffcafc5027feb",
-    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "1709_332_royal",
@@ -465,7 +486,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e989b2846202f1024f09",
-    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "783_90_eritrean",
@@ -511,7 +535,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e990c1f268dee601ee3b",
-    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "783_90_ethiopian",
@@ -557,7 +584,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e995dea5c2315107bea4",
-    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "783_90_modern",
@@ -603,7 +633,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e99a011b67ecf8079845",
-    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "783_90_royal",
@@ -649,7 +682,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e9a009f3b7302402428d",
-    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "276_10_eritrean",
@@ -700,7 +736,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e9a616dd0e9bb504c91f",
-    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "276_10_ethiopian",
@@ -751,7 +790,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e9af9f68ab7cf0021650",
-    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "276_10_modern",
@@ -802,7 +844,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e9b77cb8a3547c0c518c",
-    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "276_10_royal",
@@ -853,7 +898,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e9bf402e954b3f0977b1",
-    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "1261_47_eritrean",
@@ -913,7 +961,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e9d47cb8a3547c0c5195",
-    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "Florida"
   },
   {
     "id": "1261_47_ethiopian",
@@ -973,7 +1024,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e9dd94d0fd5ee50cbcad",
-    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "Florida"
   },
   {
     "id": "1261_47_modern",
@@ -1033,7 +1087,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e9e4b2846202f1024f1a",
-    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "Florida"
   },
   {
     "id": "1261_47_royal",
@@ -1093,7 +1150,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e9e91d416397f3054bf1",
-    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "Florida"
   },
   {
     "id": "1478_14_eritrean",
@@ -1158,7 +1218,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8e9ffb2846202f1024f24",
-    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "1478_14_ethiopian",
@@ -1223,7 +1286,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea04be136844f000743e",
-    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "1478_14_modern",
@@ -1288,7 +1354,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea0be748bd56ec09b0e1",
-    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "1478_14_royal",
@@ -1353,7 +1422,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea12ddeb35742e0428b3",
-    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "1485_14_eritrean",
@@ -1407,7 +1479,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea1a5da263f75f052ff3",
-    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "1485_14_ethiopian",
@@ -1461,7 +1536,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea23300b32baed0d05ee",
-    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "1485_14_modern",
@@ -1515,7 +1593,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea31e46a0e018a034e72",
-    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "1485_14_royal",
@@ -1569,7 +1650,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea3addeb35742e0428bd",
-    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "1028_90_eritrean",
@@ -1625,7 +1709,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea42402e954b3f0977d4",
-    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "1028_90_ethiopian",
@@ -1681,7 +1768,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea49ddeb35742e0428c2",
-    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "1028_90_modern",
@@ -1737,7 +1827,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea4f7cb8a3547c0c51b1",
-    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "1028_90_royal",
@@ -1793,7 +1886,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea56ad13db4d4a039d00",
-    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "China"
   },
   {
     "id": "281_10_eritrean",
@@ -1934,7 +2030,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea5c9822413bd10383fe",
-    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "281_10_ethiopian",
@@ -2075,7 +2174,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea62ddeb35742e0428ca",
-    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "281_10_modern",
@@ -2216,7 +2318,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea68402e954b3f0977db",
-    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "281_10_royal",
@@ -2357,7 +2462,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea6e05bcfe3fcd046782",
-    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "449_10_eritrean",
@@ -2408,7 +2516,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea7614cb5cf1e00d228c",
-    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "449_10_ethiopian",
@@ -2459,7 +2570,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea7cad13db4d4a039d0c",
-    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "449_10_modern",
@@ -2510,7 +2624,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea84402e954b3f0977e0",
-    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "449_10_royal",
@@ -2561,7 +2678,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea8affbc831dea089e41",
-    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "450_10_eritrean",
@@ -2612,7 +2732,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea91300b32baed0d0609",
-    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "450_10_ethiopian",
@@ -2663,7 +2786,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea9ae748bd56ec09b100",
-    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "450_10_modern",
@@ -2714,7 +2840,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ea9fb07574b970070873",
-    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "450_10_royal",
@@ -2765,7 +2894,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8eaa5feed9979d10d3858",
-    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "592_83_eritrean",
@@ -2811,7 +2943,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8eaaec7a7db441d0c6289",
-    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "Netherlands"
   },
   {
     "id": "592_83_ethiopian",
@@ -2857,7 +2992,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8eab6c1f268dee601ee82",
-    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "Netherlands"
   },
   {
     "id": "592_83_modern",
@@ -2903,7 +3041,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8eabd9822413bd1038415",
-    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "Netherlands"
   },
   {
     "id": "592_83_royal",
@@ -2949,7 +3090,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8eac3c1f268dee601ee86",
-    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions.",
+    "shipping_origin": "International",
+    "shipping_days": "14",
+    "shipping_location": "Netherlands"
   },
   {
     "id": "627_10_eritrean",
@@ -3030,7 +3174,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8eacb25819cdf3d05a8c0",
-    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "627_10_ethiopian",
@@ -3111,7 +3258,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ead15359ce415f01eb8a",
-    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "627_10_modern",
@@ -3192,7 +3342,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8ead8feed9979d10d386d",
-    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "627_10_royal",
@@ -3273,7 +3426,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8eadebe136844f0007486",
-    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "North Carolina"
   },
   {
     "id": "1255_47_eritrean",
@@ -3334,7 +3490,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8eae425819cdf3d05a8cd",
-    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations."
+    "description": "Classic Eritrean tibeb embroidery \u2014 traditional red, gold & green geometric border patterns on ivory. Inspired by handmade kemis dresses worn at weddings and cultural celebrations.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "Florida"
   },
   {
     "id": "1255_47_ethiopian",
@@ -3395,7 +3554,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8eaecadcc49d563069af5",
-    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style."
+    "description": "Ethiopian habesha style \u2014 white background with bold gold, green & red borders in the tradition of habesha kemis. Celebrate your heritage in authentic style.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "Florida"
   },
   {
     "id": "1255_47_modern",
@@ -3456,7 +3618,10 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8eaf2b07574b970070898",
-    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora."
+    "description": "Contemporary habesha print \u2014 modern interpretation of tibeb patterns in blue, silver & gold. Traditional meets fashion-forward for today's diaspora.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "Florida"
   },
   {
     "id": "1255_47_royal",
@@ -3517,6 +3682,9 @@
     "source": "printify",
     "printify_shop_id": "27424239",
     "pid": "69f8eaf857781ad3ba0bbe84",
-    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions."
+    "description": "Regal tibeb design \u2014 deep purple and gold geometric borders on ivory. Inspired by the finest handcrafted habesha garments for special occasions.",
+    "shipping_origin": "USA",
+    "shipping_days": "2-7",
+    "shipping_location": "Florida"
   }
 ]
