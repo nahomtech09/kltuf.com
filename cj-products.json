@@ -123,7 +123,7 @@
       "https://cf.cjdropshipping.com/73b5b0e6-a6b2-4eca-bb86-bc32fd39062e.jpg",
       "https://cf.cjdropshipping.com/46cf41db-67ff-4665-b2cc-36d550b0d16a.jpg"
     ],
-    "updated": "2026-05-12T08:00:15.913501+00:00"
+    "updated": "2026-05-12T10:00:13.065189+00:00"
   },
   {
     "id": "c36987d5052e",
@@ -144,7 +144,7 @@
       "https://oss-cf.cjdropshipping.com/product/2026/04/25/07/59dc6972-6c1d-42b9-87b7-60be49674636_water.jpeg",
       "https://cf.cjdropshipping.com/quick/product/0a077cdc-fdde-4692-8805-9317251893f9.jpg"
     ],
-    "updated": "2026-05-12T08:00:31.222502+00:00"
+    "updated": "2026-05-12T10:00:24.804899+00:00"
   },
   {
     "id": "959836584f69",
@@ -165,7 +165,7 @@
       "https://cf.cjdropshipping.com/quick/product/b68ad9a6-319d-4a15-bc1d-e8257241a218.jpg",
       "https://cf.cjdropshipping.com/quick/product/991ed482-f317-4bf1-8dfd-597e9a88c196.jpg"
     ],
-    "updated": "2026-05-12T08:00:41.802824+00:00"
+    "updated": "2026-05-12T10:00:32.732385+00:00"
   },
   {
     "id": "db2f58b11e8a",
@@ -186,7 +186,7 @@
       "https://cf.cjdropshipping.com/9e03afc0-857e-4666-991e-261970b68ba1.jpg",
       "https://cf.cjdropshipping.com/c5ec2697-6914-4cbb-8145-d23f4009f100.jpg"
     ],
-    "updated": "2026-05-12T08:00:05.974845+00:00"
+    "updated": "2026-05-12T10:00:04.926914+00:00"
   },
   {
     "id": "0643c3addc21",
@@ -207,7 +207,7 @@
       "https://cf.cjdropshipping.com/784f7e5d-03dd-4fc2-a877-886c9f048b36.jpg",
       "https://cf.cjdropshipping.com/9621d92f-388a-45e8-b214-7157e137034c.jpg"
     ],
-    "updated": "2026-05-12T08:00:26.038102+00:00"
+    "updated": "2026-05-12T10:00:19.872900+00:00"
   },
   {
     "id": "bcb7d69b81af",
@@ -228,28 +228,7 @@
       "https://cf.cjdropshipping.com/c29c7148-e459-4c4e-b75b-3e9b8a4b15f6.png",
       "https://cf.cjdropshipping.com/99e6d7d7-8cf6-4dcd-9aa6-50f9df6e2db8.png"
     ],
-    "updated": "2026-05-12T08:00:34.131964+00:00"
-  },
-  {
-    "id": "1e1d18c5765f",
-    "pid": "2052211869757399042",
-    "vid": "",
-    "sku": "",
-    "title": "CALLCALL LING Transfer-Proof Velvet Matte Liquid Lipstick Set - 6-Piece Set , Long-Lasting Non-Smudge",
-    "cat": "beauty",
-    "price": 9.99,
-    "retail": 10.8,
-    "cost": 6.0,
-    "image": "https://cf.cjdropshipping.com/4e554e41-0794-4bfa-8d3f-50c6beb50394.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/4e554e41-0794-4bfa-8d3f-50c6beb50394.jpg",
-      "https://cf.cjdropshipping.com/1c633e3f-eecc-4ad1-b0e1-ca0d1074ee89.jpg",
-      "https://cf.cjdropshipping.com/d705f7a7-ff98-4a1a-9b36-01bd8cbe9598.jpg",
-      "https://cf.cjdropshipping.com/f70f4299-4042-4ca1-8f83-4a637321a6d7.jpg",
-      "https://cf.cjdropshipping.com/4e17ac3a-47a8-45e0-b6bd-2bd0b1e14fc8.jpg",
-      "https://cf.cjdropshipping.com/e5b38ca2-0cf4-45a5-b1d3-3cc9b6cbfe84.jpg"
-    ],
-    "updated": "2026-05-12T08:00:34.132157+00:00"
+    "updated": "2026-05-12T10:00:26.344642+00:00"
   },
   {
     "id": "889bb854032d",
@@ -270,7 +249,28 @@
       "https://cf.cjdropshipping.com/15a79dc5-6f7f-4a24-afb6-5ad4ed97a679.jpg",
       "https://cf.cjdropshipping.com/1ce69ace-efdf-4b2d-abe4-9757af05f5cc.jpg"
     ],
-    "updated": "2026-05-12T08:00:34.132166+00:00"
+    "updated": "2026-05-12T10:00:26.344811+00:00"
+  },
+  {
+    "id": "1e1d18c5765f",
+    "pid": "2052211869757399042",
+    "vid": "",
+    "sku": "",
+    "title": "CALLCALL LING Transfer-Proof Velvet Matte Liquid Lipstick Set - 6-Piece Set , Long-Lasting Non-Smudge",
+    "cat": "beauty",
+    "price": 9.99,
+    "retail": 10.8,
+    "cost": 6.0,
+    "image": "https://cf.cjdropshipping.com/4e554e41-0794-4bfa-8d3f-50c6beb50394.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/4e554e41-0794-4bfa-8d3f-50c6beb50394.jpg",
+      "https://cf.cjdropshipping.com/1c633e3f-eecc-4ad1-b0e1-ca0d1074ee89.jpg",
+      "https://cf.cjdropshipping.com/d705f7a7-ff98-4a1a-9b36-01bd8cbe9598.jpg",
+      "https://cf.cjdropshipping.com/f70f4299-4042-4ca1-8f83-4a637321a6d7.jpg",
+      "https://cf.cjdropshipping.com/4e17ac3a-47a8-45e0-b6bd-2bd0b1e14fc8.jpg",
+      "https://cf.cjdropshipping.com/e5b38ca2-0cf4-45a5-b1d3-3cc9b6cbfe84.jpg"
+    ],
+    "updated": "2026-05-12T10:00:26.344831+00:00"
   },
   {
     "id": "866e7e7a7713",
@@ -290,7 +290,26 @@
       "https://cf.cjdropshipping.com/c68f6ffd-4ad2-4215-b040-ac28161cafc4.jpg",
       "https://cf.cjdropshipping.com/ca41bcc9-d705-491f-86cb-3dfa7d5e15c8.jpg"
     ],
-    "updated": "2026-05-12T08:00:47.195114+00:00"
+    "updated": "2026-05-12T10:00:36.001677+00:00"
+  },
+  {
+    "id": "f78da739ed09",
+    "pid": "2052233872057667586",
+    "vid": "",
+    "sku": "",
+    "title": "Korean Style Girls Princess Sandals, Closed-Toe Heart Hollow Out Soft Sole Leather Sandals, Fashion Roman Beach Shoes Fo",
+    "cat": "toys",
+    "price": 9.99,
+    "retail": 10.8,
+    "cost": 6.0,
+    "image": "https://cf.cjdropshipping.com/9af192fd-be83-4356-bf77-3c66bc48b506.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/9af192fd-be83-4356-bf77-3c66bc48b506.jpg",
+      "https://cf.cjdropshipping.com/831e4d13-760f-4cb7-b243-970d3a94f141.jpg",
+      "https://cf.cjdropshipping.com/58fc1436-e09e-4c8f-b745-c64c9be949e8.jpg",
+      "https://cf.cjdropshipping.com/33f07e8f-f012-4747-baa3-95ebad05978c.jpg"
+    ],
+    "updated": "2026-05-12T10:00:36.001686+00:00"
   },
   {
     "id": "9535dda792ce",
@@ -310,26 +329,7 @@
       "https://cf.cjdropshipping.com/7151e34e-536c-48d9-991f-a9fe7bd73521.jpg",
       "https://cf.cjdropshipping.com/d709bfe9-c073-4e8f-9966-d7be9ccb679f.jpg"
     ],
-    "updated": "2026-05-12T08:00:47.195133+00:00"
-  },
-  {
-    "id": "f78da739ed09",
-    "pid": "2052233872057667586",
-    "vid": "",
-    "sku": "",
-    "title": "Korean Style Girls Princess Sandals, Closed-Toe Heart Hollow Out Soft Sole Leather Sandals, Fashion Roman Beach Shoes Fo",
-    "cat": "toys",
-    "price": 9.99,
-    "retail": 10.8,
-    "cost": 6.0,
-    "image": "https://cf.cjdropshipping.com/9af192fd-be83-4356-bf77-3c66bc48b506.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/9af192fd-be83-4356-bf77-3c66bc48b506.jpg",
-      "https://cf.cjdropshipping.com/831e4d13-760f-4cb7-b243-970d3a94f141.jpg",
-      "https://cf.cjdropshipping.com/58fc1436-e09e-4c8f-b745-c64c9be949e8.jpg",
-      "https://cf.cjdropshipping.com/33f07e8f-f012-4747-baa3-95ebad05978c.jpg"
-    ],
-    "updated": "2026-05-12T08:00:47.195146+00:00"
+    "updated": "2026-05-12T10:00:36.001696+00:00"
   },
   {
     "id": "ba3e5309fb0f",
@@ -349,7 +349,7 @@
       "https://cf.cjdropshipping.com/6b3c65d9-d25a-41b4-aa9c-6edc8ad5b56d.jpg",
       "https://cf.cjdropshipping.com/1bf2f5fc-793b-4041-b600-d6da3bb78f89.jpg"
     ],
-    "updated": "2026-05-12T08:00:47.195159+00:00"
+    "updated": "2026-05-12T10:00:36.001701+00:00"
   },
   {
     "id": "5809cd15c5d5",
@@ -369,7 +369,7 @@
       "https://cf.cjdropshipping.com/becf0b4a-c298-47c6-be93-b6976d932c00.png",
       "https://cf.cjdropshipping.com/31cbda3a-b46d-44ce-a5fd-642bca268f26.png"
     ],
-    "updated": "2026-05-12T08:00:47.195165+00:00"
+    "updated": "2026-05-12T10:00:36.001707+00:00"
   },
   {
     "id": "ab2231c378d5",
@@ -390,7 +390,26 @@
       "https://cf.cjdropshipping.com/7f3e95dd-165a-4e09-9f7e-ce60e870f855.jpg",
       "https://cf.cjdropshipping.com/3ad54298-ac93-43cd-9ef8-0fe094d919e7.jpg"
     ],
-    "updated": "2026-05-12T08:00:47.195172+00:00"
+    "updated": "2026-05-12T10:00:36.001740+00:00"
+  },
+  {
+    "id": "9b132e471490",
+    "pid": "2052231248705200130",
+    "vid": "",
+    "sku": "",
+    "title": "2026 Summer New Kids Sports Sandals, Boys Anti-slip Toe-protection Sandals, Girls Hollow Out Breathable Beach Shoes",
+    "cat": "toys",
+    "price": 9.99,
+    "retail": 10.8,
+    "cost": 6.0,
+    "image": "https://cf.cjdropshipping.com/d04084e3-c85b-47b0-a428-285cd0cd925c.png",
+    "images": [
+      "https://cf.cjdropshipping.com/d04084e3-c85b-47b0-a428-285cd0cd925c.png",
+      "https://cf.cjdropshipping.com/a7f2c110-b9d6-418f-a748-ba3794e9848b.png",
+      "https://cf.cjdropshipping.com/b3c917c7-9913-48a2-8722-56eb953e9796.png",
+      "https://cf.cjdropshipping.com/11d5bdb9-a38c-489f-bc1a-9d2a8fc0022d.png"
+    ],
+    "updated": "2026-05-12T10:00:36.001762+00:00"
   },
   {
     "id": "0a23cce55ce9",
@@ -410,45 +429,7 @@
       "https://cf.cjdropshipping.com/c20ef963-de07-40d9-93c1-a5b7bbcc550e.jpg",
       "https://cf.cjdropshipping.com/2c51f639-f82d-48eb-8545-957d72fdb1f3.jpg"
     ],
-    "updated": "2026-05-12T08:00:47.195243+00:00"
-  },
-  {
-    "id": "9b132e471490",
-    "pid": "2052231248705200130",
-    "vid": "",
-    "sku": "",
-    "title": "2026 Summer New Kids Sports Sandals, Boys Anti-slip Toe-protection Sandals, Girls Hollow Out Breathable Beach Shoes",
-    "cat": "toys",
-    "price": 9.99,
-    "retail": 10.8,
-    "cost": 6.0,
-    "image": "https://cf.cjdropshipping.com/d04084e3-c85b-47b0-a428-285cd0cd925c.png",
-    "images": [
-      "https://cf.cjdropshipping.com/d04084e3-c85b-47b0-a428-285cd0cd925c.png",
-      "https://cf.cjdropshipping.com/a7f2c110-b9d6-418f-a748-ba3794e9848b.png",
-      "https://cf.cjdropshipping.com/b3c917c7-9913-48a2-8722-56eb953e9796.png",
-      "https://cf.cjdropshipping.com/11d5bdb9-a38c-489f-bc1a-9d2a8fc0022d.png"
-    ],
-    "updated": "2026-05-12T08:00:47.195252+00:00"
-  },
-  {
-    "id": "0a26feda5f24",
-    "pid": "2052305276929421313",
-    "vid": "",
-    "sku": "",
-    "title": "2026 Spring & Summer New Kids Mesh Mary Jane Shoes, Girls Princess Soft Sole Flats, Lightweight Fashion Trainer Shoes Fo",
-    "cat": "toys",
-    "price": 9.99,
-    "retail": 10.8,
-    "cost": 6.0,
-    "image": "https://cf.cjdropshipping.com/4fc984fe-2d9c-428e-993e-9b7e38cbbcbf.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/4fc984fe-2d9c-428e-993e-9b7e38cbbcbf.jpg",
-      "https://cf.cjdropshipping.com/7476fb27-e038-4137-ad14-0894179ae62a.jpg",
-      "https://cf.cjdropshipping.com/1aa6b31d-cbb1-457b-8ae5-bf9e1bd0c0cd.jpg",
-      "https://cf.cjdropshipping.com/d96c27a9-5b56-42b9-b587-7aa985edbffe.jpg"
-    ],
-    "updated": "2026-05-12T08:00:47.195262+00:00"
+    "updated": "2026-05-12T10:00:36.001767+00:00"
   },
   {
     "id": "04cf407e3b46",
@@ -468,13 +449,53 @@
       "https://cf.cjdropshipping.com/cec86e4c-38b1-4803-865f-556f8db3c981.jpg",
       "https://cf.cjdropshipping.com/090f09e0-24f3-47b5-8049-f7c797c9d3a4.jpg"
     ],
-    "updated": "2026-05-12T08:00:47.195274+00:00"
+    "updated": "2026-05-12T10:00:36.001788+00:00"
+  },
+  {
+    "id": "0a26feda5f24",
+    "pid": "2052305276929421313",
+    "vid": "",
+    "sku": "",
+    "title": "2026 Spring & Summer New Kids Mesh Mary Jane Shoes, Girls Princess Soft Sole Flats, Lightweight Fashion Trainer Shoes Fo",
+    "cat": "toys",
+    "price": 9.99,
+    "retail": 10.8,
+    "cost": 6.0,
+    "image": "https://cf.cjdropshipping.com/4fc984fe-2d9c-428e-993e-9b7e38cbbcbf.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/4fc984fe-2d9c-428e-993e-9b7e38cbbcbf.jpg",
+      "https://cf.cjdropshipping.com/7476fb27-e038-4137-ad14-0894179ae62a.jpg",
+      "https://cf.cjdropshipping.com/1aa6b31d-cbb1-457b-8ae5-bf9e1bd0c0cd.jpg",
+      "https://cf.cjdropshipping.com/d96c27a9-5b56-42b9-b587-7aa985edbffe.jpg"
+    ],
+    "updated": "2026-05-12T10:00:36.001798+00:00"
+  },
+  {
+    "id": "69b793dcbd25",
+    "pid": "2053062428009746434",
+    "vid": "",
+    "sku": "",
+    "title": "Cat And Dog Comb, Knot Remover, Hair Removal Tool, Pet Self-cleaning Comb, For Long Hair, Massage, Knot Removal, Hair Re",
+    "cat": "pets",
+    "price": 9.99,
+    "retail": 10.8,
+    "cost": 6.0,
+    "image": "https://cf.cjdropshipping.com/e56ca1c9-531f-4c20-a3d9-b6b7e89d8cb1.jpeg",
+    "images": [
+      "https://cf.cjdropshipping.com/e56ca1c9-531f-4c20-a3d9-b6b7e89d8cb1.jpeg",
+      "https://cf.cjdropshipping.com/13abbc6e-8f05-4855-8b51-7b04b8681941.jpeg",
+      "https://cf.cjdropshipping.com/dde5014c-9d98-45b8-8629-928244709ab7.jpeg",
+      "https://cf.cjdropshipping.com/8ca50030-8c3a-4fb0-b7f2-73a1b41eac38.jpeg",
+      "https://cf.cjdropshipping.com/ceb40154-1334-4760-a23b-2ef8a8c3b472.jpeg",
+      "https://cf.cjdropshipping.com/966a2fca-0537-4f0c-99c3-7a9fbf9488b5.jpeg"
+    ],
+    "updated": "2026-05-12T10:00:37.639250+00:00"
   },
   {
     "id": "c5c9a1783bc3",
     "pid": "2605120727141601600",
     "vid": "",
-    "sku": "CJYJ288199201AZ",
+    "sku": "",
     "title": "Ladies' Casual Geometric-print Bikini Split Swimsuit",
     "cat": "sports",
     "price": 8.99,
@@ -489,7 +510,7 @@
       "https://cf.cjdropshipping.com/quick/product/3b1e29be-47ce-458c-8352-7d08b5479119.jpg",
       "https://cf.cjdropshipping.com/quick/product/ede81a8c-e4e1-450e-889c-45ba904e4265.jpg"
     ],
-    "updated": "2026-05-12T08:00:29.604998+00:00"
+    "updated": "2026-05-12T10:00:23.171234+00:00"
   },
   {
     "id": "09fdccf8c343",
@@ -510,7 +531,7 @@
       "https://cf.cjdropshipping.com/quick/product/cefe5c0f-66db-4043-8063-a00f8faec8cb.jpg",
       "https://cf.cjdropshipping.com/quick/product/35eea8db-1221-4f43-a42b-06f41709c39e.jpg"
     ],
-    "updated": "2026-05-12T08:00:54.078652+00:00"
+    "updated": "2026-05-12T10:00:41.223949+00:00"
   },
   {
     "id": "f20055bc500b",
@@ -530,7 +551,7 @@
       "https://cf.cjdropshipping.com/54e1d3f3-f61d-43f3-9a5f-fd09c485f847.jpg",
       "https://cf.cjdropshipping.com/ed6f39af-1112-4e89-a7dc-5d6c024187b0.jpg"
     ],
-    "updated": "2026-05-12T08:00:45.154305+00:00"
+    "updated": "2026-05-12T10:00:34.351233+00:00"
   },
   {
     "id": "ba3fab9d664a",
@@ -551,7 +572,28 @@
       "https://cf.cjdropshipping.com/0d28c0f1-7ca0-4990-8950-f877637d01e3.png",
       "https://cf.cjdropshipping.com/929a0176-b719-4b64-9b52-f77649ad5bb0.png"
     ],
-    "updated": "2026-05-12T08:00:34.132198+00:00"
+    "updated": "2026-05-12T10:00:26.344891+00:00"
+  },
+  {
+    "id": "de289bce4303",
+    "pid": "2605120735511630500",
+    "vid": "",
+    "sku": "CJLY288207401AZ",
+    "title": "Womens Sleeveless Bodycon Dress With Mesh Paneling",
+    "cat": "fashion",
+    "price": 9.99,
+    "retail": 10.98,
+    "cost": 6.1,
+    "image": "https://cf.cjdropshipping.com/quick/product/a901cca2-8709-4cda-9453-c808f7e64d1b.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/quick/product/a901cca2-8709-4cda-9453-c808f7e64d1b.jpg",
+      "https://cf.cjdropshipping.com/quick/product/5e29237a-ceed-4c0c-a065-7d77f1c60bbf.jpg",
+      "https://cf.cjdropshipping.com/quick/product/d82cf61f-4c75-4e0f-93bc-f8507f25cc9e.jpg",
+      "https://cf.cjdropshipping.com/quick/product/fb356fc0-05c5-468b-a8ae-33643c0d647c.jpg",
+      "https://cf.cjdropshipping.com/quick/product/acfe48c1-5446-4ddd-9c87-9f40ca6526b7.jpg",
+      "https://cf.cjdropshipping.com/quick/product/7bbce7f8-ec4d-4852-a7a7-dfd7bf741b0f.jpg"
+    ],
+    "updated": "2026-05-12T10:00:39.245482+00:00"
   },
   {
     "id": "c9a7a424b5ff",
@@ -572,7 +614,7 @@
       "https://cf.cjdropshipping.com/quick/product/77c93b9c-8975-4868-a155-353700032772.jpg",
       "https://oss-cf.cjdropshipping.com/product/2026/05/11/09/3496c5b3-36c9-41fb-a94e-b22f4b4e7af7.jpg"
     ],
-    "updated": "2026-05-12T08:00:41.802785+00:00"
+    "updated": "2026-05-12T10:00:32.732330+00:00"
   },
   {
     "id": "777b606a0a88",
@@ -593,7 +635,7 @@
       "https://cf.cjdropshipping.com/quick/product/27b7966d-ccfd-4850-88f0-b7dd03356f30.jpg",
       "https://cf.cjdropshipping.com/quick/product/d063c17f-5914-412d-8f5e-3b5d9d929f53.jpg"
     ],
-    "updated": "2026-05-12T08:00:45.154269+00:00"
+    "updated": "2026-05-12T10:00:34.351188+00:00"
   },
   {
     "id": "1a12ae9034a5",
@@ -611,7 +653,7 @@
       "https://cf.cjdropshipping.com/eed244ab-3085-4d24-ad24-b2d11a57ae41.jpg",
       "https://cf.cjdropshipping.com/d1b1168e-d4c4-4e10-9c93-92a427fefed9.jpg"
     ],
-    "updated": "2026-05-12T08:00:09.325106+00:00"
+    "updated": "2026-05-12T10:00:08.876249+00:00"
   },
   {
     "id": "3bb925a10330",
@@ -632,27 +674,7 @@
       "https://cf.cjdropshipping.com/9bab49c6-d8ab-45e4-b4a5-f448bde8dd19.jpg",
       "https://cf.cjdropshipping.com/2dfcdc95-0722-469a-9c00-e60fc570d556.jpg"
     ],
-    "updated": "2026-05-12T08:00:34.132123+00:00"
-  },
-  {
-    "id": "e0b28e1eb593",
-    "pid": "2052979508013826049",
-    "vid": "",
-    "sku": "",
-    "title": "Luxury Micro Zircon Inlaid Copper Ring Butterfly Star Heart Adjustable Open Ring",
-    "cat": "jewelry",
-    "price": 8.99,
-    "retail": 9.9,
-    "cost": 5.5,
-    "image": "https://cf.cjdropshipping.com/5c09f36e-1d5a-4d3f-9c2d-16a0685fe75c.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/5c09f36e-1d5a-4d3f-9c2d-16a0685fe75c.jpg",
-      "https://cf.cjdropshipping.com/7169a001-81ad-4382-a380-66d773cf9c39.jpg",
-      "https://cf.cjdropshipping.com/e8386c84-937b-4f81-a736-d1a7bc1c3119.jpg",
-      "https://cf.cjdropshipping.com/45d96e2b-751c-4042-a205-e68acac7a7b2.jpg",
-      "https://cf.cjdropshipping.com/3adba06b-47ed-4fef-8129-c2a58e8a4f70.jpg"
-    ],
-    "updated": "2026-05-12T08:00:39.746015+00:00"
+    "updated": "2026-05-12T10:00:26.344797+00:00"
   },
   {
     "id": "cdd3d4837c9a",
@@ -672,47 +694,27 @@
       "https://cf.cjdropshipping.com/ed154120-29dc-4229-a7e6-eae568a23fae.jpg",
       "https://cf.cjdropshipping.com/37321852-fd56-4660-b230-d69a92a374ed.jpg"
     ],
-    "updated": "2026-05-12T08:00:39.746069+00:00"
+    "updated": "2026-05-12T10:00:31.088964+00:00"
   },
   {
-    "id": "23295df6688f",
-    "pid": "2052970882602160129",
+    "id": "e0b28e1eb593",
+    "pid": "2052979508013826049",
     "vid": "",
     "sku": "",
-    "title": "European American Exaggerated Heart Ear Studs Geometric Titanium Steel Luxury Jewelry",
+    "title": "Luxury Micro Zircon Inlaid Copper Ring Butterfly Star Heart Adjustable Open Ring",
     "cat": "jewelry",
     "price": 8.99,
     "retail": 9.9,
     "cost": 5.5,
-    "image": "https://cf.cjdropshipping.com/ade98bb8-b0c4-413a-99bb-50c540c4bc0a.jpg",
+    "image": "https://cf.cjdropshipping.com/5c09f36e-1d5a-4d3f-9c2d-16a0685fe75c.jpg",
     "images": [
-      "https://cf.cjdropshipping.com/ade98bb8-b0c4-413a-99bb-50c540c4bc0a.jpg",
-      "https://cf.cjdropshipping.com/a81350bd-f63a-475c-87ed-e89ca2e6a1f6.jpg",
-      "https://cf.cjdropshipping.com/b8d7f2d8-93ad-4979-8559-09e44c5988c2.jpg",
-      "https://cf.cjdropshipping.com/0145ac33-8c9f-4e9c-80b8-4f148182c2d2.jpg",
-      "https://cf.cjdropshipping.com/6f622bda-0165-43fe-8503-2cd297523164.jpg"
+      "https://cf.cjdropshipping.com/5c09f36e-1d5a-4d3f-9c2d-16a0685fe75c.jpg",
+      "https://cf.cjdropshipping.com/7169a001-81ad-4382-a380-66d773cf9c39.jpg",
+      "https://cf.cjdropshipping.com/e8386c84-937b-4f81-a736-d1a7bc1c3119.jpg",
+      "https://cf.cjdropshipping.com/45d96e2b-751c-4042-a205-e68acac7a7b2.jpg",
+      "https://cf.cjdropshipping.com/3adba06b-47ed-4fef-8129-c2a58e8a4f70.jpg"
     ],
-    "updated": "2026-05-12T08:00:39.746130+00:00"
-  },
-  {
-    "id": "ea9d10369573",
-    "pid": "2604230708201609800",
-    "vid": "",
-    "sku": "",
-    "title": "New Style Red Two-Piece Swimsuit For Women High-Waisted With Ruffle Trim",
-    "cat": "sports",
-    "price": 8.99,
-    "retail": 9.92,
-    "cost": 5.51,
-    "image": "https://cf.cjdropshipping.com/quick/product/23d83762-6729-4fa1-bab6-bbd8eebd58e9.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/quick/product/23d83762-6729-4fa1-bab6-bbd8eebd58e9.jpg",
-      "https://cf.cjdropshipping.com/quick/product/e90a87c0-a365-4a7f-87f1-88383077d698.jpg",
-      "https://cf.cjdropshipping.com/quick/product/880c06d1-4c67-420b-9ef7-5adfe003bea6.jpg",
-      "https://cf.cjdropshipping.com/quick/product/6d060a1e-1c3f-4fd6-af89-07412e07163c.jpg",
-      "https://cf.cjdropshipping.com/quick/product/c67bcd41-da5d-4b2a-b1d8-c7fadd2b9b0a.jpg"
-    ],
-    "updated": "2026-05-12T08:00:31.222629+00:00"
+    "updated": "2026-05-12T10:00:31.088987+00:00"
   },
   {
     "id": "53cfb0a74604",
@@ -733,7 +735,7 @@
       "https://cf.cjdropshipping.com/quick/product/87d7545b-5871-4ea6-b8a0-7251d3c5db8a.jpg",
       "https://cf.cjdropshipping.com/quick/product/9393f8e5-c302-425d-8ee8-64b5c9abf2a2.jpg"
     ],
-    "updated": "2026-05-12T08:00:54.078877+00:00"
+    "updated": "2026-05-12T10:00:41.224112+00:00"
   },
   {
     "id": "7d05f2da9950",
@@ -754,7 +756,7 @@
       "https://cf.cjdropshipping.com/31c754f6-90a8-490c-89eb-89a52ca5a0ae.jpg",
       "https://cf.cjdropshipping.com/e8454cda-5525-4482-bbd5-5ceebac143ea.jpg"
     ],
-    "updated": "2026-05-12T08:00:48.829503+00:00"
+    "updated": "2026-05-12T10:00:37.639234+00:00"
   },
   {
     "id": "636e07d4f262",
@@ -775,7 +777,7 @@
       "https://oss-cf.cjdropshipping.com/product/2026/03/26/05/aa0c7dfe-89b3-4994-9a4e-26c3d3fefca5_trans.jpeg",
       "https://cf.cjdropshipping.com/quick/product/e9068780-731b-4348-9bb9-0f31a7abc68f.jpg"
     ],
-    "updated": "2026-05-12T08:00:09.325527+00:00"
+    "updated": "2026-05-12T10:00:08.876556+00:00"
   },
   {
     "id": "07d8d0a19af7",
@@ -795,7 +797,7 @@
       "https://oss-cf.cjdropshipping.com/product/2026/03/26/03/1c653d60-925b-4f06-a464-94b470602c56.jpg",
       "https://oss-cf.cjdropshipping.com/product/2026/03/26/03/b8c68b09-b40f-459a-984f-73ae0b1b4050.jpg"
     ],
-    "updated": "2026-05-12T08:00:09.325539+00:00"
+    "updated": "2026-05-12T10:00:08.876564+00:00"
   },
   {
     "id": "f60156b15fc4",
@@ -816,7 +818,23 @@
       "https://cf.cjdropshipping.com/quick/product/55d9b7aa-fc7f-4544-82f5-7826cec074b0.jpg",
       "https://cf.cjdropshipping.com/quick/product/c78dc786-345d-4f71-87c6-5f514ad98605.jpg"
     ],
-    "updated": "2026-05-12T08:00:31.222568+00:00"
+    "updated": "2026-05-12T10:00:24.804954+00:00"
+  },
+  {
+    "id": "1ebbc8fc74af",
+    "pid": "2605120924491617100",
+    "vid": "",
+    "sku": "CJDS288326702BY",
+    "title": "Mens Cotton Plaid Short-sleeve Casual Shirt",
+    "cat": "fashion",
+    "price": 9.99,
+    "retail": 11.05,
+    "cost": 6.14,
+    "image": "https://oss-cf.cjdropshipping.com/product/2026/05/12/09/18d5341d-7f10-43b6-93ea-4e33d1e17d4f.jpg",
+    "images": [
+      "https://oss-cf.cjdropshipping.com/product/2026/05/12/09/18d5341d-7f10-43b6-93ea-4e33d1e17d4f.jpg"
+    ],
+    "updated": "2026-05-12T10:00:41.222729+00:00"
   },
   {
     "id": "2b3cc92b2674",
@@ -837,7 +855,7 @@
       "https://cf.cjdropshipping.com/quick/product/2454c77e-6ad8-484c-8291-3ad53a25c6a5.jpg",
       "https://cf.cjdropshipping.com/quick/product/15fa0e61-42c4-4505-a5b3-5d47eecc302c.jpg"
     ],
-    "updated": "2026-05-12T08:00:54.076960+00:00"
+    "updated": "2026-05-12T10:00:41.222901+00:00"
   },
   {
     "id": "ba88fe180fbb",
@@ -858,7 +876,7 @@
       "https://cf.cjdropshipping.com/d5d64b74-9116-46e8-8fb5-64e580da3429.png",
       "https://cf.cjdropshipping.com/e4545267-1d5b-47ea-b461-c533fdb70bf5.png"
     ],
-    "updated": "2026-05-12T08:00:14.201368+00:00"
+    "updated": "2026-05-12T10:00:13.065018+00:00"
   },
   {
     "id": "9b2fdca20cf6",
@@ -879,7 +897,7 @@
       "https://cf.cjdropshipping.com/c96a59d7-22b2-47b7-8f79-a06b48cb42e6.jpg",
       "https://cf.cjdropshipping.com/e20d2466-c9e7-4a76-a902-2451f93cc1a2.jpg"
     ],
-    "updated": "2026-05-12T08:00:31.222468+00:00"
+    "updated": "2026-05-12T10:00:24.804805+00:00"
   },
   {
     "id": "7a8d2678dfc4",
@@ -900,7 +918,28 @@
       "https://cf.cjdropshipping.com/769105d9-603e-437d-a681-251aa761e306.jpg",
       "https://cf.cjdropshipping.com/68cc3e40-66fc-4f47-88f9-34f323db4052.jpg"
     ],
-    "updated": "2026-05-12T08:00:36.123989+00:00"
+    "updated": "2026-05-12T10:00:27.920674+00:00"
+  },
+  {
+    "id": "42e1bb9f4c50",
+    "pid": "2054100935560036353",
+    "vid": "",
+    "sku": "CJNS288195401AZ",
+    "title": "Multi Purpose Luggage Bag TPU Vacuum Compression Bag Camping Waterproof And Moisture-proof Clothing Storage Bag Airtight",
+    "cat": "bags",
+    "price": 12.99,
+    "retail": 14.4,
+    "cost": 8.0,
+    "image": "https://cf.cjdropshipping.com/e9023486-4545-4e96-9b5c-d930b2d08f40.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/e9023486-4545-4e96-9b5c-d930b2d08f40.jpg",
+      "https://cf.cjdropshipping.com/611db4a0-fb31-433a-8910-41504a286d5c.jpg",
+      "https://cf.cjdropshipping.com/5e01524f-78fc-4469-a63c-268d8aa75e39.jpg",
+      "https://cf.cjdropshipping.com/06d3e040-d37a-4390-ad29-64eb547e549a.jpg",
+      "https://cf.cjdropshipping.com/4f250765-b7aa-4029-9642-3a8df8348a07.jpg",
+      "https://cf.cjdropshipping.com/cc5534ba-8e4a-4e4e-92bc-8e60cd0a2bac.jpg"
+    ],
+    "updated": "2026-05-12T10:00:32.732294+00:00"
   },
   {
     "id": "0d52a0ad7537",
@@ -921,7 +960,7 @@
       "https://cf.cjdropshipping.com/9a1bcd14-b9fb-4714-b197-2ef9b4449dec.jpeg",
       "https://cf.cjdropshipping.com/34b67915-2c56-45bd-b178-6c363524b649.jpeg"
     ],
-    "updated": "2026-05-12T08:00:48.829418+00:00"
+    "updated": "2026-05-12T10:00:37.639207+00:00"
   },
   {
     "id": "f6700334d9c7",
@@ -941,33 +980,13 @@
       "https://oss-cf.cjdropshipping.com/product/2026/04/21/10/3a096029-b325-40d5-adff-70f63f2fa19b_trans.jpeg",
       "https://oss-cf.cjdropshipping.com/product/2026/04/21/10/bc74072e-a2a2-4982-bed0-b0a435ff1ee6_trans.jpeg"
     ],
-    "updated": "2026-05-12T08:00:09.325215+00:00"
-  },
-  {
-    "id": "1e2d7f6e3701",
-    "pid": "2605080721561631500",
-    "vid": "",
-    "sku": "",
-    "title": "Dark Gray Pleated Dress Trousers For Men",
-    "cat": "fashion",
-    "price": 11.99,
-    "retail": 13.32,
-    "cost": 7.4,
-    "image": "https://cf.cjdropshipping.com/quick/product/9a2f45ac-8b40-48b3-98cf-0a95a3f0934c.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/quick/product/9a2f45ac-8b40-48b3-98cf-0a95a3f0934c.jpg",
-      "https://cf.cjdropshipping.com/quick/product/1bda1493-c0d3-4d35-adbe-870eb1e940aa.jpg",
-      "https://cf.cjdropshipping.com/quick/product/8e11b18f-c4bb-48e1-a7c5-5793c7471ad2.jpg",
-      "https://cf.cjdropshipping.com/quick/product/0c8d675e-d7b2-444e-91c3-46a8bef5dda4.jpg",
-      "https://cf.cjdropshipping.com/quick/product/0cc00081-969f-4f58-82e3-92e891745b6c.jpg"
-    ],
-    "updated": "2026-05-12T08:00:54.078947+00:00"
+    "updated": "2026-05-12T10:00:08.876341+00:00"
   },
   {
     "id": "c97a58b89211",
     "pid": "2605120542471623100",
     "vid": "",
-    "sku": "CJLY288088301AZ",
+    "sku": "",
     "title": "Nightclub Sexy Outfit Mesh Low-cut Strap Dress For Clubs",
     "cat": "fashion",
     "price": 10.99,
@@ -982,13 +1001,13 @@
       "https://cf.cjdropshipping.com/quick/product/e4894fd0-6576-43be-b880-5002372f7048.jpg",
       "https://cf.cjdropshipping.com/quick/product/7f4ce717-f466-4222-8add-138708963424.jpg"
     ],
-    "updated": "2026-05-12T08:00:52.206207+00:00"
+    "updated": "2026-05-12T10:00:39.245613+00:00"
   },
   {
     "id": "60b1df057587",
     "pid": "2605120517091625100",
     "vid": "",
-    "sku": "CJYD288078801AZ",
+    "sku": "",
     "title": "Retro-style Figure-flattering Versatile Straight-cut Jacket With Notch Lapels",
     "cat": "fashion",
     "price": 13.99,
@@ -1002,7 +1021,7 @@
       "https://cf.cjdropshipping.com/quick/product/4a5a3e4c-4cbf-4105-8cd0-8ac30b090400.jpg",
       "https://cf.cjdropshipping.com/quick/product/2e492498-bfbf-48cd-9f96-41e0328a1cc3.jpg"
     ],
-    "updated": "2026-05-12T08:00:52.206231+00:00"
+    "updated": "2026-05-12T10:00:39.245637+00:00"
   },
   {
     "id": "a23ccc542b62",
@@ -1023,7 +1042,7 @@
       "https://cf.cjdropshipping.com/c6e373ac-0d11-447b-9707-bf0d89511273.jpg",
       "https://cf.cjdropshipping.com/4603485b-cc29-413e-82c3-972edb3d4efb.jpg"
     ],
-    "updated": "2026-05-12T08:00:41.802864+00:00"
+    "updated": "2026-05-12T10:00:32.732455+00:00"
   },
   {
     "id": "98fd5b2e13bc",
@@ -1042,7 +1061,7 @@
       "https://cf.cjdropshipping.com/735163c1-cb86-4a16-ab49-dfed6ade8745.jpg",
       "https://cf.cjdropshipping.com/eb598967-e20a-4680-bc12-7f0c96638f46.jpg"
     ],
-    "updated": "2026-05-12T08:00:45.154326+00:00"
+    "updated": "2026-05-12T10:00:34.351240+00:00"
   },
   {
     "id": "e54becd83f96",
@@ -1061,7 +1080,7 @@
       "https://cf.cjdropshipping.com/135fae8a-fe40-4275-ae94-b73197044737.jpg",
       "https://cf.cjdropshipping.com/2f8d5687-29c8-47eb-be21-8963a94f4e55.jpg"
     ],
-    "updated": "2026-05-12T08:00:45.154336+00:00"
+    "updated": "2026-05-12T10:00:34.351245+00:00"
   },
   {
     "id": "46d83e14ce23",
@@ -1082,7 +1101,7 @@
       "https://cf.cjdropshipping.com/quick/product/620d8a1b-97ba-423e-91db-9e62fd12782a.jpg",
       "https://cf.cjdropshipping.com/quick/product/16357989-ee1c-4fca-a7f3-248adb1bfae6.jpg"
     ],
-    "updated": "2026-05-12T08:00:45.154393+00:00"
+    "updated": "2026-05-12T10:00:34.351323+00:00"
   },
   {
     "id": "eaf048badbca",
@@ -1103,28 +1122,7 @@
       "https://cf.cjdropshipping.com/quick/product/8dccc306-a96b-436b-a77d-20ed40ac2370.jpg",
       "https://cf.cjdropshipping.com/quick/product/65f60169-7099-4088-b4b7-e972fe244d96.jpg"
     ],
-    "updated": "2026-05-12T08:00:45.154284+00:00"
-  },
-  {
-    "id": "ac3c5f12c42c",
-    "pid": "2605070757541624900",
-    "vid": "",
-    "sku": "",
-    "title": "Baotou Chunky-sole Soft-soled Sandals Women's Casual",
-    "cat": "bags",
-    "price": 8.99,
-    "retail": 10.06,
-    "cost": 5.59,
-    "image": "https://cf.cjdropshipping.com/quick/product/d7f1d55a-afdf-461c-a0e5-6a1105b51a8d.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/quick/product/d7f1d55a-afdf-461c-a0e5-6a1105b51a8d.jpg",
-      "https://cf.cjdropshipping.com/quick/product/32e0fc9f-8c0b-4c89-af84-e9e4448d7886.jpg",
-      "https://cf.cjdropshipping.com/quick/product/28af5dce-4e11-4e6c-9147-fc7fbf94c904.jpg",
-      "https://cf.cjdropshipping.com/quick/product/5b001d63-908c-415e-a482-c2fe5aab44d3.jpg",
-      "https://cf.cjdropshipping.com/quick/product/09df5113-fbea-4fb6-ad6c-66dcdfeb77d4.jpg",
-      "https://cf.cjdropshipping.com/quick/product/091237cc-00ed-469b-bb49-cc42838d6b84.jpg"
-    ],
-    "updated": "2026-05-12T08:00:45.154407+00:00"
+    "updated": "2026-05-12T10:00:34.351205+00:00"
   },
   {
     "id": "e6353a1d5994",
@@ -1145,28 +1143,7 @@
       "https://cf.cjdropshipping.com/quick/product/99f55bd6-4bd6-4279-924c-e17f67a94a4c.jpg",
       "https://cf.cjdropshipping.com/quick/product/122e85ca-942a-48c8-bc7b-565af832aa3f.jpg"
     ],
-    "updated": "2026-05-12T08:00:31.222537+00:00"
-  },
-  {
-    "id": "1e9e434afc6b",
-    "pid": "2604230508451620200",
-    "vid": "",
-    "sku": "",
-    "title": "Multi-colored Skirted Two-piece Swimsuit",
-    "cat": "sports",
-    "price": 11.99,
-    "retail": 13.43,
-    "cost": 7.46,
-    "image": "https://oss-cf.cjdropshipping.com/product/2026/04/23/05/24d92411-da20-4ffa-9ada-b271943c4fe4_fine.jpeg",
-    "images": [
-      "https://oss-cf.cjdropshipping.com/product/2026/04/23/05/24d92411-da20-4ffa-9ada-b271943c4fe4_fine.jpeg",
-      "https://cf.cjdropshipping.com/quick/product/e7ffa877-c52a-4393-ab38-ed2721a4d534.jpg",
-      "https://cf.cjdropshipping.com/quick/product/6b499621-45ee-45bc-af61-6a48c6b6490b.jpg",
-      "https://cf.cjdropshipping.com/quick/product/6eab9152-d6d9-4fbb-8a06-0235367771a5.jpg",
-      "https://cf.cjdropshipping.com/quick/product/4c7dccd9-ecdf-4282-b12a-7c60c7985f0c.jpg",
-      "https://cf.cjdropshipping.com/quick/product/2e62a951-6338-4aba-a5bb-aafccd834104.jpg"
-    ],
-    "updated": "2026-05-12T08:00:31.222634+00:00"
+    "updated": "2026-05-12T10:00:24.804910+00:00"
   },
   {
     "id": "d7a145e0cc4e",
@@ -1187,13 +1164,34 @@
       "https://oss-cf.cjdropshipping.com/product/2026/05/11/08/86c2e82d-e058-43a8-9fc2-f10b3d7cab37_trans.jpeg",
       "https://oss-cf.cjdropshipping.com/product/2026/05/11/08/67334b1f-c3dd-4788-9036-c798400b6567_trans.jpeg"
     ],
-    "updated": "2026-05-12T08:00:48.829279+00:00"
+    "updated": "2026-05-12T10:00:37.639098+00:00"
+  },
+  {
+    "id": "714b178fa5a0",
+    "pid": "2605120838321614000",
+    "vid": "",
+    "sku": "CJLS288276901AZ",
+    "title": "Womens Halter-Neck Top Two-Piece Set",
+    "cat": "fashion",
+    "price": 11.99,
+    "retail": 13.43,
+    "cost": 7.46,
+    "image": "https://cf.cjdropshipping.com/quick/product/db49b86d-8a2e-42d9-b34f-b0cf33fc2089.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/quick/product/db49b86d-8a2e-42d9-b34f-b0cf33fc2089.jpg",
+      "https://cf.cjdropshipping.com/quick/product/92dff1db-932f-4b10-9c1c-0e767c4fd052.jpg",
+      "https://cf.cjdropshipping.com/quick/product/64872c93-2fa3-4150-b6b6-3868241e435b.jpg",
+      "https://cf.cjdropshipping.com/quick/product/a7784f2d-5991-4a49-8120-fccec0a10511.jpg",
+      "https://cf.cjdropshipping.com/quick/product/4f51837c-0d4c-4ff8-b439-123356ed4674.jpg",
+      "https://cf.cjdropshipping.com/quick/product/8cfa605b-c45c-436e-b105-9eaa44606c15.jpg"
+    ],
+    "updated": "2026-05-12T10:00:39.245436+00:00"
   },
   {
     "id": "ab303712bb4f",
     "pid": "2605120555031607700",
     "vid": "",
-    "sku": "CJLY288101001AZ",
+    "sku": "",
     "title": "Womens Printed Off-Shoulder Dress",
     "cat": "fashion",
     "price": 11.99,
@@ -1206,27 +1204,7 @@
       "https://cf.cjdropshipping.com/quick/product/68dd6fe3-6fda-4e70-bbf6-3d06742436c2.jpg",
       "https://cf.cjdropshipping.com/quick/product/694b8d2f-617e-4e5c-9613-d7aba37b85bb.jpg"
     ],
-    "updated": "2026-05-12T08:00:52.206175+00:00"
-  },
-  {
-    "id": "1c982c6456d4",
-    "pid": "2605120255371601200",
-    "vid": "",
-    "sku": "",
-    "title": "Fashion Versatile Printed Chiffon Blouse For Women",
-    "cat": "fashion",
-    "price": 10.99,
-    "retail": 12.33,
-    "cost": 6.85,
-    "image": "https://cf.cjdropshipping.com/quick/product/7ed5d0e4-fcaa-4fe4-80cf-9d158c885218.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/quick/product/7ed5d0e4-fcaa-4fe4-80cf-9d158c885218.jpg",
-      "https://cf.cjdropshipping.com/quick/product/351736d4-d83c-475d-aa4e-e9ceb778cc8a.jpg",
-      "https://cf.cjdropshipping.com/quick/product/34862698-5eb9-4837-a3ca-f4588157ada9.jpg",
-      "https://cf.cjdropshipping.com/quick/product/0cbf2207-f01d-4a10-9900-c69828310a71.jpg",
-      "https://cf.cjdropshipping.com/quick/product/822a89fa-b162-4918-b26e-cf6d9ad8e2c3.jpg"
-    ],
-    "updated": "2026-05-12T08:00:52.206297+00:00"
+    "updated": "2026-05-12T10:00:39.245571+00:00"
   },
   {
     "id": "6a5de66034b2",
@@ -1247,7 +1225,7 @@
       "https://cf.cjdropshipping.com/0e8f8463-fe25-4007-b8c2-61aa6fbef77b.jpg",
       "https://cf.cjdropshipping.com/b8215b4d-b384-4d0f-ad8c-43730b5659ee.jpg"
     ],
-    "updated": "2026-05-12T08:00:55.833748+00:00"
+    "updated": "2026-05-12T10:00:43.065040+00:00"
   },
   {
     "id": "5cd15ae2fda1",
@@ -1268,7 +1246,7 @@
       "https://cf.cjdropshipping.com/33eba844-5df9-4a16-8b9a-7a6b4ca0683a.jpg",
       "https://cf.cjdropshipping.com/4accbf30-b3fd-4ca0-bd72-082450fbfa07.jpg"
     ],
-    "updated": "2026-05-12T08:00:07.587856+00:00"
+    "updated": "2026-05-12T10:00:06.875373+00:00"
   },
   {
     "id": "ebf5c03830a1",
@@ -1286,7 +1264,7 @@
       "https://cf.cjdropshipping.com/d9d25786-f10b-467c-b4ef-6e0d95121fd4.png",
       "https://cf.cjdropshipping.com/9e47531b-cc79-4ab4-a844-86467a9be873.png"
     ],
-    "updated": "2026-05-12T08:00:29.605171+00:00"
+    "updated": "2026-05-12T10:00:23.171438+00:00"
   },
   {
     "id": "b18c188b45e1",
@@ -1307,7 +1285,7 @@
       "https://cf.cjdropshipping.com/85b00e7d-c519-4f91-bd6a-bf88fe8b469b.png",
       "https://cf.cjdropshipping.com/0cf94b40-2e1c-47ca-b51c-98dd334a0eb0.png"
     ],
-    "updated": "2026-05-12T08:00:29.605191+00:00"
+    "updated": "2026-05-12T10:00:23.171450+00:00"
   },
   {
     "id": "442cdf05e798",
@@ -1327,7 +1305,7 @@
       "https://cf.cjdropshipping.com/f5676d54-d2f7-4f98-aed0-247b84181543.png",
       "https://cf.cjdropshipping.com/5ce8b056-e43a-4306-baf5-d4f9b44e93a3.png"
     ],
-    "updated": "2026-05-12T08:00:29.605206+00:00"
+    "updated": "2026-05-12T10:00:23.171462+00:00"
   },
   {
     "id": "4090106b649f",
@@ -1348,7 +1326,28 @@
       "https://cf.cjdropshipping.com/a1f0b79b-60cf-4444-a8a1-edb33e3b58f5.jpg",
       "https://cf.cjdropshipping.com/88140f74-6e15-4f0e-832f-82345f4f64f2.jpg"
     ],
-    "updated": "2026-05-12T08:00:36.123685+00:00"
+    "updated": "2026-05-12T10:00:27.920377+00:00"
+  },
+  {
+    "id": "e0c4c9ab63a8",
+    "pid": "2054056317387649026",
+    "vid": "",
+    "sku": "CJHH288063501AZ",
+    "title": "4Pcs Cloud Claw Clips, Soft & Flexible Cozy Claw Clip, Flexible Claw Clip, Ponytail Hairpins For Thick Or Fine Hair, Bea",
+    "cat": "beauty",
+    "price": 7.99,
+    "retail": 9.0,
+    "cost": 5.0,
+    "image": "https://cf.cjdropshipping.com/62a19653-f26d-4acb-872e-350d99d7b139.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/62a19653-f26d-4acb-872e-350d99d7b139.jpg",
+      "https://cf.cjdropshipping.com/6a3c997a-b97e-4fe8-b5a5-eafbd0bb4acb.jpg",
+      "https://cf.cjdropshipping.com/daf73f3b-fc14-4f33-9004-0e2b1ac30a74.jpg",
+      "https://cf.cjdropshipping.com/64e4f926-4509-46b2-922a-b8e5c634907b.jpg",
+      "https://cf.cjdropshipping.com/f85ca5b1-695d-4679-bea7-ece6a6d0bd68.jpg",
+      "https://cf.cjdropshipping.com/80b870e4-058e-484c-9c90-bd60c923ce68.jpg"
+    ],
+    "updated": "2026-05-12T10:00:26.344585+00:00"
   },
   {
     "id": "67d57c74b245",
@@ -1369,33 +1368,13 @@
       "https://oss-cf.cjdropshipping.com/product/2026/04/21/09/2943e1d1-3f29-4d83-aa30-611566d5910c.jpg",
       "https://cf.cjdropshipping.com/quick/product/d8013e4e-9051-40ca-9be3-63a4a4dfafee.jpg"
     ],
-    "updated": "2026-05-12T08:00:05.975072+00:00"
-  },
-  {
-    "id": "0de81234e19c",
-    "pid": "2605120341041606600",
-    "vid": "",
-    "sku": "",
-    "title": "Womens Camisole And Drawstring Two-piece Set",
-    "cat": "fashion",
-    "price": 12.99,
-    "retail": 14.63,
-    "cost": 8.13,
-    "image": "https://cf.cjdropshipping.com/quick/product/b196220c-9553-4235-9c60-d64fbeb0fc05.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/quick/product/b196220c-9553-4235-9c60-d64fbeb0fc05.jpg",
-      "https://cf.cjdropshipping.com/quick/product/41e07a19-6297-43b1-ab40-ee8bc81aa4eb.jpg",
-      "https://cf.cjdropshipping.com/quick/product/e6f8090f-be0c-4082-af6e-e16cb05400fe.jpg",
-      "https://cf.cjdropshipping.com/quick/product/3dbaae6e-144b-440e-a36c-93b2e78e927b.jpg",
-      "https://cf.cjdropshipping.com/quick/product/72a49ab7-6edf-40ad-8ad3-4bd9a9348421.jpg"
-    ],
-    "updated": "2026-05-12T08:00:52.206268+00:00"
+    "updated": "2026-05-12T10:00:04.927106+00:00"
   },
   {
     "id": "1c798aa501fa",
     "pid": "2605110217231628700",
     "vid": "",
-    "sku": "CJYD287659301AZ",
+    "sku": "",
     "title": "Casual Athletic Five-inch Beach Shorts",
     "cat": "fashion",
     "price": 12.99,
@@ -1410,7 +1389,7 @@
       "https://oss-cf.cjdropshipping.com/product/2026/05/11/02/e45026a7-a8b1-4d32-bf5e-97370ae90de5.jpg",
       "https://oss-cf.cjdropshipping.com/product/2026/05/11/02/6f5338e1-c24d-4a7c-a364-9ed90f425fab.jpg"
     ],
-    "updated": "2026-05-12T08:00:54.078798+00:00"
+    "updated": "2026-05-12T10:00:41.224015+00:00"
   },
   {
     "id": "1d5442bf1510",
@@ -1431,7 +1410,7 @@
       "https://cf.cjdropshipping.com/17784576/eaa914cf-d42a-4a9b-bb3f-ee184b3c0775.jpg",
       "https://cf.cjdropshipping.com/17784576/04a95252-2f4d-4b87-a0e3-0c5a6cb4fbf3.jpg"
     ],
-    "updated": "2026-05-12T08:00:05.974781+00:00"
+    "updated": "2026-05-12T10:00:04.926854+00:00"
   },
   {
     "id": "d0c395ad764c",
@@ -1452,7 +1431,26 @@
       "https://cf.cjdropshipping.com/quick/product/a69c0acb-491f-4700-95e6-5a1b0fe9e9ed.jpg",
       "https://cf.cjdropshipping.com/quick/product/9fb29cf0-fff1-4441-9dd2-8da0dcd83c1d.jpg"
     ],
-    "updated": "2026-05-12T08:00:37.995359+00:00"
+    "updated": "2026-05-12T10:00:29.510846+00:00"
+  },
+  {
+    "id": "3454f333369c",
+    "pid": "2605120321521628800",
+    "vid": "",
+    "sku": "CJYD288037901AZ",
+    "title": "Off Road Sports Hiking And Mountaineering Backpack",
+    "cat": "sports",
+    "price": 11.99,
+    "retail": 13.52,
+    "cost": 7.51,
+    "image": "https://cf.cjdropshipping.com/quick/product/945e43c6-6833-4777-bd9b-2518b76a39c8.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/quick/product/945e43c6-6833-4777-bd9b-2518b76a39c8.jpg",
+      "https://cf.cjdropshipping.com/quick/product/a04563ce-e67a-406a-b95e-1dcf5bb04b70.jpg",
+      "https://cf.cjdropshipping.com/quick/product/3a7c255f-8f73-44c2-b150-55552d4cd043.jpg",
+      "https://cf.cjdropshipping.com/quick/product/389f361e-3a29-4d03-b73b-1ff2975de9c7.jpg"
+    ],
+    "updated": "2026-05-12T10:00:23.171256+00:00"
   },
   {
     "id": "54fc86582425",
@@ -1472,7 +1470,23 @@
       "https://cf.cjdropshipping.com/17749152/67b630f5-d71c-47a7-a0e0-e0ee3e7f295d.jpg",
       "https://cf.cjdropshipping.com/17749152/d0f3895a-e5fb-4aac-806d-dcce003a2eb3.jpg"
     ],
-    "updated": "2026-05-12T08:00:15.913716+00:00"
+    "updated": "2026-05-12T10:00:14.739138+00:00"
+  },
+  {
+    "id": "fb2b580da517",
+    "pid": "2605040838261602800",
+    "vid": "",
+    "sku": "",
+    "title": "New Style Modest Two-piece Short Strap Swimsuit Set For Women",
+    "cat": "sports",
+    "price": 8.99,
+    "retail": 10.15,
+    "cost": 5.64,
+    "image": "https://oss-cf.cjdropshipping.com/product/2026/05/04/08/e75f6614-00ef-4758-ae07-6b8fe4752dd1_water.jpeg",
+    "images": [
+      "https://oss-cf.cjdropshipping.com/product/2026/05/04/08/e75f6614-00ef-4758-ae07-6b8fe4752dd1_water.jpeg"
+    ],
+    "updated": "2026-05-12T10:00:24.804744+00:00"
   },
   {
     "id": "8981352c4f4f",
@@ -1493,47 +1507,7 @@
       "https://oss-cf.cjdropshipping.com/product/2026/05/11/10/7eeb3925-1e59-4a23-a29f-93db86c5bef6_trans.jpeg",
       "https://oss-cf.cjdropshipping.com/product/2026/05/11/10/030ad206-106a-4486-b012-7588d0124c6f_trans.jpeg"
     ],
-    "updated": "2026-05-12T08:00:55.833496+00:00"
-  },
-  {
-    "id": "5736d3339d7d",
-    "pid": "2052959027591753730",
-    "vid": "",
-    "sku": "",
-    "title": "Sterling Silver Needle Circle Hoop Earrings, Luxury High-End Minimalist Stud Earrings For Women, Cold Style Fashion Vers",
-    "cat": "jewelry",
-    "price": 10.99,
-    "retail": 12.42,
-    "cost": 6.9,
-    "image": "https://cf.cjdropshipping.com/1618ca4c-7bac-4e56-8fe7-4a9c003ff3ee.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/1618ca4c-7bac-4e56-8fe7-4a9c003ff3ee.jpg",
-      "https://cf.cjdropshipping.com/ce06e127-fe6b-4328-a7ed-6ec076f3ed67.jpg",
-      "https://cf.cjdropshipping.com/e565f30d-9287-4f92-a6e6-e24033094f44.jpg",
-      "https://cf.cjdropshipping.com/6e63414e-4b69-4f0a-9882-b8bcceddba88.jpg",
-      "https://cf.cjdropshipping.com/c7c6b6eb-c410-4ff5-9f36-38b9ec635187.jpg"
-    ],
-    "updated": "2026-05-12T08:00:39.746088+00:00"
-  },
-  {
-    "id": "92d5a6a11458",
-    "pid": "2052959442249580546",
-    "vid": "",
-    "sku": "",
-    "title": "Sterling Silver Needle Round Hoop Earrings Minimalist Cold Style Luxury Ear Studs",
-    "cat": "jewelry",
-    "price": 10.99,
-    "retail": 12.42,
-    "cost": 6.9,
-    "image": "https://cf.cjdropshipping.com/720ef4be-5e82-4f97-b01a-351fdf0a30cf.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/720ef4be-5e82-4f97-b01a-351fdf0a30cf.jpg",
-      "https://cf.cjdropshipping.com/bc3001f6-97a1-48ea-95df-5059089bbabf.jpg",
-      "https://cf.cjdropshipping.com/02f09605-998b-4879-9a5e-aaf69df4640b.jpg",
-      "https://cf.cjdropshipping.com/0db00bdb-3693-4c6a-86d3-79e45f7784ba.jpg",
-      "https://cf.cjdropshipping.com/d122289b-ef0a-45bc-9e8e-aff85611ff27.jpg"
-    ],
-    "updated": "2026-05-12T08:00:39.746137+00:00"
+    "updated": "2026-05-12T10:00:43.064908+00:00"
   },
   {
     "id": "9101e88da00b",
@@ -1553,27 +1527,7 @@
       "https://cf.cjdropshipping.com/quick/product/12965697-a412-40b5-8570-e9f4bc3d8130.jpg",
       "https://cf.cjdropshipping.com/quick/product/f5e3c7e3-7511-4a1b-a91c-c4722f394a79.jpg"
     ],
-    "updated": "2026-05-12T08:00:37.995452+00:00"
-  },
-  {
-    "id": "452d7f687961",
-    "pid": "2043598400808914945",
-    "vid": "",
-    "sku": "",
-    "title": "10 X 12V DC Car Charger Adapter Power Supply For Headlamp Flashlight Torch Light",
-    "cat": "electronics",
-    "price": 14.99,
-    "retail": 16.96,
-    "cost": 9.42,
-    "image": "https://cf.cjdropshipping.com/17760384/de377785-fc5e-4619-88ec-c661652e3694.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/17760384/de377785-fc5e-4619-88ec-c661652e3694.jpg",
-      "https://cf.cjdropshipping.com/17760384/d1d6de4d-b950-4e68-bfea-d8edde05f403.jpg",
-      "https://cf.cjdropshipping.com/17760384/152600ee-c352-4dff-9bed-1be9203d0255.jpg",
-      "https://cf.cjdropshipping.com/17760384/ac10ef20-da38-4870-a542-c63e71677b01.jpg",
-      "https://cf.cjdropshipping.com/17760384/2b7dd6db-719f-49a8-ac28-0919e41f8311.jpg"
-    ],
-    "updated": "2026-05-12T08:00:07.587746+00:00"
+    "updated": "2026-05-12T10:00:29.510917+00:00"
   },
   {
     "id": "cf27597e7759",
@@ -1594,7 +1548,7 @@
       "https://cf.cjdropshipping.com/ed00bc42-9a49-4a56-9335-e52d23adebfc.jpg",
       "https://cf.cjdropshipping.com/84a89220-c4af-4ae9-9caa-e7461de59463.jpg"
     ],
-    "updated": "2026-05-12T08:00:09.325488+00:00"
+    "updated": "2026-05-12T10:00:08.876547+00:00"
   },
   {
     "id": "5b472d30a96b",
@@ -1614,7 +1568,7 @@
       "https://cf.cjdropshipping.com/17780256/15e9d514-7413-400f-932f-cd83f0fd01b7.jpg",
       "https://cf.cjdropshipping.com/17780256/ce3fe670-e361-4eee-b53e-cd8f831e6ec1.jpg"
     ],
-    "updated": "2026-05-12T08:00:26.038157+00:00"
+    "updated": "2026-05-12T10:00:19.872961+00:00"
   },
   {
     "id": "df6e0ceb325f",
@@ -1634,7 +1588,7 @@
       "https://cf.cjdropshipping.com/quick/product/01555a7f-5c81-480d-9eaf-cf4d15b25792.jpg",
       "https://cf.cjdropshipping.com/quick/product/c3b2170b-10ed-4417-904d-bfbaa2232a4e.jpg"
     ],
-    "updated": "2026-05-12T08:00:09.325117+00:00"
+    "updated": "2026-05-12T10:00:08.876258+00:00"
   },
   {
     "id": "97aa71c6f861",
@@ -1655,7 +1609,7 @@
       "https://oss-cf.cjdropshipping.com/product/2026/03/25/08/37bdef1d-ec9f-4b6c-b10e-344688904e76_trans.jpeg",
       "https://oss-cf.cjdropshipping.com/product/2026/03/25/08/bd9fabe3-c0e2-4b5a-94c8-7000b6eb8014_trans.jpeg"
     ],
-    "updated": "2026-05-12T08:00:09.325549+00:00"
+    "updated": "2026-05-12T10:00:08.876572+00:00"
   },
   {
     "id": "a57e57104846",
@@ -1673,7 +1627,7 @@
       "https://oss-cf.cjdropshipping.com/product/2026/03/13/08/59368ea0-8554-4a75-900d-dcace144398f.jpg",
       "https://oss-cf.cjdropshipping.com/product/2026/03/13/08/abef2b9a-c36f-4463-8580-77a3b2380548_fine.jpeg"
     ],
-    "updated": "2026-05-12T08:00:12.187787+00:00"
+    "updated": "2026-05-12T10:00:11.343424+00:00"
   },
   {
     "id": "84f23628ae3d",
@@ -1694,7 +1648,7 @@
       "https://oss-cf.cjdropshipping.com/product/2026/02/13/10/1890373d-9a55-478e-9f7e-0c1957a01322_trans.jpeg",
       "https://oss-cf.cjdropshipping.com/product/2026/02/13/10/1f03706c-41d7-44db-8be2-6fd3301c60dc_trans.jpeg"
     ],
-    "updated": "2026-05-12T08:00:12.187938+00:00"
+    "updated": "2026-05-12T10:00:11.343570+00:00"
   },
   {
     "id": "c341d25feb37",
@@ -1714,7 +1668,7 @@
       "https://cf.cjdropshipping.com/49ef97cf-89c1-45a7-a0bc-363c2ae2faad.jpg",
       "https://cf.cjdropshipping.com/7e81f231-f1de-4f2c-8c19-154bfe2942c6.jpg"
     ],
-    "updated": "2026-05-12T08:00:27.815056+00:00"
+    "updated": "2026-05-12T10:00:21.644039+00:00"
   },
   {
     "id": "e0166f60e063",
@@ -1734,27 +1688,7 @@
       "https://cf.cjdropshipping.com/quick/product/8f604509-d617-4681-bf29-edd8a3fc8d81.jpg",
       "https://cf.cjdropshipping.com/quick/product/3c63c271-82a8-4492-b371-1206e5237275.jpg"
     ],
-    "updated": "2026-05-12T08:00:39.745986+00:00"
-  },
-  {
-    "id": "090d0f4d5834",
-    "pid": "2051934515353108481",
-    "vid": "",
-    "sku": "",
-    "title": "Car Sticker Sets External Accessories Hood Body Sticker Car Hood Decal Modified Body Stripes Decal Waterproof Anti-Scrat",
-    "cat": "auto",
-    "price": 13.99,
-    "retail": 15.88,
-    "cost": 8.82,
-    "image": "https://cf.cjdropshipping.com/98386c95-ede0-4c46-99d2-70a6325ec6cf.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/98386c95-ede0-4c46-99d2-70a6325ec6cf.jpg",
-      "https://cf.cjdropshipping.com/01f8463b-57e0-43d6-b9ae-05037872ffd5.jpg",
-      "https://cf.cjdropshipping.com/965ae867-b4f7-4b93-bd7c-8e31b7e292aa.jpg",
-      "https://cf.cjdropshipping.com/4950d9b1-0181-47d0-9216-cc7a51bc19a0.jpg",
-      "https://cf.cjdropshipping.com/e951a589-db8b-4def-a1ea-c149a042ce5e.jpg"
-    ],
-    "updated": "2026-05-12T08:00:55.833754+00:00"
+    "updated": "2026-05-12T10:00:31.088958+00:00"
   },
   {
     "id": "88cffba21d71",
@@ -1774,7 +1708,27 @@
       "https://cf.cjdropshipping.com/a13dd760-9306-45a3-894c-ca04612d0302.jpg",
       "https://cf.cjdropshipping.com/0efa986d-6700-4e1d-96f7-2be9e17d949a.jpg"
     ],
-    "updated": "2026-05-12T08:00:55.833759+00:00"
+    "updated": "2026-05-12T10:00:43.065034+00:00"
+  },
+  {
+    "id": "090d0f4d5834",
+    "pid": "2051934515353108481",
+    "vid": "",
+    "sku": "",
+    "title": "Car Sticker Sets External Accessories Hood Body Sticker Car Hood Decal Modified Body Stripes Decal Waterproof Anti-Scrat",
+    "cat": "auto",
+    "price": 13.99,
+    "retail": 15.88,
+    "cost": 8.82,
+    "image": "https://cf.cjdropshipping.com/98386c95-ede0-4c46-99d2-70a6325ec6cf.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/98386c95-ede0-4c46-99d2-70a6325ec6cf.jpg",
+      "https://cf.cjdropshipping.com/01f8463b-57e0-43d6-b9ae-05037872ffd5.jpg",
+      "https://cf.cjdropshipping.com/965ae867-b4f7-4b93-bd7c-8e31b7e292aa.jpg",
+      "https://cf.cjdropshipping.com/4950d9b1-0181-47d0-9216-cc7a51bc19a0.jpg",
+      "https://cf.cjdropshipping.com/e951a589-db8b-4def-a1ea-c149a042ce5e.jpg"
+    ],
+    "updated": "2026-05-12T10:00:43.065045+00:00"
   },
   {
     "id": "f7fc7e1b68d7",
@@ -1794,7 +1748,26 @@
       "https://cf.cjdropshipping.com/4cc84209-4b1b-4446-b93a-3950a2fd888a.jpg",
       "https://cf.cjdropshipping.com/273deff7-5014-4763-a0f4-361a1da1bc16.jpg"
     ],
-    "updated": "2026-05-12T08:00:55.833764+00:00"
+    "updated": "2026-05-12T10:00:43.065050+00:00"
+  },
+  {
+    "id": "3f50299ac493",
+    "pid": "2051933254401187842",
+    "vid": "",
+    "sku": "",
+    "title": "2pcs Plaid Pattern Car Stickers Waterproof Scratch-Resistant Durable PVC Decals For Car Door B Racks Suitable For All Mo",
+    "cat": "auto",
+    "price": 13.99,
+    "retail": 15.88,
+    "cost": 8.82,
+    "image": "https://cf.cjdropshipping.com/d705c036-a69b-4241-90b7-ade232d6649d.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/d705c036-a69b-4241-90b7-ade232d6649d.jpg",
+      "https://cf.cjdropshipping.com/8ebed40d-39ef-4d63-95bf-a0cdabc8b9bf.jpg",
+      "https://cf.cjdropshipping.com/19018fa5-a65e-4950-8a93-898ff66a83e6.jpg",
+      "https://cf.cjdropshipping.com/965423d8-164d-4dbf-9dde-2601fa30c5d0.jpg"
+    ],
+    "updated": "2026-05-12T10:00:43.065054+00:00"
   },
   {
     "id": "c2915ee1db21",
@@ -1814,26 +1787,7 @@
       "https://cf.cjdropshipping.com/064de383-5764-4c96-a32b-c762dc5419dc.jpg",
       "https://cf.cjdropshipping.com/7511306f-2db6-4318-8564-e78a8456ad7d.jpg"
     ],
-    "updated": "2026-05-12T08:00:55.833770+00:00"
-  },
-  {
-    "id": "3f50299ac493",
-    "pid": "2051933254401187842",
-    "vid": "",
-    "sku": "",
-    "title": "2pcs Plaid Pattern Car Stickers Waterproof Scratch-Resistant Durable PVC Decals For Car Door B Racks Suitable For All Mo",
-    "cat": "auto",
-    "price": 13.99,
-    "retail": 15.88,
-    "cost": 8.82,
-    "image": "https://cf.cjdropshipping.com/d705c036-a69b-4241-90b7-ade232d6649d.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/d705c036-a69b-4241-90b7-ade232d6649d.jpg",
-      "https://cf.cjdropshipping.com/8ebed40d-39ef-4d63-95bf-a0cdabc8b9bf.jpg",
-      "https://cf.cjdropshipping.com/19018fa5-a65e-4950-8a93-898ff66a83e6.jpg",
-      "https://cf.cjdropshipping.com/965423d8-164d-4dbf-9dde-2601fa30c5d0.jpg"
-    ],
-    "updated": "2026-05-12T08:00:55.833776+00:00"
+    "updated": "2026-05-12T10:00:43.065059+00:00"
   },
   {
     "id": "d945f6a9137b",
@@ -1854,7 +1808,7 @@
       "https://oss-cf.cjdropshipping.com/product/2026/02/12/04/f90ff130-b52e-4d5c-8e12-ce20c2035574_trans.jpeg",
       "https://oss-cf.cjdropshipping.com/product/2026/02/12/04/d12ddcf8-58c9-478a-97c6-485ce93e053c_trans.jpeg"
     ],
-    "updated": "2026-05-12T08:00:12.187993+00:00"
+    "updated": "2026-05-12T10:00:11.343646+00:00"
   },
   {
     "id": "e5384b3ce0a7",
@@ -1875,7 +1829,23 @@
       "https://oss-cf.cjdropshipping.com/product/2026/05/06/06/efed6737-a67e-4c79-9325-cc3f0457d568_trans.jpeg",
       "https://oss-cf.cjdropshipping.com/product/2026/05/06/06/caf54947-0ddc-4aed-9e39-5e6dba6cf7c1_trans.jpeg"
     ],
-    "updated": "2026-05-12T08:00:26.038147+00:00"
+    "updated": "2026-05-12T10:00:19.872949+00:00"
+  },
+  {
+    "id": "06e487e8cd7a",
+    "pid": "2605120725471603100",
+    "vid": "",
+    "sku": "",
+    "title": "Caos Sparkling Christmas Zircon-studded Earrings",
+    "cat": "jewelry",
+    "price": 11.99,
+    "retail": 13.68,
+    "cost": 7.6,
+    "image": "https://cf.cjdropshipping.com/quick/product/845b44ef-9017-45db-9582-5222dd36a60c.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/quick/product/845b44ef-9017-45db-9582-5222dd36a60c.jpg"
+    ],
+    "updated": "2026-05-12T10:00:29.510825+00:00"
   },
   {
     "id": "dca020b9bb9c",
@@ -1896,7 +1866,7 @@
       "https://oss-cf.cjdropshipping.com/product/2026/04/25/09/ccad98d5-0a7c-4b1b-b11f-5e837cf75122_trans.jpeg",
       "https://oss-cf.cjdropshipping.com/product/2026/04/25/09/bb609bcd-5916-4db7-91b2-82c0d03455ab_trans.jpeg"
     ],
-    "updated": "2026-05-12T08:00:36.123983+00:00"
+    "updated": "2026-05-12T10:00:27.920666+00:00"
   },
   {
     "id": "2376720bdb31",
@@ -1917,7 +1887,7 @@
       "https://cf.cjdropshipping.com/quick/product/a5c8897d-01cf-4ebe-97d3-8b2f358a3ea1.jpg",
       "https://cf.cjdropshipping.com/quick/product/97ee238c-c004-4810-8acc-cb2e785aa9ea.jpg"
     ],
-    "updated": "2026-05-12T08:00:48.829406+00:00"
+    "updated": "2026-05-12T10:00:37.639195+00:00"
   },
   {
     "id": "a2b656d03cc9",
@@ -1938,7 +1908,7 @@
       "https://oss-cf.cjdropshipping.com/product/2026/05/08/07/adf05543-367c-4f96-8fc3-f0fc67e67ea6_trans.jpeg",
       "https://oss-cf.cjdropshipping.com/product/2026/05/08/07/13dae03b-3751-44c9-a2b4-9b6f1fb56ba2_trans.jpeg"
     ],
-    "updated": "2026-05-12T08:00:55.833573+00:00"
+    "updated": "2026-05-12T10:00:43.064940+00:00"
   },
   {
     "id": "69110e299e0a",
@@ -1955,26 +1925,7 @@
       "https://cf.cjdropshipping.com/4fe59297-7c41-4963-8037-9f34d31e964e.png",
       "https://cf.cjdropshipping.com/88698035-3420-423a-b74b-f2022c3dbb24.png"
     ],
-    "updated": "2026-05-12T08:00:34.132007+00:00"
-  },
-  {
-    "id": "ce3b3f3f4457",
-    "pid": "2051583724066078722",
-    "vid": "",
-    "sku": "",
-    "title": "Portable Electric Oral Irrigator",
-    "cat": "beauty",
-    "price": 10.99,
-    "retail": 12.58,
-    "cost": 6.99,
-    "image": "https://cf.cjdropshipping.com/9b298715-5250-4ed7-b1a3-0782cf70abf8.jpg",
-    "images": [
-      "https://cf.cjdropshipping.com/9b298715-5250-4ed7-b1a3-0782cf70abf8.jpg",
-      "https://cf.cjdropshipping.com/133d29e7-5c74-493d-9c31-f823390fe4e4.jpg",
-      "https://cf.cjdropshipping.com/efc8624e-6f0f-4337-8691-3fee8640aa49.jpg",
-      "https://cf.cjdropshipping.com/34ad59c8-0e74-4d11-bc8f-315dce7f8d2c.jpg"
-    ],
-    "updated": "2026-05-12T08:00:34.132228+00:00"
+    "updated": "2026-05-12T10:00:26.344667+00:00"
   },
   {
     "id": "62ec2a9579ed",
@@ -1995,13 +1946,13 @@
       "https://cf.cjdropshipping.com/22c08a7b-a7db-4184-b0e5-ae9830596339.jpg",
       "https://cf.cjdropshipping.com/3faf1915-da25-4ab2-ba16-bb25263c4777.jpg"
     ],
-    "updated": "2026-05-12T08:00:39.745945+00:00"
+    "updated": "2026-05-12T10:00:31.088893+00:00"
   },
   {
     "id": "e34669224d88",
     "pid": "2052970013275586562",
     "vid": "",
-    "sku": "CJLX287541901AZ",
+    "sku": "",
     "title": "Titanium Steel Geometric Earrings Exaggerated Heart Shape Luxury Fashion Ear Studs",
     "cat": "jewelry",
     "price": 10.99,
@@ -2015,7 +1966,39 @@
       "https://cf.cjdropshipping.com/fc53dad4-de6b-4d62-80db-345b71a60052.jpg",
       "https://cf.cjdropshipping.com/04697e2e-d29d-4e99-ac1a-a3f14443d563.jpg"
     ],
-    "updated": "2026-05-12T08:00:39.746003+00:00"
+    "updated": "2026-05-12T10:00:31.088982+00:00"
+  },
+  {
+    "id": "f92ab797e0e4",
+    "pid": "2052966443242860545",
+    "vid": "",
+    "sku": "",
+    "title": "Minimalist Light Luxury Silver Circle Ear Studs Cold Wind Versatile Daily Earrings",
+    "cat": "jewelry",
+    "price": 10.99,
+    "retail": 12.58,
+    "cost": 6.99,
+    "image": "https://cf.cjdropshipping.com/d5b4ecb6-6f29-4dbf-bb02-1d5fb1726ed9.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/d5b4ecb6-6f29-4dbf-bb02-1d5fb1726ed9.jpg"
+    ],
+    "updated": "2026-05-12T10:00:31.089024+00:00"
+  },
+  {
+    "id": "a8993d401cd3",
+    "pid": "2052967245083627522",
+    "vid": "",
+    "sku": "",
+    "title": "Colorful Shell Conch Drop Earrings Ear Cuff Beaded Earrings Bohemian Ocean Style 4Pcs Jewelry Set",
+    "cat": "jewelry",
+    "price": 10.99,
+    "retail": 12.58,
+    "cost": 6.99,
+    "image": "https://cf.cjdropshipping.com/e1052404-b10b-4c17-a0b9-3cde6592cfbd.jpg",
+    "images": [
+      "https://cf.cjdropshipping.com/e1052404-b10b-4c17-a0b9-3cde6592cfbd.jpg"
+    ],
+    "updated": "2026-05-12T10:00:31.089035+00:00"
   },
   {
     "id": "9a4c47f4b542",
@@ -2036,7 +2019,7 @@
       "https://cf.cjdropshipping.com/c014db97-b462-46fa-a743-ffb1dfd7e1d3.jpg",
       "https://cf.cjdropshipping.com/3daf9394-b1bf-406f-9238-2d9392b08508.jpg"
     ],
-    "updated": "2026-05-12T08:00:05.974855+00:00"
+    "updated": "2026-05-12T10:00:04.926923+00:00"
   },
   {
     "id": "e2410d0867f0",
@@ -2057,7 +2040,7 @@
       "https://cf.cjdropshipping.com/64f5c05b-083f-4ae8-ad32-b72e77306d34.jpg",
       "https://cf.cjdropshipping.com/8d007d5f-7e4a-4286-9dd4-3703d1c58371.png"
     ],
-    "updated": "2026-05-12T08:00:48.829489+00:00"
+    "updated": "2026-05-12T10:00:37.639219+00:00"
   },
   {
     "id": "5d651ae6efb1",
@@ -2073,7 +2056,7 @@
     "images": [
       "https://cf.cjdropshipping.com/17759520/0eb79d29-3686-433d-a6aa-de256b07c88a.jpg"
     ],
-    "updated": "2026-05-12T08:00:14.201558+00:00"
+    "updated": "2026-05-12T10:00:13.065173+00:00"
   },
   {
     "id": "e7d89ced6f71",
@@ -2094,7 +2077,7 @@
       "https://oss-cf.cjdropshipping.com/product/2026/05/10/10/dfe02f5b-44f0-4a7d-9747-81f87634432a_trans.jpeg",
       "https://oss-cf.cjdropshipping.com/product/2026/05/10/10/8df12d44-69b7-4126-893e-ba50e9d6d1a7_trans.jpeg"
     ],
-    "updated": "2026-05-12T08:00:48.829393+00:00"
+    "updated": "2026-05-12T10:00:37.639183+00:00"
   },
   {
     "id": "30878f018e56",
@@ -2110,7 +2093,7 @@
     "images": [
       "https://cf.cjdropshipping.com/17768160/56d486ee-62c9-4c1f-8367-c047d2f03a45.jpg"
     ],
-    "updated": "2026-05-12T08:00:14.201457+00:00"
+    "updated": "2026-05-12T10:00:13.065105+00:00"
   },
   {
     "id": "cf14a770df92",
@@ -2126,6 +2109,6 @@
     "images": [
       "https://cf.cjdropshipping.com/17760384/5a791c47-9afe-439c-a7f3-e6a152a1a6c5.jpg"
     ],
-    "updated": "2026-05-12T08:00:07.587755+00:00"
+    "updated": "2026-05-12T10:00:06.875249+00:00"
   }
 ]
