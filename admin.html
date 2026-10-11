@@ -311,6 +311,14 @@ const REPO      = "nahomtech09/kltuf.com";
 const FILE_PATH = "index.html";
 const IMGBB_PROXY = "https://tiny-morning-80f9.kltufllc.workers.dev/imgbb-upload";
 
+// ── SANITIZE (external feed/API data is untrusted) ────────────────────────
+function esc(v) {
+  return String(v == null ? "" : v)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+}
+let _ebayItems = [];
+
 // ── AUTH ─────────────────────────────────────────────────────────────────
 async function sha256(str) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
@@ -412,7 +420,7 @@ async function searchEbay() {
   try {
     const r = await fetch(url);
     const data = await r.json();
-    if (data.error) { results.innerHTML = `<div class="ebay-status">Error: ${data.error}</div>`; return; }
+    if (data.error) { results.innerHTML = '<div class="ebay-status">Error: ' + esc(data.error) + '</div>'; return; }
     if (!data.items?.length) { results.innerHTML = '<div class="ebay-status">No results found.</div>'; return; }
     count.textContent = `${data.items.length} results`;
     renderEbayResults(data.items);
@@ -423,23 +431,29 @@ async function searchEbay() {
 
 function renderEbayResults(items) {
   const markup = parseFloat(document.getElementById("ebay-markup").value) || 30;
-  document.getElementById("ebay-results").innerHTML = items.map(item => {
-    const yourPrice = (item.price * (1 + markup / 100)).toFixed(2);
-    const img = item.image || '';
-    const cond = item.condition || 'Used';
-    const data = JSON.stringify({title:item.title, price:yourPrice, image:img, condition:cond});
-    return `<div class="ebay-card">
-      <img src="${img}" alt="" onerror="this.style.display='none'">
-      <div class="ebay-card-body">
-        <div class="ebay-card-title">${item.title}</div>
-        <div class="ebay-card-price">eBay: $${item.price.toFixed(2)} → <span>$${yourPrice}</span></div>
-        <div class="ebay-card-cond">${cond}</div>
-        <div class="ebay-card-btns">
-          <button class="btn-import" onclick='importEbayItem(${data})'>➕ Import</button>
-          <button class="btn-fb" onclick='openFbModal(${data})'>📘 Facebook</button>
-        </div>
-      </div>
-    </div>`;
+  _ebayItems = items.map(function(item){
+    const ebayPrice = Number(item.price) || 0;
+    return {
+      title: String(item.title || ''),
+      ebayPrice: ebayPrice,
+      price: (ebayPrice * (1 + markup / 100)).toFixed(2),
+      image: item.image || '',
+      condition: item.condition || 'Used'
+    };
+  });
+  document.getElementById("ebay-results").innerHTML = _ebayItems.map(function(item, idx){
+    return '<div class="ebay-card">' +
+      '<img src="' + esc(item.image) + '" alt="" onerror="this.style.display=\'none\'">' +
+      '<div class="ebay-card-body">' +
+        '<div class="ebay-card-title">' + esc(item.title) + '</div>' +
+        '<div class="ebay-card-price">eBay: $' + item.ebayPrice.toFixed(2) + ' → <span>$' + esc(item.price) + '</span></div>' +
+        '<div class="ebay-card-cond">' + esc(item.condition) + '</div>' +
+        '<div class="ebay-card-btns">' +
+          '<button class="btn-import" data-ebay-act="import" data-ebay-idx="' + idx + '">➕ Import</button>' +
+          '<button class="btn-fb" data-ebay-act="fb" data-ebay-idx="' + idx + '">📘 Facebook</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
   }).join("");
 }
 
@@ -560,21 +574,21 @@ function renderProducts(html) {
     });
   }
   if (!products.length) { list.textContent = "No products found."; return; }
-  list.innerHTML = products.map(p => {
+  list.innerHTML = products.map(function(p){
     const state = p.oos ? "oos" : (p.sold ? "sold" : "avail");
-    return `<div class="product-row" id="row-${p.id}">
-      <img class="prod-img" src="${p.img}" onerror="this.style.background='#374151'" alt="">
-      <div class="prod-info">
-        <div class="prod-name">${p.title}</div>
-        <div class="prod-price">$${p.price}</div>
-        <div class="prod-id">ID: ${p.id}</div>
-      </div>
-      <div class="btn-group">
-        <button class="btn-status btn-avail${state==='avail'?' active':''}" onclick="setStatus('${p.id}','avail')">Available</button>
-        <button class="btn-status btn-sold${state==='sold'?' active':''}" onclick="setStatus('${p.id}','sold')">Sold Out</button>
-        <button class="btn-status btn-oos${state==='oos'?' active':''}" onclick="setStatus('${p.id}','oos')">Out of Stock</button>
-      </div>
-    </div>`;
+    return '<div class="product-row" id="row-' + esc(p.id) + '">' +
+      '<img class="prod-img" src="' + esc(p.img) + '" onerror="this.style.background=\'#374151\'" alt="">' +
+      '<div class="prod-info">' +
+        '<div class="prod-name">' + esc(p.title) + '</div>' +
+        '<div class="prod-price">$' + esc(p.price) + '</div>' +
+        '<div class="prod-id">ID: ' + esc(p.id) + '</div>' +
+      '</div>' +
+      '<div class="btn-group">' +
+        '<button class="btn-status btn-avail' + (state==='avail'?' active':'') + '" data-id="' + esc(p.id) + '" data-state="avail">Available</button>' +
+        '<button class="btn-status btn-sold' + (state==='sold'?' active':'') + '" data-id="' + esc(p.id) + '" data-state="sold">Sold Out</button>' +
+        '<button class="btn-status btn-oos' + (state==='oos'?' active':'') + '" data-id="' + esc(p.id) + '" data-state="oos">Out of Stock</button>' +
+      '</div>' +
+    '</div>';
   }).join("");
 }
 
@@ -841,6 +855,20 @@ function showMsg(elId, text, isErr) {
   el.style.display = "block";
   if (!isErr) setTimeout(() => { el.style.display = "none"; }, 5000);
 }
+
+// ── DELEGATED HANDLERS (no inline JS built from external data) ────────────
+document.getElementById("ebay-results").addEventListener("click", function(e){
+  const b = e.target.closest("[data-ebay-act]");
+  if (!b) return;
+  const item = _ebayItems[Number(b.dataset.ebayIdx)];
+  if (!item) return;
+  if (b.dataset.ebayAct === "import") importEbayItem(item);
+  else openFbModal(item);
+});
+document.getElementById("productList").addEventListener("click", function(e){
+  const b = e.target.closest("[data-state]");
+  if (b) setStatus(b.dataset.id, b.dataset.state);
+});
 </script>
 </body>
 </html>

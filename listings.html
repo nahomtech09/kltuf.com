@@ -545,13 +545,20 @@ function applyFilters() {
     document.getElementById('listingsCount').textContent = visible + (visible === 1 ? ' listing' : ' listings');
 }
 
+/* ── SANITIZE (listing/contact data is untrusted) ── */
+function esc(v) {
+    return String(v == null ? '' : v)
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
 /* ── CONTACT MODAL ── */
 function showContact(name, phone, email, title) {
     document.getElementById('modalTitle').textContent = title || 'Contact';
     var html = '';
-    if (name) html += '<div class="ci-row"><span class="ci-label">Name</span><span class="ci-val">' + name + '</span></div>';
-    if (phone) html += '<div class="ci-row"><span class="ci-label">Phone</span><span class="ci-val"><a href="tel:' + phone.replace(/\s/g,'') + '">' + phone + '</a></span></div>';
-    if (email) html += '<div class="ci-row"><span class="ci-label">Email</span><span class="ci-val"><a href="mailto:' + email + '">' + email + '</a></span></div>';
+    if (name) html += '<div class="ci-row"><span class="ci-label">Name</span><span class="ci-val">' + esc(name) + '</span></div>';
+    if (phone) html += '<div class="ci-row"><span class="ci-label">Phone</span><span class="ci-val"><a href="tel:' + esc(phone.replace(/\s/g,'')) + '">' + esc(phone) + '</a></span></div>';
+    if (email) html += '<div class="ci-row"><span class="ci-label">Email</span><span class="ci-val"><a href="mailto:' + esc(email) + '">' + esc(email) + '</a></span></div>';
     document.getElementById('modalContactInfo').innerHTML = html;
     document.getElementById('contactModal').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -562,8 +569,8 @@ function closeContactModal() {
 }
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeContactModal(); });
 
-/* ── IMGBB PHOTO UPLOAD ── */
-var imgbbKey = 'da46f7358cc3f9970f8199924f237e22';
+/* ── IMGBB PHOTO UPLOAD (key kept server-side in Cloudflare Worker) ── */
+var IMGBB_PROXY = 'https://tiny-morning-80f9.kltufllc.workers.dev/imgbb-upload';
 var listingUploadedUrls = [];
 
 function uploadListingPhotos(input) {
@@ -597,10 +604,9 @@ function uploadListingPhotos(input) {
         reader.onload = function(e) {
             var b64 = e.target.result.split(',')[1];
             var body = new FormData();
-            body.append('key', imgbbKey);
             body.append('image', b64);
             body.append('name', file.name);
-            fetch('https://api.imgbb.com/1/upload', { method: 'POST', body: body })
+            fetch(IMGBB_PROXY, { method: 'POST', body: body })
                 .then(function(r){ return r.json(); })
                 .then(function(data) {
                     if (data.success) {

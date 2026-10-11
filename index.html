@@ -1239,6 +1239,14 @@
     ethiopian: 'Ethiopian Habesha'
   };
 
+  /* ── SANITIZE HELPER (product feeds are untrusted) ── */
+  function esc(v) {
+    return String(v == null ? '' : v)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  const productById = {};
+
   /* ── PRODUCTS ─────────────────────────────────────── */
   let allProducts = [];
   let currentCategory = 'all';
@@ -1247,6 +1255,7 @@
     try {
       const res = await fetch('/printful-products.json');
       allProducts = await res.json();
+      allProducts.forEach(function(p){ if (p && p.id) productById[p.id] = p; });
       renderCategoryTiles();
       renderProducts();
       document.getElementById('productsLoading').style.display = 'none';
@@ -1276,25 +1285,27 @@
     grid.innerHTML = filtered.map(p => {
       const front = p.images && p.images[0] ? p.images[0] : p.image;
       const back = p.images && p.images[1] ? p.images[1] : front;
-      const sizes = (p.variants || []).map(v => `<option value="${v.id}">${v.title}</option>`).join('');
+      const sizes = (p.variants || []).map(v => `<option value="${esc(v.id)}">${esc(v.title)}</option>`).join('');
       const design = DESIGN_LABELS[p.design] || '';
       const gender = p.gender ? p.gender.charAt(0).toUpperCase()+p.gender.slice(1) : '';
-      const titleSafe = p.title.replace(/'/g, "\\'");
+      const title = String(p.title || '').replace(/^(Women's|Men's|Unisex)\s/, '');
       const isPremium = p.design === 'royal';
+      const price = Number(p.price) || 0;
+      const selectId = 'sz-' + p.id;
       return `
         <div class="product-card">
           ${isPremium ? '<div class="product-tag gold">Royal</div>' : ''}
           <div class="img-wrap">
-            <img class="front" src="${front}" alt="${p.title}" loading="lazy"/>
-            <img class="back" src="${back}" alt="" loading="lazy"/>
+            <img class="front" src="${esc(front)}" alt="${esc(title)}" loading="lazy"/>
+            <img class="back" src="${esc(back)}" alt="" loading="lazy"/>
           </div>
           <div class="product-info">
-            <div class="product-design">${design} · ${gender}</div>
-            <div class="product-title">${p.title.replace(/^(Women's|Men's|Unisex)\s/, '')}</div>
-            <div class="product-price">$${p.price.toFixed(2)}</div>
+            <div class="product-design">${esc(design)} · ${esc(gender)}</div>
+            <div class="product-title">${esc(title)}</div>
+            <div class="product-price">$${price.toFixed(2)}</div>
             <div class="product-actions">
-              <select class="size-select" id="sz-${p.id}">${sizes}</select>
-              <button class="btn-add" onclick="addPrintifyToCart('${p.id}','${titleSafe}',${p.price},'${front}','${p.printify_id}','${p.shipping_origin}','${p.shipping_days}','sz-${p.id}')">Add</button>
+              <select class="size-select" id="${esc(selectId)}">${sizes}</select>
+              <button class="btn-add" data-add="${esc(p.id)}" data-size="${esc(selectId)}">Add</button>
             </div>
           </div>
         </div>`;
@@ -1318,7 +1329,7 @@
       const count = filtered.length;
       return `
         <a href="#shop" class="cat-tile" onclick="setCategory('${t.key}'); return true;">
-          <div class="cat-tile-bg">${img ? `<img src="${img}" alt="${t.name}" loading="lazy"/>` : `<div style="font-family:var(--fidel); font-size:5rem; color:var(--gold); opacity:0.6;">${t.fidel}</div>`}</div>
+          <div class="cat-tile-bg">${img ? `<img src="${esc(img)}" alt="${esc(t.name)}" loading="lazy"/>` : `<div style="font-family:var(--fidel); font-size:5rem; color:var(--gold); opacity:0.6;">${esc(t.fidel)}</div>`}</div>
           <div class="cat-tile-label">
             <div class="name">${t.name}</div>
             <div class="count">${count} ${count===1?'piece':'pieces'}</div>
@@ -1350,26 +1361,36 @@
   let cart = JSON.parse(localStorage.getItem('kltuf_cart') || '[]');
   function saveCart() { localStorage.setItem('kltuf_cart', JSON.stringify(cart)); }
 
-  function addPrintifyToCart(productId, title, price, img, printifyId, shipOrigin, shipDays, sizeSelectId) {
+  function addPrintifyToCart(btn, productId, sizeSelectId) {
+    const p = productById[productId];
+    if (!p) return;
     const select = document.getElementById(sizeSelectId);
-    const variantId = select.value;
-    const sizeLabel = select.options[select.selectedIndex].text;
+    if (select && !select.value) {
+      select.style.border = '1.5px solid #e53e3e';
+      setTimeout(function(){ select.style.border = ''; }, 2000);
+      return;
+    }
+    const variantId = select ? select.value : '';
+    const sizeLabel = select ? select.options[select.selectedIndex].text : '';
     const fullId = productId + '-' + variantId;
-    const fullTitle = title + ' (Size ' + sizeLabel + ')';
-    const existing = cart.find(i => i.id === fullId);
+    const fullTitle = p.title + (sizeLabel ? ' (Size ' + sizeLabel + ')' : '');
+    const price = Number(p.price) || 0;
+    const img = (p.images && p.images[0]) ? p.images[0] : p.image;
+    const existing = cart.find(function(i){ return i.id === fullId; });
     if (existing) existing.qty += 1;
     else cart.push({
       id: fullId, title: fullTitle, price, img, qty: 1,
-      pid: printifyId, vid: variantId, source: 'printify',
+      pid: p.printify_id, vid: variantId, source: 'printify',
       printify_shop_id: '27424239',
-      shipping_origin: shipOrigin, shipping_days: shipDays
+      shipping_origin: p.shipping_origin, shipping_days: p.shipping_days
     });
     saveCart();
     updateCartUI();
-    const btn = event.target;
-    btn.textContent = '✓ Added';
-    btn.classList.add('added');
-    setTimeout(() => { btn.textContent = 'Add'; btn.classList.remove('added'); }, 1500);
+    if (btn) {
+      btn.textContent = '✓ Added';
+      btn.classList.add('added');
+      setTimeout(function(){ btn.textContent = 'Add'; btn.classList.remove('added'); }, 1500);
+    }
     openCart();
   }
 
@@ -1407,20 +1428,20 @@
       return;
     }
 
-    itemsEl.innerHTML = cart.map(i => `
-      <div class="cart-item">
-        <img src="${i.img}" alt="${i.title}" onerror="this.style.display='none'"/>
-        <div class="ci-info">
-          <div class="ci-title">${i.title}</div>
-          <div class="ci-price">$${(i.price * i.qty).toFixed(2)}</div>
-          <div class="ci-qty">
-            <button onclick="changeQty('${i.id}',-1)">−</button>
-            <span>${i.qty}</span>
-            <button onclick="changeQty('${i.id}',1)">+</button>
-          </div>
-          <button class="ci-remove" onclick="removeFromCart('${i.id}')">Remove</button>
-        </div>
-      </div>`).join('');
+    itemsEl.innerHTML = cart.map(function(i){
+      return '<div class="cart-item">' +
+        '<img src="' + esc(i.img) + '" alt="' + esc(i.title) + '" onerror="this.style.display=\'none\'"/>' +
+        '<div class="ci-info">' +
+          '<div class="ci-title">' + esc(i.title) + '</div>' +
+          '<div class="ci-price">$' + (i.price * i.qty).toFixed(2) + '</div>' +
+          '<div class="ci-qty">' +
+            '<button data-qty="' + esc(i.id) + '" data-delta="-1">−</button>' +
+            '<span>' + i.qty + '</span>' +
+            '<button data-qty="' + esc(i.id) + '" data-delta="1">+</button>' +
+          '</div>' +
+          '<button class="ci-remove" data-remove="' + esc(i.id) + '">Remove</button>' +
+        '</div></div>';
+    }).join('');
 
     // Shipping summary based on items
     const hasUSA = cart.some(i => i.shipping_origin === 'USA');
@@ -1537,6 +1558,18 @@
   /* ── MOBILE NAV ───────────────────────────────────── */
   function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); }
   function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
+
+  /* ── EVENT DELEGATION (no inline JS strings) ──────── */
+  document.getElementById('productsGrid').addEventListener('click', function(e){
+    const b = e.target.closest('.btn-add');
+    if (b) addPrintifyToCart(b, b.dataset.add, b.dataset.size);
+  });
+  document.getElementById('cartItems').addEventListener('click', function(e){
+    const q = e.target.closest('[data-qty]');
+    if (q) { changeQty(q.dataset.qty, Number(q.dataset.delta)); return; }
+    const r = e.target.closest('[data-remove]');
+    if (r) removeFromCart(r.dataset.remove);
+  });
 
   /* ── INIT ─────────────────────────────────────────── */
   loadProducts();

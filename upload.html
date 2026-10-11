@@ -231,7 +231,7 @@
 </div>
 
 <script>
-    const PASS = 'kltuf2026';
+    const PASS_HASH = 'a9f3736ee18147d8ac8210d45a250b24c98211432e95f0b04d8e168c51f3921e';
     const IMGBB_PROXY = 'https://tiny-morning-80f9.kltufllc.workers.dev/imgbb-upload';
     const FORMSPREE = 'https://formspree.io/f/xojyejgd';
 
@@ -239,9 +239,11 @@
     let uploadedUrls = [];
 
     // ── UNLOCK ──
-    function unlock() {
+    async function unlock() {
         const val = document.getElementById('passwordInput').value;
-        if (val === PASS) {
+        const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(val));
+        const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+        if (hash === PASS_HASH) {
             document.getElementById('lockScreen').style.display = 'none';
             document.getElementById('uploadScreen').style.display = 'block';
         } else {
