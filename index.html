@@ -409,6 +409,7 @@
   .product-card:hover .img-wrap img.front { opacity: 0; }
   .product-card:hover .img-wrap img.back { opacity: 1; transform: scale(1.04); }
   .product-card .img-wrap img.back { position: absolute; inset:0; opacity: 0; }
+  .product-card .img-link { display:block; width:100%; height:100%; }
 
   .product-tag {
     position: absolute;
@@ -1140,12 +1141,14 @@
         <div class="product-card">
           ${badge}
           <div class="img-wrap">
-            <img class="front" src="${esc(front)}" alt="${esc(title)}" loading="lazy"/>
-            <img class="back" src="${esc(back)}" alt="" loading="lazy"/>
+            <a class="img-link" href="products/${esc(p.id)}.html" aria-label="${esc(title)}">
+              <img class="front" src="${esc(front)}" alt="${esc(title)}" loading="lazy"/>
+              <img class="back" src="${esc(back)}" alt="" loading="lazy"/>
+            </a>
           </div>
           <div class="product-info">
             <div class="product-design">${esc(garment)}${gender ? ' · ' + esc(gender) : ''}</div>
-            <div class="product-title">${esc(title)}</div>
+            <div class="product-title"><a href="products/${esc(p.id)}.html">${esc(title)}</a></div>
             <div class="product-price">$${price.toFixed(2)}</div>
             <div class="product-actions">
               <select class="size-select" id="${esc(selectId)}">${sizes}</select>
@@ -1416,6 +1419,11 @@
   /* ── INIT ─────────────────────────────────────────── */
   loadProducts();
   updateCartUI();
+
+  // Open the cart if we arrived from a product page (?cart=1)
+  if (window.location.search.indexOf('cart=1') !== -1) {
+    setTimeout(openCart, 150);
+  }
 </script>
 
 <!-- JSON-LD Structured Data -->
