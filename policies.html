@@ -3,66 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Policies — KLTUF Store</title>
-    <meta name="description" content="KLTUF Store privacy policy, terms of service, refund policy, and shipping policy.">
+    <title>Policies — kltuf</title>
+    <meta name="description" content="kltuf privacy policy, terms of service, refund policy, and shipping policy.">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #111827; color: #d1d5db; }
+        :root {
+            --cream:#FAF6E8; --snow:#FCFAF4; --ink:#1A1A1A; --charcoal:#5C5C5C;
+            --gold:#D4A82C; --gold-dark:#B8901E; --crimson:#B91D1D; --border:#D8D2C0; --royal:#0E0E0E; --forest:#2D5530;
+            --serif:'Cormorant Garamond', Georgia, serif; --sans:'Inter', system-ui, sans-serif;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:var(--sans); background:var(--cream); color:var(--ink); line-height:1.6; }
+        a { color:var(--gold-dark); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+
         header {
-            background: #111827;
-            border-bottom: 2px solid #f0c040;
-            padding: 14px 28px;
-            display: flex; align-items: center; gap: 14px;
+            background:var(--snow); border-bottom:1px solid var(--border);
+            padding:16px 28px; display:flex; align-items:center; justify-content:space-between;
+            position:sticky; top:0; z-index:10;
         }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-icon {
-            width: 38px; height: 38px;
-            background: linear-gradient(135deg, #b8860b, #f0c040);
-            border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-            color: #111; font-size: 18px; font-weight: 900;
-        }
-        .logo-text { font-size: 18px; font-weight: 800; color: #f0c040; letter-spacing: 3px; }
-        .back { margin-left: auto; color: #f0c040; text-decoration: none; font-size: 0.9rem; }
-        .back:hover { text-decoration: underline; }
+        .logo { font-family:var(--serif); font-size:1.7rem; font-weight:600; letter-spacing:-0.5px; color:var(--ink); }
+        .back { font-size:0.78rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--charcoal); font-weight:500; }
+        .back:hover { color:var(--gold-dark); text-decoration:none; }
 
-        /* TOC */
-        .toc {
-            background: #1f2937; border: 1px solid #374151;
-            border-radius: 10px; padding: 20px 24px;
-            margin-bottom: 40px;
-        }
-        .toc h3 { color: #f0c040; font-size: 0.85rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
-        .toc ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 24px; }
-        .toc ul li a { color: #93c5fd; font-size: 0.85rem; text-decoration: none; }
-        .toc ul li a:hover { text-decoration: underline; }
+        main { max-width:760px; margin:40px auto; padding:0 24px 60px; }
+        h1 { font-family:var(--serif); color:var(--ink); font-size:2.2rem; font-weight:600; margin-bottom:8px; }
+        .updated { font-size:0.82rem; color:var(--charcoal); margin-bottom:30px; }
+        section { margin-bottom:44px; scroll-margin-top:80px; }
+        h2 { font-family:var(--serif); color:var(--ink); font-size:1.5rem; font-weight:600; margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+        h3 { color:var(--ink); font-size:0.95rem; font-weight:600; margin:18px 0 8px; }
+        p { line-height:1.75; margin-bottom:12px; font-size:0.93rem; color:var(--charcoal); }
+        ul { padding-left:20px; margin-bottom:12px; }
+        li { line-height:1.75; font-size:0.93rem; margin-bottom:4px; color:var(--charcoal); }
+        strong { color:var(--ink); }
 
-        main { max-width: 760px; margin: 40px auto; padding: 0 24px 60px; }
-        h1 { color: #f0c040; font-size: 1.6rem; margin-bottom: 8px; }
-        .updated { font-size: 0.82rem; color: #888; margin-bottom: 30px; }
-        section { margin-bottom: 44px; scroll-margin-top: 80px; }
-        h2 { color: #f0c040; font-size: 1.15rem; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #374151; }
-        h3 { color: #e5e7eb; font-size: 0.95rem; font-weight: 700; margin: 18px 0 8px; }
-        p { line-height: 1.75; margin-bottom: 12px; font-size: 0.93rem; }
-        ul { padding-left: 20px; margin-bottom: 12px; }
-        li { line-height: 1.75; font-size: 0.93rem; margin-bottom: 4px; }
+        .toc { background:var(--snow); border:1px solid var(--border); border-radius:12px; padding:20px 24px; margin-bottom:40px; }
+        .toc h3 { color:var(--gold-dark); font-size:0.78rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin:0 0 14px; }
+        .toc ul { list-style:none; display:flex; flex-wrap:wrap; gap:10px 24px; padding:0; }
+        .toc ul li a { font-size:0.88rem; }
+
         .highlight-box {
-            background: #1f2937; border-left: 3px solid #f0c040;
-            padding: 14px 18px; border-radius: 0 8px 8px 0;
-            margin: 16px 0; font-size: 0.88rem;
+            background:var(--snow); border-left:3px solid var(--gold);
+            padding:14px 18px; border-radius:0 8px 8px 0; margin:16px 0; font-size:0.88rem;
+            color:var(--charcoal);
         }
-        footer { text-align: center; padding: 20px; border-top: 1px solid #374151; color: #555; font-size: 0.82rem; }
-        a { color: #f0c040; }
+
+        footer { background:var(--royal); color:rgba(250,246,232,0.6); text-align:center; padding:26px; font-size:0.8rem; }
+        footer a { color:var(--gold); }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="index.html" class="logo">
-        <div class="logo-icon">K</div>
-        <span class="logo-text">KLTUF</span>
-    </a>
-    <a href="index.html" class="back">← Back to Store</a>
+    <a href="index.html" class="logo">kltuf</a>
+    <a href="index.html" class="back">← Back to store</a>
 </header>
 
 <main>
@@ -70,7 +63,7 @@
     <p class="updated">Last updated: April 2026 &nbsp;·&nbsp; Governing jurisdiction: State of Maryland, USA &nbsp;·&nbsp; Contact: <a href="mailto:kltufllc@gmail.com">kltufllc@gmail.com</a></p>
 
     <div class="toc">
-        <h3>Jump To</h3>
+        <h3>Jump to</h3>
         <ul>
             <li><a href="#privacy">Privacy Policy</a></li>
             <li><a href="#terms">Terms of Service</a></li>
@@ -82,7 +75,7 @@
     <!-- PRIVACY POLICY -->
     <section id="privacy">
         <h2>Privacy Policy</h2>
-        <p>KLTUF Store ("we", "us", "our") is committed to protecting your privacy. This policy explains what information we collect, how we use it, and your rights.</p>
+        <p>kltuf ("we", "us", "our") is committed to protecting your privacy. This policy explains what information we collect, how we use it, and your rights.</p>
 
         <h3>Information We Collect</h3>
         <ul>
@@ -100,8 +93,8 @@
 
         <h3>Third-Party Services</h3>
         <ul>
-            <li><strong>Stripe</strong> — payment processing. Subject to <a href="https://stripe.com/privacy" target="_blank">Stripe's Privacy Policy</a>.</li>
-            <li><strong>PayPal</strong> — payment processing. Subject to <a href="https://www.paypal.com/us/legalhub/privacy-full" target="_blank">PayPal's Privacy Policy</a>.</li>
+            <li><strong>Stripe</strong> — payment processing. Subject to <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe's Privacy Policy</a>.</li>
+            <li><strong>PayPal</strong> — payment processing. Subject to <a href="https://www.paypal.com/us/legalhub/privacy-full" target="_blank" rel="noopener">PayPal's Privacy Policy</a>.</li>
             <li><strong>Formspree</strong> — form submission handling. Submissions are forwarded to our email.</li>
             <li><strong>ImgBB</strong> — image hosting for product photos.</li>
         </ul>
@@ -113,7 +106,7 @@
         <p>Contact and order data is retained only as long as needed to respond to your inquiry or fulfill your order. You may request deletion of your data at any time by emailing <a href="mailto:kltufllc@gmail.com">kltufllc@gmail.com</a>.</p>
 
         <h3>Children's Privacy</h3>
-        <p>KLTUF Store is not directed to children under 13. We do not knowingly collect personal information from children. If you believe a child has submitted personal information, contact us immediately.</p>
+        <p>kltuf is not directed to children under 13. We do not knowingly collect personal information from children. If you believe a child has submitted personal information, contact us immediately.</p>
     </section>
 
     <!-- TERMS OF SERVICE -->
@@ -123,22 +116,22 @@
 
         <h3>Use of the Site</h3>
         <ul>
-            <li>You must be at least 18 years old to make a purchase or submit a listing.</li>
+            <li>You must be at least 18 years old to make a purchase.</li>
             <li>You agree to use the site for lawful purposes only.</li>
             <li>You may not attempt to hack, scrape, or disrupt the operation of kltuf.com.</li>
         </ul>
 
         <h3>Our Role</h3>
-        <p>KLTUF sells its own products directly to buyers. We are the seller of record for every item offered on kltuf.com and handle all sales, payment, and fulfillment ourselves. Some products are produced to order by our printing and fulfillment partners.</p>
+        <p>kltuf sells its own products directly to buyers. We are the seller of record for every item offered on kltuf.com and handle all sales, payment, and fulfillment ourselves. Some products are produced to order by our printing and fulfillment partners.</p>
 
         <h3>Payments</h3>
         <ul>
             <li><strong>Card &amp; Apple Pay</strong> — processed securely by Stripe. Subject to Stripe's Terms of Service.</li>
-            <li><strong>PayPal</strong> — processed via PayPal Checkout. Subject to PayPal's User Agreement.</li>
-            <li><strong>Zelle / Venmo</strong> — direct bank transfers. Include the item name in your payment note.</li>
+            <li><strong>PayPal</strong> — processed via PayPal. Subject to PayPal's User Agreement.</li>
+            <li><strong>Zelle</strong> — direct bank transfer. Include the order note shown at checkout.</li>
         </ul>
 
-        <h3>Listings &amp; Accuracy</h3>
+        <h3>Product Accuracy</h3>
         <ul>
             <li>We aim to describe every product accurately. Colors and print placement may vary slightly due to screen settings and the print-on-demand process.</li>
             <li>We reserve the right to refuse, edit, or remove any product at our sole discretion.</li>
@@ -146,18 +139,18 @@
         </ul>
 
         <h3>Prohibited Items</h3>
-        <p>The following may not be listed or sold on KLTUF Store:</p>
+        <p>The following may not be sold on kltuf:</p>
         <ul>
             <li>Counterfeit, stolen, or illegal goods</li>
             <li>Weapons, firearms, or ammunition</li>
             <li>Controlled substances or drug paraphernalia</li>
-            <li>Adult content or items inappropriate for a general marketplace</li>
+            <li>Adult content or items inappropriate for a general store</li>
             <li>Items that infringe on intellectual property rights</li>
         </ul>
 
         <h3>Limitation of Liability</h3>
         <div class="highlight-box">
-            To the maximum extent permitted by law, KLTUF Store and its owners shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the site, any transaction conducted through the site, or any dispute between buyer and seller. Our total liability for any claim shall not exceed the amount paid for the specific transaction in question.
+            To the maximum extent permitted by law, kltuf and its owners shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the site or any transaction conducted through the site. Our total liability for any claim shall not exceed the amount paid for the specific transaction in question.
         </div>
 
         <h3>Disclaimer of Warranties</h3>
@@ -191,7 +184,7 @@
 
         <h3>How to Request a Refund</h3>
         <p>Email <a href="mailto:kltufllc@gmail.com">kltufllc@gmail.com</a> with your name, the item purchased, date of purchase, and reason for the refund request. Include photos if applicable.</p>
-        <p>Approved refunds are issued via the same payment method used for purchase (Stripe/PayPal/Zelle/Venmo) within <strong>3 business days</strong> of approval.</p>
+        <p>Approved refunds are issued via the same payment method used for purchase (Stripe/PayPal/Zelle) within <strong>3 business days</strong> of approval.</p>
     </section>
 
     <!-- SHIPPING POLICY -->
@@ -212,11 +205,11 @@
         <ul>
             <li>Shipping costs are calculated based on item weight, dimensions, and destination.</li>
             <li>Free shipping on orders over <strong>$75</strong> (continental US only).</li>
-            <li>Buyer pays shipping on orders under $75 unless otherwise stated in the listing.</li>
+            <li>Buyer pays shipping on orders under $75 unless otherwise stated on the product page.</li>
         </ul>
 
         <h3>Local Pickup</h3>
-        <p>Local pickup is available for select items. If a listing offers local pickup, you will coordinate directly with us via email after purchase.</p>
+        <p>Local pickup is available for select items. If a product offers local pickup, you will coordinate directly with us via email after purchase.</p>
 
         <h3>Lost or Delayed Packages</h3>
         <p>If your package is delayed beyond the estimated window or shows as lost by the carrier, contact us at <a href="mailto:kltufllc@gmail.com">kltufllc@gmail.com</a>. We will file a carrier claim and issue a replacement or refund if the package is confirmed lost.</p>
@@ -228,7 +221,7 @@
 </main>
 
 <footer>
-    © 2026 KLTUF Store · kltuf.com · <a href="mailto:kltufllc@gmail.com">kltufllc@gmail.com</a>
+    © 2026 kltuf · kltuf.com · <a href="mailto:kltufllc@gmail.com">kltufllc@gmail.com</a>
 </footer>
 
 </body>
