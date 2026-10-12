@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>kltuf — Add a product</title>
+<style>
+  :root { --cream:#FAF6E8; --snow:#FCFAF4; --ink:#1A1A1A; --charcoal:#5C5C5C; --gold:#D4A82C; --gold-dark:#B8901E; --border:#D8D2C0; --forest:#2D5530; --crimson:#B91D1D; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',system-ui,sans-serif; background:var(--cream); color:var(--ink); min-height:100vh; }
+  header { background:var(--snow); border-bottom:1px solid var(--border); padding:16px 24px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; }
+  header .logo { font-family:'Cormorant Garamond',Georgia,serif; font-size:1.6rem; font-weight:600; }
+  header a { font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:var(--charcoal); text-decoration:none; }
+  .wrap { max-width:640px; margin:32px auto 80px; padding:0 20px; }
+  .card { background:var(--snow); border:1px solid var(--border); border-radius:14px; padding:26px 24px; margin-bottom:18px; }
+  h1 { font-family:'Cormorant Garamond',Georgia,serif; font-size:2rem; font-weight:600; margin-bottom:6px; }
+  .sub { color:var(--charcoal); font-size:0.92rem; margin-bottom:22px; }
+  label { display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--charcoal); margin:16px 0 6px; }
+  input, select, textarea { width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:9px; font-family:inherit; font-size:0.95rem; background:#fff; color:var(--ink); outline:none; }
+  input:focus, select:focus, textarea:focus { border-color:var(--gold); }
+  textarea { resize:vertical; min-height:90px; }
+  .row2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:520px){ .row2{grid-template-columns:1fr;} }
+  .drop { border:2px dashed var(--border); border-radius:12px; padding:24px; text-align:center; cursor:pointer; background:#fff; position:relative; }
+  .drop:hover { border-color:var(--gold); }
+  .drop input { position:absolute; inset:0; opacity:0; cursor:pointer; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .thumbs img { width:66px; height:66px; object-fit:cover; border-radius:8px; border:1px solid var(--border); }
+  button.primary { width:100%; padding:15px; background:var(--ink); color:var(--cream); border:none; border-radius:10px; font-size:0.85rem; letter-spacing:2px; text-transform:uppercase; font-weight:600; cursor:pointer; margin-top:20px; }
+  button.primary:hover { background:var(--forest); }
+  button.primary:disabled { opacity:0.5; cursor:not-allowed; }
+  .status { margin-top:12px; font-size:0.88rem; min-height:20px; }
+  .err { color:var(--crimson); }
+  .ok { color:var(--forest); }
+  .note { font-size:0.8rem; color:var(--charcoal); margin-top:10px; }
+  .hide { display:none; }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="logo">kltuf</span>
+  <a href="/">← View store</a>
+</header>
+
+<div class="wrap">
+
+  <!-- PASSWORD GATE -->
+  <div class="card" id="gate">
+    <h1>Add a product</h1>
+    <p class="sub">Enter your staff passcode to continue.</p>
+    <label for="pw">Passcode</label>
+    <input type="password" id="pw" placeholder="••••••" autocomplete="current-password">
+    <button class="primary" onclick="unlock()">Unlock</button>
+    <div class="status err" id="gateErr"></div>
+  </div>
+
+  <!-- FORM -->
+  <div id="formWrap" class="hide">
+    <div class="card">
+      <h1>New product</h1>
+      <p class="sub">Photos are hosted for you; the product is added to the store instantly.</p>
+
+      <label>Photos (up to 5)</label>
+      <div class="drop">
+        <input type="file" id="photos" accept="image/*" multiple onchange="uploadPhotos(this)">
+        <div>📷 Tap to choose photos</div>
+        <div class="note">First photo is the main image.</div>
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+
+      <label for="title">Product title *</label>
+      <input type="text" id="title" placeholder="e.g. Women's Eritrean Dress" maxlength="100">
+
+      <div class="row2">
+        <div>
+          <label for="price">Price (USD) *</label>
+          <input type="number" id="price" min="1" step="0.01" placeholder="49.99">
+        </div>
+        <div>
+          <label for="gender">Who's it for</label>
+          <select id="gender">
+            <option value="women">Women</option>
+            <option value="men">Men</option>
+            <option value="unisex">Unisex</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="garment">Category (type of clothing) *</label>
+      <select id="garment">
+        <option value="">Select…</option>
+        <option>Dress</option>
+        <option>T-Shirt</option>
+        <option>Crop Tee</option>
+        <option>Long Sleeve Shirt</option>
+        <option>Long Sleeve V-Neck Shirt</option>
+        <option>Cut &amp; Sew Tee</option>
+        <option>Hoodie</option>
+        <option>Pullover Hoodie</option>
+        <option>Fashion Hoodie</option>
+        <option>Crewneck Sweatshirt</option>
+        <option>Sweatshirt</option>
+        <option>Other</option>
+      </select>
+
+      <label for="sizes">Sizes (comma-separated, optional)</label>
+      <input type="text" id="sizes" placeholder="S, M, L, XL (leave blank for One Size)">
+
+      <label for="badge">Badge (optional)</label>
+      <input type="text" id="badge" placeholder="e.g. New, Limited" maxlength="16">
+
+      <label for="desc">Description (optional)</label>
+      <textarea id="desc" placeholder="Fabric, fit, care, inspiration…"></textarea>
+
+      <button class="primary" id="submitBtn" onclick="submitProduct()">Add product to store</button>
+      <div class="status" id="status"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const WORKER = 'https://tiny-morning-80f9.kltufllc.workers.dev';
+  let photoUrls = [];
+  let passcode = sessionStorage.getItem('kltuf_admin_pass') || '';
+
+  function unlock() {
+    passcode = document.getElementById('pw').value.trim();
+    if (!passcode) { document.getElementById('gateErr').textContent = 'Enter your passcode.'; return; }
+    sessionStorage.setItem('kltuf_admin_pass', passcode);
+    document.getElementById('gate').classList.add('hide');
+    document.getElementById('formWrap').classList.remove('hide');
+  }
+  // Auto-unlock within the same session
+  if (passcode) { document.getElementById('gate').classList.add('hide'); document.getElementById('formWrap').classList.remove('hide'); }
+
+  function esc(v){ return String(v==null?'':v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  async function uploadPhotos(input) {
+    const files = Array.from(input.files).slice(0, 5);
+    if (!files.length) return;
+    const thumbs = document.getElementById('thumbs');
+    thumbs.innerHTML = '';
+    photoUrls = [];
+    const status = document.getElementById('status');
+    status.className = 'status';
+    status.textContent = 'Uploading ' + files.length + ' photo(s)…';
+    for (const file of files) {
+      if (!file.type.startsWith('image/')) continue;
+      const fd = new FormData();
+      fd.append('image', file);
+      fd.append('name', file.name);
+      try {
+        const r = await fetch(WORKER + '/imgbb-upload', { method: 'POST', body: fd });
+        const d = await r.json();
+        if (d && d.success && d.data && d.data.url) {
+          photoUrls.push(d.data.url);
+          const img = document.createElement('img');
+          img.src = (d.data.thumb && d.data.thumb.url) ? d.data.thumb.url : d.data.url;
+          thumbs.appendChild(img);
+        }
+      } catch(e) {}
+    }
+    status.className = photoUrls.length ? 'status ok' : 'status err';
+    status.textContent = photoUrls.length ? ('✓ ' + photoUrls.length + ' photo(s) ready') : 'Upload failed — try again.';
+  }
+
+  async function submitProduct() {
+    const btn = document.getElementById('submitBtn');
+    const status = document.getElementById('status');
+    const title = document.getElementById('title').value.trim();
+    const price = parseFloat(document.getElementById('price').value);
+    const garment = document.getElementById('garment').value;
+    const gender = document.getElementById('gender').value;
+    const sizes = document.getElementById('sizes').value.split(',').map(s => s.trim()).filter(Boolean);
+    const badge = document.getElementById('badge').value.trim();
+    const description = document.getElementById('desc').value.trim();
+
+    status.className = 'status err';
+    if (!title)            { status.textContent = 'Enter a title.'; return; }
+    if (!price || price < 1) { status.textContent = 'Enter a valid price.'; return; }
+    if (!garment)          { status.textContent = 'Pick a category.'; return; }
+    if (!photoUrls.length) { status.textContent = 'Add at least one photo.'; return; }
+
+    btn.disabled = true; btn.textContent = 'Adding…';
+    status.className = 'status';
+    status.textContent = 'Saving…';
+
+    try {
+      const r = await fetch(WORKER + '/admin/add-product', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-admin-pass': passcode },
+        body: JSON.stringify({ title, price, garment, gender, sizes, badge, description, images: photoUrls })
+      });
+      const d = await r.json();
+      if (r.ok && d.ok) {
+        status.className = 'status ok';
+        status.textContent = '✓ Added! It will appear on the store within ~1 minute.';
+        document.getElementById('title').value = '';
+        document.getElementById('price').value = '';
+        document.getElementById('badge').value = '';
+        document.getElementById('desc').value = '';
+        photoUrls = [];
+        document.getElementById('thumbs').innerHTML = '';
+      } else {
+        status.className = 'status err';
+        status.textContent = 'Error: ' + (d.error || r.status);
+        if (r.status === 401) { sessionStorage.removeItem('kltuf_admin_pass'); passcode=''; document.getElementById('formWrap').classList.add('hide'); document.getElementById('gate').classList.remove('hide'); }
+      }
+    } catch(e) {
+      status.className = 'status err';
+      status.textContent = 'Connection error. Try again.';
+    }
+    btn.disabled = false; btn.textContent = 'Add product to store';
+  }
+</script>
+</body>
+</html>
