@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /manage.html
+Disallow: /sell.html
 
 Sitemap: https://kltuf.com/sitemap.xml

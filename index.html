@@ -42,7 +42,6 @@
     --forest: #2D5530;
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --fidel: 'Noto Sans Ethiopic', 'Inter', sans-serif;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; }
@@ -57,8 +56,6 @@
   img { max-width:100%; display:block; }
   a { color: inherit; text-decoration: none; }
   button { font-family: inherit; cursor: pointer; border: none; background: none; }
-  .fidel { font-family: var(--fidel); }
-  .serif { font-family: var(--serif); }
   .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
   @media (max-width: 640px) { .container { padding: 0 20px; } }
 
@@ -99,13 +96,6 @@
     font-weight: 600;
     letter-spacing: -1px;
     color: var(--ink);
-  }
-  .logo small {
-    font-family: var(--fidel);
-    font-size: 0.9rem;
-    color: var(--gold);
-    margin-left: 6px;
-    font-weight: 400;
   }
   .nav-main {
     display: flex;
@@ -209,20 +199,13 @@
     padding: 80px 32px;
   }
   .hero-eyebrow {
-    font-family: var(--fidel);
-    color: var(--gold-dark);
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin-bottom: 24px;
-    letter-spacing: 2px;
-  }
-  .hero-eyebrow .en {
     font-family: var(--sans);
+    color: var(--gold-dark);
+    font-size: 0.8rem;
+    font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.78rem;
+    margin-bottom: 24px;
     letter-spacing: 3px;
-    margin-left: 10px;
-    color: var(--charcoal);
   }
   .hero h1 {
     font-family: var(--serif);
@@ -535,7 +518,7 @@
     opacity: 0.5;
   }
   .story-img-symbol {
-    font-family: var(--fidel);
+    font-family: var(--serif);
     font-size: 8rem;
     color: var(--gold-dark);
     opacity: 0.7;
@@ -561,84 +544,6 @@
     font-size: 1.4rem;
     color: var(--ink);
     margin-top: 28px;
-  }
-
-  /* ── CULTURAL CALENDAR ─────────────────────────────── */
-  .calendar-section {
-    background:
-      linear-gradient(135deg, var(--royal) 0%, #1a1a1a 100%);
-    color: var(--cream);
-    padding: 80px 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .calendar-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(45deg,
-      transparent 0 30px,
-      rgba(212,168,44,0.04) 30px 31px);
-    pointer-events: none;
-  }
-  .calendar-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 60px;
-    align-items: center;
-    position: relative;
-  }
-  @media (max-width: 880px) { .calendar-grid { grid-template-columns: 1fr; gap: 32px; } }
-  .calendar-grid h2 {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 500;
-    line-height: 1.1;
-    color: var(--cream);
-    margin-bottom: 20px;
-  }
-  .calendar-grid h2 em { color: var(--gold); font-style: italic; }
-  .calendar-grid p { color: rgba(250,246,232,0.7); font-size: 1rem; line-height: 1.7; }
-  .calendar-events {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  @media (max-width: 768px) { .calendar-events { grid-template-columns: 1fr; } }
-  .event-card {
-    background: rgba(250,246,232,0.05);
-    border: 1px solid rgba(212,168,44,0.3);
-    padding: 24px 20px;
-    transition: all 0.25s;
-  }
-  .event-card:hover {
-    border-color: var(--gold);
-    background: rgba(212,168,44,0.08);
-  }
-  .event-date {
-    font-family: var(--serif);
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: var(--gold);
-    margin-bottom: 4px;
-  }
-  .event-name {
-    font-size: 1.05rem;
-    font-weight: 500;
-    margin-bottom: 6px;
-    color: var(--cream);
-  }
-  .event-fidel {
-    font-family: var(--fidel);
-    font-size: 0.85rem;
-    color: rgba(212,168,44,0.7);
-    margin-bottom: 12px;
-  }
-  .event-meta {
-    font-size: 0.78rem;
-    color: rgba(250,246,232,0.55);
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
   }
 
   /* ── CATEGORY TILES ────────────────────────────────── */
@@ -698,20 +603,6 @@
     text-transform: uppercase;
     opacity: 0.85;
   }
-  .cat-tile.coming-soon::after {
-    content: 'COMING SOON';
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    background: var(--gold);
-    color: var(--royal);
-    font-size: 0.65rem;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-    padding: 5px 9px;
-    z-index: 3;
-  }
-
   /* ── NEWSLETTER ────────────────────────────────────── */
   .newsletter {
     background: var(--cream);
@@ -968,8 +859,6 @@
   }
 
   /* ── UTILS ──────────────────────────────────────────── */
-  .text-center { text-align: center; }
-  .mt-40 { margin-top: 40px; }
   .hidden { display: none !important; }
   #productsLoading {
     text-align: center;
