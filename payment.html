@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout — kltuf</title>
+    <title>Pay by Zelle — kltuf</title>
+    <meta name="robots" content="noindex">
     <style>
         :root {
             --cream:#FAF6E8; --snow:#FCFAF4; --ink:#1A1A1A; --charcoal:#5C5C5C;
@@ -27,50 +28,25 @@
 
         .item-box {
             background:var(--snow); border:1px solid var(--border); border-radius:14px;
-            padding:20px 22px; margin-bottom:20px;
+            padding:20px 22px; margin-bottom:18px;
             display:flex; justify-content:space-between; align-items:center;
         }
         .item-box .label { font-size:0.72rem; color:var(--gold-dark); font-weight:600; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px; }
         .item-box .name  { font-size:1rem; font-weight:600; }
         .item-box .price { font-family:var(--serif); font-size:1.9rem; font-weight:600; color:var(--ink); }
 
-        .method-picker { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px; }
-        .method-btn {
-            padding:16px 10px; border:1px solid var(--border); background:var(--snow);
-            cursor:pointer; text-align:center; font-weight:600; font-size:0.82rem;
-            letter-spacing:1px; text-transform:uppercase; transition:all 0.18s; font-family:inherit;
+        .prefer {
+            background:#fdf8ec; border:1px solid var(--gold); border-radius:12px;
+            padding:14px 16px; font-size:0.88rem; color:#7a5a00; margin-bottom:20px;
         }
-        .method-btn .m-icon { font-size:1.5rem; display:block; margin-bottom:6px; }
-        .method-btn:hover { border-color:var(--ink); }
-        .method-btn.active-paypal { border-color:#0070ba; background:#f0f7ff; color:#0070ba; }
-        .method-btn.active-zelle  { border-color:var(--gold-dark); background:#fdf8ec; color:var(--gold-dark); }
-
-        .panel { display:none; }
-        .panel.show { display:block; }
+        .prefer a { color:var(--gold-dark); font-weight:700; text-decoration:underline; }
 
         .card { background:var(--snow); border:1px solid var(--border); border-radius:16px; padding:30px 26px; }
 
-        .paypal-header, .zelle-header { text-align:center; margin-bottom:22px; }
-        .paypal-header .icon, .zelle-header .icon { font-size:2.4rem; margin-bottom:8px; }
-        .paypal-header h2, .zelle-header h2 { font-family:var(--serif); font-size:1.5rem; font-weight:600; }
-        .paypal-header p, .zelle-header p  { font-size:0.85rem; color:var(--charcoal); margin-top:4px; }
-
-        .paypal-pay-btn {
-            display:block; width:100%; padding:16px; background:#0070ba; color:#fff;
-            border-radius:10px; font-size:1rem; font-weight:700; cursor:pointer;
-            margin-bottom:16px; text-align:center; transition:background 0.2s;
-        }
-        .paypal-pay-btn:hover { background:#005ea6; }
-
-        .paypal-email-box { background:#f0f7ff; border:1px dashed #0070ba; border-radius:10px; padding:14px 18px; text-align:center; cursor:pointer; }
-        .paypal-email-box .email { font-weight:700; color:#0070ba; }
-
-        .zelle-address {
-            background:#fdf8ec; border:1px dashed var(--gold-dark); border-radius:10px;
-            padding:14px 18px; font-size:1.05rem; font-weight:700; color:var(--gold-dark);
-            margin:4px 0 16px; cursor:pointer; text-align:center;
-        }
-        .zelle-address .hint { font-size:0.75rem; color:var(--charcoal); font-weight:400; margin-top:3px; }
+        .zelle-header { text-align:center; margin-bottom:22px; }
+        .zelle-header .icon { font-size:2.4rem; margin-bottom:8px; }
+        .zelle-header h2 { font-family:var(--serif); font-size:1.5rem; font-weight:600; }
+        .zelle-header p  { font-size:0.85rem; color:var(--charcoal); margin-top:4px; }
 
         .steps { margin-bottom:16px; }
         .step { display:flex; align-items:flex-start; gap:14px; margin-bottom:15px; }
@@ -81,6 +57,13 @@
         }
         .step-text { font-size:0.9rem; color:var(--charcoal); line-height:1.55; padding-top:3px; }
         .step-text strong { color:var(--ink); }
+
+        .zelle-address {
+            background:#fdf8ec; border:1px dashed var(--gold-dark); border-radius:10px;
+            padding:14px 18px; font-size:1.05rem; font-weight:700; color:var(--gold-dark);
+            margin:4px 0 16px; cursor:pointer; text-align:center;
+        }
+        .zelle-address .hint { font-size:0.75rem; color:var(--charcoal); font-weight:400; margin-top:3px; }
 
         .note-text {
             background:#fdf8ec; padding:5px 10px; border-radius:6px;
@@ -102,7 +85,6 @@
             text-transform:uppercase; text-align:center; margin-top:18px; transition:background 0.2s;
         }
         .back-btn:hover { background:var(--forest); }
-
         .qr-hint { font-size:0.78rem; color:var(--charcoal); margin-top:6px; text-align:center; }
     </style>
 </head>
@@ -118,146 +100,89 @@
     <!-- Item summary -->
     <div class="item-box">
         <div>
-            <div class="label">You are purchasing</div>
+            <div class="label">You are paying for</div>
             <div class="name" id="item-name">Item</div>
         </div>
         <div class="price" id="item-price">$0.00</div>
     </div>
 
-    <!-- Method picker -->
-    <div class="method-picker">
-        <button class="method-btn" id="btn-paypal" onclick="selectMethod('paypal')">
-            <span class="m-icon">💳</span>PayPal
-        </button>
-        <button class="method-btn" id="btn-zelle" onclick="selectMethod('zelle')">
-            <span class="m-icon">⚡</span>Zelle
-        </button>
+    <!-- Point to the proper checkout -->
+    <div class="prefer">
+        💳 Prefer to pay by <strong>card, Apple&nbsp;Pay or PayPal</strong>? Those check out securely
+        with a shipping address at the <a href="index.html#shop">store cart</a>. Zelle instructions are below.
     </div>
 
-    <!-- PayPal Panel -->
-    <div id="panel-paypal" class="panel">
-        <div class="card">
-            <div class="paypal-header">
-                <div class="icon">💳</div>
-                <h2>Pay with PayPal</h2>
-                <p>Credit card, debit card, or PayPal balance</p>
-            </div>
-
-            <a id="paypal-btn" href="https://www.paypal.com/send?email=kltufllc%40gmail.com" target="_blank" class="paypal-pay-btn">
-                Pay now with PayPal →
-            </a>
-
-            <div style="text-align:center;margin-bottom:16px;">
-                <img src="images/paypal-qr.jpeg" alt="PayPal QR Code"
-                     style="width:210px;border-radius:12px;border:1px solid var(--border);">
-                <div class="qr-hint">Scan with your camera or PayPal app</div>
-            </div>
-
-            <div class="note-box">
-                ✅ <strong>Confirm within 30 minutes</strong> during business hours (9am–9pm EST). Your item is reserved once payment is received.
-            </div>
-
-            <div class="warning-box">
-                ⚠️ <strong>Only send to verified accounts.</strong> Our PayPal is <strong>kltufllc@gmail.com</strong>. We will never ask you to send to a different address.
-            </div>
-
-            <a href="index.html" class="back-btn">← Back to store</a>
+    <!-- Zelle panel -->
+    <div class="card">
+        <div class="zelle-header">
+            <div class="icon">⚡</div>
+            <h2>Pay with Zelle</h2>
+            <p>Instant · Free · Secure bank transfer</p>
         </div>
-    </div>
 
-    <!-- Zelle Panel -->
-    <div id="panel-zelle" class="panel">
-        <div class="card">
-            <div class="zelle-header">
-                <div class="icon">⚡</div>
-                <h2>Pay with Zelle</h2>
-                <p>Instant · Free · Secure bank transfer</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-text">Open your <strong>bank app</strong> or the <strong>Zelle app</strong> and tap <strong>Send Money</strong></div>
             </div>
-
-            <div class="steps">
-                <div class="step">
-                    <div class="step-num">1</div>
-                    <div class="step-text">Open your <strong>bank app</strong> or the <strong>Zelle app</strong> and tap <strong>Send Money</strong></div>
-                </div>
-                <div class="step">
-                    <div class="step-num">2</div>
-                    <div class="step-text">Search for or enter our Zelle email:<br>
-                        <strong style="font-size:1rem;color:var(--gold-dark);">kltufllc@gmail.com</strong>
-                    </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-text">Enter our Zelle email:<br>
+                    <strong style="font-size:1rem;color:var(--gold-dark);">kltufllc@gmail.com</strong>
                 </div>
             </div>
-
-            <div class="zelle-address" onclick="navigator.clipboard&&navigator.clipboard.writeText('kltufllc@gmail.com')">
-                kltufllc@gmail.com
-                <div class="hint">Tap to copy</div>
-            </div>
-
-            <div style="text-align:center;margin-bottom:16px;">
-                <img src="images/zelle-qr.png" alt="Zelle QR Code"
-                     style="width:210px;border-radius:12px;border:1px solid var(--border);">
-                <div class="qr-hint">Or scan with your bank app to pay instantly</div>
-            </div>
-
-            <div class="steps">
-                <div class="step">
-                    <div class="step-num">3</div>
-                    <div class="step-text">Enter the <strong>exact amount</strong> shown above</div>
-                </div>
-                <div class="step">
-                    <div class="step-num">4</div>
-                    <div class="step-text">
-                        In the <strong>note / memo</strong> field, type:<br>
-                        <span class="note-text" id="note-text">kltuf - Item</span>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">5</div>
-                    <div class="step-text">Send payment, then <strong>screenshot your confirmation</strong> and email us so we can ship right away</div>
-                </div>
-            </div>
-
-            <div class="note-box">
-                ✅ <strong>Confirm within 30 minutes</strong> during business hours (9am–9pm EST). Your item is reserved once payment is received.
-            </div>
-
-            <div class="warning-box">
-                ⚠️ <strong>Only send to verified accounts.</strong> Our Zelle is <strong>kltufllc@gmail.com</strong>. We will never ask you to send to a different address.
-            </div>
-
-            <a href="index.html" class="back-btn">← Back to store</a>
         </div>
+
+        <div class="zelle-address" onclick="navigator.clipboard&&navigator.clipboard.writeText('kltufllc@gmail.com')">
+            kltufllc@gmail.com
+            <div class="hint">Tap to copy</div>
+        </div>
+
+        <div style="text-align:center;margin-bottom:16px;">
+            <img src="images/zelle-qr.png" alt="Zelle QR Code"
+                 style="width:210px;border-radius:12px;border:1px solid var(--border);">
+            <div class="qr-hint">Or scan with your bank app to pay instantly</div>
+        </div>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-text">Enter the <strong>exact amount</strong> shown above</div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div class="step-text">
+                    In the <strong>note / memo</strong> field, type:<br>
+                    <span class="note-text" id="note-text">kltuf - Item</span>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">5</div>
+                <div class="step-text">Send payment, then <strong>screenshot your confirmation</strong> and email us at
+                    <a href="mailto:kltufllc@gmail.com" style="color:var(--gold-dark)">kltufllc@gmail.com</a> so we can ship right away</div>
+            </div>
+        </div>
+
+        <div class="note-box">
+            ✅ <strong>Confirm within 30 minutes</strong> during business hours (9am–9pm EST). Your item is reserved once payment is received.
+        </div>
+
+        <div class="warning-box">
+            ⚠️ <strong>Only send to verified accounts.</strong> Our Zelle is <strong>kltufllc@gmail.com</strong>. We will never ask you to send to a different address.
+        </div>
+
+        <a href="index.html" class="back-btn">← Back to store</a>
     </div>
 
 </div>
 <script>
-    var PAYPAL_EMAIL = 'kltufllc@gmail.com';
-
     var params = new URLSearchParams(window.location.search);
     var item   = decodeURIComponent(params.get('item')  || 'Item');
     var price  = parseFloat(params.get('price')) || 0;
-    var priceStr = price.toFixed(2);
-    var method = params.get('method') || '';
 
     document.getElementById('item-name').textContent  = item;
-    document.getElementById('item-price').textContent = '$' + priceStr;
+    document.getElementById('item-price').textContent = '$' + price.toFixed(2);
     document.getElementById('note-text').textContent  = 'kltuf - ' + item;
-
-    var ppUrl = 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick'
-        + '&business=' + encodeURIComponent(PAYPAL_EMAIL)
-        + '&item_name=' + encodeURIComponent('kltuf - ' + item)
-        + '&amount=' + encodeURIComponent(priceStr)
-        + '&currency_code=USD&no_shipping=0';
-    document.getElementById('paypal-btn').href = ppUrl;
-
-    if (method === 'paypal') selectMethod('paypal');
-    else selectMethod('zelle');
-
-    function selectMethod(m) {
-        document.getElementById('panel-paypal').classList.toggle('show', m === 'paypal');
-        document.getElementById('panel-zelle').classList.toggle('show',  m === 'zelle');
-        document.getElementById('btn-paypal').className = 'method-btn' + (m === 'paypal' ? ' active-paypal' : '');
-        document.getElementById('btn-zelle').className  = 'method-btn' + (m === 'zelle'  ? ' active-zelle'  : '');
-    }
 </script>
 </body>
 </html>
