@@ -23,3 +23,5 @@ body.locked>header,body.locked>main,body.locked>footer{display:none}
 .lock{border:0;background:transparent;padding:0;color:#7b847b;font-size:11px;text-decoration:underline;text-underline-offset:3px}
 .lock:hover{color:var(--ink)}
 @media(max-width:560px){.gate{padding:16px}.gateCard{padding:26px 20px;border-radius:22px}.gateCard h1{font-size:36px}#pin{font-size:22px;letter-spacing:6px}}
+.linkBtn{border:0;background:transparent;padding:10px 0 0;color:#7b847b;font-size:11px;text-decoration:underline;text-underline-offset:3px}
+.linkBtn:hover{color:var(--ink)}
