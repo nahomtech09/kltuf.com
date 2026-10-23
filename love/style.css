@@ -25,3 +25,10 @@ body.locked>header,body.locked>main,body.locked>footer{display:none}
 @media(max-width:560px){.gate{padding:16px}.gateCard{padding:26px 20px;border-radius:22px}.gateCard h1{font-size:36px}#pin{font-size:22px;letter-spacing:6px}}
 .linkBtn{border:0;background:transparent;padding:10px 0 0;color:#7b847b;font-size:11px;text-decoration:underline;text-underline-offset:3px}
 .linkBtn:hover{color:var(--ink)}
+
+/* Drinks section and per-drink options */
+[hidden]{display:none!important}
+.drinksNote{background:#eef1e6;border:1px solid #dfe4d2;border-radius:12px;padding:16px 18px;margin:0 0 22px;color:#5f6b58;font-size:12px;line-height:1.75}
+.lineInfo{display:flex;flex-direction:column;gap:2px;min-width:0}
+.lineOpts{font-size:10px;color:#7b847b;line-height:1.45}
+@media(max-width:560px){.drinksNote{padding:14px;font-size:11px}}
